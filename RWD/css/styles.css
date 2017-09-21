@@ -14,3 +14,14 @@ li{
 #logo {
     float: left;
 }
+body {
+    font-style: oblique;
+    font-family:fantasy;
+    color: #a37fa3;
+   /* @font-face {
+        font-family: sun;
+        src: url("../font/Sanies.ttf");
+    }
+    font-family: sun; */
+    
+}
