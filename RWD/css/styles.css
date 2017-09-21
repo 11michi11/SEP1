@@ -1,13 +1,19 @@
-ul {
+
+#navBar {
     display: inline;
 }
-li{
+#navBar li{
     float:left;
     list-style-type: none;
     background-image: url("../images/clouds.png");
-    border: 2px solid black;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 10px;
+    padding: 70px;
+    /* border: 2px solid black; */
 }
-img {
+#logo {
     float: left;
 }
+
 
