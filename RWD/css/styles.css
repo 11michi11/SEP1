@@ -15,17 +15,25 @@
 #logo {
     float: left;
 }
-body {
+body, option, select {
     font-style: oblique;
     font-family:fantasy;
     color: #a37fa3;
    /* @font-face {
         font-family: sun;
-        src: url("../font/Sanies.ttf");
+        src: url('../font/sanies.ttf');
     }
-    font-family: sun; */
-    
+    font-family: sun; 
+    */
 }
+
+footer {
+    clear: both;
+    text-align: center;
+}
+select{
+    background: none;
+    border: none;
 .dropdown-content{
     display: none; /*is hidden*/
     position: absolute; /*doesn't move*/
@@ -36,6 +44,16 @@ body {
     text-decoration: none;
     display: block;
 }
+
+
+body {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(lightblue), to(white));
+    background-image: -webkit-linear-gradient(top, lightblue, white);
+    background-image: -moz-linear-gradient(top, lightblue, white);
+    background-image: linear-gradient(to bottom, lightblue, white);
+    background-repeat: no-repeat;
+}
+
 .dropdown{
     position: relative;
 /*    display: inline-block;*/
