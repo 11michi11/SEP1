@@ -28,9 +28,20 @@ body, option, select {
 }
 
 footer {
-    clear: both;
-    text-align: center;
+    /* text-align: center; */
+    background-color: lightblue;
+    border-top: 5px solid blue;
+    width: 100%;
+    height: 60px;
 }
+footer p{
+    float: right;
+}
+
+footer img{
+    margin-left: 50px;
+}
+
 select{
     background: none;
     border: none;
