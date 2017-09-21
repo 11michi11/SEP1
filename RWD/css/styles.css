@@ -1,3 +1,11 @@
+body {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(lightblue), to(white));
+    background-image: -webkit-linear-gradient(top, lightblue, white);
+    background-image: -moz-linear-gradient(top, lightblue, white);
+    background-image: linear-gradient(to bottom, lightblue, white);
+    background-repeat: no-repeat;
+}
+
 
 #navBar {
     display: inline;
@@ -31,19 +39,50 @@ footer {
     clear: both;
     text-align: center;
 }
+
 select{
     background: none;
     border: none;
 }
-dropdown: hover dropdown-content{
+
+dropdown:hover dropdown-content{
     display: block;
 }
 
+.clear{
+    clear: both;
+}
 
-body {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(lightblue), to(white));
-    background-image: -webkit-linear-gradient(top, lightblue, white);
-    background-image: -moz-linear-gradient(top, lightblue, white);
-    background-image: linear-gradient(to bottom, lightblue, white);
-    background-repeat: no-repeat;
+.wrapper{
+    margin: 20px 20px 0 0;
+    overflow: auto;
+}
+
+.yoga {
+    float: left;
+    width: 50%;
+}
+
+.yoga img {
+    display: block;
+    padding: 50px;
+}
+
+.news {
+    margin-left: 210px;
+    width: 75%;
+}
+
+.news-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 200%
+}
+
+
+td img {
+    height: 200px;
+    width: 200px;
+    padding: 0px;
+    margin: 0px;
 }
