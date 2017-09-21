@@ -17,3 +17,20 @@
 }
 
 
+
+body {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(lightblue), to(white));
+    background-image: -webkit-linear-gradient(top, lightblue, white);
+    background-image: -moz-linear-gradient(top, lightblue, white);
+    background-image: linear-gradient(to bottom, lightblue, white);
+    background-repeat: no-repeat;
+}
+
+footer {
+    clear: left;
+    background-color: lightblue;
+    margin: 0px;
+    padding: 10px;
+
+}
+
