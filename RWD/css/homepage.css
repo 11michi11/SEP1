@@ -1,0 +1,37 @@
+
+.clear {
+    clear: both;
+}
+
+.wrapper {
+    margin: 20px 20px 0 0;
+    overflow: auto;
+}
+
+.yoga {
+    float: left;
+    width: 50%;
+}
+
+.yoga img {
+    display: block;
+    padding: 50px;
+}
+
+.news {
+    margin-left: 210px;
+    width: 75%;
+}
+
+.news-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 200%
+}
+
+td img {
+    height: 200px;
+    width: 200px;
+    padding: 0px;
+    margin: 0px;
+}
