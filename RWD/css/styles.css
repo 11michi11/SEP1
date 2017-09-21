@@ -15,5 +15,10 @@
 #logo {
     float: left;
 }
-
-
+select{
+    background: none;
+    border: none;
+}
+dropdown: hover dropdown-content{
+    display: block;
+}

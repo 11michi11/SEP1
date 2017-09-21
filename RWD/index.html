@@ -4,56 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Init</title>
-    <link href="css/styles.css" type="text/css" rel="stylesheet" />
-</head>
+    <link href="css/styles.css" type="text/css" rel="stylesheet" /> </head>
 
 <body>
-    <header>
-        <img id="logo" src="images/VipassanaLogo.png" alt="logo">
+    <header> <img id="logo" src="images/VipassanaLogo.png" alt="logo">
         <ul id="navBar">
-        <li>
-            <form action= "" method="get">
-                <select name="Events">
-                    <option value="Events">Events</option>
-                    <option value="Upcoming" selected>
-                        Upcoming
-                            <ul >
-                                <li >Lectures</li>
-                                <li >Seminars</li>
-                                <li >Workshops</li>
-                                <li >Trips</li>
-                            </ul>
-                    </option>
-                    <option value="Previous">Previous
-                        Previous
-                            <ul>
-                                <li >Lectures</li>
-                                <li >Seminars</li>
-                                <li >Workshops</li>
-                                <li >Trips</li>
-                            </ul>
-                    </option>
-                </select>
-            </form>
-        </li>
-        <li>
-            Council
-        </li>
-        <li>
-            About us
-        </li>
-        <li>
-            Membership
-        </li>
-        <li>
-            Gallery
-        </li>
-    </ul>
+            <li>
+                <form action="" method="get">
+                    <div class="dropdown">
+                        <select name="Events">
+                            <div class="dropdown-content">
+                                <option value="Events">Events</option>
+                                <option value="Upcoming"> Upcoming</option>
+                                <option value="Previous">Previous</option>
+                                <!--Add a drop down list in a drop down list later in JS-->
+                            </div>
+                        </select>
+                    </div>
+                </form>
+            </li>
+            <li> Council </li>
+            <li> About us </li>
+            <li> Membership </li>
+            <li> Gallery </li>
+        </ul>
     </header>
-
-
-
-
 </body>
 
 </html>

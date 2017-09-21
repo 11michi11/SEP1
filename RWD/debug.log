@@ -10,3 +10,6 @@
 [0921/104005.593:ERROR:file_io_win.cc(182)] CreateFile C:\Program Files (x86)\temp\settings.dat: Odmowa dostêpu. (0x5)
 [0921/104005.599:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: Potok zosta³ zakoñczony. (0x6D)
 [0921/104005.600:ERROR:file_io_win.cc(182)] CreateFile C:\Program Files (x86)\temp\settings.dat: Odmowa dostêpu. (0x5)
+[0921/113003.479:ERROR:file_io_win.cc(182)] CreateFile C:\Program Files (x86)\temp\settings.dat: Odmowa dostêpu. (0x5)
+[0921/113003.486:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: Potok zosta³ zakoñczony. (0x6D)
+[0921/113003.488:ERROR:file_io_win.cc(182)] CreateFile C:\Program Files (x86)\temp\settings.dat: Odmowa dostêpu. (0x5)
