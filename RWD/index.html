@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Init</title>
     <link href="css/styles.css" type="text/css" rel="stylesheet" />
 </head>
+
 <body>
-    <img id="logo" src="images/VipassanaLogo.jpg" alt="logo">
-    <ul>
+    <header>
+        <img id="logo" src="images/VipassanaLogo.png" alt="logo">
+        <ul id="navBar">
         <li>
-            Events
+            <form action= "" method="get">
+                <select name="Events">
+                    <option value="Events">Events</option>
+                    <option value="Upcoming" selected>
+                        Upcoming
+                            <ul >
+                                <li >Lectures</li>
+                                <li >Seminars</li>
+                                <li >Workshops</li>
+                                <li >Trips</li>
+                            </ul>
+                    </option>
+                    <option value="Previous">Previous
+                        Previous
+                            <ul>
+                                <li >Lectures</li>
+                                <li >Seminars</li>
+                                <li >Workshops</li>
+                                <li >Trips</li>
+                            </ul>
+                    </option>
+                </select>
+            </form>
         </li>
         <li>
             Council
@@ -24,8 +49,11 @@
             Gallery
         </li>
     </ul>
+    </header>
+
 
 
 
 </body>
+
 </html>

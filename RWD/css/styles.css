@@ -1,7 +1,8 @@
-ul {
+
+#navBar {
     display: inline;
 }
-li{
+#navBar li{
     float:left;
     list-style-type: none;
     background-image: url("../images/clouds.png");
