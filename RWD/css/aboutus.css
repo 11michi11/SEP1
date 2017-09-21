@@ -25,18 +25,43 @@ pre {
 }*/
 
 div {
-    float: right;
     font-style: italic;
+    
+}
+
+p, h4, h3 {
+    font-style: italic;
+    font-family:serif;
+    color: black;
 }
 .Budha {
-    height: 500px;
-    float: right;
+    height: 450px;
     clear: both; 
+}
+thead {
+    font-style: oblique;
+    font-family:fantasy;
+    color: #a37fa3;
+    font-size: 200px;
+    
+}
+
+table {
+    
+   font-style: italic;
+    font-family:serif;
+    color: black;   
+}
+.Days{
+    background-color: #a37fa3;
+    width: 300px;
+}
+
+.Hours {
+    background-color: gray;
+    width: 300px;
+    height: 50px;
 }
 
 
-    
-.Contact {
-    background-image: url(../images/clouds.png)
-    
 
