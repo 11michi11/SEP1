@@ -1,5 +1,14 @@
+body{
+    font-style: italic;
+    font-family:serif;
+    color: black;
+}
 h1{
     text-align: center;
+    font-style: oblique;
+    font-family:fantasy;
+    color: #a37fa3;
+    font-size: 500%;
 }
 img{
     float:right;
@@ -28,12 +37,15 @@ label{
     border-color: whitesmoke;
     border-style: outset;
     border-width: thick;
+    font-style: italic;
+    font-family:serif;
 }
 .subres:hover{
     font-weight: bold;
 }
 fieldset{
     width: 40%;
+    color: #a37fa3;
 }
 textarea, label p{
     margin-left: 35%;
