@@ -1,0 +1,93 @@
+
+#navBar {
+    display: inline;
+}
+#navBar li{
+    float:left;
+    list-style-type: none;
+    background-image: url("../images/clouds.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 10px;
+    padding: 70px;
+    /* border: 2px solid black; */
+}
+#logo {
+    float: left;
+}
+body, option, select {
+    font-style: oblique;
+    font-family:fantasy;
+    color: #a37fa3;
+   /* @font-face {
+        font-family: sun;
+        src: url('../font/sanies.ttf');
+    }
+    font-family: sun; 
+    */
+}
+
+footer {
+    clear: both;
+    text-align: center;
+}
+select{
+    background: none;
+    border: none;
+}
+
+
+body {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(lightblue), to(white));
+    background-image: -webkit-linear-gradient(top, lightblue, white);
+    background-image: -moz-linear-gradient(top, lightblue, white);
+    background-image: linear-gradient(to bottom, lightblue, white);
+    background-repeat: no-repeat;
+}
+
+
+/*The dropdown list*/
+.dropdown-content1{
+    display: none; /*is hidden*/
+    position: absolute; /*doesn't move*/
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /*the a value- alpha makes it transparent*/
+    padding: 10%;
+}
+.dropdown-content1 a {
+    text-decoration: none;
+    display: block;
+}
+.dropdown1{
+    position: relative;
+/*    display: inline-block;*/
+}
+.dropdown1:hover .dropdown-content1 {
+    display: block;
+}
+.dropdown-content1 a:hover {
+    color: #a37fa3;
+}
+/*The second one*/
+.dropdown-content2{
+    display: none; /*is hidden*/
+    position: absolute; /*doesn't move*/
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); /*the a value- alpha makes it transparent*/
+    padding: 10%;
+    z-index: 1;
+}
+.dropdown-content2 a {
+    text-decoration: none;
+    display: block;
+    z-index: 1;
+}
+.dropdown2{
+    position: relative;
+    z-index: 1;
+/*    display: inline-block;*/
+}
+.dropdown2:hover .dropdown-content2 {
+    display: block;
+}
+.dropdown-content2 a:hover {
+    color: #a37fa3;
+}
