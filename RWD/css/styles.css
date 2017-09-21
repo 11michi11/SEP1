@@ -15,8 +15,35 @@
 #logo {
     float: left;
 }
+body {
+    font-style: oblique;
+    font-family:fantasy;
+    color: #a37fa3;
+   /* @font-face {
+        font-family: sun;
+        src: url("../font/Sanies.ttf");
+    }
+    font-family: sun; */
+    
+}
 
 footer {
     clear: both;
     text-align: center;
+}
+select{
+    background: none;
+    border: none;
+}
+dropdown: hover dropdown-content{
+    display: block;
+}
+
+
+body {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(lightblue), to(white));
+    background-image: -webkit-linear-gradient(top, lightblue, white);
+    background-image: -moz-linear-gradient(top, lightblue, white);
+    background-image: linear-gradient(to bottom, lightblue, white);
+    background-repeat: no-repeat;
 }
