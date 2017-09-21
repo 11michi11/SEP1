@@ -1,0 +1,12 @@
+ul {
+    display: inline;
+}
+li{
+    float:left;
+    list-style-type: none;
+    background-image: url("../images/clouds.png");
+    border: 2px solid black;
+}
+img {
+    float: left;
+}
