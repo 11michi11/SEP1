@@ -15,16 +15,16 @@
 #logo {
     float: left;
 }
-body {
+body, option, select {
     font-style: oblique;
     font-family:fantasy;
     color: #a37fa3;
    /* @font-face {
         font-family: sun;
-        src: url("../font/Sanies.ttf");
+        src: url('../font/sanies.ttf');
     }
-    font-family: sun; */
-    
+    font-family: sun; 
+    */
 }
 
 select{
