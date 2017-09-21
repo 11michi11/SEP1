@@ -10,3 +10,12 @@ li{
 img {
     float: left;
 }
+/*
+.dropdownul{
+    display: list-item;
+}
+.dropdown{
+    float:none;
+    list-style-type: circle;
+    background-image: none;
+}*/
