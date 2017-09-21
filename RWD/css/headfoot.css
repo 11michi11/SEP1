@@ -10,7 +10,6 @@
     background-position: center;
     margin: 10px;
     padding: 70px;
-    /* border: 2px solid black; */
 }
 #logo {
     float: left;
@@ -19,16 +18,9 @@ body, option, select {
     font-style: oblique;
     font-family:fantasy;
     color: #a37fa3;
-   /* @font-face {
-        font-family: sun;
-        src: url('../font/sanies.ttf');
-    }
-    font-family: sun; 
-    */
 }
 
 footer {
-    /* text-align: center; */
     background-color: lightblue;
     border-top: 5px solid blue;
     width: 100%;
@@ -70,7 +62,6 @@ body {
 }
 .dropdown1{
     position: relative;
-/*    display: inline-block;*/
 }
 .dropdown1:hover .dropdown-content1 {
     display: block;
@@ -94,7 +85,6 @@ body {
 .dropdown2{
     position: relative;
     z-index: 1;
-/*    display: inline-block;*/
 }
 .dropdown2:hover .dropdown-content2 {
     display: block;
