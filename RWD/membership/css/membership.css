@@ -2,10 +2,39 @@ h1{
     text-align: center;
 }
 img{
-    display:block;
-    margin:auto;
-    width: 35%;
+    float:right;
+    width: 40%;
+    margin-right: 8%;
+    margin-top: 7%;
 }
-.small_letters{
+#left{
+    margin-left: 4%;
+}
+#small_letters{
     font-size: 0.75em;
+}
+#big_letters{
+    font-size: 1.2em;
+}
+label{
+    margin: 5%;
+}
+.subres_out{
+    margin-left: 31%;
+}
+.subres{
+    background-color: #a37fa3;
+    width: 50%;
+    border-color: whitesmoke;
+    border-style: outset;
+    border-width: thick;
+}
+.subres:hover{
+    font-weight: bold;
+}
+fieldset{
+    width: 40%;
+}
+textarea, label p{
+    margin-left: 35%;
 }
