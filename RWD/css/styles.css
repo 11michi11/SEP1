@@ -26,11 +26,23 @@ body {
     font-family: sun; */
     
 }
-
-select{
-    background: none;
-    border: none;
+.dropdown-content{
+    display: none; /*is hidden*/
+    position: absolute; /*doesn't move*/
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /*the a value- alpha makes it transparent*/
+    padding: 10%;
 }
-dropdown: hover dropdown-content{
+.dropdown-content a {
+    text-decoration: none;
     display: block;
+}
+.dropdown{
+    position: relative;
+/*    display: inline-block;*/
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a:hover {
+    color: #a37fa3;
 }
