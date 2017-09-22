@@ -1,0 +1,70 @@
+#body {
+    padding: 50px;
+    padding-top: 0px;
+}
+
+.clear {
+    clear: both;
+}
+
+#title {
+    display: inline;
+}
+#title li{
+    list-style-type: none;
+    background-image: url("../images/cloudsbig.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 10px;
+    font-size: 2em;
+    padding: 100px; 
+    text-align: center;
+}
+
+#eventList {
+    list-style-type: none;
+    
+}
+
+#eventList li:nth-child(even) {
+    margin-left: 100px;    
+}
+
+#eventList li {
+    float: left;
+    width: 1000px;
+    padding: 5px;
+}
+
+.cloud {
+    width: 200px;
+    background-image: url("../images/clouds.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 50px;
+    float: left;
+    
+}
+
+.cloud p {
+    height: fit-content;
+    margin: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.eventName {
+    text-align: left;
+}
+
+.date {
+    text-align: right;
+}
+
+.description {
+    border-style: solid;
+    width: 650px;
+    height: 138px;
+    margin: 0px;
+    float: right;
+}
