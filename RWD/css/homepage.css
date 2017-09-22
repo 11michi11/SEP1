@@ -15,7 +15,7 @@
 
 .yoga img {
     display: block;
-    padding: 50px;
+    padding: 30px;
 }
 
 .news {
@@ -30,8 +30,8 @@
 }
 
 td img {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     padding: 0px;
     margin: 0px;
 }
