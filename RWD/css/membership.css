@@ -1,0 +1,52 @@
+body{
+    font-style: italic;
+    font-family:serif;
+    color: black;
+}
+h1{
+    text-align: center;
+    font-style: oblique;
+    font-family:fantasy;
+    color: #a37fa3;
+    font-size: 500%;
+}
+img{
+    float:right;
+    width: 40%;
+    margin-right: 8%;
+    margin-top: 7%;
+}
+#left{
+    margin-left: 4%;
+}
+#small_letters{
+    font-size: 0.75em;
+}
+#big_letters{
+    font-size: 1.2em;
+}
+label{
+    margin: 5%;
+}
+.subres_out{
+    margin-left: 31%;
+}
+.subres{
+    background-color: #a37fa3;
+    width: 50%;
+    border-color: whitesmoke;
+    border-style: outset;
+    border-width: thick;
+    font-style: italic;
+    font-family:serif;
+}
+.subres:hover{
+    font-weight: bold;
+}
+fieldset{
+    width: 40%;
+    color: #a37fa3;
+}
+textarea, label p{
+    margin-left: 35%;
+}
