@@ -84,15 +84,16 @@ h1 {
     background-color: rgba(255, 255, 255, 0.64);
     font-style: normal;
     width: 700px;
-    height: 100px;
+    height: fit-content;
     padding: 10px;
-    margin: 0px;
+    margin: 5px;
     float: right;
     color: #690069;
     letter-spacing: 1px;
+    text-align: justify;
     text-indent: 35px;
 }
 
 .description p {
-    margin-top: 0px;
+    margin: 5px;
 }
