@@ -97,3 +97,13 @@ h1 {
 .description p {
     margin: 5px;
 }
+.joinus {
+    float: right;
+    margin: 0px;
+    padding: 0px;
+}
+
+.joinus img {
+    height: 150px;
+    width: 150px;
+}
