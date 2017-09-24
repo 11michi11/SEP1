@@ -1,6 +1,7 @@
 #body {
     padding: 50px;
     padding-top: 0px;
+    height: 1000px;
 }
 
 .clear {
@@ -27,18 +28,18 @@
 }
 
 #eventList li:nth-child(even) {
-    margin-left: 100px;    
+    margin-left: 200px;    
 }
 
 #eventList li {
     float: left;
-    width: 1000px;
+    /*width: 1000px;*/
     padding: 5px;
 }
 
 .cloud {
     width: 200px;
-    background-image: url("../images/clouds.png");
+    background-image: url("../images/cloudswide.png");
     background-repeat: no-repeat;
     background-position: center;
     padding: 50px;
@@ -51,20 +52,36 @@
     margin: 0px;
     margin-left: 20px;
     margin-right: 20px;
+    letter-spacing: 2px;
+    font-size: 105%;
+    color: #690069;
 }
 
 .eventName {
-    text-align: left;
+    text-align: center;
 }
 
 .date {
     text-align: right;
+    padding-right: 10px;
 }
 
 .description {
+    border-color: #690069;
     border-style: solid;
-    width: 650px;
-    height: 138px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.64);
+    font-style: normal;
+    width: 700px;
+    height: 100px;
+    padding: 10px;
     margin: 0px;
     float: right;
+    color: #690069;
+    letter-spacing: 1px;
+    text-indent: 35px;
+}
+
+.description p {
+    margin-top: 0px;
 }
