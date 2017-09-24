@@ -1,7 +1,7 @@
 #body {
     padding: 50px;
     padding-top: 0px;
-    height: 1000px;
+    height: 500px;;
 }
 
 .clear {
@@ -22,6 +22,16 @@
     text-align: center;
 }
 
+h1 {
+    font-size: 5em;
+    letter-spacing: 10px;
+    text-align: center;
+    margin: 0px;
+    color: #690069;
+    font-style: normal;
+    
+}
+
 #eventList {
     list-style-type: none;
     
@@ -35,6 +45,7 @@
     float: left;
     /*width: 1000px;*/
     padding: 5px;
+    margin: 10px;
 }
 
 .cloud {
