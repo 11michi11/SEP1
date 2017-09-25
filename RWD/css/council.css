@@ -1,0 +1,23 @@
+body {   
+    background-image: -webkit-gradient(linear, left top, left bottom, from(lightblue), to(white));
+    background-image: -webkit-linear-gradient(top, lightblue, white);
+    background-image: -moz-linear-gradient(top, lightblue, white);
+    background-image: linear-gradient(to bottom, lightblue, white);
+    background-repeat: no-repeat;}
+    
+ h1 {
+    font-style: oblique;
+    font-family:fantasy;
+    color: #a37fa3;
+    font-size: 500%; }
+
+.Council {
+    height: 400px;
+    clear: right;
+} 
+
+table {
+    font-style: italic;
+    font-family:serif;
+    color: black;
+}
