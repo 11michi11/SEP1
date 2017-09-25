@@ -1,0 +1,109 @@
+#body {
+    padding: 50px;
+    padding-top: 0px;
+    height: 500px;;
+}
+
+.clear {
+    clear: both;
+}
+
+#title {
+    display: inline;
+}
+#title li{
+    list-style-type: none;
+    background-image: url("../images/cloudsbig.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 10px;
+    font-size: 2em;
+    padding: 100px; 
+    text-align: center;
+}
+
+h1 {
+    font-size: 5em;
+    letter-spacing: 10px;
+    text-align: center;
+    margin: 0px;
+    color: #690069;
+    font-style: normal;
+    
+}
+
+#eventList {
+    list-style-type: none;
+    
+}
+
+#eventList li:nth-child(even) {
+    margin-left: 200px;    
+}
+
+#eventList li {
+    float: left;
+    /*width: 1000px;*/
+    padding: 5px;
+    margin: 10px;
+}
+
+.cloud {
+    width: 200px;
+    background-image: url("../images/cloudswide.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 50px;
+    float: left;
+    
+}
+
+.cloud p {
+    height: fit-content;
+    margin: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    letter-spacing: 2px;
+    font-size: 105%;
+    color: #690069;
+}
+
+.eventName {
+    text-align: center;
+}
+
+.date {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.description {
+    border-color: #690069;
+    border-style: solid;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.64);
+    font-style: normal;
+    width: 700px;
+    height: fit-content;
+    padding: 10px;
+    margin: 5px;
+    float: right;
+    color: #690069;
+    letter-spacing: 1px;
+    text-align: justify;
+    text-indent: 35px;
+}
+
+.description p {
+    margin: 5px;
+}
+.joinus {
+    float: right;
+    margin: 0px;
+    padding: 0px;
+}
+
+.joinus img {
+    height: 150px;
+    width: 150px;
+}
