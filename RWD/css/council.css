@@ -7,17 +7,16 @@ body {
     
  h1 {
     font-style: oblique;
-    font-family:fantasy;
+    font-family: fantasy;
     color: #a37fa3;
     font-size: 500%; }
 
 .Council {
-    height: 400px;
-    clear: right;
+    height: 350px;
+    clear: both;
 } 
 
 table {
-    font-style: italic;
+    font-style: solid;
     font-family:serif;
     color: black;
-}
