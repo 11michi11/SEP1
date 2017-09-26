@@ -17,12 +17,12 @@ body {
 }
 
 div {
-    font-style: italic;
+    font-style: solid;
     
 }
 
 p, h4, h3 {
-    font-style: normal;
+    font-style: solid;
     font-family:inherit;
     color: black;
 }
@@ -35,7 +35,7 @@ p, h4, h3 {
 
 table {
     
-   font-style: italic;
+   font-style: solid;
     font-family:serif;
     color: black; 
     
