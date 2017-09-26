@@ -77,10 +77,10 @@ body {
 }
 
 /*The select-bar*/
-/*doesn't work, why?*/
 option{
-background-color:  rgba(0,255,255,0.01);
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.1);
+    
+/*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
 }
 
 header {
