@@ -31,19 +31,22 @@ h4, h3 {
     padding-left: 125px;
 }
 
-.news {
+news {
     font-style: solid;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     text-indent: 20px;
     margin-left: 210px;
-    width: 75%;
-}
+    width: 75%;}
+    
 
 .news-title {
     text-align: center;
     font-weight: bold;
-    font-size: 200%
+    font-style: oblique;
+    font-family:fantasy;
+    color: #a37fa3;
+    font-size: 500%;
 }
 
 td img {
