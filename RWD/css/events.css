@@ -1,7 +1,8 @@
 #wrapper {
     padding: 50px;
     padding-top: 0px;
-    height: 500px;;
+    height: 500px;
+    margin: 30px;
 }
 
 .clear {
@@ -27,7 +28,7 @@ h1 {
     letter-spacing: 10px;
     text-align: center;
     margin: 0px;
-    color: #690069;
+    color: #a37fa3;
     font-style: normal;
     
 }
@@ -64,7 +65,8 @@ h1 {
     margin-left: 20px;
     margin-right: 20px;
     letter-spacing: 2px;
-    font-size: 105%;
+    font-size: 1.3em;
+    font-weight: bold;
     color: #690069;
 }
 
