@@ -1,24 +1,41 @@
-
 .clear {
     clear: both;
 }
 
 .wrapper {
+    color: black;
     margin: 20px 20px 0 0;
     overflow: auto;
+    letter-spacing: 1px;
+    text-align: justify;
 }
 
-.yoga {
+h4, h3 {
+    font-style: oblique;
+    font-family: fantasy;
+    color: #a37fa3;
+    letter-spacing: 2px;
+}
+
+.images {
     float: left;
     width: 50%;
 }
 
-.yoga img {
+.images img {
     display: block;
     padding: 30px;
 }
 
+#yoga {
+    padding-left: 125px;
+}
+
 .news {
+    font-style: solid;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    text-indent: 20px;
     margin-left: 210px;
     width: 75%;
 }
