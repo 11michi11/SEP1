@@ -20,3 +20,13 @@ table {
     font-style: solid;
     font-family:serif;
     color: black;
+    }
+p, .members li{
+    text-align: justify;
+    font-style: italic;
+    font-family:serif;
+}
+p{
+    margin: 20px;
+    font-size: 110%;
+}
