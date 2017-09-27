@@ -1,5 +1,5 @@
 #wrapper {
-    padding: 50px;
+    padding-bottom: 50px;
     padding-top: 0px;
     height: 500px;
     margin: 30px;
@@ -27,8 +27,12 @@ h1 {
 }*/
 
 #maininfo img {
-    height: 125px;
-    width: 125px;
+    height: 60px;
+    width: 250px;
+    margin: 5px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    /*border-style: solid;*/
     /*margin: 40px 5px 40px 5px;*/
 }
 
@@ -36,7 +40,6 @@ h1 {
     margin-left: 0px;
     margin-right: 0px;
     width: 600px;
-    /*border-style: solid;*/
     font-size: 1.2em;
     font-style: solid;
     font-family: 'Times New Roman', Times, serif;
@@ -48,7 +51,7 @@ h1 {
 #maininfo td {
     /*border-style: solid;*/
     width: fit-content;
-    height: 20px;;
+    height: 20px;
 }
 
 #maininfo td:first-child {
@@ -62,10 +65,11 @@ h1 {
     width: 300px;
 }
 
-#maininfo td:nth-child(3) {
+#maininfo td:last-child {
     /*border-left-style: dotted; */   
     text-align: left;
-    padding: 5px;
+    padding: 5px 5px 5px 10px;
+
     /*overflow: visible;*/
     
 }
@@ -76,6 +80,8 @@ h1 {
     border-width: 5px;
     border-color: #a37fa3;
     text-align: left;
+    height: 60px;
+    vertical-align: bottom;
 }
 
 #divider {
@@ -88,7 +94,7 @@ h1 {
 #textbox {
     float: left;
     width: 600px;
-    padding-left: 100px;
+    
     margin-left: 50px;
     margin-right: 50px;
      
@@ -113,4 +119,11 @@ h1 {
 
 #quote {
     font-style: italic;
+}
+
+#gallery {
+    width: 200px !important;
+    height: 200px !important;
+    margin: 20px 60px 20px 60px !important;
+    border-radius: 50px;
 }
