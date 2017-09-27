@@ -12,3 +12,19 @@ h3 {
     font-family:fantasy;
     color: #a37fa3;
 }
+
+.photos img{
+    height: 150px;
+    width: 150px;
+    float: left;
+    padding: 15px;
+}
+
+.clear, .clear a:hover{
+    clear: both;
+    font-size: 100% !important;
+}
+
+.photos a:hover {
+    font-size: 100% !important; 
+}
