@@ -52,7 +52,8 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+header a:hover,
+footer a:hover {
     font-size: 125%;
 }
 
@@ -78,8 +79,7 @@ body {
     color: black;
     font-size: 110%;
     font-style: italic;
-    font-family:serif;
-    
+    font-family: serif;
 }
 
 .dropdown-content1 a {
@@ -87,7 +87,7 @@ body {
     display: block;
     color: black;
     font-style: italic;
-    font-family:serif;
+    font-family: serif;
 }
 
 .dropdown1 {
@@ -101,13 +101,13 @@ body {
 .dropdown-content1 a:hover {
     color: #a37fa3;
 }
-#list li{
+
+#list li {
     background: none;
     padding: 2px;
     margin: 2px;
     text-shadow: 2px 2px white;
 }
-
 
 header {
     height: 170px;
