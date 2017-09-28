@@ -11,6 +11,7 @@ h1{
     width: 40%;
     margin-right: 8%;
     margin-top: 7%;
+    border: 8px solid black;
 }
 #left{
     margin-left: 4%;
