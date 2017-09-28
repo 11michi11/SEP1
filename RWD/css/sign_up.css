@@ -49,6 +49,11 @@ fieldset{
     width: 40%;
     color: #a37fa3;
 }
-textarea, label p{
+textarea{
+    width:33%;
+    margin-left: 31.5%;
+    height: 50px;
+}
+label p{
     margin-left: 35%;
 }
