@@ -34,13 +34,19 @@ footer {
     height: 60px;
 }
 
-footer p {
+#footerinfo {
     float: right;
+   
+}
+
+#footerinfo p {
+    padding: 0px;
 }
 
 footer img {
     margin-left: 50px;
-    margin-top: 5px;
+    margin-top: 20px;
+    height: 50px;
 }
 
 select {
@@ -55,6 +61,10 @@ a {
 header a:hover,
 footer a:hover {
     font-size: 125%;
+}
+.copy {
+    height: 15px;
+    
 }
 
 body {
