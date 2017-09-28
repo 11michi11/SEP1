@@ -1,15 +1,14 @@
-body {   
-    background-image: -webkit-gradient(linear, left top, left bottom, from(lightblue), to(white));
-    background-image: -webkit-linear-gradient(top, lightblue, white);
-    background-image: -moz-linear-gradient(top, lightblue, white);
-    background-image: linear-gradient(to bottom, lightblue, white);
-    background-repeat: no-repeat;}
-    
+  
  h1 {
     font-style: oblique;
     font-family: fantasy;
     color: #a37fa3;
-    font-size: 500%; }
+    font-size: 500%; 
+}
+
+h2 {
+    color: #a37fa3;
+}
 
 .Council {
     height: 350px;
@@ -17,12 +16,43 @@ body {
 } 
 
 table {
-    font-style: solid;
-    font-family:serif;
-    color: black;
-    }
-.members li, th p{
-    text-align: justify;
-    font-style: italic;
-    font-family:serif;
+    width: 800px;
+    margin: 5px;
+    border-collapse: collapse;
 }
+
+td {
+    padding: 10px;
+}
+
+tr:nth-child(odd) {
+    font-style: oblique;
+    font-family: fantasy;
+    color: #a37fa3;
+    font-size: 300%;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    text-align: justify;
+    vertical-align: top;
+    text-indent: 20px;
+}
+
+tr:nth-child(2) {
+    border-bottom: 5px dotted #a37fa3; 
+}
+
+tr:nth-child(3) {
+    border-top: 5px dotted #a37fa3;
+}
+
+td:first-child {
+    border-right: 5px dotted #a37fa3;
+}
+
+td:last-child {
+    border-left: 5px dotted #a37fa3;
+}
+
+
