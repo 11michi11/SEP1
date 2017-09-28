@@ -21,7 +21,7 @@ div {
     
 }
 
-p, h4, h3 {
+#main p, h2, h3 {
     font-style: solid;
     font-family:inherit;
     color: black;

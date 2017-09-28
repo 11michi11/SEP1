@@ -21,12 +21,8 @@ table {
     font-family:serif;
     color: black;
     }
-p, .members li{
+.members li, th p{
     text-align: justify;
     font-style: italic;
     font-family:serif;
-}
-p{
-    margin: 20px;
-    font-size: 110%;
 }
