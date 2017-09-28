@@ -20,7 +20,7 @@ h3 {
     height: 150px;
     width: 150px;
     float: left;
-    padding: 15px;
+    padding: 10px;
 }
 
 .clear{
@@ -30,3 +30,4 @@ h3 {
 .photos a:hover {
     font-size: 100% !important; 
 }
+
