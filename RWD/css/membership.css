@@ -25,8 +25,15 @@ h1{
 #big_letters{
     font-size: 1.2em;
 }
-label{
-    margin: 5%;
+
+td{
+    width: 260px;
+}
+td input{
+    float: right;
+}
+td label{
+    margin-left: 25px;
 }
 .subres_out{
     margin-left: 31%;
@@ -47,6 +54,11 @@ fieldset{
     width: 40%;
     color: #a37fa3;
 }
-textarea, label p{
+label p{
     margin-left: 35%;
+}
+textarea{
+    width:33%;
+    margin-left: 31.5%;
+    height: 50px;
 }

@@ -101,6 +101,7 @@ h1 {
 }
 
 #images img {
+    border-radius: 10px;
     width: 320px;
     height: 240px;
     margin: 10px;
