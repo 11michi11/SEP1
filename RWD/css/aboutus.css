@@ -6,20 +6,6 @@ h1 {
 
     
 }
-  
-body {   
-    background-image: -webkit-gradient(linear, left top, left bottom, from(lightblue), to(white));
-    background-image: -webkit-linear-gradient(top, lightblue, white);
-    background-image: -moz-linear-gradient(top, lightblue, white);
-    background-image: linear-gradient(to bottom, lightblue, white);
-    background-repeat: no-repeat;
-           
-}
-
-div {
-    font-style: solid;
-    
-}
 
 #main p, h2, h3 {
     font-style: solid;
@@ -31,15 +17,6 @@ div {
     clear: both; 
 }
 
-    
-
-table {
-    
-   font-style: solid;
-    font-family:serif;
-    color: black; 
-    
-}
 .Days{
     background-color: #a37fa3;
     width: 300px;
@@ -57,7 +34,4 @@ table {
     font-style: oblique;
     font-family:fantasy;
     color: #a37fa3;
-
-    
 }
-
