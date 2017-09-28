@@ -112,7 +112,7 @@ h1 {
     margin: 10px;
 }
 
-#description {
+#description p {
     text-indent: 30px;
     text-align: justify;
 }
