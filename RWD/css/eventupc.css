@@ -15,44 +15,41 @@ h1 {
     text-align: center;
     margin: 0px;
     color: #a37fa3;
-    font-style: normal;
-    
+    font-style: normal;   
 }
-/*
-#wrapper, #textbox, 
-#maininfo, #description, 
-#images {
-    border-style: solid;
-    margin: 5px;
-}*/
 
+/*box of maininfo and description*/
+#textbox {
+    float: left;
+    width: 600px;
+    padding-left: 100px;
+    margin-left: 50px;
+    margin-right: 50px;    
+}
+
+/*signup button*/
 #maininfo img {
     height: 125px;
     width: 125px;
-    /*margin: 40px 5px 40px 5px;*/
 }
 
 #maininfo table {
     margin-left: 0px;
     margin-right: 0px;
     width: 600px;
-    /*border-style: solid;*/
     font-size: 1.2em;
     font-style: solid;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    /*border-style: solid;
-    border-collapse: collapse;*/
 }
 
 #maininfo td {
-    /*border-style: solid;*/
     width: fit-content;
     height: 20px;;
 }
 
+/*first collumn in table*/
 #maininfo td:first-child {
-    /*border-right-style: dotted;*/
     text-align: right;
     padding: 5px;
     font-weight: bold;
@@ -62,14 +59,13 @@ h1 {
     width: 300px;
 }
 
-#maininfo td:nth-child(3) {
-    /*border-left-style: dotted; */   
+/*third collumn in table*/
+#maininfo td:nth-child(3) { 
     text-align: left;
     padding: 5px;
-    /*overflow: visible;*/
-    
 }
 
+/*last row in table*/
 #maininfo tr:last-child td {
     border-collapse: collapse;
     border-bottom-style: dotted;
@@ -78,6 +74,7 @@ h1 {
     text-align: left;
 }
 
+/*divider collumn in table*/
 #divider {
     border-collapse: collapse;
     border-left-style: dotted;
@@ -85,15 +82,7 @@ h1 {
     border-color: #a37fa3;        
 }
 
-#textbox {
-    float: left;
-    width: 600px;
-    padding-left: 100px;
-    margin-left: 50px;
-    margin-right: 50px;
-     
-}
-
+/*box with images*/
 #images {
     width: fit-content;
     margin: 10px;
@@ -107,7 +96,7 @@ h1 {
     margin: 10px;
 }
 
-#description {
+#description p {
     text-indent: 30px;
     text-align: justify;
 }

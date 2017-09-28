@@ -18,23 +18,24 @@ h1 {
     font-style: oblique;
     
 }
-/*
-#wrapper, #textbox, 
-#maininfo, #description, 
-#images {
-    border-style: solid;
-    margin: 5px;
-}*/
 
+/*box of maininfo and description*/
+#textbox {
+    float: left;
+    width: 600px;
+    margin-left: 50px;
+    margin-right: 50px;  
+}
+
+/*feedback button*/
 #maininfo img {
     height: 60px;
     width: 250px;
     margin: 5px;
     margin-bottom: 0px;
     padding-bottom: 0px;
-    /*border-style: solid;*/
-    /*margin: 40px 5px 40px 5px;*/
 }
+
 
 #maininfo table {
     margin-left: 0px;
@@ -44,18 +45,15 @@ h1 {
     font-style: solid;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    /*border-style: solid;
-    border-collapse: collapse;*/
 }
 
 #maininfo td {
-    /*border-style: solid;*/
     width: fit-content;
     height: 20px;
 }
 
+/*first collumn in table*/
 #maininfo td:first-child {
-    /*border-right-style: dotted;*/
     text-align: right;
     padding: 5px;
     font-weight: bold;
@@ -65,15 +63,13 @@ h1 {
     width: 300px;
 }
 
-#maininfo td:last-child {
-    /*border-left-style: dotted; */   
+/*last collumn in table*/
+#maininfo td:last-child {   
     text-align: left;
     padding: 5px 5px 5px 10px;
-
-    /*overflow: visible;*/
-    
 }
 
+/*last row in table*/
 #maininfo tr:last-child td {
     border-collapse: collapse;
     border-bottom-style: dotted;
@@ -84,32 +80,12 @@ h1 {
     vertical-align: bottom;
 }
 
+/*divider collumn in table*/
 #divider {
     border-collapse: collapse;
     border-left-style: dotted;
     border-width: 5px;
     border-color: #a37fa3;        
-}
-
-#textbox {
-    float: left;
-    width: 600px;
-    
-    margin-left: 50px;
-    margin-right: 50px;
-     
-}
-
-#imagetable {
-    width: fit-content;
-    margin: 10px;
-    float: left;
-}
-
-.image img {
-    width: 320px;
-    height: 240px;
-    margin: 10px;
 }
 
 #description p {
@@ -121,6 +97,21 @@ h1 {
     font-style: italic;
 }
 
+#imagetable {
+    width: fit-content;
+    margin: 10px;
+    float: left;
+}
+
+/*images in table*/
+.image img {
+    border-radius: 10px;    
+    width: 320px;
+    height: 240px;
+    margin: 10px;
+}
+
+/*gallery button*/
 #gallery img {
     width: 200px;
     height: 200px;
