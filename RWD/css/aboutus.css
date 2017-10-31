@@ -1,7 +1,7 @@
 h1 {
     font-style: oblique;
     font-family:fantasy;
-    color: #a37fa3;
+    color: darkred;
     font-size: 500%;
 
     
@@ -18,7 +18,7 @@ h1 {
 }
 
 .Days{
-    background-color: #a37fa3;
+    background-color: darkred;
     width: 300px;
 }
 
@@ -33,5 +33,5 @@ h1 {
     font-size: 300%;
     font-style: oblique;
     font-family:fantasy;
-    color: #a37fa3;
+    color: darkred;
 }

@@ -14,13 +14,13 @@ h4,
 h3 {
     font-style: oblique;
     font-family: fantasy;
-    color: #a37fa3;
+    color: darkred;
     letter-spacing: 2px;
 }
 
 .images {
     margin-right: 15px;
-    border-right: 5px dotted #a37fa3;
+    border-right: 5px dotted darkred;
     float: left;
     width: 50%;
 }
@@ -48,7 +48,7 @@ news {
     font-weight: bold;
     font-style: oblique;
     font-family: fantasy;
-    color: #a37fa3;
+    color: darkred;
     font-size: 500%;
 }
 

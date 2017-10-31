@@ -2,12 +2,12 @@
  h1 {
     font-style: oblique;
     font-family: fantasy;
-    color: #a37fa3;
+    color: darkred;
     font-size: 500%; 
 }
 
 h2 {
-    color: #a37fa3;
+    color: darkred;
 }
 
 .Council {
@@ -28,7 +28,7 @@ td {
 tr:nth-child(odd) {
     font-style: oblique;
     font-family: fantasy;
-    color: #a37fa3;
+    color: darkred;
     font-size: 300%;
     text-align: center;
 }
@@ -40,19 +40,19 @@ tr:nth-child(even) {
 }
 
 tr:nth-child(2) {
-    border-bottom: 5px dotted #a37fa3; 
+    border-bottom: 5px dotted darkred; 
 }
 
 tr:nth-child(3) {
-    border-top: 5px dotted #a37fa3;
+    border-top: 5px dotted darkred;
 }
 
 td:first-child {
-    border-right: 5px dotted #a37fa3;
+    border-right: 5px dotted darkred;
 }
 
 td:last-child {
-    border-left: 5px dotted #a37fa3;
+    border-left: 5px dotted darkred;
 }
 
 

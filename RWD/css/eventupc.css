@@ -14,7 +14,7 @@ h1 {
     letter-spacing: 10px;
     text-align: center;
     margin: 0px;
-    color: #a37fa3;
+    color: darkred;
     font-style: normal;   
 }
 
@@ -54,7 +54,7 @@ h1 {
     padding: 5px;
     font-weight: bold;
     font-family:fantasy;
-    color: #a37fa3;
+    color: darkred;
     letter-spacing: 2px;
     width: 300px;
 }
@@ -70,7 +70,7 @@ h1 {
     border-collapse: collapse;
     border-bottom-style: dotted;
     border-width: 5px;
-    border-color: #a37fa3;
+    border-color: darkred;
     text-align: left;
 }
 
@@ -79,7 +79,7 @@ h1 {
     border-collapse: collapse;
     border-left-style: dotted;
     border-width: 5px;
-    border-color: #a37fa3;        
+    border-color: darkred;        
 }
 
 /*box with images*/

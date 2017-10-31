@@ -3,7 +3,7 @@ h1{
     text-align: center;
     font-style: oblique;
     font-family:fantasy;
-    color: #a37fa3;
+    color: darkred;
     font-size: 500%;
 }
 #photo{
@@ -39,7 +39,7 @@ td label{
     margin-left: 31%;
 }
 .subres{
-    background-color: #a37fa3;
+    background-color: darkred;
     width: 50%;
     border-color: whitesmoke;
     border-style: outset;
@@ -52,7 +52,7 @@ td label{
 }
 fieldset{
     width: 40%;
-    color: #a37fa3;
+    color: darkred;
 }
 label p{
     margin-left: 35%;

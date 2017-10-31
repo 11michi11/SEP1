@@ -1,7 +1,7 @@
 h1{
     font-style: oblique;
     font-family:fantasy;
-    color: #a37fa3;
+    color: darkred;
     text-align: center;
     font-size: 500%;
 }
@@ -10,7 +10,7 @@ h3 {
     font-size: 200%;
     font-style: oblique;
     font-family:fantasy;
-    color: #a37fa3;
+    color: darkred;
 }
 
 .photos img{
