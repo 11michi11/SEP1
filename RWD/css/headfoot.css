@@ -1,24 +1,4 @@
-#navBar {
-    display: inline;
-}
 
-#navBar li {
-    float: left;
-    list-style-type: none;
-    background-image: url("../images/clouds.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 10px;
-    padding: 70px;
-}
-
-#logo {
-    float: left;
-}
-
-header,
-option,
-select,
 a {
     font-style: oblique;
     font-family: fantasy;
@@ -49,14 +29,6 @@ footer img {
     height: 50px;
 }
 
-select {
-    background: none;
-    border: none;
-}
-
-a {
-    text-decoration: none;
-}
 
 header a:hover,
 footer a:hover {
