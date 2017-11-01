@@ -1,8 +1,14 @@
-
+*{
+     color: darkred;
+}
 a {
     font-style: oblique;
     font-family: fantasy;
     color: darkred;
+}
+li a: hover{
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background: none;
 }
 
 footer {
@@ -29,11 +35,6 @@ footer img {
     height: 50px;
 }
 
-
-header a:hover,
-footer a:hover {
-    font-size: 125%;
-}
 .copy {
     height: 15px;
     
@@ -46,45 +47,14 @@ body {
 
 
 /*The dropdown list*/
-.dropdown1 {
-    position: relative;
-    /*    allows the block to be in front of the content of the page and stays in between other clouds*/
-}
-.dropdown-content1 {
-    display: none;
-    position: absolute;
-/*    allows the block to be in front of the content of the page not disturbing them and stays under the cloud*/
+
+.dropdown-menu {
+    
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    padding: 10%;
-    color: black;
-    font-size: 110%;
-    font-style: italic;
-    font-family: serif;
+    background: none;
+    text-shadow: 1px 1px gray;
 }
-
-.dropdown-content1 a {
-    text-decoration: none;
-    color: black;
-    font-style: italic;
-    font-family: serif;
-}
-
-.dropdown1:hover .dropdown-content1 {
-    display: block;
-}
-
-.dropdown-content1 a:hover {
+.dropdown-menu li a{
     color: darkred;
 }
 
-#list li {
-    background: none;
-    padding: 2px;
-    margin: 2px;
-    text-shadow: 2px 2px white;
-}
-
-header {
-    height: 170px;
-    border-bottom: 5px dotted darkred;
-}
