@@ -7,13 +7,11 @@ h1{
     font-size: 500%;
 }
 #photo{
-    float:right;
-    height: 30em;
-    width: 40%;
-    margin-right: 8%;
+    width: 90%;
+    margin: auto;
     border: 8px solid black;
 }
-#left{
+.left{
     margin-left: 4%;
     font-style: italic;
     font-family:serif;
@@ -41,6 +39,7 @@ table{
     border-width: thick;
     font-style: italic;
     font-family:serif;
+    color: whitesmoke;
 }
 .subres:hover{
     font-weight: bold;
@@ -50,8 +49,7 @@ fieldset{
     color: darkred;
 }
 textarea{
-    width:33%;
-    margin-left: 31.5%;
+    width:300%;
     height: 50px;
 }
 label p{

@@ -12,96 +12,106 @@
     <link href="css/sign_up.css" type="text/css" rel="stylesheet"> </head>
 
 <body>
-    <header>
-        <a href="index.html"> <img id="logo" src="images/VipassanaLogo.png" alt="logo"></a>
-        <ul id="navBar">
-            <li>
-                <div class="dropdown1">
-                    <div class="dropdown-button1">Events</div>
-                    <div class="dropdown-content1">
-                        <ul id="list">
-                            <li><b>Upcoming</b></li>
-                                <li><a href="lecturesupc.html">Lectures</a></li>
-                                <li><a href="seminarsupc.html">Seminars</a></li>
-                                <li><a href="workshopsupc.html">Workshops</a></li>
-                                <li><a href="trips/upcoming/loei_Thailand.html">Trips</a></li>
-                                <li>    </li>
-                                <li><b>Previous</b></li>
-                                <li><a href="lecturesprev.html">Lectures</a></li>
-                                <li><a href="seminarsprev.html">Seminars</a></li>
-                                <li><a href="workshopsprev.html">Workshops</a></li>
-                                <li><a href="trips/recent/pune_India.html">Trips</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li> <a href="council.html">Council</a></li>
-            <li> <a href="aboutus.html">About us</a></li>
-            <li> <a href="membership.html">Membership</a></li>
-            <li> <a href="gallery.html">Gallery</a></li>
-        </ul>
-    </header>
+    <!--navbar-fixed-top-->
+    <nav class="nabvar">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a class="navbar-left" href="index.html"> <img src="images/VipassanaLogo.png" alt="logo"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown">Events <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><b>Upcoming</b></li>
+                        <li><a href="lecturesupc.html">Lectures</a></li>
+                        <li><a href="seminarsupc.html">Seminars</a></li>
+                        <li><a href="workshopsupc.html">Workshops</a></li>
+                        <li><a href="trips/upcoming/loei_Thailand.html">Trips</a></li>
+                        <li> </li>
+                        <li><b>Previous</b></li>
+                        <li><a href="lecturesprev.html">Lectures</a></li>
+                        <li><a href="seminarsprev.html">Seminars</a></li>
+                        <li><a href="workshopsprev.html">Workshops</a></li>
+                        <li><a href="trips/recent/pune_India.html">Trips</a></li>
+                    </ul>
+                </li>
+                <li> <a href="council.html">Council</a></li>
+                <li> <a href="aboutus.html">About us</a></li>
+                <li> <a href="membership.html">Membership</a></li>
+                <li> <a href="gallery.html">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="clear"></div>
-    <h1>Sign up</h1> <img id="photo" src="images/sign_in.jpg" alt="The team">
-    <br>
-    <br>
-    <div id="left">
-        <p> The cost of events:</p>
-        <ul>
-            <li>Lecturs: 40kr*;</li>
-            <li>Seminars: 80kr*;</li>
-            <li>Workshops: 250kr* (breakfast, lunch and dinner included)</li>
-            <li>Trips: see in the events description.</li>
-        </ul>
-        <div id="small_letters">*Members get an discount equal 25%.</div>
-        <br>
-        <br>
-        <form action="" method="get">
-            <fieldset>
-                <legend>Sign up!</legend>
-                <table>
-                    <tr>
-                        <td>
-                            <label>Name of event:
-                                <input class="fields" type="text" name="event" id="event" value="Type here"> </label>
-                        </td>
-                        <td>
-                            <label>Name:
-                                <input class="fields" type="text" name="name" id="name" value="Type here"> </label>
-                        </td>
-                        <td>
-                            <label class="right">Address:
-                                <input class="fields" type="text" name="address" id="address" value="Type here"> </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label class="right">Date of event:
-                                <input class="fields" type="text" name="date" id="date" value="Type here"> </label>
-                        </td>
-                        <td>
-                            <label>e-mail:
-                                <input class="fields" type="text" name="e-mail" id="e-mail" value="Type here"> </label>
-                        </td>
-                        <td>
-                            <label class="right">Phone nr:
-                                <input class="fields" type="text" name="phone_nr" id="phone_nr" value="Type here"> </label>
-                        </td>
-                    </tr>
-                </table>
-                <div class="field_right">
-                    <label>
-                        <p>Leave a comment:</p>
-                        <textarea class="fields">Type here</textarea>
-                    </label>
-                    <br>
-                    <br>
-                    <div class="subres_out">
-                        <input class="subres" type="submit" value="Submit this form">
-                        <input class="subres" type="reset" value="Reset"> </div>
+    <h1>Sign up</h1>
+    <div class="row">
+        <div class="col-md-7">
+            <br>
+            <br>
+            <div class="row">
+                <div class="left">
+                    <p> The cost of events:</p>
+                    <ul>
+                        <li>Lecturs: 40kr*;</li>
+                        <li>Seminars: 80kr*;</li>
+                        <li>Workshops: 250kr* (breakfast, lunch and dinner included)</li>
+                        <li>Trips: see in the events description.</li>
+                    </ul>
+                    <div id="small_letters">*Members get an discount equal 25%.</div>
                 </div>
-            </fieldset>
-        </form>
+                <br>
+                <br>
+                <div class="left">
+                    <form action="" method="get">
+                        <fieldset>
+                            <legend style="color:darkred;">Sign up!</legend>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Name of event:
+                                        <input class="fields" type="text" name="event" id="event" value="Type here"> </label>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>Name:
+                                        <input class="fields" type="text" name="name" id="name" value="Type here"> </label>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label class="right">Address:
+                                        <input class="fields" type="text" name="address" id="address" value="Type here"> </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6">
+                                    <label class="right">Date of event:
+                                        <input class="fields" type="text" name="date" id="date" value="Type here"> </label>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label>e-mail:
+                                        <input class="fields" type="text" name="e-mail" id="e-mail" value="Type here"> </label>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <label class="right">Phone nr:
+                                        <input class="fields" type="text" name="phone_nr" id="phone_nr" value="Type here"> </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <p>Leave a comment:</p>
+                                    <textarea class="fields">Type here</textarea>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="field_right">
+                                <div class="subres_out">
+                                    <input class="subres" type="submit" value="Submit this form">
+                                    <input class="subres" type="reset" value="Reset"> </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 hidden-xs hidden-sm"><img id="photo" src="images/sign_in.jpg" alt="The team"></div>
     </div>
     <br>
     <br>
@@ -111,8 +121,8 @@
         <a href="https://twitter.com/vipassanaorg" target="blank"><img src="images/twitterlogo.png" alt="twitterlogo"></a>
         <a href="feedback.html" target="blank"><img src="images/feedback.png" alt="feedbacklogo"></a>
         <div id="footerinfo">
-        <p> &#9400; Copyright - Vipassana</p>
-        <p> Contact - <a href="mailto:266494@via.dk">Mail us</a></p>
+            <p> &#9400; Copyright - Vipassana</p>
+            <p> Contact - <a href="mailto:266494@via.dk">Mail us</a></p>
         </div>
     </footer>
 </body>
