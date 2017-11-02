@@ -12,13 +12,13 @@ h3 {
     font-family:fantasy;
     color: darkred;
 }
-
+/* 
 .photos img{
     height: 150px;
     width: 150px;
     float: left;
     padding: 10px;
-}
+} */
 table{
     display: block;
 }
@@ -39,4 +39,8 @@ td {
 }
 .title{
     width: 500px;
+}
+#myCarousel {
+
+    width: 100%;
 }
