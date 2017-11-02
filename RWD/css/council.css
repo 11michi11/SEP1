@@ -6,24 +6,10 @@
     font-size: 500%; 
 }
 
-h2 {
-    color: darkred;
-}
-
-.Council {
-    height: 350px;
-    clear: both;
+#Council {
+    max-width: 90%;
+    height: auto;
 } 
-
-table {
-    width: 800px;
-    margin: 5px;
-    border-collapse: collapse;
-}
-
-td {
-    padding: 10px;
-}
 
 
 h2 {
@@ -34,26 +20,11 @@ h2 {
     text-align: center;
 }
 
+
 .row {
     text-align: justify;
     vertical-align: top;
-    text-indent: 20px;
-}
-
-tr:nth-child(2) {
-    border-bottom: 5px dotted darkred; 
-}
-
-tr:nth-child(3) {
-    border-top: 5px dotted darkred;
-}
-
-td:first-child {
-    border-right: 5px dotted darkred;
-}
-
-td:last-child {
-    border-left: 5px dotted darkred;
+/*    text-indent: 20px;*/
 }
 
 

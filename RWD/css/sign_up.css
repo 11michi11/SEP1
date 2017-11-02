@@ -1,6 +1,3 @@
-*{
-    margin: auto;
-}
 h1{
     text-align: center;
     font-style: oblique;
@@ -9,27 +6,17 @@ h1{
     font-size: 500%;
 }
 #photo{
-    width: 90%;
-    margin: auto;
+    width: 100%;
+    margin-top: 10%;
     border: 8px solid black;
 }
-.left{
-    margin-left: 4%;
-    font-style: italic;
-    font-family:serif;
-    color: black;
+p, textarea, .subres:hover{
+    font-weight:bold;
 }
 #small_letters{
     font-size: 0.75em;
 }
-td{
-    width: 170px;
-    float:left;
-    
-}
-table{
-    margin-left: 30px;
-}
+
 .subres_out{
     margin-left: 31%;
 }
@@ -43,17 +30,9 @@ table{
     font-family:serif;
     color: whitesmoke;
 }
-.subres:hover{
-    font-weight: bold;
-}
-fieldset{
-    width: 40%;
-    color: darkred;
-}
+
 textarea{
-    width:300%;
+    width:100%;
     height: 50px;
 }
-label p{
-    margin-left: 35%;
-}
+

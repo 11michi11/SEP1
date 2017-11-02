@@ -1,6 +1,24 @@
 *{
      color: darkred;
 }
+
+
+h1 {
+    font-size: 500%;
+    letter-spacing: 10px;
+    text-align: center;
+    margin: 0px;
+    color: darkred;
+    font-style: oblique;
+    font-family: fantasy;  
+}
+
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 300%;
+    }
+}
+
 a {
     font-style: oblique;
     font-family: fantasy;
@@ -8,7 +26,7 @@ a {
 }
 
 
-//*doesn't work however I try*//
+/*doesn't work however I try*/
 li a: hover{
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     background: none;
