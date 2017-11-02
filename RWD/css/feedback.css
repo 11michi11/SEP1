@@ -8,9 +8,6 @@ h1{
 #instructions{
     font-style: italic;
     font-family:serif;
-    color: black;
-    margin-left: 25%;
-    margin-right: 25%;
     text-align: center;
 }
 .subres{
@@ -20,15 +17,19 @@ h1{
     border-width: thick;
     font-style: italic;
     font-family:serif;
+    color: whitesmoke;
+    width: 100%;
 }
+
 .subres:hover{
     font-weight: bold;
 }
+
 .subres_out{
-    margin-left: 55.73%;
+    float: right;
 }
 textarea{
-    margin-left: 33%;
-    width: 33%;
+    width: 100%;
     height: 10em;
+    margin: auto;
 }

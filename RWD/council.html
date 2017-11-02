@@ -19,61 +19,95 @@
     <link href="css/headfoot.css" type="text/css" rel="stylesheet" /> </head>
 
 <body>
-    <header>
-        <a href="index.html"> <img id="logo" src="images/VipassanaLogo.png" alt="logo"></a>
-        <ul id="navBar">
-            <li>
-                <div class="dropdown1">
-                    <div class="dropdown-button1">Events</div>
-                    <div class="dropdown-content1">
-                        <ul id="list">
-                            <li><b>Upcoming</b></li>
-                                <li><a href="lecturesupc.html">Lectures</a></li>
-                                <li><a href="seminarsupc.html">Seminars</a></li>
-                                <li><a href="workshopsupc.html">Workshops</a></li>
-                                <li><a href="trips/upcoming/loei_Thailand.html">Trips</a></li>
-                                <li>    </li>
-                                <li><b>Previous</b></li>
-                                <li><a href="lecturesprev.html">Lectures</a></li>
-                                <li><a href="seminarsprev.html">Seminars</a></li>
-                                <li><a href="workshopsprev.html">Workshops</a></li>
-                                <li><a href="trips/recent/pune_India.html">Trips</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li> <a href="council.html">Council</a></li>
-            <li> <a href="aboutus.html">About us</a></li>
-            <li> <a href="membership.html">Membership</a></li>
-            <li> <a href="gallery.html">Gallery</a></li>
-        </ul>
-    </header>
+    <nav class="nabvar">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-left" href="index.html">
+                <img src="images/VipassanaLogo.png" alt="logo">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Events
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <b>Upcoming</b>
+                        </li>
+                        <li>
+                            <a href="lecturesupc.html">Lectures</a>
+                        </li>
+                        <li>
+                            <a href="seminarsupc.html">Seminars</a>
+                        </li>
+                        <li>
+                            <a href="workshopsupc.html">Workshops</a>
+                        </li>
+                        <li>
+                            <a href="trips/upcoming/loei_Thailand.html">Trips</a>
+                        </li>
+                        <li> </li>
+                        <li>
+                            <b>Previous</b>
+                        </li>
+                        <li>
+                            <a href="lecturesprev.html">Lectures</a>
+                        </li>
+                        <li>
+                            <a href="seminarsprev.html">Seminars</a>
+                        </li>
+                        <li>
+                            <a href="workshopsprev.html">Workshops</a>
+                        </li>
+                        <li>
+                            <a href="trips/recent/pune_India.html">Trips</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="council.html">Council</a>
+                </li>
+                <li>
+                    <a href="aboutus.html">About us</a>
+                </li>
+                <li>
+                    <a href="membership.html">Membership</a>
+                </li>
+                <li>
+                    <a href="gallery.html">Gallery</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="clear"></div>
     <center>
         <h1>Council</h1>
         <h2>*** TRAIN YOUR MIND TO SEE SOMETHING GOOD IN EVERYTHING ***</h2>
-        <img class="Council" src="images/councilDone.jpg" alt="council">
+        
     
 
-    <div id="members">
-        <table>
-            <tr>
-                <td>Daniela</td>
-                <td>Michaela</td>
-            </tr>
-            <tr>
-                <td>She was stuck in an everyday routine. The only thing she was carrying about was her job. She wouldn’t take care of herself and she was always under pressure. Her lifestyle not only led her to obesity and losing the sense of life, but also made her suffer from depression. After her failed suicide attempt in 2012 she was forced to attend yoga and meditation classes. That was what helped her to get her life back together. Prior to joining Vipassana, she realized what she really wanted from life, quit her job and came back to shape. At first she was helping the organization as a volunteer and in 2014 she was offered to join the board.</td>
-                <td>She always knew she would be a monk. As a toddler she was found in the mountains of Tibet and raised by monks in a chapel. After accomplishing her studies and finding the truth about herself, at the age of 13 she begun to travel the world to spread Buddhism, meditation techniques and everything related to it and also to look for her biological family. She is spending approximately three and a half year teaching at one place. She’s already been to Australia and Columbia and as her next stay she has chosen Denmark. She joined Vipassana in 2012 and has been on the board since 2013.</td>
-            </tr>
-            <tr>
-                <td>Michał</td>
-                <td>Matej</td>
-            </tr>
-            <tr>
-                <td>As a teenager he was in trouble with the law. It ended up with him being sentenced for prison for 15 years. As he was serving his time, Vipassana has been running a project which provided free lectures, seminars and workshops in jails. As it turned out the project has been also conducted in his jail. He went on a workshop because of having nothing better to do and didn’t miss any chance to participate in the project ever since. The lessons earned from VIA have changed him and he’s been conditionally released after one year. He joined the organization right after and they offered him a place on the board. He’s been on the board since 2015.</td>
-                <td>After the love of his life passed away he wanted to commit suicide. A friend convinced him to try attending Vipassana courses. The philosophy behind the organization changed him and brought sense and happiness back to his life. He was getting more and more involved and eventually joined the board in 2015.</td>
-            </tr>
-        </table>
+    <div class="container">
+        <div class="row center-block">
+            <div class="col-sm-9 col-sm-offset-2 col-xs-offset-1">
+                <img id="Council" src="images/councilDone.jpg" alt="council">
+            </div>
+        </div>
+            <div class="row center-block">
+                <div class="col-sm-4 col-sm-offset-2 col-xs-10 col-xs-offset-1"><h2>Daniela</h2>She was stuck in an everyday routine. The only thing she was carrying about was her job. She wouldn’t take care of herself and she was always under pressure. Her lifestyle not only led her to obesity and losing the sense of life, but also made her suffer from depression. After her failed suicide attempt in 2012 she was forced to attend yoga and meditation classes. That was what helped her to get her life back together. Prior to joining Vipassana, she realized what she really wanted from life, quit her job and came back to shape. At first she was helping the organization as a volunteer and in 2014 she was offered to join the board.</div>
+                <div class="col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1"><h2>Michaela</h2>She always knew she would be a monk. As a toddler she was found in the mountains of Tibet and raised by monks in a chapel. After accomplishing her studies and finding the truth about herself, at the age of 13 she begun to travel the world to spread Buddhism, meditation techniques and everything related to it and also to look for her biological family. She is spending approximately three and a half year teaching at one place. She’s already been to Australia and Columbia and as her next stay she has chosen Denmark. She joined Vipassana in 2012 and has been on the board since 2013.</div>
+            </div>
+            <div class="row center-block">
+                <div class="col-sm-4 col-sm-offset-2 col-xs-10 col-xs-offset-1"><h2>Michał</h2>As a teenager he was in trouble with the law. It ended up with him being sentenced for prison for 15 years. As he was serving his time, Vipassana has been running a project which provided free lectures, seminars and workshops in jails. As it turned out the project has been also conducted in his jail. He went on a workshop because of having nothing better to do and didn’t miss any chance to participate in the project ever since. The lessons earned from VIA have changed him and he’s been conditionally released after one year. He joined the organization right after and they offered him a place on the board. He’s been on the board since 2015.</div>
+                <div class="col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1"><h2>Matej</h2>After the love of his life passed away he wanted to commit suicide. A friend convinced him to try attending Vipassana courses. The philosophy behind the organization changed him and brought sense and happiness back to his life. He was getting more and more involved and eventually joined the board in 2015.</div>
+            </div>
     </div>
     </center>
 
