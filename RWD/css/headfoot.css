@@ -1,6 +1,24 @@
 *{
      color: darkred;
 }
+
+
+h1 {
+    font-size: 500%;
+    letter-spacing: 10px;
+    text-align: center;
+    margin: 0px;
+    color: darkred;
+    font-style: oblique;
+    font-family: fantasy;  
+}
+
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 300%;
+    }
+}
+
 a {
     font-style: oblique;
     font-family: fantasy;
