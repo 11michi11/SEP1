@@ -1,3 +1,52 @@
+.image {
+    max-width:320px; 
+    border-radius: 10px;
+}
+
+.leftside {
+    text-align: right;
+}
+
+.info {
+    font-size: 1.5em;
+}
+
+.info div div:nth-child(1) {
+    font-weight: bold;
+    text-align: right;
+    
+    
+}
+
+
+.info div div:nth-child(2) {
+    font-style: italic;
+    border-left-style: solid;
+    border-width: 5px;
+    border-color: darkred;
+    border-collapse: collapse;
+}
+
+.info div div:nth-child(1) {
+    
+}
+
+#desc p{
+    text-align: left;
+    border-right-style: solid;
+    border-width: 5px;
+    border-color: darkred;
+    border-collapse: collapse;
+}
+
+#desc {
+    border-bottom-style: solid;
+    border-width: 5px;
+    border-color: darkred;
+    border-collapse: collapse;
+    
+}
+
 #wrapper {
     padding: 50px;
     padding-top: 0px;
@@ -9,14 +58,6 @@
     clear: both;
 }
 
-h1 {
-    font-size: 5em;
-    letter-spacing: 10px;
-    text-align: center;
-    margin: 0px;
-    color: darkred;
-    font-style: normal;   
-}
 
 /*box of maininfo and description*/
 #textbox {
@@ -104,3 +145,4 @@ h1 {
 #quote {
     font-style: italic;
 }
+
