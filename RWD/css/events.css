@@ -1,104 +1,93 @@
-#wrapper {
-    padding: 50px;
-    padding-top: 0px;
-    height: 600px;
-    margin: 30px;
-}
-
-.clear {
-    clear: both;
-}
-
-h1 {
-    font-size: 500%;
-    letter-spacing: 10px;
-    text-align: center;
-    margin: 0px;
-    color: darkred;
-    font-style: oblique;
-    font-family: fantasy;
-    
-}
-/*list of events*/
-#eventList {
-    list-style-type: none;  
-}
-
-#eventList li {
-    float: left;
-    padding: 5px;
-    margin: 10px;
-}
-
-/*every second li pushed from leftside*/
-#eventList li:nth-child(even) {
-    margin-left: 200px;    
-}
-
-/*div where cloud is background*/
-.cloud {
-    width: 200px;
-    background-image: url("../images/cloudswide.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 50px;
-    float: left;
-    
-}
-
-.cloud p {
-    height: fit-content;
-    margin: 0px;
-    margin-left: 20px;
-    margin-right: 20px;
-    letter-spacing: 2px;
-    font-size: 1.3em;
+.list div:nth-child(1) {
+    font-size: 1.5em;
+    font-style: italic;
     font-weight: bold;
-    color: #690069;
 }
 
-/*title of event*/
-.eventName {
-    text-align: center;
+.list {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-/*date of event*/
-.date {
-    text-align: right;
-    padding-right: 10px;
-}
-
-/*description box of event*/
-.description {
-    border-color: #690069;
+#desc {
+    border-color: darkred;
     border-style: solid;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.64);
     font-style: normal;
-    width: 700px;
-    height: fit-content;
-    padding: 10px;
-    margin: 5px;
-    float: right;
-    color: #690069;
+    
+    color: darkred;
     letter-spacing: 1px;
     text-align: justify;
     text-indent: 35px;
 }
 
-.description p {
-    margin: 5px;
+#desc p {
+    vertical-align: middle;
+    
 }
 
-/*joinus button*/
-.joinus {
-    float: right;
-    margin: 0px;
-    padding: 0px;
+@media screen and (min-width:768px) {
+    #title, #date {
+        margin-left: 92px;
+        
+    }
+
+    #title {
+        margin-top: 50px;
+        margin-bottom: 0px;
+    
+    }
+
+
+    #date {
+        margin-top: 0px;
+    }
+
+    .list div:nth-child(1) {
+        background-image: url("../images/buddha.png");
+        background-size: 95%;
+        background-repeat: no-repeat;
+        min-height: fit-content;
+        min-width: 250px;
+    }
+
+    .list div:nth-child(1), #desc {
+        min-height: 180px;
+    }
+
+    #desc {
+        padding-top: 3%;
+        padding-bottom: 2%;
+    }
 }
 
-.joinus img {
-    height: 150px;
-    width: 150px;
-    border-radius: 10px;
+@media screen and (max-width:767px) {
+    
+    #title {
+        float: left;
+        margin-bottom: 0px;
+        margin-top: 20px;
+        font-size: 1.1em;
+         
+    }
+
+    #date {
+        margin-bottom: 0px;
+        margin-top: 20px;
+        text-align: right;
+    }
+
+    #desc {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        padding-top: 10px;        
+    }
+
+    
+    
+}
+
+.clear {
+    clear: both;
 }
