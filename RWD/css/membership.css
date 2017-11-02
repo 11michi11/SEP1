@@ -5,19 +5,11 @@ h1{
     font-family:fantasy;
     color: darkred;
     font-size: 500%;
+    margin-bottom: 4%;
 }
 #photo{
-    float:right;
-    width: 40%;
-    margin-right: 8%;
-    margin-top: 7%;
+    width: 80%;
     border: 8px solid black;
-}
-#left{
-    margin-left: 4%;
-    font-style: italic;
-    font-family:serif;
-    color: black;
 }
 #small_letters{
     font-size: 0.75em;
@@ -26,39 +18,21 @@ h1{
     font-size: 1.2em;
 }
 
-td{
-    width: 260px;
-}
-td input{
-    float: right;
-}
-td label{
-    margin-left: 25px;
-}
-.subres_out{
-    margin-left: 31%;
-}
 .subres{
     background-color: darkred;
-    width: 50%;
+    width: 100%;
     border-color: whitesmoke;
     border-style: outset;
     border-width: thick;
     font-style: italic;
     font-family:serif;
+    color:whitesmoke;
 }
-.subres:hover{
+.subres:hover, p, textarea{
     font-weight: bold;
 }
-fieldset{
-    width: 40%;
-    color: darkred;
-}
-label p{
-    margin-left: 35%;
-}
+
 textarea{
-    width:33%;
-    margin-left: 31.5%;
+    width:100%;
     height: 50px;
 }
