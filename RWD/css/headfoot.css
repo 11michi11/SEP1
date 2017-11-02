@@ -42,23 +42,16 @@ footer {
 }
 
 #footerinfo {
+    margin-top: 25px;
     float: right;
-   
 }
 
-#footerinfo p {
+.col-xs-2{
     padding: 0px;
 }
 
 footer img {
-    margin-left: 50px;
-    margin-top: 20px;
-    height: 50px;
-}
-
-.copy {
-    height: 15px;
-    
+    margin: 5%;
 }
 
 body {
