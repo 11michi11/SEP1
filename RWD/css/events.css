@@ -10,7 +10,7 @@
 }
 
 #desc {
-    border-color: darkred;
+    border-color: black;
     border-style: solid;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.64);
@@ -59,6 +59,7 @@
     #desc {
         padding-top: 3%;
         padding-bottom: 2%;
+        
     }
 }
 
@@ -81,7 +82,8 @@
     #desc {
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
-        padding-top: 10px;        
+        padding-top: 10px;
+        border-color: darkred;        
     }
 
     
