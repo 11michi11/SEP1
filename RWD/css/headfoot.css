@@ -1,7 +1,6 @@
-*{
-     color: darkred;
+* {
+    color: darkred;
 }
-
 
 h1 {
     font-size: 500%;
@@ -10,7 +9,7 @@ h1 {
     margin: 0px;
     color: darkred;
     font-style: oblique;
-    font-family: fantasy;  
+    font-family: fantasy;
 }
 
 @media screen and (max-width: 767px) {
@@ -27,12 +26,13 @@ a {
 
 
 /*doesn't work however I try*/
-li a: hover{
+
+li a:hover {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     background: none;
 }
 
-footer {
+#footer {
     font-style: oblique;
     font-family: fantasy;
     color: darkred;
@@ -41,17 +41,18 @@ footer {
     height: 60px;
 }
 
+#footer img{
+    margin-left: 25px;
+}
+
 #footerinfo {
     margin-top: 25px;
     float: right;
 }
 
-.col-xs-2{
-    padding: 0px;
-}
-
-footer img {
-    margin: 5%;
+#feedbackImg{
+    width: 100%;
+    height: auto;
 }
 
 body {
@@ -60,12 +61,11 @@ body {
 }
 
 .dropdown-menu {
-    
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     background: none;
     text-shadow: 1px 1px gray;
 }
-.dropdown-menu li a{
+
+.dropdown-menu li a {
     color: darkred;
 }
-
