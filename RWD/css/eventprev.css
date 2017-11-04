@@ -1,3 +1,77 @@
+h1 {
+    margin-bottom: 5%;
+}
+
+.images img {
+    max-width: 90%;
+    border-radius: 5%;
+    margin: 5%;
+    vertical-align: middle;
+    
+}
+
+.images div {
+    text-align: center;
+    min-height: 100px; 
+    
+}
+
+.leftside {
+    text-align: right;
+}
+
+.leftside, .rightside, #description {
+    font-size: 1.5em;
+}
+
+.leftside, #description {
+    font-weight: bold;
+    text-align: right;  
+}
+
+.rightside {
+    font-style: italic;
+    border-left-style: solid;
+    border-width: 5px;
+    border-color: darkred;
+    border-collapse: collapse;
+}
+
+#text {
+    text-indent: 3%;
+    text-align: justify;
+}
+
+#text p:first-child {
+    padding-top: 2%;
+}
+
+
+#description p{
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+
+
+#description {
+    border-bottom-style: solid;
+    border-width: 5px;
+    border-color: darkred;
+    border-collapse: collapse;
+    
+}
+
+
+.clear {
+    clear: both;
+}
+
+
+#quote {
+    font-style: italic;
+}
+/*
 #wrapper {
     padding-bottom: 50px;
     padding-top: 0px;
@@ -19,7 +93,6 @@ h1 {
     
 }
 
-/*box of maininfo and description*/
 #textbox {
     float: left;
     width: 600px;
@@ -27,7 +100,6 @@ h1 {
     margin-right: 50px;  
 }
 
-/*feedback button*/
 #maininfo img {
     height: 60px;
     width: 250px;
@@ -52,7 +124,6 @@ h1 {
     height: 20px;
 }
 
-/*first collumn in table*/
 #maininfo td:first-child {
     text-align: right;
     padding: 5px;
@@ -63,13 +134,11 @@ h1 {
     width: 300px;
 }
 
-/*last collumn in table*/
 #maininfo td:last-child {   
     text-align: left;
     padding: 5px 5px 5px 10px;
 }
 
-/*last row in table*/
 #maininfo tr:last-child td {
     border-collapse: collapse;
     border-bottom-style: dotted;
@@ -80,7 +149,6 @@ h1 {
     vertical-align: bottom;
 }
 
-/*divider collumn in table*/
 #divider {
     border-collapse: collapse;
     border-left-style: dotted;
@@ -103,7 +171,6 @@ h1 {
     float: left;
 }
 
-/*images in table*/
 .image img {
     border-radius: 10px;    
     width: 320px;
@@ -111,10 +178,9 @@ h1 {
     margin: 10px;
 }
 
-/*gallery button*/
 #gallery img {
     width: 200px;
     height: 200px;
     margin: 20px 60px 20px 60px;
     border-radius: 50px;
-}
+}*/
