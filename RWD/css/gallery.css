@@ -23,10 +23,11 @@ h3 {
 }
 
 .col-sm-4 {
-
     padding-bottom: 15px;
-    
-    
+}
+
+img{
+    margin: 0 auto;
 }
 
 .col-sm-12 {
