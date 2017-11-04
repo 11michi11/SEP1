@@ -1,3 +1,4 @@
+
 * {
     color: darkred;
 }
@@ -7,30 +8,59 @@ h1 {
     letter-spacing: 10px;
     text-align: center;
     margin: 0px;
-    color: darkred;
     font-style: oblique;
     font-family: fantasy;
 }
 
+
+
+
+
+
+/*Here*/
 @media screen and (max-width: 767px) {
     h1 {
         font-size: 275%;
     }
+    button{
+        clear:left;
+    }
+    button a{
+        color:aqua;
+    }
 }
+
+
+
+
 
 a {
     font-style: oblique;
     font-family: fantasy;
     color: darkred;
 }
-
-/*I still can't change the background color :/ */
-li a:hover {
+button a{
+    color: black;
+}
+#myNavbar{
+    background-color: gold;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    background: none;
-    color:darkred;
-    background-color: rgba(0,0,0,0.01);
-    backface-visibility: hidden;
+}
+button{
+    height: 71px;
+    margin: 0.5%;
+    width:90px;
+    background-color: darkred;
+}
+
+
+button a:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    color: black;
+}
+button:hover{
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
 }
 
 #footer {
@@ -60,13 +90,18 @@ body {
     background-image: linear-gradient(to bottom, gold, white);
     background-repeat: no-repeat;
 }
-
+.dropdown-toggle:active, .dropdown-menu:active{
+    border: none;
+}
 .dropdown-menu {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    background: none;
-    text-shadow: 1px 1px gray;
+    background-color: darkred;
+    text-shadow: 1.5px 1.5px gold;
+    color:darkred;
 }
-
-.dropdown-menu li a {
-    color: darkred;
+.dropdown-menu li a{
+    color:darkred;
+}
+#empty{
+    height: 113px;
 }

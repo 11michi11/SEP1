@@ -10,12 +10,13 @@
     <title>Vipassana</title>
     <link href="css/headfoot.css" type="text/css" rel="stylesheet" />
     <link href="css/homepage.css" type="text/css" rel="stylesheet" />
-    <embed src="music/bgmusic.mp3" loop="true" autostart="true" hidden="true" />
+    <audio autoplay loop>
+        <source src="music/bgmusic.mp3">
+    </audio>
  </head>
 
 <body>
-    <!--navbar-fixed-top-->
-    <nav class="nabvar">
+    <nav class="nabvar navbar-default navbar-fixed-top">
         <div class="navbar-header">
             <button class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
@@ -29,8 +30,7 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
+                <button class="btn navbar-btn dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">Events
                         <span class="caret"></span>
                     </a>
@@ -67,23 +67,22 @@
                             <a href="trips/recent/pune_India.html">Trips</a>
                         </li>
                     </ul>
-                </li>
-                <li>
+                </button>
+                <button class="btn navbar-btn">
                     <a href="council.html">Council</a>
-                </li>
-                <li>
+                </button>
+                <button class="btn navbar-btn">
                     <a href="aboutus.html">About us</a>
-                </li>
-                <li>
-                    <a href="membership.html">Membership</a>
-                </li>
-                <li>
+                </button>
+                <button class="btn navbar-btn">
+                    <a href="membership.html">Join us</a>
+                </button>
+                <button class="btn navbar-btn">
                     <a href="gallery.html">Gallery</a>
-                </li>
-            </ul>
+                </button>
         </div>
     </nav>
-
+    <div id="empty"> </div>
     <div class="container">
         <div class="row">
             <img class="img-rounded" id="mainImg" src="images/sun.jpg">
