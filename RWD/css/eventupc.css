@@ -1,25 +1,32 @@
-.image {
-    max-width:320px; 
-    border-radius: 10px;
+h1 {
+    margin-bottom: 5%;
+}
+
+.images img {
+    max-width: 80%; 
+    border-radius: 5%;
+    margin: 5% 2% 5% 2%;
+    
+}
+
+.images {
+    text-align: center;
 }
 
 .leftside {
     text-align: right;
 }
 
-.info {
+.leftside, .rightside, #description {
     font-size: 1.5em;
 }
 
-.info div div:nth-child(1) {
+.leftside, #description {
     font-weight: bold;
-    text-align: right;
-    
-    
+    text-align: right;  
 }
 
-
-.info div div:nth-child(2) {
+.rightside {
     font-style: italic;
     border-left-style: solid;
     border-width: 5px;
@@ -27,19 +34,24 @@
     border-collapse: collapse;
 }
 
-.info div div:nth-child(1) {
-    
+#text {
+    text-indent: 3%;
+    text-align: justify;
 }
 
-#desc p{
+#text p:first-child {
+    padding-top: 2%;
+}
+
+
+#description p{
     text-align: left;
-    border-right-style: solid;
-    border-width: 5px;
-    border-color: darkred;
-    border-collapse: collapse;
+    margin-bottom: 0px;
 }
 
-#desc {
+
+
+#description {
     border-bottom-style: solid;
     border-width: 5px;
     border-color: darkred;
@@ -47,100 +59,11 @@
     
 }
 
-#wrapper {
-    padding: 50px;
-    padding-top: 0px;
-    height: 500px;
-    margin: 30px;
-}
 
 .clear {
     clear: both;
 }
 
-
-/*box of maininfo and description*/
-#textbox {
-    float: left;
-    width: 600px;
-    padding-left: 100px;
-    margin-left: 50px;
-    margin-right: 50px;    
-}
-
-/*signup button*/
-#maininfo img {
-    height: 125px;
-    width: 125px;
-}
-
-#maininfo table {
-    margin-left: 0px;
-    margin-right: 0px;
-    width: 600px;
-    font-size: 1.2em;
-    font-style: solid;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-}
-
-#maininfo td {
-    width: fit-content;
-    height: 20px;;
-}
-
-/*first collumn in table*/
-#maininfo td:first-child {
-    text-align: right;
-    padding: 5px;
-    font-weight: bold;
-    font-family:fantasy;
-    color: darkred;
-    letter-spacing: 2px;
-    width: 300px;
-}
-
-/*third collumn in table*/
-#maininfo td:nth-child(3) { 
-    text-align: left;
-    padding: 5px;
-}
-
-/*last row in table*/
-#maininfo tr:last-child td {
-    border-collapse: collapse;
-    border-bottom-style: dotted;
-    border-width: 5px;
-    border-color: darkred;
-    text-align: left;
-}
-
-/*divider collumn in table*/
-#divider {
-    border-collapse: collapse;
-    border-left-style: dotted;
-    border-width: 5px;
-    border-color: darkred;        
-}
-
-/*box with images*/
-#images {
-    width: fit-content;
-    margin: 10px;
-    float: left;
-}
-
-#images img {
-    border-radius: 10px;
-    width: 320px;
-    height: 240px;
-    margin: 10px;
-}
-
-#description p {
-    text-indent: 30px;
-    text-align: justify;
-}
 
 #quote {
     font-style: italic;
