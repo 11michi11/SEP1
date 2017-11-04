@@ -1,6 +1,6 @@
-h1{
+h1 {
     font-style: oblique;
-    font-family:fantasy;
+    font-family: fantasy;
     color: darkred;
     text-align: center;
     font-size: 500%;
@@ -9,16 +9,15 @@ h1{
 h3 {
     font-size: 200%;
     font-style: oblique;
-    font-family:fantasy;
+    font-family: fantasy;
     color: darkred;
 }
 
 .photos a:hover {
-    font-size: 100% !important; 
+    font-size: 100% !important;
 }
 
 #myCarousel {
-
     width: 100%;
 }
 
@@ -26,21 +25,14 @@ h3 {
     padding-bottom: 15px;
 }
 
-img{
+img {
     margin: 0 auto;
 }
 
 .col-sm-12 {
-
     padding-bottom: 40px;
 }
 
 a {
     font-size: 125%;
 }
-
-
-
-
-
-
