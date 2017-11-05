@@ -13,93 +13,133 @@
 </head>
 
 <body>
-    <header><a href="index.html"> <img id="logo" src="images/VipassanaLogo.png" alt="logo"></a>
-        <ul id="navBar">
-            <li>
-                <div class="dropdown1">
-                    <div class="dropdown-button1">Events</div>
-                    <div class="dropdown-content1">
-                        <ul id="list">
-                                <li><b>Upcoming</b></li>
-                                <li><a href="lecturesupc.html">Lectures</a></li>
-                                <li><a href="seminarsupc.html">Seminars</a></li>
-                                <li><a href="workshopsupc.html">Workshops</a></li>
-                                <li><a href="trips/upcoming/loei_Thailand.html">Trips</a></li>
-                                <li>    </li>
-                                <li><b>Previous</b></li>
-                                <li><a href="lecturesprev.html">Lectures</a></li>
-                                <li><a href="seminarsprev.html">Seminars</a></li>
-                                <li><a href="workshopsprev.html">Workshops</a></li>
-                                <li><a href="trips/recent/pune_India.html">Trips</a></li>
-                            </ul>
-                        </div>
-                    </div>
-            </li>
-            <li> <a href="council.html">Council</a></li>
-            <li> <a href="aboutus.html">About us</a></li>
-            <li> <a href="membership.html">Membership</a></li>
-            <li> <a href="gallery.html">Gallery</a></li>
-        </ul>
-    </header>
+    <!--navbar-fixed-top-->
+    <nav class="nabvar">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-left" href="index.html">
+                <img src="images/VipassanaLogo.png" alt="logo">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Events
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <b>Upcoming</b>
+                        </li>
+                        <li>
+                            <a href="lecturesupc.html">Lectures</a>
+                        </li>
+                        <li>
+                            <a href="seminarsupc.html">Seminars</a>
+                        </li>
+                        <li>
+                            <a href="workshopsupc.html">Workshops</a>
+                        </li>
+                        <li>
+                            <a href="trips/upcoming/loei_Thailand.html">Trips</a>
+                        </li>
+                        <li> </li>
+                        <li>
+                            <b>Previous</b>
+                        </li>
+                        <li>
+                            <a href="lecturesprev.html">Lectures</a>
+                        </li>
+                        <li>
+                            <a href="seminarsprev.html">Seminars</a>
+                        </li>
+                        <li>
+                            <a href="workshopsprev.html">Workshops</a>
+                        </li>
+                        <li>
+                            <a href="trips/recent/pune_India.html">Trips</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="council.html">Council</a>
+                </li>
+                <li>
+                    <a href="aboutus.html">About us</a>
+                </li>
+                <li>
+                    <a href="membership.html">Membership</a>
+                </li>
+                <li>
+                    <a href="gallery.html">Gallery</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     
-    <div class="clear"></div>
-    
-    <h1>LECTURES - recent</h1>
-
-    <div id="wrapper">
-        <ol id="eventList">
-            <li><div class="cloud">
-                    <p class="eventName">Reincarnation and karma</p>
-                    <p class="date">20/09/2017</p>
-                </div>
-                <div class="description">
-                    <p>Daniel Brust exposed that a deepened understanding and
-                         experience of the reality of successive earth lives
-                          formed the basis for true spiritual knowledge of the
-                           relationship of human beings and the cosmos.
-                        <br>
-                        <a href="lectures/recent/reincarnationandkarma.html">Read more</a>
-                    </p>
-                    
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12"><h1>LECTURES - recent</h1></div>
+        </div>
+        <div class="row list">
+            <div class="col-xs-12 col-sm-2 col-sm-offset-1">
+                <p id="title">Karma</p>
+                <p id="date">30/08/2017</p>
                 <div class="clear"></div>
-            </li>
-            <li><div class="cloud">
-                    <p class="eventName">Astral Projection</p>
-                    <p class="date">11/09/2017</p>
-                </div>
-                <div class="description">
-                    <p>A difficult subject when studying Buddhism is the
-                         introduction to the various states of consciousness.
-                          In itself, it seems relatively straightforward;
-                           practices such as meditation and introspection
-                            allows for the believer to achieve enlightenment
-                             through self-discovery. 
-                        <br>
-                        <a href="lectures/recent/astralprojection.html">Read more</a>
-                    </p> 
-                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7" id="desc">
+                <p>Daniel Brust exposed that a deepened understanding and
+                    experience of the reality of successive earth lives
+                     formed the basis for true spiritual knowledge of the
+                      relationship of human beings and the cosmos.
+                   <br>
+                   <a href="lectures/recent/reincarnationandkarma.html">Read more</a>
+               </p>  
+            </div>
+        </div>
+        <div class="row list">
+            <div class="col-xs-12 col-sm-2 col-sm-offset-2">
+                <p id="title">Astral Projection</p>
+                <p id="date">28/10/2017</p>
                 <div class="clear"></div>
-            </li>
-            <li><div class="cloud">
-                    <p class="eventName">Dhamma teaching</p>
-                    <p class="date">05/09/2017</p>
-                </div>
-                <div class="description">
-                    <p>The lectures explain the Dhamma from the perspective
-                         of Theravada Buddhism, the oldest continuous Buddhist
-                          school, whose scriptures give the most accurate
-                           picture of what the historical Buddha himself
-                            actually taught. The lectures are intended
-                             to be basic enough to be of value to beginners
-                              without previous study of the Dhamma.
-                         <br>
-                         <a href="lectures/recent/buddhasteaching.html">Read more</a>
-                    </p>        
-                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6" id="desc">
+                <p>A difficult subject when studying Buddhism is the
+                    introduction to the various states of consciousness.
+                     In itself, it seems relatively straightforward;
+                      practices such as meditation and introspection
+                       allows for the believer to achieve enlightenment
+                        through self-discovery. 
+                   <br>
+                   <a href="lectures/recent/astralprojection.html">Read more</a>
+               </p>   
+            </div>
+        </div>
+        <div class="row list">
+            <div class="col-xs-12 col-sm-2 col-sm-offset-1">
+                <p id="title">Dhamma teaching</p>
+                <p id="date">20/11/2017</p>
                 <div class="clear"></div>
-            </li>
-        </ol>
+            </div>
+            <div class="col-xs-12 col-sm-7" id="desc">
+                <p>The lectures explain the Dhamma from the perspective
+                    of Theravada Buddhism, the oldest continuous Buddhist
+                     school, whose scriptures give the most accurate
+                      picture of what the historical Buddha himself
+                       actually taught. The lectures are intended
+                        to be basic enough to be of value to beginners
+                         without previous study of the Dhamma.
+                    <br>
+                    <a href="lectures/recent/buddhasteaching.html">Read more</a>
+               </p>  
+            </div>
+        </div>
     </div>
     
     <div class="row" id="footer">
