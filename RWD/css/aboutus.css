@@ -17,14 +17,27 @@ p {
     font-family:inherit;
     color: black;
 }
-.Budha {
+.Budha img {
     height: auto;
     max-width: 90%;
+    align-self: center;
+}
+
+.Budha {
+    text-align: center;
 }
 
 #title {
     border-top: 1px solid darkred;  
 }
+
+
+@media screen and (max-width: 768px) {
+    .days p {
+        text-align: right;       
+    }
+}
+
 
 
 
