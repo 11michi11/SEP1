@@ -15,6 +15,14 @@ h1 {
     text-align: center;
 }
 
+#signup img {
+    width: 76px;
+}
+
+#signup {
+    text-align: center;
+}
+
 @media screen and (min-width: 768px) and (max-width: 991px) {
     .images img {
         margin: 1%;
