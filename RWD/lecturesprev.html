@@ -14,74 +14,75 @@
 
 <body>
     <!--navbar-fixed-top-->
-    <nav class="nabvar">
-        <div class="navbar-header">
-            <button class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-left" href="index.html">
-                <img src="images/VipassanaLogo.png" alt="logo">
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Events
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <b>Upcoming</b>
-                        </li>
-                        <li>
-                            <a href="lecturesupc.html">Lectures</a>
-                        </li>
-                        <li>
-                            <a href="seminarsupc.html">Seminars</a>
-                        </li>
-                        <li>
-                            <a href="workshopsupc.html">Workshops</a>
-                        </li>
-                        <li>
-                            <a href="trips/upcoming/loei_Thailand.html">Trips</a>
-                        </li>
-                        <li> </li>
-                        <li>
-                            <b>Previous</b>
-                        </li>
-                        <li>
-                            <a href="lecturesprev.html">Lectures</a>
-                        </li>
-                        <li>
-                            <a href="seminarsprev.html">Seminars</a>
-                        </li>
-                        <li>
-                            <a href="workshopsprev.html">Workshops</a>
-                        </li>
-                        <li>
-                            <a href="trips/recent/pune_India.html">Trips</a>
-                        </li>
-                    </ul>
+    <nav class="nabvar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <li class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </li>
-                <li>
-                    <a href="council.html">Council</a>
-                </li>
-                <li>
-                    <a href="aboutus.html">About us</a>
-                </li>
-                <li>
-                    <a href="membership.html">Membership</a>
-                </li>
-                <li>
-                    <a href="gallery.html">Gallery</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                <a class="navbar-left" href="index.html">
+                    <img src="images/VipassanaLogo.png" alt="logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown not_dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Events
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <b>Upcoming</b>
+                            </li>
+                            <li>
+                                <a href="lecturesupc.html">Lectures</a>
+                            </li>
+                            <li>
+                                <a href="seminarsupc.html">Seminars</a>
+                            </li>
+                            <li>
+                                <a href="workshopsupc.html">Workshops</a>
+                            </li>
+                            <li>
+                                <a href="trips/upcoming/loei_Thailand.html">Trips</a>
+                            </li>
+                            <li> </li>
+                            <li>
+                                <b>Previous</b>
+                            </li>
+                            <li>
+                                <a href="lecturesprev.html">Lectures</a>
+                            </li>
+                            <li>
+                                <a href="seminarsprev.html">Seminars</a>
+                            </li>
+                            <li>
+                                <a href="workshopsprev.html">Workshops</a>
+                            </li>
+                            <li>
+                                <a href="trips/recent/pune_India.html">Trips</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="not_dropdown">
+                        <a href="council.html">Council</a>
+                    </li>
+                    <li class="not_dropdown">
+                        <a href="aboutus.html">About us</a>
+                    </li>
+                    <li class="not_dropdown">
+                        <a href="membership.html">Join us</a>
+                    </li>
+                    <li class="not_dropdown">
+                        <a href="gallery.html">Gallery</a>
+                    </li>
+    
+    
+                </ul>
+            </div>
+        </nav>
+        <div id="empty"></div>
     
     <div class="container">
         <div class="row">
@@ -143,23 +144,23 @@
     </div>
     
     <div class="row" id="footer">
-        <div class="col-sm-1 col-xs-4">
+        <div class="col-sm-1 col-xs-6 footerItem">
             <a href="https://www.facebook.com/Vipassanaorganisation/" target="blank">
                 <img src="images/fbLogo.png" alt="fbLogo">
             </a>
         </div>
-        <div class="col-sm-1 col-xs-4">
+        <div class="col-sm-1 col-xs-6 footerItem">
             <a href="https://twitter.com/vipassanaorg" target="blank">
                 <img src="images/twitterlogo.png" alt="twitterlogo">
             </a>
         </div>
-        <div class="col-sm-1 col-xs-4">
+        <div class="col-sm-2 col-xs-6 footerItem">
             <a href="feedback.html" target="blank">
-                <img id="feedbackImg" src="images/feedback.png" alt="feedbacklogo">
+                <img src="images/feedback.png" alt="feedbacklogo">
             </a>
         </div>
-        <div class="col-sm-7 hidden-xs"></div>
-        <div class="col-sm-2 col-xs-12 text-center" id="footerinfo">
+        <div class="col-sm-6 hidden-xs"></div>
+        <div class="col-sm-2 col-xs-6 text-center footerItem" id="footerinfo">
             <p> &#9400; Copyright - Vipassana</p>
             <p> Contact -
                 <a href="mailto:266494@via.dk">Mail us</a>
