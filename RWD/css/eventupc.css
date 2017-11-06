@@ -69,3 +69,11 @@ h1 {
     font-style: italic;
 }
 
+#signup img {
+    width: 76px;
+}
+
+#signup {
+    
+    text-align: right;
+}
