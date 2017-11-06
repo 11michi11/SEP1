@@ -13,6 +13,10 @@ h1{
     font-size: 1.2em;
 }
 
+.fields {
+    width: 100%;
+}
+
 .subres{
     background-color: darkred;
     width: 100%;
