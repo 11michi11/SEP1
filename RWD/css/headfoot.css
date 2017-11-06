@@ -107,6 +107,9 @@ body {
     height: 113px;
 }
 @media screen and (max-width: 767px) {
+    .navbar-nav>.open>a {
+        background-color: gold !important;
+    }
     .not_dropdown{
     margin-top: 0px;
     font-size: 110%;
