@@ -1,6 +1,6 @@
 h4,
 h3 {
-    font-style: oblique;
+    /* font-style: oblique; */
     font-family: fantasy;
     color: darkred;
     letter-spacing: 2px;
@@ -11,6 +11,7 @@ p {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     text-align: justify;
+    color: black;
 }
 
 .news-title {
@@ -24,7 +25,7 @@ p {
 }
 
 #myCarousel{
-    width: 40%;
+    width: 70%;
     padding-top: 10px;
 }
 
