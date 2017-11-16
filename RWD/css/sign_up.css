@@ -23,7 +23,12 @@ p, textarea, .subres:hover{
     font-family:serif;
     color: whitesmoke;
 }
-
+.center{
+    text-align: center;
+}
+.fields{
+    width: 100%;
+}
 textarea{
     width:100%;
     height: 50px;
