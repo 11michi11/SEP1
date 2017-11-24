@@ -3,11 +3,8 @@ swim("#fish1Id");
 swim("#fish2Id");
 
 $("#fish2Id").on("mouseenter", function() {
-    var possibleWidth = $(window).width()-$("#fish2Id").width();
-    var possibleHieght = $(window).height()-$("#fish2Id").height();
-    
-    var x = Math.floor(Math.random()*possibleWidth);
-    var y = Math.floor(Math.random()*possibleHieght);
+    var x = randomX("#fish2Id");
+    var y = randomY("#fish2Id");
     
     $("#fish2Id").stop(true).animate({left: x, top: y}, "fast", function() {
         swim("#fish2Id");        

@@ -6,6 +6,10 @@ animateBubble("#bubble1Id");
 animateBubble("#bubble2Id");
 animateBubble("#bubble3Id");
 
+swim("#fish1Id");
+swim("#fish2Id");
+
+
 function animateBubble(bubbleId) {
     initBubble(bubbleId);
 
@@ -21,19 +25,11 @@ function animateBubble(bubbleId) {
 function initBubble(bubbleId) {
     $(bubbleId).show();
     var top = $(window).height();
-    var left = getRandX();
+    var left = randomX(bubbleId);
     $(bubbleId).offset({
         top: top,
         left: left
     });
-}
-
-function getRandX() {
-    var screenWidth = $(window).width();
-    var imgWidth = 100;
-    var maxVal = screenWidth - imgWidth;
-    console.log(maxVal);
-    return Math.floor(Math.random() * maxVal);
 }
 
 function addPoping(bubbleId) {
@@ -45,33 +41,17 @@ function addPoping(bubbleId) {
     });
 }
 
-
-swim("#fish1Id");
-swim("#fish2Id");
-
 $("#fish2Id").on("mouseenter", function () {
-    var possibleWidth = $(window).width() - $("#fish2Id").width();
-    var possibleHieght = $(window).height() - $("#fish2Id").height();
 
-    var x = Math.floor(Math.random() * possibleWidth);
-    var y = Math.floor(Math.random() * possibleHieght);
+    var x = randomX("#fish2Id");
+    var y = randomY("#fish2Id");
 
     $("#fish2Id").stop(true).animate({ left: x, top: y }, "fast", function () {
         swim("#fish2Id");
     });
 });
 
-function randomX(IdRef) {
-    var x;
-    x = Math.floor(Math.random() * ($(window).width() - $(IdRef).width()));
-    return x;
-}
 
-function randomY(IdRef) {
-    var y;
-    y = Math.floor(Math.random() * ($(window).height() - $(IdRef).height()));
-    return y;
-}
 function swim(IdRef) {
     var x, y, v, moveX, moveY;
     x = randomX(IdRef);
@@ -84,4 +64,16 @@ function swim(IdRef) {
     else
         v = Math.sqrt(Math.pow(moveX, 2) + Math.pow(moveY, 2)) * 17;
     $(IdRef).animate({ left: x, top: y }, v, "linear", function () { swim(IdRef); });
+}
+
+function randomX(IdRef) {
+    var x;
+    x = Math.floor(Math.random() * ($(window).width() - $(IdRef).width()));
+    return x;
+}
+
+function randomY(IdRef) {
+    var y;
+    y = Math.floor(Math.random() * ($(window).height() - $(IdRef).height()));
+    return y;
 }

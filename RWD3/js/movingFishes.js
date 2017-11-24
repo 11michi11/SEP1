@@ -1,9 +1,3 @@
-//$("#fish1Id").animate(function () {
-//    swim(this);
-//}, "slow", "linear");
-//$("#fish2Id").animate(function () {
-//    swim(this);
-//}, "slow", "linear");
 swim("#fish1Id");
 swim("#fish2Id");
 
@@ -29,16 +23,5 @@ function swim(IdRef) {
         v=Math.sqrt(Math.pow(moveX,2)+Math.pow(moveY,2))*3;
     else
         v=Math.sqrt(Math.pow(moveX,2)+Math.pow(moveY,2))*17;
-    $(IdRef).animate({left: x, top: y}, v, "linear", function(){swim(IdRef);});
+    $(IdRef).animate({left: x, top: y}, v, "swing", function(){swim(IdRef);});
 }
-//function swim(IdRef) {
-//    var x, y;
-//    x=randomX(IdRef);
-//    y=randomY(IdRef);
-//    $(IdRef).animate({
-//        left: x,
-//         top: y
-//    },"slow", function() {
-//        swim(IdRef);
-//    });
-//}
