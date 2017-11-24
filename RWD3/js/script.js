@@ -21,19 +21,11 @@ function animateBubble(bubbleId) {
 function initBubble(bubbleId) {
     $(bubbleId).show();
     var top = $(window).height();
-    var left = getRandX();
+    var left = randomX(bubbleId);
     $(bubbleId).offset({
         top: top,
         left: left
     });
-}
-
-function getRandX() {
-    var screenWidth = $(window).width();
-    var imgWidth = 100;
-    var maxVal = screenWidth - imgWidth;
-    console.log(maxVal);
-    return Math.floor(Math.random() * maxVal);
 }
 
 function addPoping(bubbleId) {
@@ -85,3 +77,20 @@ function swim(IdRef) {
         v = Math.sqrt(Math.pow(moveX, 2) + Math.pow(moveY, 2)) * 17;
     $(IdRef).animate({ left: x, top: y }, v, "linear", function () { swim(IdRef); });
 }
+
+$(window).click(function (event) {
+    console.log()
+    $("#fish1Id").stop(true);
+    $("#fish1Id").animate({ top: event.pageY, left: event.pageX }, swim("#fish1Id"));
+});
+
+
+$("#fish1Id").dblclick(function () {
+    console.log("!!!");
+    $(this).height(400);
+    $(this).width(400);
+    setTimeout(function() {
+        $("#fish1Id").height(250);
+        $("#fish1Id").width(250);
+    }, 3000);
+});
