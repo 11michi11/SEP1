@@ -66,6 +66,23 @@ function swim(IdRef) {
     $(IdRef).animate({ left: x, top: y }, v, "linear", function () { swim(IdRef); });
 }
 
+$(window).click(function (event) {
+    console.log()
+    $("#fish1Id").stop(true);
+    $("#fish1Id").animate({ top: event.pageY, left: event.pageX }, swim("#fish1Id"));
+});
+
+
+$("#fish1Id").dblclick(function () {
+    console.log("!!!");
+    $(this).height(400);
+    $(this).width(400);
+    setTimeout(function() {
+        $("#fish1Id").height(250);
+        $("#fish1Id").width(250);
+    }, 3000);
+});
+
 function randomX(IdRef) {
     var x;
     x = Math.floor(Math.random() * ($(window).width() - $(IdRef).width()));
