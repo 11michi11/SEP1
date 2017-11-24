@@ -19,14 +19,16 @@ function randomY(IdRef) {
     return y;
 }
 function swim(IdRef) {
-    var x, y, v;
+    var x, y, v, moveX, moveY;
     x=randomX(IdRef);
     y=randomY(IdRef);
+    moveX=x-$(IdRef).offset().left;
+    moveY=y-$(IdRef).offset().top;
     
     if(IdRef==="#fish1Id")
-        v=Math.sqrt(Math.pow(x-($(IdRef).offset().left),2)+Math.pow(y-(($(IdRef).offset().top),2)));
+        v=Math.sqrt(Math.pow(moveX,2)+Math.pow(moveY,2))*3;
     else
-        v=Math.sqrt(Math.pow(x-($(IdRef).offset().left),2)+Math.pow(y-(($(IdRef).offset().top),2)))*5;
+        v=Math.sqrt(Math.pow(moveX,2)+Math.pow(moveY,2))*17;
     $(IdRef).animate({left: x, top: y}, v, "linear", function(){swim(IdRef);});
 }
 //function swim(IdRef) {
