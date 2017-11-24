@@ -1,11 +1,18 @@
-//$("#fish1Id").animate(function () {
-//    swim(this);
-//}, "slow", "linear");
-//$("#fish2Id").animate(function () {
-//    swim(this);
-//}, "slow", "linear");
+
 swim("#fish1Id");
 swim("#fish2Id");
+
+$("#fish2Id").on("mouseenter", function() {
+    var possibleWidth = $(window).width()-$("#fish2Id").width();
+    var possibleHieght = $(window).height()-$("#fish2Id").height();
+    
+    var x = Math.floor(Math.random()*possibleWidth);
+    var y = Math.floor(Math.random()*possibleHieght);
+    
+    $("#fish2Id").stop(true).animate({left: x, top: y}, "fast", function() {
+        swim("#fish2Id");        
+    });
+});
 
 function randomX(IdRef) {
     var x;
@@ -31,14 +38,3 @@ function swim(IdRef) {
         v=Math.sqrt(Math.pow(moveX,2)+Math.pow(moveY,2))*17;
     $(IdRef).animate({left: x, top: y}, v, "linear", function(){swim(IdRef);});
 }
-//function swim(IdRef) {
-//    var x, y;
-//    x=randomX(IdRef);
-//    y=randomY(IdRef);
-//    $(IdRef).animate({
-//        left: x,
-//         top: y
-//    },"slow", function() {
-//        swim(IdRef);
-//    });
-//}
