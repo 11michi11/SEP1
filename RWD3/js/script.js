@@ -68,7 +68,39 @@ function swim(IdRef) {
 
 $(window).click(function (event) {
     console.log();
-    $("#fish1Id").stop(true).animate({ top: event.pageY, left: event.pageX }, function () {swim("#fish1Id");});
+    var x,y;
+    if ((($(window).width()-event.pageX)<125 || event.pageX<125))
+    {
+        if (event.pageX<125)
+        {
+            x = 0;            
+        }
+        else
+        {
+            x = $(window).width()-250;
+        }
+    }
+    else
+    {
+        x = event.pageX-125;
+    }
+    if ((($(window).height()-event.pageY)<125 || event.pageY<125))
+    {
+        if (event.pageY<125)
+        {
+            y = 0;            
+        }
+        else
+        {
+            y = $(window).height()-250;
+        }
+    }
+    else
+    {
+        y = event.pageY-125;
+    }
+    
+    $("#fish1Id").stop(true).animate({ top: y, left: x }, function () {swim("#fish1Id");});
 });
 
 
