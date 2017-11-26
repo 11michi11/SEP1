@@ -67,9 +67,8 @@ function swim(IdRef) {
 }
 
 $(window).click(function (event) {
-    console.log()
-    $("#fish1Id").stop(true);
-    $("#fish1Id").animate({ top: event.pageY, left: event.pageX }, swim("#fish1Id"));
+    console.log();
+    $("#fish1Id").stop(true).animate({ top: event.pageY, left: event.pageX }, function () {swim("#fish1Id");});
 });
 
 
