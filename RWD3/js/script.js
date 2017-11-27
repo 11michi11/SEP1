@@ -8,7 +8,7 @@ animateBubble("#bubble3Id");
 
 swim("#fish1Id");
 swim("#fish2Id");
-
+swim("#fish3Id");
 
 function animateBubble(bubbleId) {
     initBubble(bubbleId);
@@ -46,7 +46,10 @@ $("#fish2Id").on("mouseenter", function () {
     var x = randomX("#fish2Id");
     var y = randomY("#fish2Id");
 
-    $("#fish2Id").stop(true).animate({ left: x, top: y }, "fast", function () {
+    $("#fish2Id").stop(true).animate({
+        left: x,
+        top: y
+    }, "fast", function () {
         swim("#fish2Id");
     });
 });
@@ -63,44 +66,42 @@ function swim(IdRef) {
         v = Math.sqrt(Math.pow(moveX, 2) + Math.pow(moveY, 2)) * 3;
     else
         v = Math.sqrt(Math.pow(moveX, 2) + Math.pow(moveY, 2)) * 17;
-    $(IdRef).animate({ left: x, top: y }, v, "linear", function () { swim(IdRef); });
+    $(IdRef).animate({
+        left: x,
+        top: y
+    }, v, "linear", function () {
+        swim(IdRef);
+    });
 }
 
 $(window).click(function (event) {
     console.log();
-    var x,y;
-    if ((($(window).width()-event.pageX)<125 || event.pageX<125))
-    {
-        if (event.pageX<125)
-        {
-            x = 0;            
+    var x, y;
+    if ((($(window).width() - event.pageX) < 125 || event.pageX < 125)) {
+        if (event.pageX < 125) {
+            x = 0;
+        } else {
+            x = $(window).width() - 250;
         }
-        else
-        {
-            x = $(window).width()-250;
+    } else {
+        x = event.pageX - 125;
+    }
+    if ((($(window).height() - event.pageY) < 125 || event.pageY < 125)) {
+        if (event.pageY < 125) {
+            y = 0;
+        } else {
+            y = $(window).height() - 250;
         }
+    } else {
+        y = event.pageY - 125;
     }
-    else
-    {
-        x = event.pageX-125;
-    }
-    if ((($(window).height()-event.pageY)<125 || event.pageY<125))
-    {
-        if (event.pageY<125)
-        {
-            y = 0;            
-        }
-        else
-        {
-            y = $(window).height()-250;
-        }
-    }
-    else
-    {
-        y = event.pageY-125;
-    }
-    
-    $("#fish1Id").stop(true).animate({ top: y, left: x }, function () {swim("#fish1Id");});
+
+    $("#fish1Id").stop(true).animate({
+        top: y,
+        left: x
+    }, function () {
+        swim("#fish1Id");
+    });
 });
 
 
@@ -108,7 +109,7 @@ $("#fish1Id").dblclick(function () {
     console.log("!!!");
     $(this).height(400);
     $(this).width(400);
-    setTimeout(function() {
+    setTimeout(function () {
         $("#fish1Id").height(250);
         $("#fish1Id").width(250);
     }, 3000);
@@ -125,3 +126,42 @@ function randomY(IdRef) {
     y = Math.floor(Math.random() * ($(window).height() - $(IdRef).height()));
     return y;
 }
+
+$('html').keypress(function (e) {
+    $("#fish4Id").stop(true);
+    switch (e.key) {
+        case 'ArrowUp':
+            if ($("#fish4Id").offset().top > 5) {
+                $("#fish4Id").animate({
+                    top: '-=100'
+                });
+            }
+            break;
+        case 'ArrowDown':
+            var bottomPos = $("#fish4Id").offset().top + $("#fish4Id").outerHeight();
+            if ($(window).height() - bottomPos > 5) {
+
+                $("#fish4Id").animate({
+                    top: '+=100'
+                });
+            }
+            break;
+        case 'ArrowRight':
+        var rightPos = $("#fish4Id").offset().left + $("#fish4Id").outerWidth();
+        
+            if ($(window).width() - rightPos > 5) {
+                $("#fish4Id").animate({
+                    left: '+=100'
+                });
+            }
+            break;
+        case 'ArrowLeft':
+            if ($("#fish4Id").offset().left > 5) {
+
+                $("#fish4Id").animate({
+                    left: '-=100'
+                });
+            }
+            break;
+    }
+})

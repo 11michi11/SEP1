@@ -1,6 +1,7 @@
 
 swim("#fish1Id");
 swim("#fish2Id");
+swim("#fish3Id");
 
 $("#fish2Id").on("mouseenter", function() {
     var x = randomX("#fish2Id");

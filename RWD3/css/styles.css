@@ -10,8 +10,8 @@ img {
 #fish1Id {
     left: 250px;
     top: 250px;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 170px;
 }
 
 #fish2Id {
@@ -21,7 +21,20 @@ img {
     height: 150px;
 }
 
+#fish3Id {
+    left: 500px;
+    top: 250px;
+    width: 200px;
+    height: 200px;
+}
+#fish4Id {
+    left: 500px;
+    top: 250px;
+    width: 400px;
+    height: 400px;
+}
+
 .bubbleClass {
-    width: 100px;
-    height: 100px;
+    width: 65px;
+    height: 65px;
 }

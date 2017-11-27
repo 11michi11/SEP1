@@ -1,5 +1,6 @@
 swim("#fish1Id");
 swim("#fish2Id");
+swim("#fish3Id");
 
 function randomX(IdRef) {
     var x;
