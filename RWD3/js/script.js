@@ -1,3 +1,4 @@
+var count=0;
 addPoping("#bubble1Id");
 addPoping("#bubble2Id");
 addPoping("#bubble3Id");
@@ -199,6 +200,8 @@ function checkCollisions(name) {
 }
 
 function die(fish) {
+    
+    
     fish.stop();
     fish.attr("dead", 'true');
     console.log(fish.attr("dead"));
@@ -217,6 +220,8 @@ function die(fish) {
             }, 7000, function(){swimIn(fish)});
         }
     });
+    count++;
+    document.getElementById("kill").innerHTML=count;
 };
 
 function swimIn(fish){
