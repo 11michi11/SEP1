@@ -48,4 +48,7 @@ img {
 p{
     text-align: right;
     color:red;
+    z-index: 1;
+    font-size: 300%;
+    font-weight: bold;
 }
