@@ -127,7 +127,7 @@ function randomY(IdRef) {
     return y;
 }
 
-$('html').keypress(function (e) {
+$('html').keydown(function (e) {
     $("#fish4Id").stop(true);
     switch (e.key) {
         case 'ArrowUp':
@@ -147,8 +147,7 @@ $('html').keypress(function (e) {
             }
             break;
         case 'ArrowRight':
-        var rightPos = $("#fish4Id").offset().left + $("#fish4Id").outerWidth();
-        
+            var rightPos = $("#fish4Id").offset().left + $("#fish4Id").outerWidth();
             if ($(window).width() - rightPos > 5) {
                 $("#fish4Id").animate({
                     left: '+=100'
@@ -168,16 +167,18 @@ $('html').keypress(function (e) {
 
 $("#pressButtonId").click(function () {
     $("#fish3Id").stop();
-    $("#fish3Id").animate({  borderSpacing: -90 }, {
-        step: function(now,fx) {
-        //   $(this).css('-webkit-transform','rotate('+now+'deg)'); 
-        //   $(this).css('-moz-transform','rotate('+now+'deg)');
-          $("#fish3Id").css('transform','rotate('+now+'deg)');
+    $("#fish3Id").attr("src", 'images/fish3dead.png');
+    $("#fish3Id").animate({
+        borderSpacing: -90
+    }, {
+        step: function (now, fx) {
+            $("#fish3Id").css('transform', 'rotate(' + now + 'deg)');
         },
-        duration:'slow'
-    }, function () {
-        alert("down");
-        $("#fish3Id").animate({top: '-= 100'});
+        duration: 'slow',
+        complete: function () {
+            $("#fish3Id").animate({
+                top: -275
+            }, 5000);
+        }
     });
-    
 });
