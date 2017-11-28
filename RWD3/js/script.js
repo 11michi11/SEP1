@@ -83,7 +83,6 @@ function swim(IdRef) {
 }
 
 $(window).click(function (event) {
-    console.log();
     var x, y;
     if ((($(window).width() - event.pageX) < 125 || event.pageX < 125)) {
         if (event.pageX < 125) {
@@ -114,7 +113,6 @@ $(window).click(function (event) {
 
 
 $("#fish1Id").dblclick(function () {
-    console.log("!!!");
     $(this).height(400);
     $(this).width(400);
     setTimeout(function () {
@@ -193,7 +191,6 @@ function checkFish(oct, fish) {
 function die(fish) {
     fish.stop();
     fish.attr("dead", 'true');
-    console.log(fish.attr("dead"));
     var fishName = fish.attr("id").substring(0,5);
     fish.attr("src", 'images/' + fishName + 'dead.png');
     fish.animate({
