@@ -163,22 +163,43 @@ $('html').keydown(function (e) {
             }
             break;
     }
-})
+});
 
-$("#pressButtonId").click(function () {
-    $("#fish3Id").stop();
-    $("#fish3Id").attr("src", 'images/fish3dead.png');
-    $("#fish3Id").animate({
+function checkCollisions(name) {
+    var octopus = $("#fish4Id");
+    var nemo = $("#fish1Id");
+    var dory = $("#fish2Id");
+    var unicorn = $("#fish3Id");
+
+    var octTop = octopus.offset().top;
+    var octBot = octopus.offset().top + $("#fish4Id").outerHeight();
+    var octLef = octopus.offset().left;
+    var octRig = octopus.offset().left + $("#fish4Id").outerWidth();
+
+    var nemoTop = nemo.offset().top;
+    var nemoBot = nemo.offset().top + $("#fish4Id").outerHeight();
+    var nemoLef = nemo.offset().left;
+    var nemoRig = nemo.offset().left + $("#fish4Id").outerWidth();
+
+    if (octBot > nemoTop && octTop < nemoBot && octRig > nemoLef && octLef < nemoRig)
+        console.log("collision" + name);
+}
+
+function dying(fishId) {
+    var fish = $(fishId);
+    fish.stop();
+    fish.attr("src", 'images/fish3dead.png');
+    fish.animate({
         borderSpacing: -90
     }, {
         step: function (now, fx) {
-            $("#fish3Id").css('transform', 'rotate(' + now + 'deg)');
+            fish.css('transform', 'rotate(' + now + 'deg)');
         },
         duration: 'slow',
         complete: function () {
-            $("#fish3Id").animate({
+            fish.animate({
                 top: -275
-            }, 5000);
+            }, 7000);
         }
     });
 });
