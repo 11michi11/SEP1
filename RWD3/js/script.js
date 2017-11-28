@@ -10,6 +10,12 @@ swim("#fish1Id");
 swim("#fish2Id");
 swim("#fish3Id");
 
+$("#fish1Id").attr('dead', 'false');
+console.log($("#fish1Id"));
+console.log($("#fish1Id").attr('dead'));
+$("#fish2Id").attr('dead', 'false');
+$("#fish3Id").attr('dead', 'false');
+
 function animateBubble(bubbleId) {
     initBubble(bubbleId);
 
@@ -172,10 +178,10 @@ function checkCollisions(name) {
     var dory = $("#fish2Id");
     var unicorn = $("#fish3Id");
 
-    var octTop = octopus.offset().top;
-    var octBot = octopus.offset().top + $("#fish4Id").outerHeight();
-    var octLef = octopus.offset().left;
-    var octRig = octopus.offset().left + $("#fish4Id").outerWidth();
+    var octTop = octopus.offset().top-30;
+    var octBot = octopus.offset().top + $("#fish4Id").outerHeight()-30;
+    var octLef = octopus.offset().left-30;
+    var octRig = octopus.offset().left + $("#fish4Id").outerWidth()-30;
 
     var nemoTop = nemo.offset().top;
     var nemoBot = nemo.offset().top + $("#fish1Id").outerHeight();
@@ -192,19 +198,20 @@ function checkCollisions(name) {
     var unicornLef = unicorn.offset().left;
     var unicornRig = unicorn.offset().left + $("#fish3Id").outerWidth();
 
-
-    if (octBot > nemoTop && octTop < nemoBot && octRig > nemoLef && octLef < nemoRig)
+    if (octBot > nemoTop && octTop < nemoBot && octRig > nemoLef && octLef < nemoRig && nemo.attr('dead')!=='true')
         die(nemo);
         
-    if (octBot > doryTop && octTop < doryBot && octRig > doryLef && octLef < doryRig)
+    if (octBot > doryTop && octTop < doryBot && octRig > doryLef && octLef < doryRig && dory.attr('dead') !== 'true')
         die(dory);
         
-    if (octBot > unicornTop && octTop < unicornBot && octRig > unicornLef && octLef < unicornRig)
+    if (octBot > unicornTop && octTop < unicornBot && octRig > unicornLef && octLef < unicornRig && unicorn.attr('dead') !== 'true')
         die(unicorn);
 }
 
 function die(fish) {
     fish.stop();
+    fish.attr("dead", 'true');
+    console.log(fish.attr("dead"));
     var fishName = fish.attr("id").substring(0,5);
     fish.attr("src", 'images/' + fishName + 'dead.png');
     fish.animate({
