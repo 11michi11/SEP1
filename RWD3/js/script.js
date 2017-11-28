@@ -10,6 +10,8 @@ swim("#fish1Id");
 swim("#fish2Id");
 swim("#fish3Id");
 
+$("#fish4Id").hide();
+
 $("#fish1Id").attr('dead', 'false');
 console.log($("#fish1Id"));
 console.log($("#fish1Id").attr('dead'));
@@ -255,3 +257,7 @@ function randomY(IdRef) {
     y = Math.floor(Math.random() * ($(window).height() - $(IdRef).height()));
     return y;
 }
+
+$("#stone").click( function(){
+    $("#fish4Id").show();
+});
