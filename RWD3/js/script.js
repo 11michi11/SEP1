@@ -217,7 +217,21 @@ function die(fish) {
         complete: function () {
             fish.animate({
                 top: -275
-            }, 7000);
+            }, 7000, function(){swimIn(fish)});
         }
     });
 };
+
+function swimIn(fish){
+    //fish.delay(5000);
+    var fishName = fish.attr("id").substring(0,5);
+    fish.attr("src", 'images/' + fishName + '.png');
+    fish.animate({function (now, fx) {
+            fish.css('transform', 'rotate(' + '90' + 'deg)');
+        }});
+    $(fish).offset({
+        top: randomY(fish),
+        left: 0-$(fish).width()
+    });
+    swim(fish);
+}
