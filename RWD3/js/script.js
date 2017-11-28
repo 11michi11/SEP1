@@ -121,17 +121,7 @@ $("#fish1Id").dblclick(function () {
     }, 3000);
 });
 
-function randomX(IdRef) {
-    var x;
-    x = Math.floor(Math.random() * ($(window).width() - $(IdRef).width()));
-    return x;
-}
 
-function randomY(IdRef) {
-    var y;
-    y = Math.floor(Math.random() * ($(window).height() - $(IdRef).height()));
-    return y;
-}
 
 $('html').keydown(function (e) {
     $("#fish4Id").stop(true);
@@ -230,15 +220,38 @@ function die(fish) {
 };
 
 function swimIn(fish){
-    //fish.delay(5000);
+    fish.attr('dead', false);
     var fishName = fish.attr("id").substring(0,5);
     fish.attr("src", 'images/' + fishName + '.png');
-    fish.animate({function (now, fx) {
-            fish.css('transform', 'rotate(' + '90' + 'deg)');
-        }});
+    fish.animate({
+        borderSpacing: 0
+    }, {
+        step: function (now, fx) {
+            fish.css('transform', 'rotate(' + now + 'deg)');
+        },
+        duration: 'slow',
+    });
+    var y, x, r=Math.round(Math.random());
+    y=randomY(fish);
+    if(r===0)
+        x=0-$(fish).width();
+    else
+        x=$(window).width()+$(fish).width();
     $(fish).offset({
-        top: randomY(fish),
-        left: 0-$(fish).width()
+        top: y,
+        left: x
     });
     swim(fish);
+}
+
+function randomX(IdRef) {
+    var x;
+    x = Math.floor(Math.random() * ($(window).width() - $(IdRef).width()));
+    return x;
+}
+
+function randomY(IdRef) {
+    var y;
+    y = Math.floor(Math.random() * ($(window).height() - $(IdRef).height()));
+    return y;
 }

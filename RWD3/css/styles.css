@@ -43,3 +43,7 @@ img {
     width: 65px;
     height: 65px;
 }
+p{
+    text-align: right;
+    color:red;
+}
