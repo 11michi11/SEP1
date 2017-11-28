@@ -129,6 +129,7 @@ function randomY(IdRef) {
 
 $('html').keydown(function (e) {
     $("#fish4Id").stop(true);
+    checkCollisions("oct");
     switch (e.key) {
         case 'ArrowUp':
             if ($("#fish4Id").offset().top > 5) {
@@ -177,18 +178,35 @@ function checkCollisions(name) {
     var octRig = octopus.offset().left + $("#fish4Id").outerWidth();
 
     var nemoTop = nemo.offset().top;
-    var nemoBot = nemo.offset().top + $("#fish4Id").outerHeight();
+    var nemoBot = nemo.offset().top + $("#fish1Id").outerHeight();
     var nemoLef = nemo.offset().left;
-    var nemoRig = nemo.offset().left + $("#fish4Id").outerWidth();
+    var nemoRig = nemo.offset().left + $("#fish1Id").outerWidth();
+
+    var doryTop = dory.offset().top;
+    var doryBot = dory.offset().top + $("#fish2Id").outerHeight();
+    var doryLef = dory.offset().left;
+    var doryRig = dory.offset().left + $("#fish2Id").outerWidth();
+
+    var unicornTop = unicorn.offset().top;
+    var unicornBot = unicorn.offset().top + $("#fish3Id").outerHeight();
+    var unicornLef = unicorn.offset().left;
+    var unicornRig = unicorn.offset().left + $("#fish3Id").outerWidth();
+
 
     if (octBot > nemoTop && octTop < nemoBot && octRig > nemoLef && octLef < nemoRig)
-        console.log("collision" + name);
+        die(nemo);
+        
+    if (octBot > doryTop && octTop < doryBot && octRig > doryLef && octLef < doryRig)
+        die(dory);
+        
+    if (octBot > unicornTop && octTop < unicornBot && octRig > unicornLef && octLef < unicornRig)
+        die(unicorn);
 }
 
-function dying(fishId) {
-    var fish = $(fishId);
+function die(fish) {
     fish.stop();
-    fish.attr("src", 'images/fish3dead.png');
+    var fishName = fish.attr("id").substring(0,5);
+    fish.attr("src", 'images/' + fishName + 'dead.png');
     fish.animate({
         borderSpacing: -90
     }, {
@@ -202,4 +220,4 @@ function dying(fishId) {
             }, 7000);
         }
     });
-});
+};
