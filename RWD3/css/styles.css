@@ -33,6 +33,12 @@ img {
     height: 300px;
 }
 
+#stone {
+    left: 1250px;
+    top: 600px;
+    height: 140px;
+}
+
 .bubbleClass {
     width: 65px;
     height: 65px;
