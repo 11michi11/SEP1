@@ -56,6 +56,7 @@ $("#fish2Id").on("mouseenter", function () {
 
 
 function swim(IdRef) {
+    checkCollisions("nemo");
     var x, y, v, moveX, moveY;
     x = randomX(IdRef);
     y = randomY(IdRef);
@@ -106,7 +107,6 @@ $(window).click(function (event) {
 
 
 $("#fish1Id").dblclick(function () {
-    console.log("!!!");
     $(this).height(400);
     $(this).width(400);
     setTimeout(function () {
@@ -129,6 +129,7 @@ function randomY(IdRef) {
 
 $('html').keydown(function (e) {
     console.log(e.key);
+    checkCollisions("oct");
     $("#fish4Id").stop(true);
     switch (e.key) {
         case 'ArrowUp':
@@ -165,4 +166,24 @@ $('html').keydown(function (e) {
             }
             break;
     }
-})
+});
+
+function checkCollisions(name) {
+    var octopus = $("#fish4Id");
+    var nemo = $("#fish1Id");
+    var dory = $("#fish2Id");
+    var unicorn = $("#fish3Id");
+
+    var octTop = octopus.offset().top;
+    var octBot = octopus.offset().top + $("#fish4Id").outerHeight();
+    var octLef = octopus.offset().left;
+    var octRig = octopus.offset().left + $("#fish4Id").outerWidth();
+   
+    var nemoTop = nemo.offset().top;
+    var nemoBot = nemo.offset().top + $("#fish4Id").outerHeight();
+    var nemoLef = nemo.offset().left;
+    var nemoRig = nemo.offset().left + $("#fish4Id").outerWidth();
+
+    if(octBot > nemoTop && octTop < nemoBot && octRig > nemoLef && octLef < nemoRig)
+        console.log("collision" + name);
+}
