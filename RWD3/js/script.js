@@ -56,7 +56,6 @@ $("#fish2Id").on("mouseenter", function () {
 
 
 function swim(IdRef) {
-    checkCollisions("nemo");
     var x, y, v, moveX, moveY;
     x = randomX(IdRef);
     y = randomY(IdRef);
@@ -107,11 +106,12 @@ $(window).click(function (event) {
 
 
 $("#fish1Id").dblclick(function () {
+    console.log("!!!");
     $(this).height(400);
     $(this).width(400);
     setTimeout(function () {
-        $("#fish1Id").height(250);
-        $("#fish1Id").width(250);
+        $("#fish1Id").height(170);
+        $("#fish1Id").width(200);
     }, 3000);
 });
 
@@ -127,9 +127,7 @@ function randomY(IdRef) {
     return y;
 }
 
-$('html').keydown(function (e) {
-    console.log(e.key);
-    checkCollisions("oct");
+$('html').keypress(function (e) {
     $("#fish4Id").stop(true);
     switch (e.key) {
         case 'ArrowUp':
@@ -166,24 +164,20 @@ $('html').keydown(function (e) {
             }
             break;
     }
+})
+
+$("#pressButtonId").click(function () {
+    $("#fish3Id").stop();
+    $("#fish3Id").animate({  borderSpacing: -90 }, {
+        step: function(now,fx) {
+        //   $(this).css('-webkit-transform','rotate('+now+'deg)'); 
+        //   $(this).css('-moz-transform','rotate('+now+'deg)');
+          $("#fish3Id").css('transform','rotate('+now+'deg)');
+        },
+        duration:'slow'
+    }, function () {
+        alert("down");
+        $("#fish3Id").animate({top: '-= 100'});
+    });
+    
 });
-
-function checkCollisions(name) {
-    var octopus = $("#fish4Id");
-    var nemo = $("#fish1Id");
-    var dory = $("#fish2Id");
-    var unicorn = $("#fish3Id");
-
-    var octTop = octopus.offset().top;
-    var octBot = octopus.offset().top + $("#fish4Id").outerHeight();
-    var octLef = octopus.offset().left;
-    var octRig = octopus.offset().left + $("#fish4Id").outerWidth();
-   
-    var nemoTop = nemo.offset().top;
-    var nemoBot = nemo.offset().top + $("#fish4Id").outerHeight();
-    var nemoLef = nemo.offset().left;
-    var nemoRig = nemo.offset().left + $("#fish4Id").outerWidth();
-
-    if(octBot > nemoTop && octTop < nemoBot && octRig > nemoLef && octLef < nemoRig)
-        console.log("collision" + name);
-}
