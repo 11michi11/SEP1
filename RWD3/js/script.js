@@ -14,8 +14,6 @@ swim("#fish3Id");
 $("#fish4Id").hide();
 
 $("#fish1Id").attr('dead', 'false');
-console.log($("#fish1Id"));
-console.log($("#fish1Id").attr('dead'));
 $("#fish2Id").attr('dead', 'false');
 $("#fish3Id").attr('dead', 'false');
 
@@ -171,34 +169,24 @@ function checkCollisions(name) {
     var dory = $("#fish2Id");
     var unicorn = $("#fish3Id");
 
-    var octTop = octopus.offset().top-30;
-    var octBot = octopus.offset().top + $("#fish4Id").outerHeight()-30;
-    var octLef = octopus.offset().left-30;
-    var octRig = octopus.offset().left + $("#fish4Id").outerWidth()-30;
+    checkFish(octopus, nemo);
+    checkFish(octopus, dory);
+    checkFish(octopus, unicorn);
+}
 
-    var nemoTop = nemo.offset().top;
-    var nemoBot = nemo.offset().top + $("#fish1Id").outerHeight();
-    var nemoLef = nemo.offset().left;
-    var nemoRig = nemo.offset().left + $("#fish1Id").outerWidth();
+function checkFish(oct, fish) {
+    var octTop = oct.offset().top - 30;
+    var octBot = oct.offset().top + $("#fish4Id").outerHeight() - 30;
+    var octLef = oct.offset().left - 30;
+    var octRig = oct.offset().left + $("#fish4Id").outerWidth() - 30;
 
-    var doryTop = dory.offset().top;
-    var doryBot = dory.offset().top + $("#fish2Id").outerHeight();
-    var doryLef = dory.offset().left;
-    var doryRig = dory.offset().left + $("#fish2Id").outerWidth();
+    var fishTop = fish.offset().top;
+    var fishBot = fish.offset().top + fish.outerHeight();
+    var fishLef = fish.offset().left;
+    var fishRig = fish.offset().left + fish.outerWidth();
 
-    var unicornTop = unicorn.offset().top;
-    var unicornBot = unicorn.offset().top + $("#fish3Id").outerHeight();
-    var unicornLef = unicorn.offset().left;
-    var unicornRig = unicorn.offset().left + $("#fish3Id").outerWidth();
-
-    if (octBot > nemoTop && octTop < nemoBot && octRig > nemoLef && octLef < nemoRig && nemo.attr('dead')!=='true')
-        die(nemo);
-        
-    if (octBot > doryTop && octTop < doryBot && octRig > doryLef && octLef < doryRig && dory.attr('dead') !== 'true')
-        die(dory);
-        
-    if (octBot > unicornTop && octTop < unicornBot && octRig > unicornLef && octLef < unicornRig && unicorn.attr('dead') !== 'true')
-        die(unicorn);
+    if (octBot > fishTop && octTop < fishBot && octRig > fishLef && octLef < fishRig && fish.attr('dead') !== 'true')
+        die(fish);
 }
 
 function die(fish) {
