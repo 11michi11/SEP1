@@ -12,6 +12,7 @@ swim("#fish2Id");
 swim("#fish3Id");
 
 $("#fish4Id").hide();
+$("#counter").hide();
 
 $("#fish1Id").attr('dead', 'false');
 $("#fish2Id").attr('dead', 'false');
@@ -190,8 +191,6 @@ function checkFish(oct, fish) {
 }
 
 function die(fish) {
-    
-    
     fish.stop();
     fish.attr("dead", 'true');
     console.log(fish.attr("dead"));
@@ -253,4 +252,5 @@ function randomY(IdRef) {
 
 $("#stone").click( function(){
     $("#fish4Id").show();
+    $("#counter").show();
 });
