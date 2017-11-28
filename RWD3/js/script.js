@@ -127,7 +127,8 @@ function randomY(IdRef) {
     return y;
 }
 
-$('html').keypress(function (e) {
+$('html').keydown(function (e) {
+    console.log(e.key);
     $("#fish4Id").stop(true);
     switch (e.key) {
         case 'ArrowUp':
