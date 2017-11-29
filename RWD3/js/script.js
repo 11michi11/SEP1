@@ -116,8 +116,8 @@ $("#fish1Id").dblclick(function () {
     $(this).height(400);
     $(this).width(400);
     setTimeout(function () {
-        $("#fish1Id").height(170);
-        $("#fish1Id").width(200);
+        $("#fish1Id").height(140);
+        $("#fish1Id").width(170);
     }, 3000);
 });
 
