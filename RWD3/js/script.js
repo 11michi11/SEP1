@@ -128,7 +128,7 @@ $('html').keydown(function (e) {
     checkCollisions();
     switch (e.key) {
         case 'ArrowUp':
-            if ($("#fish4Id").offset().top > 5) {
+            if ($("#fish4Id").offset().top > 35) {
                 $("#fish4Id").animate({
                     top: '-=100'
                 });
@@ -136,7 +136,7 @@ $('html').keydown(function (e) {
             break;
         case 'ArrowDown':
             var bottomPos = $("#fish4Id").offset().top + $("#fish4Id").outerHeight();
-            if ($(window).height() - bottomPos > 5) {
+            if ($(window).height() - bottomPos > 25) {
 
                 $("#fish4Id").animate({
                     top: '+=100'
@@ -152,7 +152,7 @@ $('html').keydown(function (e) {
             }
             break;
         case 'ArrowLeft':
-            if ($("#fish4Id").offset().left > 5) {
+            if ($("#fish4Id").offset().left > 35) {
 
                 $("#fish4Id").animate({
                     left: '-=100'
