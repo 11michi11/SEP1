@@ -5,7 +5,7 @@ public class Member extends Participant {
 	private MyDate dateOfMembership;
 	private int paymentYear;
 	private int ID;
-	private static int nextID;
+	private static int nextID = 0;
 
 	public Member(String name, String address, int phone, String email, MyDate dateOfMembership, int paymentYear) {
 	   super(name,email);
@@ -13,7 +13,7 @@ public class Member extends Participant {
 	   this.phone = phone;
 	   this.dateOfMembership = dateOfMembership.copy(); //is the relation composition ??
 	   this.paymentYear = paymentYear;
-	   ID = nextID; ///??????????? is it necessary to add nextID++ ??
+	   ID = ++nextID; ///??????????? is it necessary to add nextID++ ??
 	}
 
 	public int getPhone()

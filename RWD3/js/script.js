@@ -125,7 +125,7 @@ $("#fish1Id").dblclick(function () {
 
 $('html').keydown(function (e) {
     $("#fish4Id").stop(true);
-    checkCollisions("oct");
+    checkCollisions();
     switch (e.key) {
         case 'ArrowUp':
             if ($("#fish4Id").offset().top > 5) {
@@ -162,7 +162,7 @@ $('html').keydown(function (e) {
     }
 });
 
-function checkCollisions(name) {
+function checkCollisions() {
     var octopus = $("#fish4Id");
     var nemo = $("#fish1Id");
     var dory = $("#fish2Id");
