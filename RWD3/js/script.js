@@ -84,23 +84,23 @@ function swim(IdRef) {
 
 $(window).click(function (event) {
     var x, y;
-    if ((($(window).width() - event.pageX) < 125 || event.pageX < 125)) {
-        if (event.pageX < 125) {
+    if ((($(window).width() - event.pageX) < 85 || event.pageX < 85)) {
+        if (event.pageX < 85) {
             x = 0;
         } else {
-            x = $(window).width() - 250;
+            x = $(window).width() - 170;
         }
     } else {
-        x = event.pageX - 125;
+        x = event.pageX - 85;
     }
-    if ((($(window).height() - event.pageY) < 125 || event.pageY < 125)) {
-        if (event.pageY < 125) {
+    if ((($(window).height() - event.pageY) < 70 || event.pageY < 70)) {
+        if (event.pageY < 70) {
             y = 0;
         } else {
-            y = $(window).height() - 250;
+            y = $(window).height() - 140;
         }
     } else {
-        y = event.pageY - 125;
+        y = event.pageY - 70;
     }
 
     $("#fish1Id").stop(true).animate({
