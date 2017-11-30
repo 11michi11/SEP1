@@ -1,3 +1,4 @@
+var count=0;
 addPoping("#bubble1Id");
 addPoping("#bubble2Id");
 addPoping("#bubble3Id");
@@ -9,6 +10,13 @@ animateBubble("#bubble3Id");
 swim("#fish1Id");
 swim("#fish2Id");
 swim("#fish3Id");
+
+$("#fish4Id").hide();
+$("#counter").hide();
+
+$("#fish1Id").attr('dead', 'false');
+$("#fish2Id").attr('dead', 'false');
+$("#fish3Id").attr('dead', 'false');
 
 function animateBubble(bubbleId) {
     initBubble(bubbleId);
@@ -75,25 +83,24 @@ function swim(IdRef) {
 }
 
 $(window).click(function (event) {
-    console.log();
     var x, y;
-    if ((($(window).width() - event.pageX) < 125 || event.pageX < 125)) {
-        if (event.pageX < 125) {
+    if ((($(window).width() - event.pageX) < $("#fish1Id").width()/2 || event.pageX < $("#fish1Id").width()/2)) {
+        if (event.pageX < $("#fish1Id").width()/2) {
             x = 0;
         } else {
-            x = $(window).width() - 250;
+            x = $(window).width() - $("#fish1Id").width();
         }
     } else {
-        x = event.pageX - 125;
+        x = event.pageX - $("#fish1Id").width()/2;
     }
-    if ((($(window).height() - event.pageY) < 125 || event.pageY < 125)) {
-        if (event.pageY < 125) {
+    if ((($(window).height() - event.pageY) < $("#fish1Id").height()/2 || event.pageY < $("#fish1Id").height()/2)) {
+        if (event.pageY < $("#fish1Id").height()/2) {
             y = 0;
         } else {
-            y = $(window).height() - 250;
+            y = $(window).height() - $("#fish1Id").height();
         }
     } else {
-        y = event.pageY - 125;
+        y = event.pageY - $("#fish1Id").height()/2;
     }
 
     $("#fish1Id").stop(true).animate({
@@ -106,14 +113,127 @@ $(window).click(function (event) {
 
 
 $("#fish1Id").dblclick(function () {
-    console.log("!!!");
     $(this).height(400);
     $(this).width(400);
     setTimeout(function () {
-        $("#fish1Id").height(170);
-        $("#fish1Id").width(200);
+        $("#fish1Id").height(140);
+        $("#fish1Id").width(170);
     }, 3000);
 });
+
+
+
+$('html').keydown(function (e) {
+    $("#fish4Id").stop(true);
+    checkCollisions();
+    switch (e.key) {
+        case 'ArrowUp':
+            if ($("#fish4Id").offset().top > 25) {
+                $("#fish4Id").animate({
+                    top: '-=100'
+                });
+            }
+            break;
+        case 'ArrowDown':
+            var bottomPos = $("#fish4Id").offset().top + $("#fish4Id").outerHeight();
+            if ($(window).height() - bottomPos > 25) {
+
+                $("#fish4Id").animate({
+                    top: '+=100'
+                });
+            }
+            break;
+        case 'ArrowRight':
+            var rightPos = $("#fish4Id").offset().left + $("#fish4Id").outerWidth();
+            if ($(window).width() - rightPos > 5) {
+                $("#fish4Id").animate({
+                    left: '+=100'
+                });
+            }
+            break;
+        case 'ArrowLeft':
+            if ($("#fish4Id").offset().left > 35) {
+
+                $("#fish4Id").animate({
+                    left: '-=100'
+                });
+            }
+            break;
+    }
+});
+
+function checkCollisions() {
+    var octopus = $("#fish4Id");
+    var nemo = $("#fish1Id");
+    var dory = $("#fish2Id");
+    var unicorn = $("#fish3Id");
+
+    checkFish(octopus, nemo);
+    checkFish(octopus, dory);
+    checkFish(octopus, unicorn);
+}
+
+function checkFish(oct, fish) {
+    var octTop = oct.offset().top - 30;
+    var octBot = oct.offset().top + $("#fish4Id").outerHeight() - 30;
+    var octLef = oct.offset().left - 30;
+    var octRig = oct.offset().left + $("#fish4Id").outerWidth() - 30;
+
+    var fishTop = fish.offset().top;
+    var fishBot = fish.offset().top + fish.outerHeight();
+    var fishLef = fish.offset().left;
+    var fishRig = fish.offset().left + fish.outerWidth();
+
+    if (octBot > fishTop && octTop < fishBot && octRig > fishLef && octLef < fishRig && fish.attr('dead') !== 'true')
+        die(fish);
+}
+
+function die(fish) {
+    fish.stop();
+    fish.attr("dead", 'true');
+    var fishName = fish.attr("id").substring(0,5);
+    fish.attr("src", 'images/' + fishName + 'dead.png');
+    fish.animate({
+        borderSpacing: -90
+    }, {
+        step: function (now, fx) {
+            fish.css('transform', 'rotate(' + now + 'deg)');
+        },
+        duration: 'slow',
+        complete: function () {
+            fish.animate({
+                top: -275
+            }, 7000, function(){swimIn(fish)});
+        }
+    });
+    count++;
+    document.getElementById("kill").innerHTML=count;
+};
+
+function swimIn(fish){
+    fish.attr('dead', false);
+    var fishName = fish.attr("id").substring(0,5);
+    fish.attr("src", 'images/' + fishName + '.png');
+    fish.animate({
+        borderSpacing: 0
+    }, {
+        step: function (now, fx) {
+            fish.css('transform', 'rotate(' + now + 'deg)');
+        },
+        duration: 'slow',
+    });
+    var y, x, r=Math.round(Math.random());
+    y=randomY(fish);
+    if(r===0)
+        x=0-$(fish).width();
+    else
+        x=$(window).width()+$(fish).width();
+    $(fish).offset({
+        top: y,
+        left: x
+    });
+    swim(fish);
+}
 
 function randomX(IdRef) {
     var x;
@@ -127,57 +247,7 @@ function randomY(IdRef) {
     return y;
 }
 
-$('html').keypress(function (e) {
-    $("#fish4Id").stop(true);
-    switch (e.key) {
-        case 'ArrowUp':
-            if ($("#fish4Id").offset().top > 5) {
-                $("#fish4Id").animate({
-                    top: '-=100'
-                });
-            }
-            break;
-        case 'ArrowDown':
-            var bottomPos = $("#fish4Id").offset().top + $("#fish4Id").outerHeight();
-            if ($(window).height() - bottomPos > 5) {
-
-                $("#fish4Id").animate({
-                    top: '+=100'
-                });
-            }
-            break;
-        case 'ArrowRight':
-        var rightPos = $("#fish4Id").offset().left + $("#fish4Id").outerWidth();
-        
-            if ($(window).width() - rightPos > 5) {
-                $("#fish4Id").animate({
-                    left: '+=100'
-                });
-            }
-            break;
-        case 'ArrowLeft':
-            if ($("#fish4Id").offset().left > 5) {
-
-                $("#fish4Id").animate({
-                    left: '-=100'
-                });
-            }
-            break;
-    }
-})
-
-$("#pressButtonId").click(function () {
-    $("#fish3Id").stop();
-    $("#fish3Id").animate({  borderSpacing: -90 }, {
-        step: function(now,fx) {
-        //   $(this).css('-webkit-transform','rotate('+now+'deg)'); 
-        //   $(this).css('-moz-transform','rotate('+now+'deg)');
-          $("#fish3Id").css('transform','rotate('+now+'deg)');
-        },
-        duration:'slow'
-    }, function () {
-        alert("down");
-        $("#fish3Id").animate({top: '-= 100'});
-    });
-    
+$("#stone").click( function(){
+    $("#fish4Id").show();
+    $("#counter").show();
 });
