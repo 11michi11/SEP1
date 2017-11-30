@@ -1,10 +1,14 @@
 package model;
 import java.util.ArrayList;
 
+import fileManager.FileManager;
+
 public class VIAManager {
 	
 	private MemberList members;
 	private LecturerList lecturers;
+	private FileManager fileManager;
+	private Newsletter newsletter;
    
 	public void sendReminderEmailToMembers() {
 		this.members = new MemberList();
