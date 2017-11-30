@@ -1,22 +1,15 @@
 public abstract class Event {
 
 	private String title;
-
 	private MyDate startDate;
-
 	private MyDate endDate;
-
 	private double price;
-
 	private boolean finalized;
-
 	private boolean finished;
-
 	private String description;
-
 	private int CAPACITY;
-
 	private static double discount;
+	private ParticipantList participantList;
 
 	public Event(String title, MyDate date, String location, double price) {
 
@@ -29,35 +22,29 @@ public abstract class Event {
 	public abstract void modify();
 
 	public void finalize() {
-
+	   finalized=true;
 	}
-
 	public void finish() {
-
+	   finished=true;
 	}
-
-	public boolean isFinalize() {
-		return false;
+	public boolean isFinalized() {
+		return finalized;
 	}
-
 	public boolean isFinished() {
-		return false;
+	   return finished;
 	}
-
 	public double getPrice() {
-		return 0;
+		return price;
 	}
-
 	public double getPriceForMembers() {
-		return 0;
+		return price-price*discount;
 	}
-
 	public int getNumberOfAvailablePlaces() {
-		return 0;
+		return CAPACITY-participantList.getSize();
 	}
 
-	public void signUpParticipant() {
-
+	public void signUpParticipant(String name, String email) {
+	   participantList.addParticipant(new Participant(name, email));
 	}
 
 }

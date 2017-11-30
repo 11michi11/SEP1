@@ -19,6 +19,10 @@ public class ParticipantList {
 	   
 	   this.participants.add(participant);
 	}
+	public int getSize()
+	{
+	   return participants.size();
+	}
 
 	public boolean hasNext() {
 		return false;
