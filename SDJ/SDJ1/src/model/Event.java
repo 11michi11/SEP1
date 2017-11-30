@@ -1,4 +1,5 @@
 package model;
+
 import java.util.Map;
 
 public abstract class Event {
@@ -74,5 +75,27 @@ public abstract class Event {
 	public void signUpParticipant(String name, String email) {
 		participantList.addParticipant(new Participant(name, email));
 	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public MyDate getStartDate() {
+		return startDate;
+	}
+
+	public MyDate getEndDate() {
+		return endDate;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public int getCAPACITY() {
+		return capacity;
+	}
+
+	public abstract String toString();
 
 }
