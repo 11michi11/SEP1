@@ -20,5 +20,17 @@ public class CATEGORY {
       }
       return "No such category";
    }
+   public String toString()
+   {
+      String print="";
+      for(String i:categoryList)
+      {
+         if(i!=categoryList.get(categoryList.size()-1))
+            print+=i+", ";
+         else
+            print+=i;
+      }
+      return print;
+   }
    
 }

@@ -11,15 +11,41 @@ public abstract class Event {
 	private static double discount;
 	private ParticipantList participantList;
 
-	public Event(String title, MyDate date, String location, double price) {
+	public Event(String title, MyDate date, double price) {
 
 	}
 
-	public Event(String title, MyDate date, String location) {
+	public Event(String title, MyDate date) {
 
 	}
+	
 
-	public abstract void modify();
+	public String getTitle()
+   {
+      return title;
+   }
+
+   public MyDate getStartDate()
+   {
+      return startDate;
+   }
+
+   public MyDate getEndDate()
+   {
+      return endDate;
+   }
+
+   public String getDescription()
+   {
+      return description;
+   }
+
+   public int getCAPACITY()
+   {
+      return CAPACITY;
+   }
+
+   public abstract void modify();
 
 	public void finalize() {
 	   finalized=true;
@@ -46,5 +72,6 @@ public abstract class Event {
 	public void signUpParticipant(String name, String email) {
 	   participantList.addParticipant(new Participant(name, email));
 	}
+	public abstract String toString();
 
 }

@@ -34,6 +34,20 @@ public class LecturerList {
 	public ArrayList<Lecturer> getAllLecturers() {
 		return lecturerList;
 	}
+	public String printLecturersToAdvertise()
+	{
+	   String print="";
+	   for(Lecturer i:getLecturersToAdvertise())
+	      print+=i+"\n";
+	   return print;
+	}
+	public String toString()
+	{
+	   String print="";
+	   for(Lecturer i:lecturerList)
+	      print+=i.toString()+"\n";
+	   return print;
+	}
 	public Lecturer getNextLecturer() {
 		return null;
 	}

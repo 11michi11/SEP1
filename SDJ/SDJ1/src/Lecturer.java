@@ -44,7 +44,10 @@ public class Lecturer {
    public void setWantsAdvertise(boolean wantsAdvertise) {
       this.wantsAdvertise = wantsAdvertise;
    }
-   
+   public String toString()
+   {
+      return "Name: "+name+"\nEmail address: "+email+"\nPhone number: "+phone+"\nCategories of given speeches: "+categories.toString();
+   }
    
 	
 }
