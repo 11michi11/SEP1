@@ -14,5 +14,11 @@ public class Lecture extends Event {
 		super.modify(configuration);
 		this.category = (CATEGORY) configuration.getOrDefault("category", CATEGORY.Other);
 	}
+	
+	public boolean canBeFinalized() {
+		if(super.canBeFinalized())
+			return true;
+		return false;
+	}
 
 }

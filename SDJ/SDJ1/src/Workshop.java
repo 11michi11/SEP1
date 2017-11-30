@@ -15,5 +15,11 @@ public class Workshop extends Event {
 		super.modify(configuration);
 		this.categories = (ArrayList<CATEGORY>) configuration.getOrDefault("category", this.categories);
 	}
+	
+	public boolean canBeFinalized() {
+		if(super.canBeFinalized() && !categories.isEmpty())
+			return true;
+		return false;
+	}
 
 }

@@ -27,37 +27,51 @@ public abstract class Event {
 	public void modify(Map<String, Object> configuration) {
 		this.title = (String) configuration.getOrDefault("title", this.title);
 		this.startDate = (MyDate) configuration.getOrDefault("startDay", this.startDate);
-		this.startDate = (MyDate) configuration.getOrDefault("endDay", this.endDate);
+		this.endDate = (MyDate) configuration.getOrDefault("endDay", this.endDate);
 		this.price = (double) configuration.getOrDefault("price", this.price);
 		this.finalized = (boolean) configuration.getOrDefault("finalized", this.finalized);
 		this.description = (String) configuration.getOrDefault("description", this.description);
 		this.capacity = (int) configuration.getOrDefault("CAPACITY", this.capacity);
 	};
 
-	public void finalize() {
-	   finalized=true;
+	private void finalizeEvent() {
+		finalized = true;
 	}
+
 	public void finish() {
-	   finished=true;
+		finished = true;
 	}
+
 	public boolean isFinalized() {
 		return finalized;
 	}
+
 	public boolean isFinished() {
-	   return finished;
+		return finished;
 	}
+
+	public boolean canBeFinalized() {
+		if (!this.title.equals("") && !this.startDate.equals(MyDate.getDefaultDate())
+				&& !this.endDate.equals(MyDate.getDefaultDate()) && this.price != 0 && !this.description.equals("")
+				&& capacity != 0)
+			return true;
+		return false;
+	}
+
 	public double getPrice() {
 		return price;
 	}
+
 	public double getPriceForMembers() {
-		return price-price*discount;
+		return price - price * discount;
 	}
+
 	public int getNumberOfAvailablePlaces() {
-		return capacity-participantList.getSize();
+		return capacity - participantList.getSize();
 	}
 
 	public void signUpParticipant(String name, String email) {
-	   participantList.addParticipant(new Participant(name, email));
+		participantList.addParticipant(new Participant(name, email));
 	}
 
 }

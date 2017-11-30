@@ -14,5 +14,11 @@ public class Trip extends Event {
 		super.modify(configuration);
 		this.location = (String) configuration.getOrDefault("location", "");
 	}
+	
+	public boolean canBeFinalized() {
+		if(super.canBeFinalized() && !location.equals(""))
+			return true;
+		return false;
+	}
 
 }
