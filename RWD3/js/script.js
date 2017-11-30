@@ -128,7 +128,7 @@ $('html').keydown(function (e) {
     checkCollisions();
     switch (e.key) {
         case 'ArrowUp':
-            if ($("#fish4Id").offset().top > 35) {
+            if ($("#fish4Id").offset().top > 25) {
                 $("#fish4Id").animate({
                     top: '-=100'
                 });

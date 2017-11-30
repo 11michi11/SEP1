@@ -1,3 +1,4 @@
+package model;
 import java.util.ArrayList;
 
 public class EventList {
@@ -37,12 +38,7 @@ public class EventList {
 	}
 
 	public ArrayList<Event> getAllEvents() {
-	   ArrayList<Event> events = new ArrayList<Event>();
-      for (Event e: events)
-      {
-            events.add(e);
-      }
-      return events;
+      return this.events;
 	}
 
 	public Event getNextEvent() {
