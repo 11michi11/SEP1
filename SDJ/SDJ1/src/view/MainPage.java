@@ -31,20 +31,28 @@ public class MainPage extends JFrame{
 	public void createComponents(){
 		
 		createEvent = new JButton("EVENT");
-//		createEvent.setBounds(50, 50, 200, 100);
-//		createEvent.setSize(200, 100);
 		createEvent.setFont(new Font("Arial", Font.PLAIN, 40));
 		createEvent.setBackground(Color.RED);
+		
 		newsletter = new JButton("NEWSLETTER");
 		newsletter.setFont(new Font("Arial", Font.PLAIN, 40));
 		newsletter.setBackground(Color.RED);
+		
 		signUp = new JButton("SIGN UP");
 		signUp.setFont(new Font("Arial", Font.PLAIN, 40));
 		signUp.setBackground(Color.RED);
+		
 		listOf = new JButton("LIST OF");
 		listOf.setFont(new Font("Arial", Font.PLAIN, 40));
 		listOf.setBackground(Color.RED);
+		
 		welcome = new JLabel("WELCOME");
+		
+		Dimension prefSize = newsletter.getPreferredSize();
+		
+		createEvent.setPreferredSize(prefSize);
+		signUp.setPreferredSize(prefSize);
+		listOf.setPreferredSize(prefSize);
 			
 	}
 	
@@ -65,10 +73,7 @@ public class MainPage extends JFrame{
 		JPanel components = new JPanel(new GridLayout(2, 2));
 		
 		JPanel wrapEvent = new JPanel();
-//		createEvent.setBounds(5, 5, 200, 100);
-//		createEvent.setSize(200, 100);
 		wrapEvent.add(createEvent);
-		
 
 		JPanel wrapSignup = new JPanel();
 		wrapSignup.add(signUp);
