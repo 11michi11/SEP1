@@ -74,5 +74,36 @@ public abstract class Event {
 	public void signUpParticipant(String name, String email) {
 		participantList.addParticipant(new Participant(name, email));
 	}
+	
+	public abstract String toString();
+
+	public static double getDiscount() {
+		return discount;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public MyDate getStartDate() {
+		return startDate;
+	}
+
+	public MyDate getEndDate() {
+		return endDate;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public ParticipantList getParticipantList() {
+		return participantList;
+	}
+	
 
 }
