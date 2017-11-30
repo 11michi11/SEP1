@@ -1,4 +1,5 @@
 package model;
+
 import java.util.ArrayList;
 
 public class Lecturer {
@@ -47,13 +48,18 @@ public class Lecturer {
 	public void setCategories(ArrayList<CATEGORY> categories) {
 		this.categories = categories;
 	}
-	
+
 	public boolean isWantsAdvertise() {
 		return wantsAdvertise;
 	}
 
 	public void setWantsAdvertise(boolean wantsAdvertise) {
 		this.wantsAdvertise = wantsAdvertise;
+	}
+
+	public String toString() {
+		return "Name: " + name + "\nEmail address: " + email + "\nPhone number: " + phone
+				+ "\nCategories of given speeches: " + categories.toString();
 	}
 
 }
