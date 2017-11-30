@@ -16,7 +16,7 @@ public class EventList {
 		ArrayList<Event> finalizedEvents = new ArrayList<Event>();
 	   for (Event e: events)
 		{
-		   if (e.isFinalize())
+		   if (e.isFinalized())
 		   {
 		      finalizedEvents.add(e);
 		   }
@@ -28,7 +28,7 @@ public class EventList {
 	   ArrayList<Event> notFinalizedEvents = new ArrayList<Event>();
       for (Event e: events)
       {
-         if (!e.isFinalize())
+         if (!e.isFinalized())
          {
             notFinalizedEvents.add(e);
          }

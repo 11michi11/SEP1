@@ -11,12 +11,14 @@ public class Newsletter {
 
 	public boolean actual;
 
-	public Newslatter(ArrayList<Event> events, ArrayList<Lecturer> lecturers) {
+	public Newsletter(ArrayList<Event> events, ArrayList<Lecturer> lecturers) {
 	      
 	   
 	}
 
 	public String askForAdditionallnfo() {
+		
+	}
 
 	public String generate() {
 		return null;
