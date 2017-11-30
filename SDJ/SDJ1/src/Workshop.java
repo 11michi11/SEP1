@@ -1,9 +1,19 @@
+import java.util.ArrayList;
+import java.util.Map;
+
 public class Workshop extends Event {
 
 	private ArrayList<CATEGORY> categories;
 
-	public void modify() {
+	public Workshop(Map<String, Object> configuration) {
+		super(configuration);
+		this.categories = (ArrayList<CATEGORY>) configuration.getOrDefault("category", new ArrayList<CATEGORY>());
+	}
 
+
+	public void modify(Map<String, Object> configuration) {
+		super.modify(configuration);
+		this.categories = (ArrayList<CATEGORY>) configuration.getOrDefault("category", this.categories);
 	}
 
 }

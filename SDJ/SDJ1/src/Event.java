@@ -1,5 +1,8 @@
+import java.util.Map;
+
 public abstract class Event {
 
+	private static double discount;
 	private String title;
 	private MyDate startDate;
 	private MyDate endDate;
@@ -7,19 +10,29 @@ public abstract class Event {
 	private boolean finalized;
 	private boolean finished;
 	private String description;
-	private int CAPACITY;
-	private static double discount;
+	private int capacity;
 	private ParticipantList participantList;
 
-	public Event(String title, MyDate date, String location, double price) {
-
+	public Event(Map<String, Object> configuration) {
+		this.title = (String) configuration.getOrDefault("title", "");
+		this.startDate = (MyDate) configuration.getOrDefault("startDay", MyDate.getDefaultDate());
+		this.startDate = (MyDate) configuration.getOrDefault("endDay", MyDate.getDefaultDate());
+		this.price = (double) configuration.getOrDefault("price", 0);
+		this.finalized = (boolean) configuration.getOrDefault("finalized", false);
+		this.description = (String) configuration.getOrDefault("description", "");
+		this.capacity = (int) configuration.getOrDefault("CAPACITY", 0);
+		this.participantList = new ParticipantList();
 	}
 
-	public Event(String title, MyDate date, String location) {
-
-	}
-
-	public abstract void modify();
+	public void modify(Map<String, Object> configuration) {
+		this.title = (String) configuration.getOrDefault("title", this.title);
+		this.startDate = (MyDate) configuration.getOrDefault("startDay", this.startDate);
+		this.startDate = (MyDate) configuration.getOrDefault("endDay", this.endDate);
+		this.price = (double) configuration.getOrDefault("price", this.price);
+		this.finalized = (boolean) configuration.getOrDefault("finalized", this.finalized);
+		this.description = (String) configuration.getOrDefault("description", this.description);
+		this.capacity = (int) configuration.getOrDefault("CAPACITY", this.capacity);
+	};
 
 	public void finalize() {
 	   finalized=true;
@@ -40,7 +53,7 @@ public abstract class Event {
 		return price-price*discount;
 	}
 	public int getNumberOfAvailablePlaces() {
-		return CAPACITY-participantList.getSize();
+		return capacity-participantList.getSize();
 	}
 
 	public void signUpParticipant(String name, String email) {

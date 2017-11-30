@@ -64,6 +64,10 @@ public class MyDate {
 				currentDate.get(GregorianCalendar.YEAR));
 	}
 
+	public static MyDate getDefaultDate() {
+		return new MyDate(1,1,1);
+	}
+
 	public boolean LeapYear() {
 		if (year % 400 == 0)
 			return true;
