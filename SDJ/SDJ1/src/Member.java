@@ -43,7 +43,7 @@ public class Member extends Participant {
 
    public void setID(int iD)
    {
-      ID = iD;
+      this.ID = iD;
    }
 
    public boolean hasPaid() {
