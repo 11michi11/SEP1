@@ -1,3 +1,4 @@
+package model;
 import java.util.ArrayList;
 
 import javax.swing.plaf.metal.MetalMenuBarUI;

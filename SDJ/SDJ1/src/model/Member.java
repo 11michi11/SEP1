@@ -1,3 +1,4 @@
+package model;
 public class Member extends Participant {
 
 	private String address;
