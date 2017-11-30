@@ -13,7 +13,7 @@ public class Member extends Participant {
 	   this.phone = phone;
 	   this.dateOfMembership = dateOfMembership.copy(); //is the relation composition ??
 	   this.paymentYear = paymentYear;
-	   ID = ++nextID; ///??????????? is it necessary to add nextID++ ??
+	   this.ID = ++nextID; 
 	}
 
 	public int getPhone()
@@ -51,7 +51,14 @@ public class Member extends Participant {
 	}
 
 	public void pay() {
-	   paymentYear = MyDate.getCurrentYear();
+	   if (!hasPaid())
+	   {
+	      paymentYear = MyDate.getCurrentYear();
+	   }
+	   else
+	   {
+	      // throwing new exception that it is not allowed to pay if member has already paid?? or what ?
+	   }
 	}
 
 	public int getID() {
