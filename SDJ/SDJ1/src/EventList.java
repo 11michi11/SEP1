@@ -1,23 +1,48 @@
+import java.util.ArrayList;
+
 public class EventList {
 
+   private ArrayList<Event> events;
+   
 	public EventList() {
-
+	   events = new ArrayList<Event>();
 	}
 
 	public void addEvent(Event event) {
-
+	   events.add(event);
 	}
 
 	public ArrayList<Event> getFinalizedEvents() {
-		return null;
+		ArrayList<Event> finalizedEvents = new ArrayList<Event>();
+	   for (Event e: events)
+		{
+		   if (e.isFinalize())
+		   {
+		      finalizedEvents.add(e);
+		   }
+		}
+	   return finalizedEvents;
 	}
 
 	public ArrayList<Event> getNotFinalizedEvents() {
-		return null;
+	   ArrayList<Event> notFinalizedEvents = new ArrayList<Event>();
+      for (Event e: events)
+      {
+         if (!e.isFinalize())
+         {
+            notFinalizedEvents.add(e);
+         }
+      }
+      return notFinalizedEvents;
 	}
 
 	public ArrayList<Event> getAllEvents() {
-		return null;
+	   ArrayList<Event> events = new ArrayList<Event>();
+      for (Event e: events)
+      {
+            events.add(e);
+      }
+      return events;
 	}
 
 	public Event getNextEvent() {
