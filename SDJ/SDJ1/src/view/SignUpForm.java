@@ -58,10 +58,10 @@ public class SignUpForm extends JFrame
       labelPhone = new JLabel("Phone:");
       labelDateOfMembership = new JLabel("Date of membership:");
       labelPaymentYear = new JLabel("Payment year:");
-      textFieldName = new JTextField(5);
-      textFieldEmail = new JTextField(5);
-      textFieldAddress = new JTextField(5);
-      textFieldID = new JTextField(5);
+      textFieldName = new JTextField(8);
+      textFieldEmail = new JTextField(8);
+      textFieldAddress = new JTextField(8);
+      textFieldID = new JTextField(8);
       textFieldPhone = new JTextField(8);
       textFieldDateOfMembership = new JTextField(8);
       textFieldPaymentYear = new JTextField(8);
