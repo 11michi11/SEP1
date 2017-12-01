@@ -22,7 +22,7 @@ public class Newsletter {
 	}
 
 	public String generate() {
-		return null;
+		return new MyDate()+"\nEvents: "+events.toString()+"\nLecturers: "+lecturers.toString();
 	}
 
 }

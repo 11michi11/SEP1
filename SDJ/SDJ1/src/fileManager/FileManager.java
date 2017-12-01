@@ -1,16 +1,20 @@
 package fileManager;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+
+import model.LecturerList;
+import model.MemberList;
+import model.MyDate;
 
 public class FileManager {
    
    private File eventFile, lecturerFile, memberFile, newsletterFile;
    
-   public void generateEventFile(MemberList memberList) throws IOException
+   public void generateEventFile(MemberList memberList) throws FileNotFoundException
    {
       eventFile = new File("events.bin");
       FileOutputStream fos = new FileOutputStream(eventFile);
@@ -20,7 +24,7 @@ public class FileManager {
       out.close();
       fos.close();
    } 
-   public void generateLecturerFile(LectuerList lecturerList) 
+   public void generateLecturerFile(LecturerList lecturerList) 
    {
       lecturerFile= new File("lecturers.bin");
       FileOutputStream fos = new FileOutputStream(lecturerFile);
@@ -42,7 +46,7 @@ public class FileManager {
       fos.close();
       
    }
-   public void generateNewsletterFile(String newsletterContent)
+   public void generateNewsletterFile(String newsletterContent) throws FileNotFoundException
    {
       newsletterFile= new File("Newsletter_"+new MyDate()+".txt");
       PrintWriter out = new PrintWriter (newsletterFile);
