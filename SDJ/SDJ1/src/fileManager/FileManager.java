@@ -3,8 +3,10 @@ package fileManager;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import model.LecturerList;
 import model.MemberList;
@@ -12,9 +14,15 @@ import model.MyDate;
 
 public class FileManager {
    
-   private File eventFile, lecturerFile, memberFile, newsletterFile;
+   private File eventFile, lecturerFile, memberFile;
+   private ArrayList<File> newsletterFiles;
    
-   public void generateEventFile(MemberList memberList) throws FileNotFoundException
+   public FileManager ()
+   {
+      newsletterFiles = new ArrayList<File>();
+   }
+   
+   public void generateEventFile(MemberList memberList) throws IOException
    {
       eventFile = new File("events.bin");
       FileOutputStream fos = new FileOutputStream(eventFile);
@@ -24,7 +32,7 @@ public class FileManager {
       out.close();
       fos.close();
    } 
-   public void generateLecturerFile(LecturerList lecturerList) 
+   public void generateLecturerFile(LecturerList lecturerList) throws IOException
    {
       lecturerFile= new File("lecturers.bin");
       FileOutputStream fos = new FileOutputStream(lecturerFile);
@@ -35,7 +43,7 @@ public class FileManager {
       fos.close();
       
    }
-   public void generateMemberFile(MemberList memberList)
+   public void generateMemberFile(MemberList memberList) throws IOException
    {
       memberFile= new File("members.bin");
       FileOutputStream fos = new FileOutputStream(memberFile);
@@ -46,10 +54,10 @@ public class FileManager {
       fos.close();
       
    }
-   public void generateNewsletterFile(String newsletterContent) throws FileNotFoundException
+   public void generateNewsletterFile(String newsletterContent) throws IOException
    {
-      newsletterFile= new File("Newsletter_"+new MyDate()+".txt");
-      PrintWriter out = new PrintWriter (newsletterFile);
+      newsletterFiles.add( new File("Newsletter_"+new MyDate()+".txt"));
+      PrintWriter out = new PrintWriter (newsletterFiles.get(newsletterFiles.size()-1));
       out.println(newsletterContent);
       out.flush();
       out.close();

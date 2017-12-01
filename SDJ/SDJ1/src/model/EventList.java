@@ -12,6 +12,15 @@ public class EventList {
 	public void addEvent(Event event) {
 	   events.add(event);
 	}
+	
+	public Event getEventByID(int ID) throws EventNotFoundException {
+      
+      for(Event i: events)
+         if (ID == i.getID())
+            return i;
+         
+      throw new EventNotFoundException("No such event");
+   }
 
 	public ArrayList<Event> getFinalizedEvents() {
 		ArrayList<Event> finalizedEvents = new ArrayList<Event>();
@@ -40,6 +49,21 @@ public class EventList {
 	public ArrayList<Event> getAllEvents() {
       return this.events;
 	}
+	
+	public EventList getFinalizedNotFinished() {
+      EventList finalizedNotFinished=new EventList();
+      for (Event i : events)
+         if(i.isFinalized() && !(i.isFinished()))
+            finalizedNotFinished.addEvent(i);;
+      return finalizedNotFinished;
+   }
+	
+	public String toString() {
+      String print = "";
+      for (Event i : events)
+         print += i.toString() + "\n";
+      return print;
+   }
 
 	public Event getNextEvent() {
 		return null;

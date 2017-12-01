@@ -2,9 +2,9 @@ package model;
 import java.util.ArrayList;
 public class Newsletter {
 
-	private ArrayList<Event> events;
+	private EventList events;
 
-	private ArrayList<Lecturer> lecturers;
+	private LecturerList lecturers;
 
 	private String additionalInfo;
 
@@ -12,17 +12,18 @@ public class Newsletter {
 
 	public boolean actual;
 
-	public Newsletter(ArrayList<Event> events, ArrayList<Lecturer> lecturers) {
-	      
-	   
+	public Newsletter(EventList events, LecturerList lecturers) {
+	   this.events = events.getFinalizedNotFinished();
+	   this.lecturers=lecturers.getLecturersToAdvertise();
+	   date=new MyDate();
 	}
 
 	public String askForAdditionallnfo() {
-		
+		return "";
 	}
 
 	public String generate() {
-		return new MyDate()+"\nEvents: "+events.toString()+"\nLecturers: "+lecturers.toString();
+		return date+"\nEvents: "+events.toString()+"\nLecturers: "+lecturers.toString()+"\n"+additionalInfo;
 	}
 
 }

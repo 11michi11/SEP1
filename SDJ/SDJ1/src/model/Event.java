@@ -12,6 +12,8 @@ public abstract class Event {
 	private boolean finished;
 	private String description;
 	private int capacity;
+	private int ID;
+	private static int nextID = 0;
 	private ParticipantList participantList;
 
 	public Event(Map<String, Object> configuration) {
@@ -22,6 +24,7 @@ public abstract class Event {
 		this.finalized = (boolean) configuration.getOrDefault("finalized", false);
 		this.description = (String) configuration.getOrDefault("description", "");
 		this.capacity = (int) configuration.getOrDefault("CAPACITY", 0);
+		this.ID = ++nextID;
 		this.participantList = new ParticipantList();
 	}
 
@@ -71,8 +74,8 @@ public abstract class Event {
 		return capacity - participantList.getSize();
 	}
 
-	public void signUpParticipant(String name, String email) {
-		participantList.addParticipant(new Participant(name, email));
+	public void signUpParticipant(Participant participant) {
+		participantList.addParticipant(participant);
 	}
 	
 	public abstract String toString();
@@ -100,8 +103,13 @@ public abstract class Event {
 	public int getCapacity() {
 		return capacity;
 	}
+	
+	public int getID()
+   {
+      return ID;
+   }
 
-	public ParticipantList getParticipantList() {
+   public ParticipantList getParticipantList() {
 		return participantList;
 	}
 	
