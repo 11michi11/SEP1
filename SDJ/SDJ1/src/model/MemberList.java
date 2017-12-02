@@ -1,4 +1,5 @@
 package model;
+
 import java.util.ArrayList;
 
 import javax.swing.plaf.metal.MetalMenuBarUI;
@@ -22,7 +23,6 @@ public class MemberList {
 	}
 
 	public ArrayList<String> getListOfEmails() {
-
 		ArrayList<String> emails = new ArrayList<String>();
 		for (Member e : members) {
 			emails.add(e.getEmail());
@@ -31,11 +31,9 @@ public class MemberList {
 	}
 
 	public Member getMemberByID(int ID) throws MemberNotFoundException {
-		Member member;
-		while (this.hasNext()) {
-			member = this.getNext();
-			if (ID == member.getID()) {
-				return member;
+		for(Member e : this.members) {
+			if (ID == e.getID()) {
+				return e;
 			}
 		}
 		throw new MemberNotFoundException("No such member");
@@ -43,14 +41,6 @@ public class MemberList {
 
 	public void addMember(Member member) {
 		members.add(member);
-	}
-
-	public boolean hasNext() { // isnt done yet
-		return false;
-	}
-
-	public Member getNext() { // isnt done yet
-		return null;
 	}
 
 }

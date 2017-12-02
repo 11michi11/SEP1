@@ -6,7 +6,7 @@ import java.util.Map;
 public class Workshop extends Event {
 
 	private ArrayList<CATEGORY> categories;
-	private Lecturer lecturer; 
+	private Lecturer lecturer;
 
 	public Workshop(Map<String, Object> configuration) {
 		super(configuration);

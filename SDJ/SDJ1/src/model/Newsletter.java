@@ -1,21 +1,17 @@
 package model;
-import java.util.ArrayList;
+
 public class Newsletter {
 
 	private EventList events;
-
 	private LecturerList lecturers;
-
 	private String additionalInfo;
-
 	private MyDate date;
-
 	public boolean actual;
 
 	public Newsletter(EventList events, LecturerList lecturers) {
-	   this.events = events.getFinalizedNotFinished();
-	   this.lecturers=lecturers.getLecturersToAdvertise();
-	   date=new MyDate();
+		this.events = events.getFinalizedNotFinished();
+		this.lecturers = lecturers.getLecturersToAdvertise();
+		date = new MyDate();
 	}
 
 	public String askForAdditionallnfo() {
@@ -23,7 +19,7 @@ public class Newsletter {
 	}
 
 	public String generate() {
-		return date+"\nEvents: "+events.toString()+"\nLecturers: "+lecturers.toString()+"\n"+additionalInfo;
+		return date + "\nEvents: " + events.toString() + "\nLecturers: " + lecturers.toString() + "\n" + additionalInfo;
 	}
 
 }
