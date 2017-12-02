@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class LecturerList {
+	
 	private ArrayList<Lecturer> lecturerList;
 
 	public void LecturerList() {
@@ -32,9 +33,9 @@ public class LecturerList {
 	public ArrayList<Lecturer> getAllLecturersInCategory(CATEGORY category) {
 		ArrayList<Lecturer> AllLecturersInCategory = new ArrayList<Lecturer>();
 		for (Lecturer i : lecturerList)
-			for(CATEGORY j: i.getCategories())
-			   if(j.equals(category))
-			      AllLecturersInCategory.add(i);
+			for (CATEGORY j : i.getCategories())
+				if (j.equals(category))
+					AllLecturersInCategory.add(i);
 		return AllLecturersInCategory;
 	}
 
@@ -42,22 +43,11 @@ public class LecturerList {
 		return lecturerList;
 	}
 
-
 	public String toString() {
 		String print = "";
 		for (Lecturer i : lecturerList)
 			print += i.toString() + "\n";
 		return print;
 	}
-
-	public Lecturer getNextLecturer() {
-		return null;
-	}
-
-	public boolean hasNext() {
-		return false;
-	}
-	
-
 
 }

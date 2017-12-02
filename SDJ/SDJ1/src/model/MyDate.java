@@ -1,4 +1,5 @@
 package model;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -57,8 +58,8 @@ public class MyDate {
 
 	public static int getCurrentYear() {
 		return today().getYear();
-	}	
-	
+	}
+
 	public static MyDate today() {
 		GregorianCalendar currentDate = new GregorianCalendar();
 		return new MyDate(currentDate.get(GregorianCalendar.DATE), currentDate.get(GregorianCalendar.MONTH) + 1,
@@ -66,7 +67,7 @@ public class MyDate {
 	}
 
 	public static MyDate getDefaultDate() {
-		return new MyDate(1,1,1);
+		return new MyDate(1, 1, 1);
 	}
 
 	public boolean LeapYear() {

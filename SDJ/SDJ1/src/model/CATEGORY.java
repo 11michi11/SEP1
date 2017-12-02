@@ -1,7 +1,6 @@
 package model;
 
 public enum CATEGORY {
-	
 	Astrology,
 	Meditation,
 	Reincarnation,
@@ -9,5 +8,4 @@ public enum CATEGORY {
 	TraditionalBuddhism,
 	Nature,
 	Other
-	
 }

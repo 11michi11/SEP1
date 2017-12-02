@@ -1,9 +1,10 @@
 package model;
+
 import java.util.Map;
 
 public abstract class Event {
 
-	private static double discount;
+	public static double discount = 0.2;
 	private String title;
 	private MyDate startDate;
 	private MyDate endDate;
@@ -36,22 +37,22 @@ public abstract class Event {
 		this.finalized = (boolean) configuration.getOrDefault("finalized", this.finalized);
 		this.description = (String) configuration.getOrDefault("description", this.description);
 		this.capacity = (int) configuration.getOrDefault("CAPACITY", this.capacity);
-	};
-
-	private void finalizeEvent() {
-		finalized = true;
 	}
 
-	public void finish() {
-		finished = true;
+	public void finalizeEvent() {
+		this.finalized = true;
+	}
+
+	public void finishEvent() {
+		this.finished = true;
 	}
 
 	public boolean isFinalized() {
-		return finalized;
+		return this.finalized;
 	}
 
 	public boolean isFinished() {
-		return finished;
+		return this.finished;
 	}
 
 	public boolean canBeFinalized() {
@@ -63,55 +64,49 @@ public abstract class Event {
 	}
 
 	public double getPrice() {
-		return price;
+		return this.price;
 	}
 
 	public double getPriceForMembers() {
-		return price - price * discount;
+		return this.price - (this.price * this.discount);
 	}
 
 	public int getNumberOfAvailablePlaces() {
-		return capacity - participantList.getSize();
+		return this.capacity - this.participantList.getSize();
 	}
 
 	public void signUpParticipant(Participant participant) {
-		participantList.addParticipant(participant);
-	}
-	
-	public abstract String toString();
-
-	public static double getDiscount() {
-		return discount;
+		this.participantList.addParticipant(participant);
 	}
 
 	public String getTitle() {
-		return title;
+		return this.title;
 	}
 
 	public MyDate getStartDate() {
-		return startDate;
+		return this.startDate;
 	}
 
 	public MyDate getEndDate() {
-		return endDate;
+		return this.endDate;
 	}
 
 	public String getDescription() {
-		return description;
+		return this.description;
 	}
 
 	public int getCapacity() {
-		return capacity;
+		return this.capacity;
 	}
-	
-	public int getID()
-   {
-      return ID;
-   }
 
-   public ParticipantList getParticipantList() {
-		return participantList;
+	public int getID() {
+		return this.ID;
 	}
-	
+
+	public ParticipantList getParticipantList() {
+		return this.participantList;
+	}
+
+	public abstract String toString();
 
 }
