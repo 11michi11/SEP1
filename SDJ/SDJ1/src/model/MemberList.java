@@ -42,5 +42,9 @@ public class MemberList {
 	public void addMember(Member member) {
 		members.add(member);
 	}
+	
+	public int getSize() {
+	    return members.size();
+	}
 
 }
