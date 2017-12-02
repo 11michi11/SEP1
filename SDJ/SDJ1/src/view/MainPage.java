@@ -70,18 +70,22 @@ public class MainPage extends JFrame{
 	
 	public void addComponentsToFrame() {
 		
-		JPanel components = new JPanel(new GridLayout(2, 2));
+		VIAPanel components = new VIAPanel(new GridLayout(2, 2));
 		
 		JPanel wrapEvent = new JPanel();
+		wrapEvent.setOpaque(false);
 		wrapEvent.add(createEvent);
 
 		JPanel wrapSignup = new JPanel();
+		wrapSignup.setOpaque(false);
 		wrapSignup.add(signUp);
 		
 		JPanel wrapNewsletter = new JPanel();
+		wrapNewsletter.setOpaque(false);
 		wrapNewsletter.add(newsletter);
 		
 		JPanel wrapList = new JPanel();
+		wrapList.setOpaque(false);
 		wrapList.add(listOf);
 		
 		
