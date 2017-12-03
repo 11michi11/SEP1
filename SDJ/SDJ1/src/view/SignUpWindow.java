@@ -8,13 +8,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class SignUp extends JFrame{
+public class SignUpWindow extends JFrame{
 	
 	private JButton member;
 	private JButton lecturer;
 	private JButton participant;
 	
-	public SignUp() {
+	public SignUpWindow() {
 		super("SignUp");
 		createComponents();
 		initializeComponents();
@@ -49,21 +49,25 @@ public class SignUp extends JFrame{
 	
 	public void addComponentsToFrame() {
 		
+		VIAPanel components = new VIAPanel();
+		
 		JPanel first = new JPanel();
 		first.add(member);
+		first.setOpaque(false);
 		
 		JPanel second = new JPanel();
 		second.add(lecturer);
+		second.setOpaque(false);
 		
 		JPanel third = new JPanel();
 		third.add(participant);
+		third.setOpaque(false);
 		
-		JPanel component = new JPanel();
-		component.add(first);
-		component.add(second);
-		component.add(third);
+		components.add(first);
+		components.add(second);
+		components.add(third);
 		
-		setContentPane(component);
+		setContentPane(components);
 		
 	}
 	
@@ -74,7 +78,7 @@ public class SignUp extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				SignUp main = new SignUp();
+				SignUpWindow main = new SignUpWindow();
 				main.setVisible(true);
 			}
 		});

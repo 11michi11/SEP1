@@ -14,7 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class ParticipantList extends JFrame{
+public class ParticipantListWindow extends JFrame{
 
 
 	private JTable table;
@@ -22,7 +22,7 @@ public class ParticipantList extends JFrame{
 	private JButton add;
 	private JLabel participantList;
 	
-		public ParticipantList() {
+		public ParticipantListWindow() {
 		setLayout(new FlowLayout());
 		setSize(750, 150);
 		setLocationRelativeTo(null);
@@ -58,6 +58,8 @@ public class ParticipantList extends JFrame{
 		table.setPreferredScrollableViewportSize(new Dimension(500,100));
 	//	table.setFillsViewportHeight(true);
 		
+		VIAPanel components = new VIAPanel(new BorderLayout());
+		
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
 		
@@ -65,27 +67,29 @@ public class ParticipantList extends JFrame{
 		JPanel left = new JPanel(new BorderLayout());
 		left.add(search, BorderLayout.NORTH);
 		left.add(scrollPane, BorderLayout.CENTER);
+		left.setOpaque(false);
 		
 		
 		JPanel north = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		north.add(add);
+		north.setOpaque(false);
 			
 		
 		JPanel right = new JPanel(new BorderLayout());
 		right.add(north, BorderLayout.NORTH);
+		right.setOpaque(false);
 
 		
 		JPanel labelPanel = new JPanel();
 		labelPanel.add(participantList);
+		labelPanel.setOpaque(false);
 		
+
+		components.add(labelPanel, BorderLayout.NORTH);
+		components.add(left, BorderLayout.WEST);
+		components.add(right, BorderLayout.EAST);
 		
-		
-		JPanel component = new JPanel(new BorderLayout());
-		component.add(labelPanel, BorderLayout.NORTH);
-		component.add(left, BorderLayout.WEST);
-		component.add(right, BorderLayout.EAST);
-		
-		setContentPane(component);
+		setContentPane(components);
 		
 		
 	}
@@ -94,7 +98,7 @@ public class ParticipantList extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				ParticipantList main = new ParticipantList();
+				ParticipantListWindow main = new ParticipantListWindow();
 				main.setVisible(true);
 			}
 		});

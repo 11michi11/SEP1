@@ -8,14 +8,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class ListOf extends JFrame{
+public class ListsWindow extends JFrame{
 	
 	private JButton memberList;
 	private JButton lecturerList;
 	private JButton eventList;
 	private JButton participantList;
 	
-	public ListOf() {
+	public ListsWindow() {
 		super("List Of");
 		createComponents();
 		initializeComponents();
@@ -55,19 +55,22 @@ public class ListOf extends JFrame{
 	
 	public void addComponentsToFrame() {
 		
+		VIAPanel components = new VIAPanel();
+		
 		JPanel first = new JPanel();
 		first.add(memberList);
 		first.add(eventList);
+		first.setOpaque(false);
 		
 		JPanel second = new JPanel();
 		second.add(lecturerList);
 		second.add(participantList);
+		second.setOpaque(false);
 		
-		JPanel component = new JPanel();
-		component.add(first);
-		component.add(second);
+		components.add(first);
+		components.add(second);
 		
-		setContentPane(component);
+		setContentPane(components);
 	
 		
 	}
@@ -76,7 +79,7 @@ public class ListOf extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				Event main = new Event();
+				ListsWindow main = new ListsWindow();
 				main.setVisible(true);
 			}
 		});

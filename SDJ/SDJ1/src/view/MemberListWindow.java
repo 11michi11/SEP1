@@ -15,7 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class MemberList extends JFrame{
+public class MemberListWindow extends JFrame{
 	
 	private JTable table;
 	private JTextField search;
@@ -24,7 +24,7 @@ public class MemberList extends JFrame{
 	private JLabel memberList;
 	
 	
-	public MemberList() {
+	public MemberListWindow() {
 		
 		setLayout(new FlowLayout());
 		setSize(800, 150);
@@ -64,6 +64,8 @@ public class MemberList extends JFrame{
 		table.setPreferredScrollableViewportSize(new Dimension(500,100));
 	//	table.setFillsViewportHeight(true);
 		
+		VIAPanel components = new VIAPanel(new BorderLayout());
+		
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
 		
@@ -71,29 +73,32 @@ public class MemberList extends JFrame{
 		JPanel left = new JPanel(new BorderLayout());
 		left.add(search, BorderLayout.NORTH);
 		left.add(scrollPane, BorderLayout.CENTER);
+		left.setOpaque(false);
 		
 		
 		JPanel north = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		north.add(add);
+		north.setOpaque(false);
 		
 		JPanel south = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		south.add(mail);
+		south.setOpaque(false);
 		
 		JPanel right = new JPanel(new BorderLayout());
 		right.add(north, BorderLayout.NORTH);
 		right.add(south, BorderLayout.CENTER);
+		right.setOpaque(false);
 		
 		JPanel labelPanel = new JPanel();
 		labelPanel.add(memberList);
+		labelPanel.setOpaque(false);
+				
+
+		components.add(labelPanel, BorderLayout.NORTH);
+		components.add(left, BorderLayout.WEST);
+		components.add(right, BorderLayout.EAST);
 		
-		
-		
-		JPanel component = new JPanel(new BorderLayout());
-		component.add(labelPanel, BorderLayout.NORTH);
-		component.add(left, BorderLayout.WEST);
-		component.add(right, BorderLayout.EAST);
-		
-		setContentPane(component);
+		setContentPane(components);
 		
 		
 	}
@@ -102,7 +107,7 @@ public class MemberList extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				MemberList main = new MemberList();
+				MemberListWindow main = new MemberListWindow();
 				main.setVisible(true);
 			}
 		});

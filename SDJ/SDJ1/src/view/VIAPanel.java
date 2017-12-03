@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 
 public class VIAPanel extends JPanel{
 
-	private Color color1 = Color.ORANGE;
-	private Color color2 = Color.WHITE;
+	private Color color1 = Color.RED;
+	private Color color2 = Color.ORANGE;
 	
 	public VIAPanel() {
 		super();

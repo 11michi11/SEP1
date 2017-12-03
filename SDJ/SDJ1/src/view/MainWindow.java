@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MainPage extends JFrame{
+public class MainWindow extends JFrame{
 	 
 	private JButton createEvent;
 	private JButton newsletter;
@@ -20,7 +20,7 @@ public class MainPage extends JFrame{
 	private JButton listOf;
 	private JLabel welcome;
 	
-	public MainPage() {
+	public MainWindow() {
 		super("Main Page");
 		createComponents();
 		initializeComponents();
@@ -85,13 +85,19 @@ public class MainPage extends JFrame{
 		wrapList.setOpaque(false);
 		wrapList.add(listOf);
 		
+		components.add(wrapEvent);
+		components.add(wrapSignup);
+		components.add(wrapNewsletter);
+		components.add(wrapList);		
+		
+		setContentPane(components);
 	}
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				MainPage main = new MainPage();
+				MainWindow main = new MainWindow();
 				main.setVisible(true);
 			}
 		});

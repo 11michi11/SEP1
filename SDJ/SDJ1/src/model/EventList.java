@@ -6,9 +6,11 @@ import java.util.Iterator;
 public class EventList {
 
 	private ArrayList<Event> events;
+	private Iterator<Event> iter;
 
 	public EventList() {
 		this.events = new ArrayList<Event>();
+		this.iter = events.iterator();
 	}
 
 	public void addEvent(Event event) {
@@ -61,6 +63,14 @@ public class EventList {
 		for (Event i : this.events)
 			print += i.toString() + "\n";
 		return print;
+	}
+
+	public boolean hasNext() {
+		return iter.hasNext();
+	}
+
+	public Event next() {
+		return iter.next();
 	}
 
 }
