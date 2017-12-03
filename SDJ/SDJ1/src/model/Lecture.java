@@ -5,7 +5,7 @@ import java.util.Map;
 public class Lecture extends Event {
 
 	private CATEGORY category;
-	private Lecturer lecturer; 
+	private Lecturer lecturer;
 
 	public Lecture(Map<String, Object> configuration) {
 		super(configuration);

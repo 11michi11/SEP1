@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class LecturerList {
+	
 	private ArrayList<Lecturer> lecturerList;
 
 	public void LecturerList() {
@@ -13,11 +14,11 @@ public class LecturerList {
 		lecturerList.add(lecturer);
 	}
 
-	public ArrayList<Lecturer> getLecturersToAdvertise() {
-		ArrayList<Lecturer> lecturersToAdvertise = new ArrayList<Lecturer>();
+	public LecturerList getLecturersToAdvertise() {
+		LecturerList lecturersToAdvertise = new LecturerList();
 		for (Lecturer i : lecturerList)
 			if (i.isWantsAdvertise())
-				lecturersToAdvertise.add(i);
+				lecturersToAdvertise.addLecturer(i);
 		return lecturersToAdvertise;
 	}
 
@@ -29,23 +30,17 @@ public class LecturerList {
 		return lecturersToPay;
 	}
 
-	public ArrayList<Lecturer> getAllLecturersInCategory(String category) {
+	public ArrayList<Lecturer> getAllLecturersInCategory(CATEGORY category) {
 		ArrayList<Lecturer> AllLecturersInCategory = new ArrayList<Lecturer>();
 		for (Lecturer i : lecturerList)
-			if (!(i.getCategories().findCategory(category).equals("No such category")))
-				AllLecturersInCategory.add(i);
+			for (CATEGORY j : i.getCategories())
+				if (j.equals(category))
+					AllLecturersInCategory.add(i);
 		return AllLecturersInCategory;
 	}
 
 	public ArrayList<Lecturer> getAllLecturers() {
 		return lecturerList;
-	}
-
-	public String printLecturersToAdvertise() {
-		String print = "";
-		for (Lecturer i : getLecturersToAdvertise())
-			print += i + "\n";
-		return print;
 	}
 
 	public String toString() {
@@ -54,15 +49,5 @@ public class LecturerList {
 			print += i.toString() + "\n";
 		return print;
 	}
-
-	public Lecturer getNextLecturer() {
-		return null;
-	}
-
-	public boolean hasNext() {
-		return false;
-	}
-	
-
 
 }
