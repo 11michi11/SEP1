@@ -28,7 +28,7 @@ public class FileManager {
 
 	public void generateEventFile(EventList eventList) throws IOException {
 		eventFile = new File("events.bin");
-		
+
 		FileOutputStream fos = new FileOutputStream(eventFile);
 		ObjectOutputStream out = new ObjectOutputStream(fos);
 
@@ -39,7 +39,7 @@ public class FileManager {
 
 	public void generateLecturerFile(LecturerList lecturerList) throws IOException {
 		lecturerFile = new File("lecturers.bin");
-		
+
 		FileOutputStream fos = new FileOutputStream(lecturerFile);
 		ObjectOutputStream out = new ObjectOutputStream(fos);
 
@@ -50,7 +50,7 @@ public class FileManager {
 
 	public void generateMemberFile(MemberList memberList) throws IOException {
 		memberFile = new File("members.bin");
-		
+
 		FileOutputStream fos = new FileOutputStream(memberFile);
 		ObjectOutputStream out = new ObjectOutputStream(fos);
 
@@ -62,9 +62,9 @@ public class FileManager {
 	public void generateNewsletterFile(String newsletterContent) throws IOException {
 		newsletterFiles.add(new File("Newsletter_" + new MyDate().toString() + ".txt"));
 		PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
-		
+
 		out.println(newsletterContent);
-		
+
 		out.flush();
 		out.close();
 	}
@@ -72,39 +72,39 @@ public class FileManager {
 	public EventList readEventFile() throws IOException, ClassNotFoundException {
 		ObjectInputStream read = null;
 		FileInputStream fis = new FileInputStream(eventFile);
-		
+
 		read = new ObjectInputStream(fis);
 		EventList events = (EventList) read.readObject();
-		
+
 		fis.close();
 		read.close();
-		
+
 		return events;
 	}
 
 	public LecturerList readLecturerFile() throws IOException, ClassNotFoundException {
 		ObjectInputStream read = null;
 		FileInputStream fis = new FileInputStream(lecturerFile);
-		
+
 		read = new ObjectInputStream(fis);
 		LecturerList lecturers = (LecturerList) read.readObject();
-		
+
 		fis.close();
 		read.close();
-		
+
 		return lecturers;
 	}
 
 	public MemberList readMemberFile() throws IOException, ClassNotFoundException {
 		ObjectInputStream read = null;
 		FileInputStream fis = new FileInputStream(memberFile);
-		
+
 		read = new ObjectInputStream(fis);
 		MemberList members = (MemberList) read.readObject();
-		
+
 		fis.close();
 		read.close();
-		
+
 		return members;
 	}
 
