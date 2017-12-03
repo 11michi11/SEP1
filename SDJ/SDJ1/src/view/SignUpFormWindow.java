@@ -11,7 +11,7 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
-public class SignUpForm extends JFrame {
+public class SignUpFormWindow extends JFrame {
 
 	private JLabel labelSignUpForm;
 	private JLabel labelName;
@@ -45,7 +45,7 @@ public class SignUpForm extends JFrame {
    private JPanel paymentYear2;
    private JPanel button;
 
-	public SignUpForm() {
+	public SignUpFormWindow() {
 
 		super("SignUpForm");
 		createComponents();
@@ -183,7 +183,7 @@ public class SignUpForm extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				SignUpForm main = new SignUpForm();
+				SignUpFormWindow main = new SignUpFormWindow();
 				main.setVisible(true);
 			}
 		});

@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,45 +15,51 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class LecturerList extends JFrame{
+public class MemberListWindow extends JFrame{
 	
 	private JTable table;
 	private JTextField search;
 	private JButton add;
-	private JLabel lecturerList;
+	private JButton mail;
+	private JLabel memberList;
 	
-		public LecturerList() {
+	
+	public MemberListWindow() {
+		
 		setLayout(new FlowLayout());
-		setSize(720, 150);
+		setSize(800, 150);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Member List");
 		
 		
-		String[] columnNames= {"Name", "E-mail", "Phone", "Category", "Advertise"};
+		String[] columnNames= {"Name", "E-mail", "ID", "Paid"};
 		Object[][] data = {
-				{"Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes"},
-				{"Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes"},
-				{"Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes"},
-				{"Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes"},
-				{"Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes"},
-				{"Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes"},
-				{"Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes"},
-				{"Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes"},
+				{"Matej", "andasfsuf@gdgdfg.com", "59599295", "yes"},
+				{"Michal", "andasfsuf@gdgdfg.com", "59599295", "yes"},
+				{"Michal", "andasfsuf@gdgdfg.com", "59599295", "yes"},
+				{"Michal", "andasfsuf@gdgdfg.com", "59599295", "yes"},
+				{"Michal", "andasfsuf@gdgdfg.com", "59599295", "yes"},
+				{"Michal", "andasfsuf@gdgdfg.com", "59599295", "yes"},
+				{"Michal", "andasfsuf@gdgdfg.com", "59599295", "yes"},
+				{"Miska", "andasfsuf@gdgdfg.com", "59599295", "yes"},
 						
 		};
 		
 		search = new JTextField(47);
 		search.setText("SEARCH");
 		
-		add = new JButton("ADD LECTURER");
+		add = new JButton("ADD MEMBER");
 		add.setFont(new Font("Arial", Font.PLAIN, 20));
-
-
+		mail = new JButton("SEND REMAIND E-MAIL");
+		mail.setFont(new Font("Arial", Font.PLAIN, 20));
 		
-		lecturerList = new JLabel("LECTURER LIST");
-		lecturerList.setFont(new Font("Arial", Font.PLAIN, 30));
+		Dimension prefSize = mail.getPreferredSize();
+		add.setPreferredSize(prefSize);
 		
+		memberList = new JLabel("MEMBER LIST");
+		memberList.setFont(new Font("Arial", Font.PLAIN, 30));
+			
 		table = new JTable(data, columnNames);
 		table.setPreferredScrollableViewportSize(new Dimension(500,100));
 	//	table.setFillsViewportHeight(true);
@@ -68,14 +75,16 @@ public class LecturerList extends JFrame{
 		
 		JPanel north = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		north.add(add);
-			
+		
+		JPanel south = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		south.add(mail);
 		
 		JPanel right = new JPanel(new BorderLayout());
 		right.add(north, BorderLayout.NORTH);
-
+		right.add(south, BorderLayout.CENTER);
 		
 		JPanel labelPanel = new JPanel();
-		labelPanel.add(lecturerList);
+		labelPanel.add(memberList);
 		
 		
 		
@@ -93,11 +102,10 @@ public class LecturerList extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				LecturerList main = new LecturerList();
+				MemberListWindow main = new MemberListWindow();
 				main.setVisible(true);
 			}
 		});
 
 	}
-
 }

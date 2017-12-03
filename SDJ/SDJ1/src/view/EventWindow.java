@@ -8,18 +8,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class SignUp extends JFrame{
+public class EventWindow extends JFrame{
 	
-	private JButton member;
-	private JButton lecturer;
-	private JButton participant;
+	private JButton lectures;
+	private JButton seminars;
+	private JButton workshop;
+	private JButton trips;
 	
-	public SignUp() {
-		super("SignUp");
+	public EventWindow() {
+		super("Type");
 		createComponents();
 		initializeComponents();
 		registerEventHandlers();
-		addComponentsToFrame();	
+		addComponentsToFrame();
 	}
 	
 	public void createComponents(){
@@ -31,18 +32,23 @@ public class SignUp extends JFrame{
 	
 	public void initializeComponents() {
 		
-		member = new JButton("MEMBER");
-		member.setFont(new Font("Arial", Font.PLAIN, 30));
-		lecturer = new JButton("LECTURER");
-		lecturer.setFont(new Font("Arial", Font.PLAIN, 30));
-		participant = new JButton("PARTICIPANT");
-		participant.setFont(new Font("Arial", Font.PLAIN, 30));
+		lectures = new JButton("LECTURES");
+		lectures.setFont(new Font("Arial", Font.PLAIN, 30));
+		seminars = new JButton("SEMINARS");
+		seminars.setFont(new Font("Arial", Font.PLAIN, 30));
+		workshop = new JButton("WORKSHOP");
+		workshop.setFont(new Font("Arial", Font.PLAIN, 30));
+		trips = new JButton("TRIPS");
+		trips.setFont(new Font("Arial", Font.PLAIN, 30));
 		
 		Dimension prefSize = new Dimension(300, 100);
 		
-		member.setPreferredSize(prefSize);
-		lecturer.setPreferredSize(prefSize);
-		participant.setPreferredSize(prefSize);
+		lectures.setPreferredSize(prefSize);
+		seminars.setPreferredSize(prefSize);
+		workshop.setPreferredSize(prefSize);
+		trips.setPreferredSize(prefSize);
+		
+		
 	}
 	
 	public void registerEventHandlers() {}
@@ -50,34 +56,31 @@ public class SignUp extends JFrame{
 	public void addComponentsToFrame() {
 		
 		JPanel first = new JPanel();
-		first.add(member);
+		first.add(lectures);
+		first.add(seminars);
 		
 		JPanel second = new JPanel();
-		second.add(lecturer);
-		
-		JPanel third = new JPanel();
-		third.add(participant);
+		second.add(workshop);
+		second.add(trips);
 		
 		JPanel component = new JPanel();
 		component.add(first);
 		component.add(second);
-		component.add(third);
 		
 		setContentPane(component);
+	
 		
 	}
-	
-	
-	
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				SignUp main = new SignUp();
+				EventWindow main = new EventWindow();
 				main.setVisible(true);
 			}
 		});
 	}
+	
 
 }

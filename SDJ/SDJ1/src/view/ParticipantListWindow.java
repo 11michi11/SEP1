@@ -14,7 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class ParticipantList extends JFrame{
+public class ParticipantListWindow extends JFrame{
 
 
 	private JTable table;
@@ -22,7 +22,7 @@ public class ParticipantList extends JFrame{
 	private JButton add;
 	private JLabel participantList;
 	
-		public ParticipantList() {
+		public ParticipantListWindow() {
 		setLayout(new FlowLayout());
 		setSize(750, 150);
 		setLocationRelativeTo(null);
@@ -94,7 +94,7 @@ public class ParticipantList extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				ParticipantList main = new ParticipantList();
+				ParticipantListWindow main = new ParticipantListWindow();
 				main.setVisible(true);
 			}
 		});

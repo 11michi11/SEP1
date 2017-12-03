@@ -8,15 +8,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Event extends JFrame{
+public class ListsWindow extends JFrame{
 	
-	private JButton lectures;
-	private JButton seminars;
-	private JButton workshop;
-	private JButton trips;
+	private JButton memberList;
+	private JButton lecturerList;
+	private JButton eventList;
+	private JButton participantList;
 	
-	public Event() {
-		super("Type");
+	public ListsWindow() {
+		super("List Of");
 		createComponents();
 		initializeComponents();
 		registerEventHandlers();
@@ -32,21 +32,21 @@ public class Event extends JFrame{
 	
 	public void initializeComponents() {
 		
-		lectures = new JButton("LECTURES");
-		lectures.setFont(new Font("Arial", Font.PLAIN, 30));
-		seminars = new JButton("SEMINARS");
-		seminars.setFont(new Font("Arial", Font.PLAIN, 30));
-		workshop = new JButton("WORKSHOP");
-		workshop.setFont(new Font("Arial", Font.PLAIN, 30));
-		trips = new JButton("TRIPS");
-		trips.setFont(new Font("Arial", Font.PLAIN, 30));
+		lecturerList = new JButton("LECTURER LIST");
+		lecturerList.setFont(new Font("Arial", Font.PLAIN, 30));
+		memberList = new JButton("MEMBER LIST");
+		memberList.setFont(new Font("Arial", Font.PLAIN, 30));
+		eventList = new JButton("EVENT LIST");
+		eventList.setFont(new Font("Arial", Font.PLAIN, 30));
+		participantList = new JButton("PARTICIPANT LIST");
+		participantList.setFont(new Font("Arial", Font.PLAIN, 30));
 		
 		Dimension prefSize = new Dimension(300, 100);
 		
-		lectures.setPreferredSize(prefSize);
-		seminars.setPreferredSize(prefSize);
-		workshop.setPreferredSize(prefSize);
-		trips.setPreferredSize(prefSize);
+		lecturerList.setPreferredSize(prefSize);
+		memberList.setPreferredSize(prefSize);
+		eventList.setPreferredSize(prefSize);
+		participantList.setPreferredSize(prefSize);
 		
 		
 	}
@@ -56,12 +56,12 @@ public class Event extends JFrame{
 	public void addComponentsToFrame() {
 		
 		JPanel first = new JPanel();
-		first.add(lectures);
-		first.add(seminars);
+		first.add(memberList);
+		first.add(eventList);
 		
 		JPanel second = new JPanel();
-		second.add(workshop);
-		second.add(trips);
+		second.add(lecturerList);
+		second.add(participantList);
 		
 		JPanel component = new JPanel();
 		component.add(first);
@@ -76,11 +76,12 @@ public class Event extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				Event main = new Event();
+				EventWindow main = new EventWindow();
 				main.setVisible(true);
 			}
 		});
 	}
+
 	
 
 }

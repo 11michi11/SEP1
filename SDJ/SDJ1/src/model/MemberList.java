@@ -1,15 +1,18 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.plaf.metal.MetalMenuBarUI;
 
 public class MemberList {
 
 	private ArrayList<Member> members;
-
+	private Iterator<Member> iter;
+	
 	public MemberList() {
-		members = new ArrayList<Member>();
+		this.members = new ArrayList<Member>();
+		this.iter = members.iterator();
 	}
 
 	public ArrayList<Member> getListOfMembersWhoHasntPaid() {
@@ -45,6 +48,14 @@ public class MemberList {
 	
 	public int getSize() {
 	    return members.size();
+	}
+
+	public boolean hasNext() {
+		return iter.hasNext();
+	}
+
+	public Member next() {
+		return iter.next();
 	}
 
 }
