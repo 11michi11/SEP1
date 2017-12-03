@@ -8,14 +8,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class EventGui extends JFrame{
+public class EventWindow extends JFrame{
 	
 	private JButton lectures;
 	private JButton seminars;
 	private JButton workshop;
 	private JButton trips;
 	
-	public EventGui() {
+	public EventWindow() {
 		super("Type");
 		createComponents();
 		initializeComponents();
@@ -84,7 +84,7 @@ public class EventGui extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				EventGui main = new EventGui();
+				EventWindow main = new EventWindow();
 				main.setVisible(true);
 			}
 		});
