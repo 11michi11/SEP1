@@ -1,11 +1,14 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class SignUpWindow extends JFrame{
@@ -49,7 +52,9 @@ public class SignUpWindow extends JFrame{
 	
 	public void addComponentsToFrame() {
 		
-		VIAPanel components = new VIAPanel();
+		VIAPanel components = new VIAPanel(new BorderLayout());
+		
+		JPanel button = new JPanel();
 		
 		JPanel first = new JPanel();
 		first.add(member);
@@ -63,9 +68,19 @@ public class SignUpWindow extends JFrame{
 		third.add(participant);
 		third.setOpaque(false);
 		
-		components.add(first);
-		components.add(second);
-		components.add(third);
+		button.add(first);
+		button.add(second);
+		button.add(third);
+		button.setOpaque(false);
+		
+		JPanel logo = new JPanel();
+		logo.setOpaque(false);
+		
+		ImageIcon img = new ImageIcon("src/resources/Logo.png");
+		JLabel imgLab = new JLabel(img);
+		
+		components.add(imgLab, BorderLayout.NORTH);
+		components.add(button, BorderLayout.CENTER);
 		
 		setContentPane(components);
 		

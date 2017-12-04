@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,7 +24,7 @@ public class LecturerListWindow extends JFrame{
 	
 		public LecturerListWindow() {
 		setLayout(new FlowLayout());
-		setSize(720, 150);
+		setSize(720, 300);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Member List");
@@ -82,10 +83,20 @@ public class LecturerListWindow extends JFrame{
 		labelPanel.add(lecturerList);
 		labelPanel.setOpaque(false);
 		
+		JPanel logo = new JPanel();
+		logo.setOpaque(false);
 		
-		components.add(labelPanel, BorderLayout.NORTH);
-		components.add(left, BorderLayout.WEST);
-		components.add(right, BorderLayout.EAST);
+		ImageIcon img = new ImageIcon("src/resources/Logo.png");
+		JLabel imgLab = new JLabel(img);
+		
+		JPanel componentsF = new JPanel(new BorderLayout());
+		componentsF.add(labelPanel, BorderLayout.NORTH);
+		componentsF.add(left, BorderLayout.WEST);
+		componentsF.add(right, BorderLayout.EAST);
+		componentsF.setOpaque(false);
+		
+		components.add(imgLab, BorderLayout.NORTH);
+		components.add(componentsF, BorderLayout.CENTER);
 		
 		setContentPane(components);
 		
