@@ -8,6 +8,8 @@ public class Lecturer {
 	private int phone;
 	private ArrayList<CATEGORY> categories;
 	private boolean wantsAdvertise;
+	private int ID;
+	private static int nextID = 0;
 
 	public Lecturer(String name, String email, int phone, ArrayList<CATEGORY> categories, boolean wantsAdvertise) {
 		this.name = name;
@@ -15,6 +17,7 @@ public class Lecturer {
 		this.phone = phone;
 		this.categories = categories;
 		this.wantsAdvertise = wantsAdvertise;
+		this.ID = ++nextID;
 	}
 
 	public String getName() {
@@ -41,6 +44,10 @@ public class Lecturer {
 		this.phone = phone;
 	}
 
+	public int getID() {
+		return this.ID;
+	}
+	
 	public ArrayList<CATEGORY> getCategories() {
 		return categories;
 	}
