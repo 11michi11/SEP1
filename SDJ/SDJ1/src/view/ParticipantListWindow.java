@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,7 +25,7 @@ public class ParticipantListWindow extends JFrame{
 	
 		public ParticipantListWindow() {
 		setLayout(new FlowLayout());
-		setSize(750, 150);
+		setSize(750, 300);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Member List");
@@ -56,7 +57,6 @@ public class ParticipantListWindow extends JFrame{
 		
 		table = new JTable(data, columnNames);
 		table.setPreferredScrollableViewportSize(new Dimension(500,100));
-	//	table.setFillsViewportHeight(true);
 		
 		VIAPanel components = new VIAPanel(new BorderLayout());
 		
@@ -84,10 +84,20 @@ public class ParticipantListWindow extends JFrame{
 		labelPanel.add(participantList);
 		labelPanel.setOpaque(false);
 		
-
-		components.add(labelPanel, BorderLayout.NORTH);
-		components.add(left, BorderLayout.WEST);
-		components.add(right, BorderLayout.EAST);
+		JPanel logo = new JPanel();
+		logo.setOpaque(false);
+		
+		ImageIcon img = new ImageIcon("src/resources/Logo.png");
+		JLabel imgLab = new JLabel(img);
+		
+		JPanel componentsF = new JPanel(new BorderLayout());
+		componentsF.add(labelPanel, BorderLayout.NORTH);
+		componentsF.add(left, BorderLayout.WEST);
+		componentsF.add(right, BorderLayout.EAST);
+		componentsF.setOpaque(false);
+		
+		components.add(imgLab, BorderLayout.NORTH);
+		components.add(componentsF, BorderLayout.CENTER);
 		
 		setContentPane(components);
 		

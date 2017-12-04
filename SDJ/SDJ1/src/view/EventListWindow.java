@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -98,11 +99,25 @@ public class EventListWindow extends JFrame {
 		labelPanel.setOpaque(false);
 		labelPanel.add(eventList);
 		
+		JPanel logo = new JPanel();
+		logo.setOpaque(false);
+		
+		ImageIcon img = new ImageIcon("src/resources/Logo.png");
+		JLabel imgLab = new JLabel(img);
+		
+		JPanel componentsF = new JPanel(new BorderLayout());
+		componentsF.add(labelPanel, BorderLayout.NORTH);
+		componentsF.add(left, BorderLayout.WEST);
+		componentsF.add(center, BorderLayout.CENTER);
+		componentsF.add(right, BorderLayout.EAST);
+		componentsF.setOpaque(false);
+		
 		VIAPanel components = new VIAPanel(new BorderLayout());
-		components.add(labelPanel, BorderLayout.NORTH);
-		components.add(left, BorderLayout.WEST);
-		components.add(center, BorderLayout.CENTER);
-		components.add(right, BorderLayout.EAST);
+		components.add(imgLab ,BorderLayout.NORTH);
+		components.add(componentsF, BorderLayout.CENTER);
+		
+		
+		
 		
 		setContentPane(components);
 		

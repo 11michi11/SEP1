@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -88,10 +89,21 @@ public class SignUpFormParticipant extends JFrame{
 		button.add(add);
 		button.setOpaque(false);
 		
-		components.add(label, BorderLayout.NORTH);
-		components.add(content, BorderLayout.CENTER);
-		components.add(button, BorderLayout.SOUTH);
+		JPanel logo = new JPanel();
+		logo.setOpaque(false);
 		
+		ImageIcon img = new ImageIcon("src/resources/Logo.png");
+		JLabel imgLab = new JLabel(img);
+		
+		
+		JPanel componentsF = new JPanel(new BorderLayout());
+		componentsF.add(label, BorderLayout.NORTH);
+		componentsF.add(content, BorderLayout.CENTER);
+		componentsF.add(button, BorderLayout.SOUTH);
+		componentsF.setOpaque(false);
+		
+		components.add(imgLab, BorderLayout.NORTH);
+		components.add(componentsF, BorderLayout.CENTER);
 		
 		setContentPane(components);
 		

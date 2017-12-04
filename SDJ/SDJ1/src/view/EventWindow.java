@@ -4,8 +4,10 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class EventWindow extends JFrame{
@@ -67,12 +69,16 @@ public class EventWindow extends JFrame{
 		second.add(trips);
 		second.setOpaque(false);
 		
-		//JPanel component = new JPanel();
+		
+		JPanel logo = new JPanel();
+		logo.setOpaque(false);
+		
+		ImageIcon img = new ImageIcon("src/resources/Logo.png");
+		JLabel imgLab = new JLabel(img);
+		
+		components.add(imgLab);
 		components.add(first);
 		components.add(second);
-		
-		
-		
 	
 		
 		setContentPane(components);

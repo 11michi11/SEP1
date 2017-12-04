@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -71,7 +72,7 @@ public class SignUpFormMember extends JFrame{
 	
 	public void initializeComponents() {
 		
-		setSize(700, 200);
+		setSize(700, 300);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
@@ -174,10 +175,20 @@ public class SignUpFormMember extends JFrame{
 		titul.add(signUp);
 		titul.setOpaque(false);
 		
-		//JPanel contents = new JPanel(new BorderLayout());
-		components.add(titul, BorderLayout.NORTH);
-		components.add(content, BorderLayout.CENTER);
-		components.add(button, BorderLayout.SOUTH);
+		JPanel componentsF = new JPanel(new BorderLayout());
+		componentsF.add(titul, BorderLayout.NORTH);
+		componentsF.add(content, BorderLayout.CENTER);
+		componentsF.add(button, BorderLayout.SOUTH);
+		componentsF.setOpaque(false);
+		
+		JPanel logo = new JPanel();
+		logo.setOpaque(false);
+		
+		ImageIcon img = new ImageIcon("src/resources/Logo.png");
+		JLabel imgLab = new JLabel(img);
+		
+		components.add(imgLab, BorderLayout.NORTH);
+		components.add(componentsF, BorderLayout.CENTER);
 		
 		
 		setContentPane(components);

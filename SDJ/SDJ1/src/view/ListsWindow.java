@@ -4,8 +4,10 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ListsWindow extends JFrame{
@@ -40,6 +42,7 @@ public class ListsWindow extends JFrame{
 		eventList.setFont(new Font("Arial", Font.PLAIN, 30));
 		participantList = new JButton("PARTICIPANT LIST");
 		participantList.setFont(new Font("Arial", Font.PLAIN, 30));
+
 		
 		Dimension prefSize = new Dimension(300, 100);
 		
@@ -67,6 +70,13 @@ public class ListsWindow extends JFrame{
 		second.add(participantList);
 		second.setOpaque(false);
 		
+		JPanel logo = new JPanel();
+		logo.setOpaque(false);
+		
+		ImageIcon img = new ImageIcon("src/resources/Logo.png");
+		JLabel imgLab = new JLabel(img);
+		
+		components.add(imgLab);
 		components.add(first);
 		components.add(second);
 		
