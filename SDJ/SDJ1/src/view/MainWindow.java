@@ -1,25 +1,27 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Window;
+import java.io.File;
+import java.io.IOException;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MainWindow extends JFrame{
-	 
+public class MainWindow extends JFrame {
+
 	private JButton createEvent;
 	private JButton newsletter;
 	private JButton signUp;
 	private JButton listOf;
 	private JLabel welcome;
-	
+
 	public MainWindow() {
 		super("Main Page");
 		createComponents();
@@ -27,48 +29,53 @@ public class MainWindow extends JFrame{
 		registerEventHandlers();
 		addComponentsToFrame();
 	}
-	
-	public void createComponents(){
+
+	public void createComponents() {
 		
+		Font btnFont = new Font("Arial", Font.PLAIN, 40);
+
 		createEvent = new JButton("EVENT");
-		createEvent.setFont(new Font("Arial", Font.PLAIN, 40));
-		
+		createEvent.setFont(btnFont);
+
 		newsletter = new JButton("NEWSLETTER");
-		newsletter.setFont(new Font("Arial", Font.PLAIN, 40));
-		
+		newsletter.setFont(btnFont);
+
 		signUp = new JButton("SIGN UP");
-		signUp.setFont(new Font("Arial", Font.PLAIN, 40));
-		
+		signUp.setFont(btnFont);
+
 		listOf = new JButton("LIST OF");
-		listOf.setFont(new Font("Arial", Font.PLAIN, 40));
-		
+		listOf.setFont(btnFont);
+
 		welcome = new JLabel("WELCOME");
-		
-		Dimension prefSize = new Dimension(400,70);
-		
+
+		Dimension prefSize = new Dimension(400, 70);
+
 		newsletter.setPreferredSize(prefSize);
 		createEvent.setPreferredSize(prefSize);
 		signUp.setPreferredSize(prefSize);
 		listOf.setPreferredSize(prefSize);
-			
+
 	}
-	
+
 	public void initializeComponents() {
-		
+
 		setSize(900, 500);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 	}
-	
+
 	public void registerEventHandlers() {
-		
+
 	}
-	
+
 	public void addComponentsToFrame() {
-		
-		VIAPanel components = new VIAPanel(new GridLayout(2, 2));
-		
+
+		VIAPanel components = new VIAPanel(new BorderLayout());
+
+		JPanel buttons = new JPanel(new GridLayout(2, 2));
+		buttons.setOpaque(false);
+
 		JPanel wrapEvent = new JPanel();
 		wrapEvent.setOpaque(false);
 		wrapEvent.add(createEvent);
@@ -76,23 +83,33 @@ public class MainWindow extends JFrame{
 		JPanel wrapSignup = new JPanel();
 		wrapSignup.setOpaque(false);
 		wrapSignup.add(signUp);
-		
+
 		JPanel wrapNewsletter = new JPanel();
 		wrapNewsletter.setOpaque(false);
 		wrapNewsletter.add(newsletter);
-		
+
 		JPanel wrapList = new JPanel();
 		wrapList.setOpaque(false);
 		wrapList.add(listOf);
-		
-		components.add(wrapEvent);
-		components.add(wrapSignup);
-		components.add(wrapNewsletter);
-		components.add(wrapList);		
-		
+
+		buttons.add(wrapEvent);
+		buttons.add(wrapSignup);
+		buttons.add(wrapNewsletter);
+		buttons.add(wrapList);
+
+		JPanel welcomeLogo = new JPanel();
+		welcomeLogo.setOpaque(false);
+
+		ImageIcon img = new ImageIcon("src/resources/logoGUI.png");
+		JLabel imgLab = new JLabel(img);
+
+		welcomeLogo.add(imgLab);
+		components.add(welcomeLogo, BorderLayout.NORTH);
+		components.add(buttons, BorderLayout.CENTER);
+
 		setContentPane(components);
 	}
-	
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
@@ -102,6 +119,5 @@ public class MainWindow extends JFrame{
 			}
 		});
 	}
-	
 
 }
