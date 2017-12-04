@@ -11,7 +11,7 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
-public class SignUpForm extends JFrame {
+public class SignUpFormWindow extends JFrame {
 
 	private JLabel labelSignUpForm;
 	private JLabel labelName;
@@ -30,22 +30,22 @@ public class SignUpForm extends JFrame {
 	private JTextField textFieldPaymentYear;
 	private JButton addToList;
 	private JPanel name1;
-   private JPanel name2;
+	private JPanel name2;
 	private JPanel email1;
-   private JPanel email2;
+	private JPanel email2;
 	private JPanel address1;
-   private JPanel address2;
+	private JPanel address2;
 	private JPanel id1;
-   private JPanel id2;
+	private JPanel id2;
 	private JPanel phone1;
-   private JPanel phone2;
+	private JPanel phone2;
 	private JPanel dateOfMembership1;
-   private JPanel dateOfMembership2;
+	private JPanel dateOfMembership2;
 	private JPanel paymentYear1;
-   private JPanel paymentYear2;
-   private JPanel button;
+	private JPanel paymentYear2;
+	private JPanel button;
 
-	public SignUpForm() {
+	public SignUpFormWindow() {
 
 		super("SignUpForm");
 		createComponents();
@@ -73,10 +73,9 @@ public class SignUpForm extends JFrame {
 		textFieldDateOfMembership = new JTextField(8);
 		textFieldPaymentYear = new JTextField(8);
 		addToList = new JButton("Add to list");
-		
-		
+
 		Dimension prefSize = new Dimension(100, 50);
-      addToList.setPreferredSize(prefSize);
+		addToList.setPreferredSize(prefSize);
 
 	}
 
@@ -100,8 +99,6 @@ public class SignUpForm extends JFrame {
 		name1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		name1.add(labelName);
 
-      
-
 		email1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		email1.add(labelEmail);
 
@@ -116,61 +113,57 @@ public class SignUpForm extends JFrame {
 		left.add(address1);
 		left.add(id1);
 
-      JPanel left2 = new JPanel(new GridLayout(4, 1));
-      
-      name2 = new JPanel();
-      name2.add(textFieldName);
-      
-      email2 = new JPanel();
-      email2.add(textFieldEmail);
-      
+		JPanel left2 = new JPanel(new GridLayout(4, 1));
 
-      address2 = new JPanel();
-      address2.add(textFieldAddress);
-      
+		name2 = new JPanel();
+		name2.add(textFieldName);
 
-      id2 = new JPanel();
-      id2.add(textFieldID);
+		email2 = new JPanel();
+		email2.add(textFieldEmail);
 
+		address2 = new JPanel();
+		address2.add(textFieldAddress);
 
-      left2.add(name2);
-      left2.add(email2);
-      left2.add(address2);
-      left2.add(id2);
-      
+		id2 = new JPanel();
+		id2.add(textFieldID);
+
+		left2.add(name2);
+		left2.add(email2);
+		left2.add(address2);
+		left2.add(id2);
+
 		JPanel right = new JPanel(new GridLayout(3, 2));
 
 		phone1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		phone1.add(labelPhone);
-		
+
 		phone2 = new JPanel();
-	   phone2.add(textFieldPhone);
+		phone2.add(textFieldPhone);
 
 		dateOfMembership1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		dateOfMembership1.add(labelDateOfMembership);
-		
+
 		dateOfMembership2 = new JPanel();
-      dateOfMembership2.add(textFieldDateOfMembership);
+		dateOfMembership2.add(textFieldDateOfMembership);
 
 		paymentYear1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		paymentYear1.add(labelPaymentYear);
-		
-      paymentYear2 = new JPanel();
-      paymentYear2.add(textFieldPaymentYear);
+
+		paymentYear2 = new JPanel();
+		paymentYear2.add(textFieldPaymentYear);
 
 		right.add(phone1);
 		right.add(phone2);
 		right.add(dateOfMembership1);
-      right.add(dateOfMembership2);
+		right.add(dateOfMembership2);
 		right.add(paymentYear1);
-      right.add(paymentYear2);
-      
-      JPanel button = new JPanel();
-      button.add(addToList);
-      
-      
+		right.add(paymentYear2);
+
+		JPanel button = new JPanel();
+		button.add(addToList);
+
 		pane.add(left);
-      pane.add(left2);
+		pane.add(left2);
 		pane.add(right);
 		pane.add(button);
 
@@ -183,7 +176,7 @@ public class SignUpForm extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				SignUpForm main = new SignUpForm();
+				SignUpFormWindow main = new SignUpFormWindow();
 				main.setVisible(true);
 			}
 		});

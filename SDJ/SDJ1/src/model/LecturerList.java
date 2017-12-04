@@ -1,13 +1,16 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class LecturerList {
 	
 	private ArrayList<Lecturer> lecturerList;
-
+	private Iterator<Lecturer> iter;
+	
 	public void LecturerList() {
 		lecturerList = new ArrayList<Lecturer>();
+		this.iter = lecturerList.iterator();
 	}
 
 	public void addLecturer(Lecturer lecturer) {
@@ -48,6 +51,14 @@ public class LecturerList {
 		for (Lecturer i : lecturerList)
 			print += i.toString() + "\n";
 		return print;
+	}
+	
+	public boolean hasNext() {
+		return iter.hasNext();
+	}
+
+	public Lecturer next() {
+		return iter.next();
 	}
 
 }

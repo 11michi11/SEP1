@@ -4,36 +4,39 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SearchEngine {
-    
-    public MemberList searchForMembers(MemberList members, String needle){
-	MemberList searchedMembers=new MemberList();
-	while(members.hasNext()) {
-	    Member member=members.getNext();
-	    if(search(member.getName(), needle) || search(Integer.toString(member.getID()), needle))
-		searchedMembers.addMember(member);
+
+	public MemberList searchForMembers(MemberList members, String needle) {
+		MemberList searchedMembers = new MemberList();
+		while (members.hasNext()) {
+			Member member = members.next();
+			if (search(member.getName(), needle) || search(Integer.toString(member.getID()), needle))
+				searchedMembers.addMember(member);
+		}
+		return searchedMembers;
 	}
-	return searchedMembers;	    
-    }
-    public LecturerList searchForLecturers(LecturerList lecturers, String needle){
-	LecturerList searchedLecturers=new LecturerList();
-	while(lecturers.hasNext()) {
-	    Lecturer lecturer=lecturers.getNext();
-	    if(search(lecturer.getName(), needle) || search(Integer.toString(lecturer.getID()), needle))
-		searchedLecturers.addLecturer(lecturer);
+
+	public LecturerList searchForLecturers(LecturerList lecturers, String needle) {
+		LecturerList searchedLecturers = new LecturerList();
+		while (lecturers.hasNext()) {
+			Lecturer lecturer = lecturers.next();
+			if (search(lecturer.getName(), needle) || search(Integer.toString(lecturer.getID()), needle))
+				searchedLecturers.addLecturer(lecturer);
+		}
+		return searchedLecturers;
 	}
-	return searchedLecturers;	    
-    }
-    public EventList searchForEvents(EventList events, String needle){
-	EventList searchedEvents=new EventList();
-	while(events.hasNext()) {
-	    Event event=events.getNext();
-	    if(search(event.getTitle(), needle) || search(Integer.toString(event.getID()), needle) || search(event.getStartDate().toString(), needle))
-		searchedEvents.addEvent(event);
+
+	public EventList searchForEvents(EventList events, String needle) {
+		EventList searchedEvents = new EventList();
+		while (events.hasNext()) {
+			Event event = events.next();
+			if (search(event.getTitle(), needle) || search(Integer.toString(event.getID()), needle)
+					|| search(event.getStartDate().toString(), needle))
+				searchedEvents.addEvent(event);
+		}
+		return searchedEvents;
 	}
-	return searchedEvents;	    
-    }
-    
-    public boolean search(String stack, String needle){
+
+	public boolean search(String stack, String needle){
 	Pattern p=Pattern.compile(stack);
 	Matcher m=p.matcher("");
 	m.reset(needle);
@@ -49,6 +52,5 @@ public class SearchEngine {
 	    return false;
 	}
 	else
-	   return false;
-    }
+	   return false;}
 }
