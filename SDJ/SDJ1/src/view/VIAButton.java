@@ -41,7 +41,7 @@ public class VIAButton extends JButton {
 
 	private void loadImage() {
 		try {
-			image = ImageIO.read(new File("src/resources/buttonJava.png"));
+			image = ImageIO.read(new File("src/resources/buttonJava.jpg"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

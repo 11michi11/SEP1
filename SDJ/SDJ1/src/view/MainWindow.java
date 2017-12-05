@@ -37,8 +37,6 @@ public class MainWindow extends JFrame {
 		Font btnFont = new Font("Arial", Font.PLAIN, 40);
 
 		createEvent = new VIAButton("EVENT");
-		createEvent.setBackground(new Color(0,0,0,0));
-		createEvent.setBorderPainted(false);
 		createEvent.setFont(btnFont);
 
 		newsletter = new JButton("NEWSLETTER");
