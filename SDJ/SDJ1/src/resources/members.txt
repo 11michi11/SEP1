@@ -1,0 +1,2 @@
+name;address;phone;email;dd/mm/yyyy
+Michal Pompa;ul.M³odnickiegio 40/1 Wroc³aw;5184622226;266494@via.dk;20/03/2015

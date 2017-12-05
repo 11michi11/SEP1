@@ -4,8 +4,6 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.LayoutManager;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,8 +16,10 @@ public class EventPanel extends VIAPanel {
 	private JButton seminars;
 	private JButton workshop;
 	private JButton trips;
+	private JFrame frame;
 
-	public EventPanel() {
+	public EventPanel(JFrame frame) {
+		this.frame = frame;
 		setLayout(new GridLayout(3,1));
 		initializeComponents();
 		registerEventHandlers();
@@ -45,6 +45,7 @@ public class EventPanel extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
+		
 	}
 
 	public void addComponentsToFrame() {
@@ -78,7 +79,7 @@ public class EventPanel extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventPanel());
+				frame.setContentPane(new EventPanel(frame));
 				frame.setVisible(true);
 			}
 		});

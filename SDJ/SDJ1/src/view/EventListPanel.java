@@ -16,7 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class EventListWindow extends JFrame {
+public class EventListPanel extends JPanel {
 	
 	private JTable table;
 	private JScrollPane scrollPane;
@@ -28,7 +28,7 @@ public class EventListWindow extends JFrame {
 	private JCheckBox finalized;
 	private JCheckBox finished;
 
-	public EventListWindow() {
+	public EventListPanel() {
 		super("VIA - Events list");
 		initializeFrame();
 		createComponents();
@@ -138,7 +138,7 @@ public class EventListWindow extends JFrame {
 
 			@Override
 			public void run() {
-				EventListWindow frame = new EventListWindow();
+				EventListPanel frame = new EventListPanel();
 				frame.setVisible(true);
 			}
 		});

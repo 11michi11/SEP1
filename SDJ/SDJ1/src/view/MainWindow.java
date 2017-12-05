@@ -19,9 +19,11 @@ public class MainWindow extends JFrame {
 	private JButton signUp;
 	private JButton listOf;
 	private JLabel welcome;
+	private JFrame mainFrame;
 
 	public MainWindow() {
 		super("VIA - Management System");
+		this.mainFrame = this;
 		initializeFrame();
 		createComponents();
 		registerEventHandlers();
@@ -58,7 +60,7 @@ public class MainWindow extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new EventPanel();
+				JPanel newContentPane = new EventPanel(mainFrame);
 				newContentPane.setVisible(true);
 				setContentPane(newContentPane);
 				revalidate();
