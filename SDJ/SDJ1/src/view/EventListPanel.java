@@ -35,7 +35,7 @@ public class EventListPanel extends VIAPanel {
 		setLayout(new BorderLayout());
 		createComponents();
 		registerEventHandlers();
-		addComponentsToFrame();
+		addComponentsToPanel();
 
 	}
 
@@ -78,7 +78,7 @@ public class EventListPanel extends VIAPanel {
 		// TODO Auto-generated method stub
 	}
 	
-	private void addComponentsToFrame() {
+	private void addComponentsToPanel() {
 		JPanel left = new JPanel(new BorderLayout());
 		left.add(search, BorderLayout.NORTH);
 		left.add(scrollPane, BorderLayout.CENTER);

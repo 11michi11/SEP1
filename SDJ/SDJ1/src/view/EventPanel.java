@@ -23,7 +23,7 @@ public class EventPanel extends VIAPanel {
 		setLayout(new GridLayout(3,1));
 		initializeComponents();
 		registerEventHandlers();
-		addComponentsToFrame();
+		addComponentsToPanel();
 	}
 
 	public void initializeComponents() {
@@ -48,7 +48,7 @@ public class EventPanel extends VIAPanel {
 		
 	}
 
-	public void addComponentsToFrame() {
+	public void addComponentsToPanel() {
 
 		
 		JPanel first = new JPanel();

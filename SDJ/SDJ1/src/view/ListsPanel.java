@@ -25,7 +25,7 @@ public class ListsPanel extends VIAPanel {
 		setLayout(new GridLayout(3,1));
 		initializeComponents();
 		registerEventHandlers();
-		addComponentsToFrame();
+		addComponentsToPanel();
 	}
 
 	public void initializeComponents() {
@@ -49,7 +49,7 @@ public class ListsPanel extends VIAPanel {
 	public void registerEventHandlers() {
 	}
 
-	public void addComponentsToFrame() {
+	public void addComponentsToPanel() {
 		JPanel first = new JPanel();
 		first.add(memberList);
 		first.add(eventList);

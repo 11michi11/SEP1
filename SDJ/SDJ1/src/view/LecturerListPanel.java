@@ -29,7 +29,7 @@ public class LecturerListPanel extends VIAPanel {
 		setLayout(new FlowLayout());
 		initializeComponents();
 		registerEventHandlers();
-		addComponentsToFrame();
+		addComponentsToPanel();
 	}
 
 	private void initializeComponents() {
@@ -63,7 +63,7 @@ public class LecturerListPanel extends VIAPanel {
 
 	}
 
-	private void addComponentsToFrame() {
+	private void addComponentsToPanel() {
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
 
