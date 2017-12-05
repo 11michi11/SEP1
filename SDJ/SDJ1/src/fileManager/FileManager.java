@@ -9,10 +9,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
+import model.Event;
 import model.EventList;
+import model.Lecturer;
 import model.LecturerList;
+import model.Member;
 import model.MemberList;
 import model.MyDate;
 import model.Newsletter;
@@ -126,18 +130,112 @@ public class FileManager {
 		return "Something went wrong...";
 	}
 	
-	public MemberList readMemberFile (File file) {
+	public MemberList readMemberFile (File file) throws FileNotFoundException {
 	   MemberList members=new MemberList();
-	   String name, email, address;
-	   int phone, paymentYear;
+	   String line, name, email, address;
+	   String[] divide, divideDate;
+	   int phone, day, month, year;
 	   MyDate dateOfMembership;
 	   
-	   while(file.hasNext())
+	   Scanner read=new Scanner(file);
+	   while(read.hasNext())
 	   {
-	      
+	      line=read.nextLine();
+	      divide=line.split(";");
+	      name=divide[0].trim();
+	      address=divide[1].trim();
+	      phone=Integer.parseInt(divide[2].trim());
+	      email=divide[3].trim();
+	      divideDate = divide[4].trim().split("/");
+	      day = Integer.parseInt(divideDate[0].trim());
+	      month = Integer.parseInt(divideDate[1].trim());
+	      year = Integer.parseInt(divideDate[2].trim());
+	      dateOfMembership=new MyDate(day,month,year);
+	      members.addMember(new Member(name, address, phone, email, dateOfMembership));
 	   }
 	   
+	   read.close();
 	   return members;
 	}
+	public LecturerList readLecturerFileInside(String line, LecturerList lecturers ){
+	    
+	    String name, email;
+	    String[] divide;
+	    int phone;
+	    boolean wantsAdvertise;
+		divide=line.split(";");
+		name=divide[0].trim();
+		phone=Integer.parseInt(divide[2].trim());
+		email=divide[1].trim();
+		
+		wantsAdvertise = Boolean.parseBoolean(divide[3].trim());
+		lecturers.addLecturer(new Lecturer(name, email, phone, categories, wantsAdvertise));
+	}
+	
+	public LecturerList readLecturerFile (File file) throws FileNotFoundException {
+	    LecturerList lecturers=new LecturerList();
+	    String line;
+	    Scanner read=new Scanner(file);
+	    while(read.hasNext())
+	    {
+		line=read.nextLine();
+		readLecturerFileInside(line, lecturers);
+	    }
+	    
+	    read.close();
+	    return lecturers;
+	}
+	public EventList readEventFile (File file) throws FileNotFoundException {
+		   EventList events=new EventList();
+		   String line, title, description, type;
+		   String[] divide, divideDate;
+		   int phone, capacity, startDay, startMonth, startYear, endDay, endMonth, endYear;
+		   MyDate startDate, endDate;
+		   double price;
+		   boolean finalized;
+		   
+		   Scanner read=new Scanner(file);
+		   while(read.hasNext())
+		   {
+		       HashMap<String, Object> event=new HashMap<String, Object>();
+		      line=read.nextLine();
+		      divide=line.split(";");
+		      type=divide[0].trim();
+		      event.put("title",divide[1].trim());
+		      divideDate = divide[2].trim().split("/");
+		      startDay = Integer.parseInt(divideDate[0].trim());
+		      startMonth = Integer.parseInt(divideDate[1].trim());
+		      startYear = Integer.parseInt(divideDate[2].trim());
+		      event.put("startDate",new MyDate(startDay,startMonth,startYear));
+		      divideDate = divide[3].trim().split("/");
+		      endDay = Integer.parseInt(divideDate[0].trim());
+		      endMonth = Integer.parseInt(divideDate[1].trim());
+		      endYear = Integer.parseInt(divideDate[2].trim());
+		      event.put("endDate",new MyDate(endDay,endMonth,endYear));
+		      event.put("price",Double.parseDouble(divide[4]));
+		      event.put("finalized",Boolean.parseBoolean(divide[5]));
+		      event.put("description", divide[6].trim());
+		      event.put("capacity", Integer.parseInt(divide[7].trim()));
+		      switch (type.toLowerCase()) {
+		    case "lecture":
+			//call the readLecturerFieInside somehow c:
+			event.put("lecturer", divide[8].trim());
+			events.addEvent(new Lecture(event));
+			break;
+		    case "seminar":
+		    case "workshop":
+			event.put("lecturer", divide[8].trim());
+			events.addEvent(new Event(event));
+			break;
+
+		    default:
+			break;
+		    }
+		      events.addEvent(new Event(event));
+		   }
+		   
+		   read.close();
+		   return events;
+		}
 
 }
