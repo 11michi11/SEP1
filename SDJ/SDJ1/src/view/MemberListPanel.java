@@ -29,12 +29,12 @@ public class MemberListPanel extends VIAPanel {
 		super();
 		this.frame = frame;
 		setLayout(new BorderLayout());
-		createComponents();
+		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();	
 	}
 
-	private void createComponents() {
+	private void initializeComponents() {
 		String[] columnNames = { "Name", "E-mail", "ID", "Paid" };
 		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", "yes" },
 				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "yes" },

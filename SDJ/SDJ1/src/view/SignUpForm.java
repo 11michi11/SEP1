@@ -5,15 +5,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
-public class SignUpFormWindow extends JFrame {
 
-	private JLabel labelSignUpForm;
+//CLASS TO REDESIGN
+public class SignUpForm extends VIAPanel {
+
 	private JLabel labelName;
 	private JLabel labelEmail;
 	private JLabel labelAddress;
@@ -43,21 +43,18 @@ public class SignUpFormWindow extends JFrame {
 	private JPanel dateOfMembership2;
 	private JPanel paymentYear1;
 	private JPanel paymentYear2;
-	private JPanel button;
-
-	public SignUpFormWindow() {
-
-		super("SignUpForm");
-		createComponents();
+	private JFrame frame;
+	
+	public SignUpForm(JFrame frame) {
+		super();
+		this.frame = frame;
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToFrame();
-
 	}
 
-	public void createComponents() {
-
-		labelSignUpForm = new JLabel("Sign-Up Form");
+	public void initializeComponents() {
+		new JLabel("Sign-Up Form");
 		labelName = new JLabel("Name:");
 		labelEmail = new JLabel("E-mail:");
 		labelAddress = new JLabel("Address:");
@@ -79,21 +76,11 @@ public class SignUpFormWindow extends JFrame {
 
 	}
 
-	public void initializeComponents() {
-
-		setSize(500, 500);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-	}
-
 	public void registerEventHandlers() {
 
 	}
 
 	public void addComponentsToFrame() {
-		JPanel pane = new JPanel();
-
 		JPanel left = new JPanel(new GridLayout(4, 1));
 
 		name1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -162,13 +149,10 @@ public class SignUpFormWindow extends JFrame {
 		JPanel button = new JPanel();
 		button.add(addToList);
 
-		pane.add(left);
-		pane.add(left2);
-		pane.add(right);
-		pane.add(button);
-
-		setContentPane(pane);
-
+		add(left);
+		add(left2);
+		add(right);
+		add(button);
 	}
 
 	public static void main(String[] args) {
@@ -176,8 +160,11 @@ public class SignUpFormWindow extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				SignUpFormWindow main = new SignUpFormWindow();
-				main.setVisible(true);
+				JFrame frame = new JFrame();
+				frame.setSize(900, 500);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setContentPane(new SignUpForm(frame));
+				frame.setVisible(true);
 			}
 		});
 

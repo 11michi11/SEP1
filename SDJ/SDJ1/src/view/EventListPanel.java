@@ -33,13 +33,13 @@ public class EventListPanel extends VIAPanel {
 		super();
 		this.frame = frame;
 		setLayout(new BorderLayout());
-		createComponents();
+		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
 
 	}
 
-	private void createComponents() {
+	private void initializeComponents() {
 		String[] columnNames = { "Name" };
 		Object[][] data = { { "Event" }, { "Michal" }, { "Michal" }, { "Michal" }, { "Michal" }, { "Michal" },
 				{ "Michal" }, { "Michal" }, };
