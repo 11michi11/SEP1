@@ -19,7 +19,7 @@ public class VIAManager {
 
 	public void signUpMember(String name, String address, int phone, String email, MyDate dateOfMembership,
 			int paymentYear) throws IOException {
-		members.addMember(new Member(name, address, phone, email, dateOfMembership, paymentYear));
+		members.addMember(new Member(name, address, phone, email, dateOfMembership));
 		fileManager.generateMemberFile(members);
 	}
 

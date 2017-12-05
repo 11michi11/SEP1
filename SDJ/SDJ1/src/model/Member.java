@@ -9,12 +9,11 @@ public class Member extends Participant {
 	private final int ID;
 	private static int nextID = 0;
 
-	public Member(String name, String address, int phone, String email, MyDate dateOfMembership, int paymentYear) {
+	public Member(String name, String address, int phone, String email, MyDate dateOfMembership) {
 		super(name, email);
 		this.address = address;
 		this.phone = phone;
 		this.dateOfMembership = dateOfMembership.copy();
-		this.paymentYear = paymentYear;
 		this.ID = ++nextID;
 	}
 
