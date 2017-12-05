@@ -124,11 +124,11 @@ public class EventListWindow extends JFrame {
 		eventForm.add(right, BorderLayout.EAST);
 		eventForm.setOpaque(false);
 		
-		VIAPanel contentFrame = new VIAPanel(new BorderLayout());
-		contentFrame.add(imgLab ,BorderLayout.NORTH);
-		contentFrame.add(eventForm, BorderLayout.CENTER);
+		VIAPanel contentPane = new VIAPanel(new BorderLayout());
+		contentPane.add(imgLab ,BorderLayout.NORTH);
+		contentPane.add(eventForm, BorderLayout.CENTER);
 		
-		setContentPane(contentFrame);	
+		setContentPane(contentPane);	
 	}
 
 	

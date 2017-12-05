@@ -58,7 +58,7 @@ public class MainWindow extends JFrame {
 
 	private void addComponentsToFrame() {
 
-		VIAPanel components = new VIAPanel(new BorderLayout());
+		VIAPanel contentPane = new VIAPanel(new BorderLayout());
 
 		JPanel buttons = new JPanel(new GridLayout(2, 2));
 		buttons.setOpaque(false);
@@ -84,17 +84,13 @@ public class MainWindow extends JFrame {
 		buttons.add(wrapNewsletter);
 		buttons.add(wrapList);
 
-		JPanel welcomeLogo = new JPanel();
-		welcomeLogo.setOpaque(false);
-
 		ImageIcon img = new ImageIcon("src/resources/logoGUI.png");
 		JLabel imgLab = new JLabel(img);
+		
+		contentPane.add(imgLab, BorderLayout.NORTH);
+		contentPane.add(buttons, BorderLayout.CENTER);
 
-		welcomeLogo.add(imgLab);
-		components.add(welcomeLogo, BorderLayout.NORTH);
-		components.add(buttons, BorderLayout.CENTER);
-
-		setContentPane(components);
+		setContentPane(contentPane);
 	}
 
 	public static void main(String[] args) {
