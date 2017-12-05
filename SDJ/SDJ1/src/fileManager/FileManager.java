@@ -125,5 +125,19 @@ public class FileManager {
 		}
 		return "Something went wrong...";
 	}
+	
+	public MemberList readMemberFile (File file) {
+	   MemberList members=new MemberList();
+	   String name, email, address;
+	   int phone, paymentYear;
+	   MyDate dateOfMembership;
+	   
+	   while(file.hasNext())
+	   {
+	      
+	   }
+	   
+	   return members;
+	}
 
 }
