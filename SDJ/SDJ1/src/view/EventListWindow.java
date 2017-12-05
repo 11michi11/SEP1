@@ -6,7 +6,6 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -20,20 +19,31 @@ import javax.swing.JTextField;
 public class EventListWindow extends JFrame {
 	
 	private JTable table;
+	private JScrollPane scrollPane;
 	private JTextField search;
 	private JLabel eventList;
-	private JButton add;
+	private JButton addEvent;
 	private JButton signUpParticipant;
 	private JButton signUpMember;
 	private JCheckBox finalized;
 	private JCheckBox finished;
 
 	public EventListWindow() {
-		setSize(800, 300);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTitle("VIA - Events list");
-		setLocationRelativeTo(null);
+		super("VIA - Events list");
+		initializeFrame();
+		createComponents();
+		registerEventHandlers();
+		addComponentsToFrame();
 
+	}
+
+	private void initializeFrame() {
+		setSize(900, 500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+	}
+	
+	private void createComponents() {
 		String[] columnNames = { "Name" };
 		Object[][] data = { { "Event" }, { "Michal" }, { "Michal" }, { "Michal" }, { "Michal" }, { "Michal" },
 				{ "Michal" }, { "Michal" }, };
@@ -41,8 +51,7 @@ public class EventListWindow extends JFrame {
 		table = new JTable(data, columnNames);
 		table.setPreferredScrollableViewportSize(new Dimension(250, 300));
 		
-		JScrollPane scrollPane = new JScrollPane(table);
-		add(scrollPane);
+		scrollPane = new JScrollPane(table);
 		
 		search = new JTextField(10);
 		search.setText("SEARCH");
@@ -55,8 +64,8 @@ public class EventListWindow extends JFrame {
 		finished = new JCheckBox("Finished");
 		finished.setOpaque(false);
 		
-		add = new JButton("ADD EVENT");
-		add.setFont(new Font("Arial", Font.PLAIN, 20));
+		addEvent = new JButton("ADD EVENT");
+		addEvent.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		signUpParticipant = new JButton("SIGN UP PARTICIPANT");
 		signUpParticipant.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -65,16 +74,22 @@ public class EventListWindow extends JFrame {
 		signUpMember.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		Dimension prefSize = signUpParticipant.getPreferredSize();
-		add.setPreferredSize(prefSize);
+		addEvent.setPreferredSize(prefSize);
 		signUpMember.setPreferredSize(prefSize);
-		
+	}
+	
+	private void registerEventHandlers() {
+		// TODO Auto-generated method stub
+	}
+	
+	private void addComponentsToFrame() {
 		JPanel left = new JPanel(new BorderLayout());
 		left.add(search, BorderLayout.NORTH);
 		left.add(scrollPane, BorderLayout.CENTER);
 		
 		JPanel addPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		addPanel.setOpaque(false);
-		addPanel.add(add);
+		addPanel.add(addEvent);
 		
 		JPanel signMemberPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		signMemberPanel.setOpaque(false);
@@ -99,30 +114,25 @@ public class EventListWindow extends JFrame {
 		labelPanel.setOpaque(false);
 		labelPanel.add(eventList);
 		
-		JPanel logo = new JPanel();
-		logo.setOpaque(false);
-		
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
 		
-		JPanel componentsF = new JPanel(new BorderLayout());
-		componentsF.add(labelPanel, BorderLayout.NORTH);
-		componentsF.add(left, BorderLayout.WEST);
-		componentsF.add(center, BorderLayout.CENTER);
-		componentsF.add(right, BorderLayout.EAST);
-		componentsF.setOpaque(false);
+		JPanel eventForm = new JPanel(new BorderLayout());
+		eventForm.add(labelPanel, BorderLayout.NORTH);
+		eventForm.add(left, BorderLayout.WEST);
+		eventForm.add(center, BorderLayout.CENTER);
+		eventForm.add(right, BorderLayout.EAST);
+		eventForm.setOpaque(false);
 		
-		VIAPanel components = new VIAPanel(new BorderLayout());
-		components.add(imgLab ,BorderLayout.NORTH);
-		components.add(componentsF, BorderLayout.CENTER);
+		VIAPanel contentPane = new VIAPanel(new BorderLayout());
+		contentPane.add(imgLab ,BorderLayout.NORTH);
+		contentPane.add(eventForm, BorderLayout.CENTER);
 		
-		
-		
-		
-		setContentPane(components);
-		
+		setContentPane(contentPane);	
 	}
 
+	
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 
