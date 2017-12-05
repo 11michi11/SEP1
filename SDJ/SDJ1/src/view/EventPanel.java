@@ -12,14 +12,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class EventWindow extends VIAPanel {
+public class EventPanel extends VIAPanel {
 
 	private JButton lectures;
 	private JButton seminars;
 	private JButton workshop;
 	private JButton trips;
 
-	public EventWindow() {
+	public EventPanel() {
 		setLayout(new GridLayout(3,1));
 		initializeComponents();
 		registerEventHandlers();
@@ -78,7 +78,7 @@ public class EventWindow extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventWindow());
+				frame.setContentPane(new EventPanel());
 				frame.setVisible(true);
 			}
 		});
