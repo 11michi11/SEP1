@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 public class MainWindow extends JFrame {
 
-	private JButton createEvent;
+	private JButton events;
 	private JButton newsletter;
 	private JButton signUp;
 	private JButton listOf;
@@ -36,7 +36,7 @@ public class MainWindow extends JFrame {
 	}
 
 	private void createComponents() {
-		createEvent = new VIAButton("EVENT");
+		events = new VIAButton("EVENT");
 		newsletter = new VIAButton("NEWSLETTER");
 		signUp = new VIAButton("SIGN UP");
 		listOf = new VIAButton("LIST OF");
@@ -46,14 +46,24 @@ public class MainWindow extends JFrame {
 		Dimension prefSize = new Dimension(400, 70);
 
 		newsletter.setPreferredSize(prefSize);
-		createEvent.setPreferredSize(prefSize);
+		events.setPreferredSize(prefSize);
 		signUp.setPreferredSize(prefSize);
 		listOf.setPreferredSize(prefSize);
 
 	}
 
 	private void registerEventHandlers() {
-
+		
+		events.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JPanel newContentPane = new EventWindow();
+				newContentPane.setVisible(true);
+				setContentPane(newContentPane);
+				revalidate();
+			}
+		});
 	}
 
 	private void addComponentsToFrame() {
@@ -65,7 +75,7 @@ public class MainWindow extends JFrame {
 
 		JPanel wrapEvent = new JPanel();
 		wrapEvent.setOpaque(false);
-		wrapEvent.add(createEvent);
+		wrapEvent.add(events);
 
 		JPanel wrapSignup = new JPanel();
 		wrapSignup.setOpaque(false);
