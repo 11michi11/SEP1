@@ -1,15 +1,11 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,28 +21,25 @@ public class MainWindow extends JFrame {
 	private JLabel welcome;
 
 	public MainWindow() {
-		super("Main Page");
+		super("VIA - Management System");
+		initializeFrame();
 		createComponents();
-		initializeComponents();
 		registerEventHandlers();
 		addComponentsToFrame();
 	}
 
-	public void createComponents() {
-		
-		Font btnFont = new Font("Arial", Font.PLAIN, 40);
+	private void initializeFrame() {
+		setSize(900, 500);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+	}
+
+	private void createComponents() {
 		createEvent = new VIAButton("EVENT");
-		createEvent.setFont(btnFont);
-
-		newsletter = new JButton("NEWSLETTER");
-		newsletter.setFont(btnFont);
-
-		signUp = new JButton("SIGN UP");
-		signUp.setFont(btnFont);
-
-		listOf = new JButton("LIST OF");
-		listOf.setFont(btnFont);
+		newsletter = new VIAButton("NEWSLETTER");
+		signUp = new VIAButton("SIGN UP");
+		listOf = new VIAButton("LIST OF");
 
 		welcome = new JLabel("WELCOME");
 
@@ -59,19 +52,11 @@ public class MainWindow extends JFrame {
 
 	}
 
-	public void initializeComponents() {
-
-		setSize(900, 500);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	private void registerEventHandlers() {
 
 	}
 
-	public void registerEventHandlers() {
-
-	}
-
-	public void addComponentsToFrame() {
+	private void addComponentsToFrame() {
 
 		VIAPanel components = new VIAPanel(new BorderLayout());
 
