@@ -11,29 +11,23 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class SignUpWindow extends JFrame{
+public class SignUpPanel extends VIAPanel{
 	
 	private JButton member;
 	private JButton lecturer;
 	private JButton participant;
+	private JFrame frame;
 	
-	public SignUpWindow() {
-		super("SignUp");
-		createComponents();
+	public SignUpPanel(JFrame frame) {
+		super();
+		this.frame = frame;
+		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
-		addComponentsToFrame();	
+		addComponentsToPanel();	
 	}
 	
-	public void createComponents(){
-		
-		setSize(600, 400);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-	
-	public void initializeComponents() {
-		
+	public void initializeComponents() {	
 		member = new JButton("MEMBER");
 		member.setFont(new Font("Arial", Font.PLAIN, 30));
 		lecturer = new JButton("LECTURER");
@@ -48,14 +42,11 @@ public class SignUpWindow extends JFrame{
 		participant.setPreferredSize(prefSize);
 	}
 	
-	public void registerEventHandlers() {}
+	public void registerEventHandlers() {
+		
+	}
 	
-	public void addComponentsToFrame() {
-		
-		VIAPanel components = new VIAPanel(new BorderLayout());
-		
-		JPanel button = new JPanel();
-		
+	public void addComponentsToPanel() {		
 		JPanel first = new JPanel();
 		first.add(member);
 		first.setOpaque(false);
@@ -68,10 +59,11 @@ public class SignUpWindow extends JFrame{
 		third.add(participant);
 		third.setOpaque(false);
 		
-		button.add(first);
-		button.add(second);
-		button.add(third);
-		button.setOpaque(false);
+		JPanel buttons = new JPanel();
+		buttons.add(first);
+		buttons.add(second);
+		buttons.add(third);
+		buttons.setOpaque(false);
 		
 		JPanel logo = new JPanel();
 		logo.setOpaque(false);
@@ -79,11 +71,8 @@ public class SignUpWindow extends JFrame{
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
 		
-		components.add(imgLab, BorderLayout.NORTH);
-		components.add(button, BorderLayout.CENTER);
-		
-		setContentPane(components);
-		
+		add(imgLab, BorderLayout.NORTH);
+		add(buttons, BorderLayout.CENTER);
 	}
 	
 	
@@ -93,10 +82,12 @@ public class SignUpWindow extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				SignUpWindow main = new SignUpWindow();
-				main.setVisible(true);
+				JFrame frame = new JFrame();
+				frame.setSize(900, 500);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setContentPane(new SignUpPanel(frame));
+				frame.setVisible(true);
 			}
 		});
 	}
-
 }

@@ -16,7 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class EventListWindow extends JFrame {
+public class EventListPanel extends VIAPanel {
 	
 	private JTable table;
 	private JScrollPane scrollPane;
@@ -27,23 +27,19 @@ public class EventListWindow extends JFrame {
 	private JButton signUpMember;
 	private JCheckBox finalized;
 	private JCheckBox finished;
+	private JFrame frame;
 
-	public EventListWindow() {
-		super("VIA - Events list");
-		initializeFrame();
-		createComponents();
+	public EventListPanel(JFrame frame) {
+		super();
+		this.frame = frame;
+		setLayout(new BorderLayout());
+		initializeComponents();
 		registerEventHandlers();
-		addComponentsToFrame();
+		addComponentsToPanel();
 
 	}
 
-	private void initializeFrame() {
-		setSize(900, 500);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-	}
-	
-	private void createComponents() {
+	private void initializeComponents() {
 		String[] columnNames = { "Name" };
 		Object[][] data = { { "Event" }, { "Michal" }, { "Michal" }, { "Michal" }, { "Michal" }, { "Michal" },
 				{ "Michal" }, { "Michal" }, };
@@ -82,7 +78,7 @@ public class EventListWindow extends JFrame {
 		// TODO Auto-generated method stub
 	}
 	
-	private void addComponentsToFrame() {
+	private void addComponentsToPanel() {
 		JPanel left = new JPanel(new BorderLayout());
 		left.add(search, BorderLayout.NORTH);
 		left.add(scrollPane, BorderLayout.CENTER);
@@ -124,11 +120,9 @@ public class EventListWindow extends JFrame {
 		eventForm.add(right, BorderLayout.EAST);
 		eventForm.setOpaque(false);
 		
-		VIAPanel contentPane = new VIAPanel(new BorderLayout());
-		contentPane.add(imgLab ,BorderLayout.NORTH);
-		contentPane.add(eventForm, BorderLayout.CENTER);
-		
-		setContentPane(contentPane);	
+		add(imgLab ,BorderLayout.NORTH);
+		add(eventForm, BorderLayout.CENTER);
+			
 	}
 
 	
@@ -138,7 +132,10 @@ public class EventListWindow extends JFrame {
 
 			@Override
 			public void run() {
-				EventListWindow frame = new EventListWindow();
+				JFrame frame = new JFrame();
+				frame.setSize(900, 500);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setContentPane(new EventListPanel(frame));
 				frame.setVisible(true);
 			}
 		});
