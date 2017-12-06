@@ -48,7 +48,7 @@ public class LecturerListPanel extends VIAPanel {
 		search = new JTextField(47);
 		search.setText("SEARCH");
 
-		add = new VIAButtonTwo("ADD LECTURER");
+		add = new VIAButtonSmall("ADD LECTURER");
 		add.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		Dimension prefSize = new Dimension(300, 100);

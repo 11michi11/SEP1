@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Graphics;
@@ -13,18 +14,26 @@ import javax.swing.JButton;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class VIAButton extends JButton {
+public abstract class VIAButton extends JButton {
 
-	private BufferedImage image;
-	private static Font font = loadFont();
-	private int fontSize;
+	protected BufferedImage image;
+	protected static Font font = loadFont();
+	protected int fontSize;
+	protected String FILE_PATH;
+	private String darkPath;
+	protected Dimension prefSize;
 
-	public VIAButton(String text) {
+	public VIAButton(String text, String path, Dimension prefSize) {
 		super(text);
+		this.FILE_PATH = path;
+		darkPath = getDarkPath();
 		setContentAreaFilled(false);
-		loadImage("src/resources/buttonBack.jpg");
+		loadImage(FILE_PATH);
 		setFont(this.font);
 		this.fontSize = 40;
+		this.prefSize = prefSize;
+		setPreferredSize(prefSize);
+		
 		VIAButton btn = this;
 
 		getModel().addChangeListener(new ChangeListener() {
@@ -34,20 +43,20 @@ public class VIAButton extends JButton {
 				ButtonModel model = (ButtonModel) event.getSource();
 
 				if (model.isPressed()) {
-					loadImage("src/resources/buttonBackDark.jpg");
+					loadImage(darkPath);
 				} else {
-					loadImage("src/resources/buttonBack.jpg");
+					loadImage(FILE_PATH);
 				}
 			}
 		});
 	}
-	
+
 	public void setFontSize(int size) {
 		this.fontSize = size;
 		setFont(new Font("VIAFont", Font.PLAIN, size));
 	}
 
-	private void loadImage(String path) {
+	protected void loadImage(String path) {
 		try {
 			image = ImageIO.read(new File(path));
 		} catch (IOException e) {
@@ -57,7 +66,7 @@ public class VIAButton extends JButton {
 
 	@Override
 	protected void paintComponent(Graphics g) {
-		g.drawImage(image, 0, 0, 50, 50, this);
+		g.drawImage(image, 0, 0, prefSize.width, prefSize.height, this);
 		super.paintComponent(g);
 	}
 
@@ -70,6 +79,13 @@ public class VIAButton extends JButton {
 		} catch (IOException | FontFormatException e) {
 			return new Font("Arial", Font.PLAIN, 40);
 		}
+	}
+	
+	private String getDarkPath() {
+		String dark = String.valueOf(this.FILE_PATH);
+		dark = dark.substring(0, dark.length()-4);
+		dark += "Dark.jpg";
+		return dark;
 	}
 
 }

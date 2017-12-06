@@ -60,19 +60,19 @@ public class EventListPanel extends VIAPanel {
 		finished = new JCheckBox("Finished");
 		finished.setOpaque(false);
 		
-		addEvent = new VIAButtonTwo("ADD EVENT");
+		addEvent = new VIAButtonSmall("ADD EVENT");
 		addEvent.setFont(new Font("Arial", Font.PLAIN, 20));
 		
-		signUpParticipant = new VIAButtonTwo("SIGN UP PARTICIPANT");
+		signUpParticipant = new VIAButtonSmall("SIGN UP PARTICIPANT");
 		signUpParticipant.setFont(new Font("Arial", Font.PLAIN, 20));
 		
-		signUpMember = new VIAButtonTwo("SIGN UP MEMBER");
+		signUpMember = new VIAButtonSmall("SIGN UP MEMBER");
 		signUpMember.setFont(new Font("Arial", Font.PLAIN, 20));
 		
-		Dimension prefSize = new Dimension(300,100);
-		addEvent.setPreferredSize(prefSize);
-		signUpMember.setPreferredSize(prefSize);
-		signUpParticipant.setPreferredSize(prefSize);
+//		Dimension prefSize = new Dimension(300,100);
+//		addEvent.setPreferredSize(prefSize);
+//		signUpMember.setPreferredSize(prefSize);
+//		signUpParticipant.setPreferredSize(prefSize);
 	}
 	
 	private void registerEventHandlers() {

@@ -31,13 +31,13 @@ public class ListsPanel extends VIAPanel {
 	}
 
 	public void initializeComponents() {
-		lecturerList = new VIAButtonThree("LECTURER LIST");
+		lecturerList = new VIAButtonBig("LECTURER LIST");
 		lecturerList.setFont(new Font("Arial", Font.PLAIN, 30));
-		memberList = new VIAButtonThree("MEMBER LIST");
+		memberList = new VIAButtonBig("MEMBER LIST");
 		memberList.setFont(new Font("Arial", Font.PLAIN, 30));
-		eventList = new VIAButtonThree("EVENT LIST");
+		eventList = new VIAButtonBig("EVENT LIST");
 		eventList.setFont(new Font("Arial", Font.PLAIN, 30));
-		participantList = new VIAButtonThree("PARTICIPANT LIST");
+		participantList = new VIAButtonBig("PARTICIPANT LIST");
 		participantList.setFont(new Font("Arial", Font.PLAIN, 30));
 
 		Dimension prefSize = new Dimension(350, 100);
