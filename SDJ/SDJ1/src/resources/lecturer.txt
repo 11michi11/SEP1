@@ -1,12 +1,12 @@
-name;email;phone;categories;wantsAdvertise
-Kartagena Kubixz;domik@hotmail.com;789956632;[Astronomy,Meditation];true
+name;email;phone;[categories];wantsAdvertise
+Kartagena Kubicz;domik@hotmail.com;789956632;[Astronomy,Meditation];true
 Merche Aguado;helloworld@hotmail.com;209956632;[TraditionalBuddhism];false
-Merche Ríos;tequeremos@hotmail.com;789156632;[,];true
+Merche Rios;tequeremos@hotmail.com;789156632;[,];true
 Israel Amando;amigosdelcorazon@hotmail.com;409956632;[,];false
 Joan Camarelles;domik@hotmail.com;389956632;[,];true
 Luisa Cuadrado;helloworld@hotmail.com;609956632;[,];false
 Paz Padilla;lunes@hotmail.com;789955532;[,];true
-Chistian Sanchez;mañana@hotmail.com;229956632;[,];false
+Chistian Sanchez;manana@hotmail.com;229956632;[,];false
 Ramon Perez;ayer@hotmail.com;789956422;[,];true
 Jorge Vazquez;cantimplora@hotmail.com;203356632;[,];false
 Mª Isabel Moncho;erestu@hotmail.com;789936612;[,];true
