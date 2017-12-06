@@ -12,8 +12,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import model.CATEGORY;
 import model.Event;
 import model.EventList;
+import model.Lecture;
 import model.Lecturer;
 import model.LecturerList;
 import model.Member;
@@ -157,19 +159,25 @@ public class FileManager {
 		return members;
 	}
 
-	public LecturerList readLecturerFileInside(String line, LecturerList lecturers) {
+	public Lecturer readLecturerFileInside(String line) {
 
 		String name, email;
-		String[] divide;
+		String[] divide, categoriesDivide;
 		int phone;
 		boolean wantsAdvertise;
+		ArrayList<CATEGORY> categories = new ArrayList<CATEGORY>();
 		divide = line.split(";");
 		name = divide[0].trim();
-		phone = Integer.parseInt(divide[2].trim());
 		email = divide[1].trim();
+		phone = Integer.parseInt(divide[2].trim());
+		categoriesDivide = divide[3].split(",");
+		for (String e: categoriesDivide)
+		{
+		   categories.add(CATEGORY.parse(e.trim()));
+		}
 
-		wantsAdvertise = Boolean.parseBoolean(divide[3].trim());
-		lecturers.addLecturer(new Lecturer(name, email, phone, categories, wantsAdvertise));
+		wantsAdvertise = Boolean.parseBoolean(divide[4].trim());
+		return (new Lecturer(name, email, phone, categories, wantsAdvertise));
 	}
 
 	public LecturerList readLecturerFile(File file) throws FileNotFoundException {
@@ -178,7 +186,8 @@ public class FileManager {
 		Scanner read = new Scanner(file);
 		while (read.hasNext()) {
 			line = read.nextLine();
-			readLecturerFileInside(line, lecturers);
+			lecturers.addLecturer(readLecturerFileInside(line));
+			
 		}
 
 		read.close();
@@ -220,7 +229,7 @@ public class FileManager {
 			switch (type.toLowerCase()) {
 			case "lecture":
 				// call the readLecturerFieInside somehow c:
-				event.put("lecturer", divide[8].trim());
+				event.put("lecturer", readLecturerFileInside(divide[8].trim()));
 				events.addEvent(new Lecture(event));
 				break;
 			case "seminar":
