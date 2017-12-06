@@ -1,5 +1,6 @@
 package test;
 
+import model.Category;
 import model.EventList;
 import model.Member;
 import model.MemberList;
@@ -25,8 +26,7 @@ public class SearchEngineTest
       members.addMember(member2);
       members.addMember(member3);
       members.addMember(member4);
-      
-      
+     
    }
 
 }

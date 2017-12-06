@@ -5,18 +5,18 @@ import java.util.Map;
 
 public class Seminar extends Event {
 
-	private ArrayList<CATEGORY> categories;
+	private ArrayList<Category> categories;
 	private ArrayList<Lecturer> lecturers;
 
 	public Seminar(Map<String, Object> configuration) {
 		super(configuration);
-		this.categories = (ArrayList<CATEGORY>) configuration.getOrDefault("category", new ArrayList<CATEGORY>());
+		this.categories = (ArrayList<Category>) configuration.getOrDefault("category", new ArrayList<Category>());
 		this.lecturers = (ArrayList<Lecturer>) configuration.getOrDefault("lecturers", new ArrayList<Lecturer>());
 	}
 
 	public void modify(Map<String, Object> configuration) {
 		super.modify(configuration);
-		this.categories = (ArrayList<CATEGORY>) configuration.getOrDefault("category", this.categories);
+		this.categories = (ArrayList<Category>) configuration.getOrDefault("category", this.categories);
 		this.lecturers = (ArrayList<Lecturer>) configuration.getOrDefault("lecturers", this.lecturers);
 	}
 
