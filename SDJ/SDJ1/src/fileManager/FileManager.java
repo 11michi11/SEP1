@@ -11,8 +11,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-
-import model.CATEGORY;
+import model.Category;
 import model.Event;
 import model.EventList;
 import model.Lecture;
@@ -165,15 +164,14 @@ public class FileManager {
 		String[] divide, categoriesDivide;
 		int phone;
 		boolean wantsAdvertise;
-		ArrayList<CATEGORY> categories = new ArrayList<CATEGORY>();
+		ArrayList<Category> categories = new ArrayList<Category>();
 		divide = line.split(";");
 		name = divide[0].trim();
 		email = divide[1].trim();
 		phone = Integer.parseInt(divide[2].trim());
 		categoriesDivide = divide[3].split(",");
-		for (String e: categoriesDivide)
-		{
-		   categories.add(CATEGORY.parse(e.trim()));
+		for (String e : categoriesDivide) {
+			categories.add(Category.parseCategory(e.trim()));
 		}
 
 		wantsAdvertise = Boolean.parseBoolean(divide[4].trim());
@@ -187,7 +185,7 @@ public class FileManager {
 		while (read.hasNext()) {
 			line = read.nextLine();
 			lecturers.addLecturer(readLecturerFileInside(line));
-			
+
 		}
 
 		read.close();
@@ -209,7 +207,7 @@ public class FileManager {
 			line = read.nextLine();
 			divide = line.split(";");
 			type = divide[0].trim();
-			
+
 			event.put("title", divide[1].trim());
 			divideDate = divide[2].trim().split("/");
 			startDay = Integer.parseInt(divideDate[0].trim());
@@ -225,7 +223,7 @@ public class FileManager {
 			event.put("finalized", Boolean.parseBoolean(divide[5]));
 			event.put("description", divide[6].trim());
 			event.put("capacity", Integer.parseInt(divide[7].trim()));
-			
+
 			switch (type.toLowerCase()) {
 			case "lecture":
 				// call the readLecturerFieInside somehow c:
