@@ -61,10 +61,9 @@ public class SignUpFormMember extends VIAPanel {
 		fieldDateOfMembership = new JTextField(8);
 		fieldPaymentYear = new JTextField(8);
 		
-		add = new JButton("Add to list");
-		add.setFont(new Font("Arial", Font.PLAIN, 15));
+		add = new VIAButtonTwo("Add to list");
 
-		Dimension prefSize = new Dimension(100, 30);
+		Dimension prefSize = new Dimension(300, 100);
 		add.setPreferredSize(prefSize);
 
 	}

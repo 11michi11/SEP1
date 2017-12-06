@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -28,11 +31,11 @@ public class SignUpPanel extends VIAPanel{
 	}
 	
 	public void initializeComponents() {	
-		member = new JButton("MEMBER");
+		member = new VIAButtonTwo("MEMBER");
 		member.setFont(new Font("Arial", Font.PLAIN, 30));
-		lecturer = new JButton("LECTURER");
+		lecturer = new VIAButtonTwo("LECTURER");
 		lecturer.setFont(new Font("Arial", Font.PLAIN, 30));
-		participant = new JButton("PARTICIPANT");
+		participant = new VIAButtonTwo("PARTICIPANT");
 		participant.setFont(new Font("Arial", Font.PLAIN, 30));
 		
 		Dimension prefSize = new Dimension(300, 100);
@@ -44,6 +47,25 @@ public class SignUpPanel extends VIAPanel{
 	
 	public void registerEventHandlers() {
 		
+		member.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JPanel newContentPane = new SignUpFormMember(frame);
+				frame.setContentPane(newContentPane);
+				frame.revalidate();
+			}
+		});
+		
+		participant.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JPanel newContentPane = new SignUpFormParticipant(frame);
+				frame.setContentPane(newContentPane);
+				frame.revalidate();
+			}
+		});
 	}
 	
 	public void addComponentsToPanel() {		
@@ -59,7 +81,7 @@ public class SignUpPanel extends VIAPanel{
 		third.add(participant);
 		third.setOpaque(false);
 		
-		JPanel buttons = new JPanel();
+		JPanel buttons = new JPanel(new GridLayout(3,1));
 		buttons.add(first);
 		buttons.add(second);
 		buttons.add(third);

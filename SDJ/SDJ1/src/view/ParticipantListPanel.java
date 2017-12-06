@@ -44,8 +44,11 @@ public class ParticipantListPanel extends VIAPanel {
 		search = new JTextField(47);
 		search.setText("SEARCH");
 
-		add = new JButton("ADD PARTICIPANT");
+		add = new VIAButtonTwo("ADD PARTICIPANT");
 		add.setFont(new Font("Arial", Font.PLAIN, 20));
+		
+		Dimension prefSize = new Dimension(300, 100);
+		add.setPreferredSize(prefSize);
 
 		participantList = new JLabel("PARTICIPANT LIST");
 		participantList.setFont(new Font("Arial", Font.PLAIN, 30));
