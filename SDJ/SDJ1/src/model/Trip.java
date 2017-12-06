@@ -26,7 +26,6 @@ public class Trip extends Event {
 		return super.getTitle() + ": " + super.getDescription() + "\nDate: " + super.getStartDate().toString() + "-"
 				+ super.getEndDate().toString() + "\nLocation: " + location + "\nPrice: " + super.getPrice()
 				+ "\nPrice for members: " + super.getPriceForMembers() + "\nAvaliable places: " + super.getPrice();
-
 	}
 
 }

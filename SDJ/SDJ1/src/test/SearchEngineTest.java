@@ -16,10 +16,10 @@ public class SearchEngineTest
       MyDate date2 = new MyDate(2, 4, 2010);
       MyDate date3 = new MyDate(16, 3, 2008);
       MyDate date4 = new MyDate(10, 10, 2000);
-      Member member1 = new Member("Daniela", "Kamtjatka 44", 489218451, "daniela@gmail.com", date1, 2016);
-      Member member2 = new Member("Daniel", "Kamgade 55", 419218448, "daniel@gmail.com", date2, 2017);
-      Member member3 = new Member("Reme", "Aamliegdae 94", 449218132, "reme@gmail.com", date3, 2015);
-      Member member4 = new Member("Remo", "Ostergade 15", 458184411, "remo@gmail.com", date4, 2014);
+      Member member1 = new Member("Daniela", "Kamtjatka 44", 489218451, "daniela@gmail.com", date1);
+      Member member2 = new Member("Daniel", "Kamgade 55", 419218448, "daniel@gmail.com", date2);
+      Member member3 = new Member("Reme", "Aamliegdae 94", 449218132, "reme@gmail.com", date3);
+      Member member4 = new Member("Remo", "Ostergade 15", 458184411, "remo@gmail.com", date4);
       
       members.addMember(member1);
       members.addMember(member2);

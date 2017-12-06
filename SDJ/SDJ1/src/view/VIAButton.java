@@ -21,7 +21,7 @@ public class VIAButton extends JButton {
 	public VIAButton(String text) {
 		super(text);
 		setContentAreaFilled(false);
-		loadImage("src/resources/buttonJava.jpg");
+		loadImage("src/resources/button.jpg");
 		setFont(this.font);
 		VIAButton btn = this;
 
@@ -32,9 +32,9 @@ public class VIAButton extends JButton {
 				ButtonModel model = (ButtonModel) event.getSource();
 
 				if (model.isPressed()) {
-					loadImage("src/resources/buttonJavaDark.jpg");
+					loadImage("src/resources/buttonDark.jpg");
 				} else {
-					loadImage("src/resources/buttonJava.jpg");
+					loadImage("src/resources/button.jpg");
 				}
 			}
 		});

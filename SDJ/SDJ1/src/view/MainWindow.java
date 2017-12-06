@@ -61,7 +61,6 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new EventPanel(mainFrame);
-				newContentPane.setVisible(true);
 				setContentPane(newContentPane);
 				revalidate();
 			}
