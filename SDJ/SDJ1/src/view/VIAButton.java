@@ -17,12 +17,14 @@ public class VIAButton extends JButton {
 
 	private BufferedImage image;
 	private static Font font = loadFont();
+	private int fontSize;
 
 	public VIAButton(String text) {
 		super(text);
 		setContentAreaFilled(false);
 		loadImage("src/resources/buttonBack.jpg");
 		setFont(this.font);
+		this.fontSize = 40;
 		VIAButton btn = this;
 
 		getModel().addChangeListener(new ChangeListener() {
@@ -38,6 +40,11 @@ public class VIAButton extends JButton {
 				}
 			}
 		});
+	}
+	
+	public void setFontSize(int size) {
+		this.fontSize = size;
+		setFont(new Font("VIAFont", Font.PLAIN, size));
 	}
 
 	private void loadImage(String path) {

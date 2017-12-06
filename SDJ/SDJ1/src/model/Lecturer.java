@@ -6,18 +6,22 @@ public class Lecturer {
 
 	private String name, email;
 	private int phone;
-	private ArrayList<CATEGORY> categories;
+	private ArrayList<Category> categories;
 	private boolean wantsAdvertise;
 	private int ID;
 	private static int nextID = 0;
 
-	public Lecturer(String name, String email, int phone, ArrayList<CATEGORY> categories, boolean wantsAdvertise) {
+	public Lecturer(String name, String email, int phone, ArrayList<Category> categories, boolean wantsAdvertise) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.categories = categories;
 		this.wantsAdvertise = wantsAdvertise;
 		this.ID = ++nextID;
+	}
+	
+	public static Lecturer getDefaultLecturer() {
+		return new Lecturer("", "", -1, new ArrayList<Category>(), false);
 	}
 
 	public String getName() {
@@ -48,11 +52,11 @@ public class Lecturer {
 		return this.ID;
 	}
 	
-	public ArrayList<CATEGORY> getCategories() {
+	public ArrayList<Category> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(ArrayList<CATEGORY> categories) {
+	public void setCategories(ArrayList<Category> categories) {
 		this.categories = categories;
 	}
 

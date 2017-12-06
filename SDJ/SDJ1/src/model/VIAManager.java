@@ -23,7 +23,7 @@ public class VIAManager {
 		fileManager.generateMemberFile(members);
 	}
 
-	public void signUpLecturer(String name, String email, int phone, ArrayList<CATEGORY> categories,
+	public void signUpLecturer(String name, String email, int phone, ArrayList<Category> categories,
 			boolean wantsAdvertise) throws IOException {
 		lecturers.addLecturer(new Lecturer(name, email, phone, categories, wantsAdvertise));
 		fileManager.generateLecturerFile(lecturers);

@@ -33,10 +33,10 @@ public class LecturerList {
 		return lecturersToPay;
 	}
 
-	public ArrayList<Lecturer> getAllLecturersInCategory(CATEGORY category) {
+	public ArrayList<Lecturer> getAllLecturersInCategory(Category category) {
 		ArrayList<Lecturer> AllLecturersInCategory = new ArrayList<Lecturer>();
 		for (Lecturer i : lecturerList)
-			for (CATEGORY j : i.getCategories())
+			for (Category j : i.getCategories())
 				if (j.equals(category))
 					AllLecturersInCategory.add(i);
 		return AllLecturersInCategory;
