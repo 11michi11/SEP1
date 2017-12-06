@@ -40,10 +40,9 @@ public class SignUpFormParticipant extends VIAPanel {
 		fieldName = new JTextField(8);
 		fieldEmail = new JTextField(8);
 
-		addToList = new JButton("Add to list");
-		addToList.setFont(new Font("Arial", Font.PLAIN, 15));
+		addToList = new VIAButtonTwo("Add to list");
 
-		Dimension prefSize = new Dimension(100, 30);
+		Dimension prefSize = new Dimension(300, 100);
 		addToList.setPreferredSize(prefSize);
 	}
 

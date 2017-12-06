@@ -7,25 +7,24 @@ import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
 import javax.swing.ButtonModel;
 import javax.swing.JButton;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class VIAButton extends JButton {
+public class VIAButtonTwo extends JButton{
 
 	private BufferedImage image;
 	private static Font font = loadFont();
-	private int fontSize;
 
-	public VIAButton(String text) {
+	public VIAButtonTwo(String text) {
 		super(text);
 		setContentAreaFilled(false);
-		loadImage("src/resources/buttonBack.jpg");
+		loadImage("src/resources/buttonJava300px.jpg");
 		setFont(this.font);
-		this.fontSize = 40;
-		VIAButton btn = this;
+		VIAButtonTwo btn = this;
 
 		getModel().addChangeListener(new ChangeListener() {
 
@@ -34,17 +33,12 @@ public class VIAButton extends JButton {
 				ButtonModel model = (ButtonModel) event.getSource();
 
 				if (model.isPressed()) {
-					loadImage("src/resources/buttonBackDark.jpg");
+					loadImage("src/resources/buttonJavaDark300px.jpg");
 				} else {
-					loadImage("src/resources/buttonBack.jpg");
+					loadImage("src/resources/buttonJava300px.jpg");
 				}
 			}
 		});
-	}
-	
-	public void setFontSize(int size) {
-		this.fontSize = size;
-		setFont(new Font("VIAFont", Font.PLAIN, size));
 	}
 
 	private void loadImage(String path) {
@@ -57,7 +51,7 @@ public class VIAButton extends JButton {
 
 	@Override
 	protected void paintComponent(Graphics g) {
-		g.drawImage(image, 0, 0, 50, 50, this);
+		g.drawImage(image, 0, 0, 300, 100, this);
 		super.paintComponent(g);
 	}
 

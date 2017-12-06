@@ -38,14 +38,14 @@ public class MainWindow extends JFrame {
 	}
 
 	private void createComponents() {
-		events = new VIAButton("EVENT");
-		newsletter = new VIAButton("NEWSLETTER");
-		signUp = new VIAButton("SIGN UP");
-		listOf = new VIAButton("LIST OF");
+		events = new VIAButtonThree("EVENT");
+		newsletter = new VIAButtonThree("NEWSLETTER");
+		signUp = new VIAButtonThree("SIGN UP");
+		listOf = new VIAButtonThree("LIST OF");
 
 		welcome = new JLabel("WELCOME");
 
-		Dimension prefSize = new Dimension(400, 70);
+		Dimension prefSize = new Dimension(350, 100);
 
 		newsletter.setPreferredSize(prefSize);
 		events.setPreferredSize(prefSize);
@@ -65,6 +65,40 @@ public class MainWindow extends JFrame {
 				revalidate();
 			}
 		});
+		newsletter.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JPanel newContentPane = new Newsletter(mainFrame);
+				setContentPane(newContentPane);
+				revalidate();
+				
+			}
+		});
+		
+		signUp.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JPanel newContentPane = new SignUpPanel(mainFrame);
+				setContentPane(newContentPane);
+				revalidate();
+				
+			}
+		});
+		
+		listOf.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JPanel newContentPane = new ListsPanel(mainFrame);
+				setContentPane(newContentPane);
+				revalidate();
+				
+			}
+		});
+		
+		
 	}
 
 	private void addComponentsToFrame() {

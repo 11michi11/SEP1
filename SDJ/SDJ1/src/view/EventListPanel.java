@@ -45,7 +45,7 @@ public class EventListPanel extends VIAPanel {
 				{ "Michal" }, { "Michal" }, };
 
 		table = new JTable(data, columnNames);
-		table.setPreferredScrollableViewportSize(new Dimension(250, 300));
+		table.setPreferredScrollableViewportSize(new Dimension(400, 300));
 		
 		scrollPane = new JScrollPane(table);
 		
@@ -60,18 +60,19 @@ public class EventListPanel extends VIAPanel {
 		finished = new JCheckBox("Finished");
 		finished.setOpaque(false);
 		
-		addEvent = new JButton("ADD EVENT");
+		addEvent = new VIAButtonTwo("ADD EVENT");
 		addEvent.setFont(new Font("Arial", Font.PLAIN, 20));
 		
-		signUpParticipant = new JButton("SIGN UP PARTICIPANT");
+		signUpParticipant = new VIAButtonTwo("SIGN UP PARTICIPANT");
 		signUpParticipant.setFont(new Font("Arial", Font.PLAIN, 20));
 		
-		signUpMember = new JButton("SIGN UP MEMBER");
+		signUpMember = new VIAButtonTwo("SIGN UP MEMBER");
 		signUpMember.setFont(new Font("Arial", Font.PLAIN, 20));
 		
-		Dimension prefSize = signUpParticipant.getPreferredSize();
+		Dimension prefSize = new Dimension(300,100);
 		addEvent.setPreferredSize(prefSize);
 		signUpMember.setPreferredSize(prefSize);
+		signUpParticipant.setPreferredSize(prefSize);
 	}
 	
 	private void registerEventHandlers() {

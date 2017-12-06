@@ -11,7 +11,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-
 import model.Category;
 import model.Event;
 import model.EventList;
@@ -172,9 +171,8 @@ public class FileManager {
 		email = divide[1].trim();
 		phone = Integer.parseInt(divide[2].trim());
 		categoriesDivide = divide[3].split(",");
-		for (String e: categoriesDivide)
-		{
-		   categories.add(Category.parseCategory(e.trim()));
+		for (String e : categoriesDivide) {
+			categories.add(Category.parseCategory(e.trim()));
 		}
 
 		wantsAdvertise = Boolean.parseBoolean(divide[4].trim());
@@ -188,7 +186,7 @@ public class FileManager {
 		while (read.hasNext()) {
 			line = read.nextLine();
 			lecturers.addLecturer(readLecturerFileInside(line));
-			
+
 		}
 
 		read.close();
@@ -212,7 +210,7 @@ public class FileManager {
 			
 			divide = divideAll[0].trim().split(";");
 			type = divide[0].trim();
-			
+
 			event.put("title", divide[1].trim());
 			divideDate = divide[2].trim().split("/");
 			startDay = Integer.parseInt(divideDate[0].trim());
@@ -228,7 +226,7 @@ public class FileManager {
 			event.put("finalized", Boolean.parseBoolean(divide[5]));
 			event.put("description", divide[6].trim());
 			event.put("capacity", Integer.parseInt(divide[7].trim()));
-			
+
 			switch (type.toLowerCase()) {
 			case "lecture":
 				// call the readLecturerFieInside somehow c:
