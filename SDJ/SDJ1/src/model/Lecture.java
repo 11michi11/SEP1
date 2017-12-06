@@ -10,11 +10,14 @@ public class Lecture extends Event {
 	public Lecture(Map<String, Object> configuration) {
 		super(configuration);
 		this.category = (CATEGORY) configuration.getOrDefault("category", CATEGORY.Other);
+		this.lecturer = (Lecturer) configuration.getOrDefault("lecturer", Lecturer.getDefaultLecturer());
+				
 	}
 
 	public void modify(Map<String, Object> configuration) {
 		super.modify(configuration);
-		this.category = (CATEGORY) configuration.getOrDefault("category", CATEGORY.Other);
+		this.category = (CATEGORY) configuration.getOrDefault("category", this.category);
+		this.lecturer = (Lecturer) configuration.getOrDefault("lecturer", this.lecturer);
 	}
 
 	public boolean canBeFinalized() {

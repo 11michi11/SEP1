@@ -11,11 +11,13 @@ public class Seminar extends Event {
 	public Seminar(Map<String, Object> configuration) {
 		super(configuration);
 		this.categories = (ArrayList<CATEGORY>) configuration.getOrDefault("category", new ArrayList<CATEGORY>());
+		this.lecturer = (Lecturer) configuration.getOrDefault("lecturer", this.lecturer);
 	}
 
 	public void modify(Map<String, Object> configuration) {
 		super.modify(configuration);
 		this.categories = (ArrayList<CATEGORY>) configuration.getOrDefault("category", this.categories);
+		this.lecturer = (Lecturer) configuration.getOrDefault("lecturer", this.lecturer);
 	}
 
 	public boolean canBeFinalized() {
