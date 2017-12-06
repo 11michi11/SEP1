@@ -19,6 +19,10 @@ public class Lecturer {
 		this.wantsAdvertise = wantsAdvertise;
 		this.ID = ++nextID;
 	}
+	
+	public static Lecturer getDefaultLecturer() {
+		return new Lecturer("", "", -1, new ArrayList<CATEGORY>(), false);
+	}
 
 	public String getName() {
 		return name;

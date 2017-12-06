@@ -1,6 +1,6 @@
 name;email;phone;categories;wantsAdvertise
-Kartagena Kubixz;domik@hotmail.com;789956632;[,];true
-Merche Aguado;helloworld@hotmail.com;209956632;[,];false
+Kartagena Kubixz;domik@hotmail.com;789956632;[Astronomy,Meditation];true
+Merche Aguado;helloworld@hotmail.com;209956632;[TraditionalBuddhism];false
 Merche Ríos;tequeremos@hotmail.com;789156632;[,];true
 Israel Amando;amigosdelcorazon@hotmail.com;409956632;[,];false
 Joan Camarelles;domik@hotmail.com;389956632;[,];true
