@@ -43,10 +43,12 @@ public class EventCreateFormSeminars extends VIAPanel{
 	private JRadioButton finalized;
 	private JRadioButton unfinalized;
 	private JFrame frame;
+	private JPanel parentPanel;
 	
-	public EventCreateFormSeminars(JFrame frame) {
+	public EventCreateFormSeminars(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -76,7 +78,7 @@ public class EventCreateFormSeminars extends VIAPanel{
 		fieldLecturer.setSelectedIndex(2);
 		lecturer = new JButton("Lecturers");
 		save = new JButton("SAVE");
-		back = new VIAButtonBack("");
+		back = new VIAButtonBack(frame, parentPanel);
 		categoryBox = new JComboBox(boxString);
 		categoryBox.setSelectedIndex(2);
 		descriptionArea = new JTextArea(10,55);
@@ -250,7 +252,7 @@ public class EventCreateFormSeminars extends VIAPanel{
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventCreateFormSeminars(frame));
+				frame.setContentPane(new EventCreateFormSeminars(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});
