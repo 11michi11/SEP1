@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class EventPanel extends VIAPanel {
 
@@ -129,20 +130,16 @@ public class EventPanel extends VIAPanel {
 		buttons.add(wrapTrip);
 
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
-		JLabel imgLab = new JLabel(img);
-		
+		JLabel imgLab = new JLabel(img, SwingConstants.CENTER);
+
 		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		buttonBack.add(back);
 		buttonBack.setOpaque(false);
 
-		//add(imgLab, BorderLayout.NORTH);
-		//add(buttons, BorderLayout.CENTER);
 		JPanel logo = new JPanel(new BorderLayout());
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
 		logo.add(buttonBack, BorderLayout.WEST);
-		
-		
 
 		add(logo, BorderLayout.NORTH);
 		add(buttons, BorderLayout.CENTER);

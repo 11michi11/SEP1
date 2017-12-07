@@ -65,7 +65,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		title = new JLabel("Title:");
 		category = new JLabel("Category:");
 		price = new JLabel("Price:");
-		places = new JLabel("NÂ° of Places:");
+		places = new JLabel("N° of Places:");
 		starDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
@@ -82,7 +82,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		back = new VIAButtonBack(frame, parentPanel);
 		categoryBox = new JComboBox(boxString);
 		categoryBox.setSelectedIndex(2);
-		descriptionArea = new JTextArea(10, 55);
+		descriptionArea = new JTextArea(6, 55);
 
 		finalized = new JRadioButton("YES");
 		finalized.setSelected(true);

@@ -1,8 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +15,7 @@ public class StartPanel extends VIAPanel {
 	private JButton events;
 	private JButton newsletter;
 	private JButton signUp;
-	private JButton listOf;
+	private JButton listOf; 	
 	private JLabel welcome;
 	private JFrame frame;
 
@@ -35,16 +33,7 @@ public class StartPanel extends VIAPanel {
 		newsletter = new VIAButtonBig("NEWSLETTER");
 		signUp = new VIAButtonBig("SIGN UP");
 		listOf = new VIAButtonBig("LIST OF");
-
 		welcome = new JLabel("WELCOME");
-
-		Dimension prefSize = new Dimension(350, 100);
-
-		newsletter.setPreferredSize(prefSize);
-		events.setPreferredSize(prefSize);
-		signUp.setPreferredSize(prefSize);
-		listOf.setPreferredSize(prefSize);
-
 	}
 
 	private void registerEventHandlers() {
