@@ -29,7 +29,7 @@ public class EventListPanel extends VIAPanel {
 	private JCheckBox finished;
 	private JFrame frame;
 	private JButton back;
-	private JButton parentPanel;
+	private JPanel parentPanel;
 	
 	public EventListPanel(JFrame frame) {
 		super();

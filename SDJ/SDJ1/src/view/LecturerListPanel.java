@@ -23,7 +23,7 @@ public class LecturerListPanel extends VIAPanel {
 	private JLabel lecturerList;
 	private JFrame frame;
 	private JButton back;
-	private JButton parentPanel;
+	private JPanel parentPanel;
 
 	public LecturerListPanel(JFrame frame) {
 		super();
@@ -63,9 +63,8 @@ public class LecturerListPanel extends VIAPanel {
 		table.setPreferredScrollableViewportSize(new Dimension(500, 300));
 
       back = new VIAButtonBack(frame,parentPanel);
+	
 	}
-
-   back = new VIAButtonBack(frame,parentPanel);
 	private void registerEventHandlers() {
 		// TODO Auto-generated method stub
 

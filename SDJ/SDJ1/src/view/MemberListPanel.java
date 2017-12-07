@@ -83,6 +83,7 @@ public class MemberListPanel extends VIAPanel {
 		JPanel north = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		north.add(add);
 		north.setOpaque(false);
+		
 
 		JPanel south = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		south.add(mail);
