@@ -23,10 +23,12 @@ public class ListsPanel extends VIAPanel {
 	private JButton participantList;
 	private JButton back;
 	private JFrame frame;
-
-	public ListsPanel(JFrame frame) {
+	private JPanel parentPanel;
+	
+	public ListsPanel(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -42,7 +44,7 @@ public class ListsPanel extends VIAPanel {
 		eventList.setFont(new Font("Arial", Font.PLAIN, 30));
 		participantList = new VIAButtonBig("PARTICIPANT LIST");
 		participantList.setFont(new Font("Arial", Font.PLAIN, 30));
-		back = new VIAButtonBack("");
+		back = new VIAButtonBack(frame, parentPanel);
 		
 
 		Dimension prefSize = new Dimension(350, 100);
@@ -141,7 +143,7 @@ public class ListsPanel extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new ListsPanel(frame));
+				frame.setContentPane(new ListsPanel(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

@@ -22,10 +22,12 @@ public class SignUpPanel extends VIAPanel{
 	private JButton participant;
 	private JButton back;
 	private JFrame frame;
+	private JPanel parentPanel;
 	
-	public SignUpPanel(JFrame frame) {
+	public SignUpPanel(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -39,7 +41,7 @@ public class SignUpPanel extends VIAPanel{
 		lecturer.setFont(new Font("Arial", Font.PLAIN, 30));
 		participant = new VIAButtonSmall("PARTICIPANT");
 		participant.setFont(new Font("Arial", Font.PLAIN, 30));
-		back = new VIAButtonBack("");
+		back = new VIAButtonBack(frame, this);
 		
 		Dimension prefSize = new Dimension(300, 100);
 		
@@ -132,7 +134,7 @@ public class SignUpPanel extends VIAPanel{
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new SignUpPanel(frame));
+				frame.setContentPane(new SignUpPanel(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

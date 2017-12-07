@@ -6,10 +6,7 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.event.KeyEvent;
-
 import javax.swing.ButtonGroup;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -45,10 +42,12 @@ public class EventCreateFormLectures extends VIAPanel{
 	private JRadioButton finalized;
 	private JRadioButton unfinalized;
 	private JFrame frame;
+	private JPanel parentPanel;
 	
-	public EventCreateFormLectures(JFrame frame) {
+	public EventCreateFormLectures(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -76,7 +75,7 @@ public class EventCreateFormLectures extends VIAPanel{
 		fieldLecturer = new JTextField(8);
 		lecturer = new JButton("Lecturers");
 		save = new JButton("SAVE");
-		back = new VIAButtonBack("");
+		back = new VIAButtonBack(frame, parentPanel);
 		categoryBox = new JComboBox(boxString);
 		categoryBox.setSelectedIndex(2);
 		descriptionArea = new JTextArea(10,55);
@@ -250,7 +249,7 @@ public class EventCreateFormLectures extends VIAPanel{
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventCreateFormLectures(frame));
+				frame.setContentPane(new EventCreateFormLectures(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

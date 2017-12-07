@@ -18,9 +18,11 @@ public class EventPanel extends VIAPanel {
 	private JButton workshop;
 	private JButton trips;
 	private JFrame frame;
+	private JPanel parentPanel;
 
-	public EventPanel(JFrame frame) {
+	public EventPanel(JFrame frame, JPanel parentPanel) {
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -90,7 +92,7 @@ public class EventPanel extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventPanel(frame));
+				frame.setContentPane(new EventPanel(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});
