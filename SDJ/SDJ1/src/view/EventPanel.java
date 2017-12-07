@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -25,7 +26,7 @@ public class EventPanel extends VIAPanel {
 	public EventPanel(JFrame frame, JPanel parentPanel) {
 		this.frame = frame;
 		this.parentPanel = parentPanel;
-		setLayout(new GridLayout(3,1));
+		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
@@ -99,20 +100,32 @@ public class EventPanel extends VIAPanel {
 		first.add(seminars);
 		first.setOpaque(false);
 
-		JPanel second = new JPanel();
-		second.add(workshop);
-		second.add(trips);
-		second.setOpaque(false);
+		JPanel wrapLectures = new JPanel();
+		wrapLectures.setOpaque(false);
+		wrapLectures.add(lectures);
 
-		JPanel logo = new JPanel();
-		logo.setOpaque(false);
+		JPanel wrapSeminars = new JPanel();
+		wrapSeminars.setOpaque(false);
+		wrapSeminars.add(seminars);
 
-		ImageIcon img = new ImageIcon("src/resources/Logo.png");
+		JPanel wrapWorkshop = new JPanel();
+		wrapWorkshop.setOpaque(false);
+		wrapWorkshop.add(workshop);
+
+		JPanel wrapTrip = new JPanel();
+		wrapTrip.setOpaque(false);
+		wrapTrip.add(trips);
+
+		buttons.add(wrapLectures);
+		buttons.add(wrapSeminars);
+		buttons.add(wrapWorkshop);
+		buttons.add(wrapTrip);
+
+		ImageIcon img = new ImageIcon("src/resources/logoGUI.png");
 		JLabel imgLab = new JLabel(img);
 
-		add(imgLab);
-		add(first);
-		add(second);
+		add(imgLab, BorderLayout.NORTH);
+		add(buttons, BorderLayout.CENTER);
 	}
 
 	public static void main(String[] args) {
