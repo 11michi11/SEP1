@@ -31,11 +31,11 @@ public class SignUpPanel extends VIAPanel{
 	}
 	
 	public void initializeComponents() {	
-		member = new VIAButtonTwo("MEMBER");
+		member = new VIAButtonSmall("MEMBER");
 		member.setFont(new Font("Arial", Font.PLAIN, 30));
-		lecturer = new VIAButtonTwo("LECTURER");
+		lecturer = new VIAButtonSmall("LECTURER");
 		lecturer.setFont(new Font("Arial", Font.PLAIN, 30));
-		participant = new VIAButtonTwo("PARTICIPANT");
+		participant = new VIAButtonSmall("PARTICIPANT");
 		participant.setFont(new Font("Arial", Font.PLAIN, 30));
 		
 		Dimension prefSize = new Dimension(300, 100);

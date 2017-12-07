@@ -37,11 +37,11 @@ public class MainWindow extends JFrame {
 
 	}
 
-	private void createComponents() {    
-		events = new VIAButtonThree("EVENT");
-		newsletter = new VIAButtonThree("NEWSLETTER");
-		signUp = new VIAButtonThree("SIGN UP");
-		listOf = new VIAButtonThree("LIST OF");
+	private void createComponents() {
+		events = new VIAButtonBig("EVENT");
+		newsletter = new VIAButtonBig("NEWSLETTER");
+		signUp = new VIAButtonBig("SIGN UP");
+		listOf = new VIAButtonBig("LIST OF");
 
 		welcome = new JLabel("WELCOME");
 

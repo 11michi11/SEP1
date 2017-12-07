@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import model.Category;
-import model.Event;
 import model.EventList;
 import model.Lecture;
 import model.Lecturer;
@@ -20,7 +19,9 @@ import model.LecturerList;
 import model.Member;
 import model.MemberList;
 import model.MyDate;
-import model.Newsletter;
+import model.Seminar;
+import model.Trip;
+import model.Workshop;
 
 public class FileManager {
 
@@ -194,18 +195,17 @@ public class FileManager {
 
 	public EventList readEventFile(File file) throws FileNotFoundException {
 		EventList events = new EventList();
-		String line, title, description, type;
-		String[] divide, divideDate;
-		int phone, capacity, startDay, startMonth, startYear, endDay, endMonth, endYear;
-		MyDate startDate, endDate;
-		double price;
-		boolean finalized;
+		String line, type, lecturerLine;
+		String[] divide, divideDate, divideAll, divideLecturers;
+		int startDay, startMonth, startYear, endDay, endMonth, endYear;
 
 		Scanner read = new Scanner(file);
 		while (read.hasNext()) {
 			HashMap<String, Object> event = new HashMap<String, Object>();
 			line = read.nextLine();
-			divide = line.split(";");
+			divideAll = line.split("{");
+
+			divide = divideAll[0].trim().split(";");
 			type = divide[0].trim();
 
 			event.put("title", divide[1].trim());
@@ -223,23 +223,45 @@ public class FileManager {
 			event.put("finalized", Boolean.parseBoolean(divide[5]));
 			event.put("description", divide[6].trim());
 			event.put("capacity", Integer.parseInt(divide[7].trim()));
+			LecturerList lecturers = new LecturerList();
 
 			switch (type.toLowerCase()) {
 			case "lecture":
 				// call the readLecturerFieInside somehow c:
-				event.put("lecturer", readLecturerFileInside(divide[8].trim()));
+				lecturerLine = divideAll[1].trim();
+				lecturerLine.substring(0, lecturerLine.length() - 2);
+				divideLecturers = lecturerLine.split(",");
+
+				event.put("lecturer", readLecturerFileInside(divideLecturers[0].trim()));
 				events.addEvent(new Lecture(event));
 				break;
 			case "seminar":
-			case "workshop":
-				event.put("lecturer", divide[8].trim());
-				events.addEvent(new Event(event));
+				lecturerLine = divideAll[1].trim();
+				lecturerLine.substring(0, lecturerLine.length() - 2);
+				divideLecturers = lecturerLine.split(",");
+				for (String i : divideLecturers)
+					lecturers.addLecturer(readLecturerFileInside(i.trim()));
+				event.put("lecturers", lecturers);
+				events.addEvent(new Seminar(event));
 				break;
 
-			default:
+			case "workshop":
+				lecturerLine = divideAll[1].trim();
+				lecturerLine.substring(0, lecturerLine.length() - 2);
+				divideLecturers = lecturerLine.split(",");
+				for (String i : divideLecturers)
+					lecturers.addLecturer(readLecturerFileInside(i.trim()));
+				event.put("lecturers", lecturers);
+				events.addEvent(new Workshop(event));
 				break;
+
+			case "trip":
+				event.put("localization", divideAll[1].trim());
+				events.addEvent(new Trip(event));
+				break;
+			default:
+				System.out.println("No such type");
 			}
-			events.addEvent(new Event(event));
 		}
 
 		read.close();

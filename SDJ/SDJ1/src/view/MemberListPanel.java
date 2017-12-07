@@ -50,9 +50,9 @@ public class MemberListPanel extends VIAPanel {
 		search = new JTextField(47);
 		search.setText("SEARCH");
 
-		add = new VIAButtonTwo("ADD MEMBER");
+		add = new VIAButtonSmall("ADD MEMBER");
 		add.setFont(new Font("Arial", Font.PLAIN, 20));
-		mail = new VIAButtonTwo("SEND REMAIND E-MAIL");
+		mail = new VIAButtonSmall("SEND REMAIND E-MAIL");
 		mail.setFont(new Font("Arial", Font.PLAIN, 20));
 
 		Dimension prefSize = new Dimension(300,100);
