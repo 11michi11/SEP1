@@ -73,10 +73,6 @@ public class EventListPanel extends VIAPanel {
 		
 		back = new VIAButtonBack(frame,parentPanel);
 		
-//		Dimension prefSize = new Dimension(300,100);
-//		addEvent.setPreferredSize(prefSize);
-//		signUpMember.setPreferredSize(prefSize);
-//		signUpParticipant.setPreferredSize(prefSize);
 	}
 	
 	private void registerEventHandlers() {
@@ -116,12 +112,17 @@ public class EventListPanel extends VIAPanel {
 		labelPanel.add(eventList);
 
       
-      JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
-      buttonBack.add(back);
-      buttonBack.setOpaque(false);
+        JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        buttonBack.add(back);
+        buttonBack.setOpaque(false);
       
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
+		
+		JPanel logo = new JPanel(new BorderLayout());
+		logo.setOpaque(false);
+		logo.add(imgLab, BorderLayout.CENTER);
+		logo.add(buttonBack, BorderLayout.WEST);
 		
 		JPanel eventForm = new JPanel(new BorderLayout());
 		eventForm.add(labelPanel, BorderLayout.NORTH);
@@ -130,7 +131,7 @@ public class EventListPanel extends VIAPanel {
 		eventForm.add(right, BorderLayout.EAST);
 		eventForm.setOpaque(false);
 		
-		add(imgLab ,BorderLayout.NORTH);
+		add(logo ,BorderLayout.NORTH);
 		add(eventForm, BorderLayout.CENTER);
 			
 	}

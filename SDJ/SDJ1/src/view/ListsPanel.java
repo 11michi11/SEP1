@@ -46,14 +46,7 @@ public class ListsPanel extends VIAPanel {
 		participantList.setFont(new Font("Arial", Font.PLAIN, 30));
 		back = new VIAButtonBack(frame, parentPanel);
 
-		Dimension prefSize = new Dimension(350, 100);
-		Dimension backSize = new Dimension(50, 50);
 
-		lecturerList.setPreferredSize(prefSize);
-		memberList.setPreferredSize(prefSize);
-		eventList.setPreferredSize(prefSize);
-		participantList.setPreferredSize(prefSize);
-		back.setPreferredSize(backSize);
 	}
 
 	public void registerEventHandlers() {

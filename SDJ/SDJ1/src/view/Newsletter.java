@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -24,6 +25,7 @@ public class Newsletter extends VIAPanel{
 	private JLabel addInfo;
 	private JFrame frame;
 	private JPanel parentPanel;
+	private JButton back;
 	
 	public Newsletter(JFrame frame, JPanel parentPanel) {
 		super();
@@ -77,6 +79,7 @@ public class Newsletter extends VIAPanel{
 		newsletter.setFont(new Font("Arial", Font.PLAIN, 30));
 		info = new JTextArea(10,30);
 		addInfo = new JLabel("ADDITIONAL INFO");
+		back = new VIAButtonBack(frame, parentPanel);
 				
 		
 	}
@@ -101,20 +104,24 @@ public class Newsletter extends VIAPanel{
 		right.add(info, BorderLayout.CENTER);
 		right.setOpaque(false);
 		
-		//add(left);
-		//add(right);
-		JPanel logo = new JPanel();
-		logo.setOpaque(false);
+		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		buttonBack.add(back);
+		buttonBack.setOpaque(false);
 
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
+		
+		JPanel logo = new JPanel(new BorderLayout());
+		logo.setOpaque(false);
+		logo.add(imgLab, BorderLayout.CENTER);
+		logo.add(buttonBack, BorderLayout.WEST);
 		
 		JPanel title = new JPanel();
 		title.add(newsletter);
 		title.setOpaque(false);
 		
 		JPanel north = new JPanel(new BorderLayout());
-		north.add(imgLab, BorderLayout.NORTH);
+		north.add(logo, BorderLayout.NORTH);
 		north.add(title, BorderLayout.CENTER);
 		north.setOpaque(false);
 		
