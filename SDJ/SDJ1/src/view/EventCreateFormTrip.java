@@ -41,10 +41,12 @@ public class EventCreateFormTrip extends VIAPanel {
 	private JRadioButton finalized;
 	private JRadioButton unfinalized;
 	private JFrame frame;
+	private JPanel parentPanel;
 	
-	public EventCreateFormTrip(JFrame frame) {
+	public EventCreateFormTrip(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -72,7 +74,7 @@ public class EventCreateFormTrip extends VIAPanel {
 		fieldLocation = new JTextField(8);
 		location = new JLabel("Location:");
 		save = new JButton("SAVE");
-		back = new VIAButtonBack("");
+		back = new VIAButtonBack(frame, parentPanel);
 		descriptionArea = new JTextArea(10,55);
 		
 		finalized = new JRadioButton("YES");
@@ -241,7 +243,7 @@ public class EventCreateFormTrip extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventCreateFormTrip(frame));
+				frame.setContentPane(new EventCreateFormTrip(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});
