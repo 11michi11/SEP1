@@ -5,9 +5,13 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,7 +22,7 @@ import javax.swing.SwingConstants;
 
 public class EventPanel extends VIAPanel {
 
-	private JButton lectures;
+	private VIAButton lectures;
 	private JButton seminars;
 	private JButton workshop;
 	private JButton trips;
@@ -37,15 +41,11 @@ public class EventPanel extends VIAPanel {
 
 	public void initializeComponents() {
 		lectures = new VIAButtonBig("LECTURES");
-		lectures.setFont(new Font("Arial", Font.PLAIN, 30));
 		seminars = new VIAButtonBig("SEMINARS");
-		seminars.setFont(new Font("Arial", Font.PLAIN, 30));
 		workshop = new VIAButtonBig("WORKSHOP");
-		workshop.setFont(new Font("Arial", Font.PLAIN, 30));
 		trips = new VIAButtonBig("TRIPS");
-		trips.setFont(new Font("Arial", Font.PLAIN, 30));
 		back = new VIAButtonBack(frame, parentPanel);
-		
+
 	}
 
 	public void registerEventHandlers() {
@@ -124,7 +124,7 @@ public class EventPanel extends VIAPanel {
 		buttons.add(wrapTrip);
 
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
-		JLabel imgLab = new JLabel(img, SwingConstants.CENTER);
+		JLabel imgLab = new JLabel(img);
 
 		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		buttonBack.add(back);

@@ -2,9 +2,7 @@ package view;
 
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.Graphics;
-import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -17,8 +15,7 @@ import javax.swing.event.ChangeListener;
 public abstract class VIAButton extends JButton {
 
 	protected BufferedImage image;
-	protected static Font font = loadFont();
-	protected int fontSize;
+	protected static Font font = new Font("Bernard MT Condensed", Font.PLAIN, 40);
 	protected String FILE_PATH;
 	private String darkPath;
 	protected Dimension prefSize;
@@ -29,8 +26,7 @@ public abstract class VIAButton extends JButton {
 		darkPath = getDarkPath();
 		setContentAreaFilled(false);
 		loadImage(FILE_PATH);
-		setFont(this.font);
-		this.fontSize = 40;
+		setFont(font);
 		this.prefSize = prefSize;
 		setPreferredSize(prefSize);
 		
@@ -51,11 +47,6 @@ public abstract class VIAButton extends JButton {
 		});
 	}
 
-	public void setFontSize(int size) {
-		this.fontSize = size;
-		setFont(new Font("VIAFont", Font.PLAIN, size));
-	}
-
 	protected void loadImage(String path) {
 		try {
 			image = ImageIO.read(new File(path));
@@ -68,17 +59,6 @@ public abstract class VIAButton extends JButton {
 	protected void paintComponent(Graphics g) {
 		g.drawImage(image, 0, 0, prefSize.width, prefSize.height, this);
 		super.paintComponent(g);
-	}
-
-	private static Font loadFont() {
-		try {
-			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("src/resources/VIAFont.ttf")));
-			Font font = new Font("VIAFont", Font.PLAIN, 40);
-			return font;
-		} catch (IOException | FontFormatException e) {
-			return new Font("Arial", Font.PLAIN, 40);
-		}
 	}
 	
 	private String getDarkPath() {
