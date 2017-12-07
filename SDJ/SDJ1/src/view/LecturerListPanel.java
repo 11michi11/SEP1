@@ -65,6 +65,7 @@ public class LecturerListPanel extends VIAPanel {
       back = new VIAButtonBack(frame,parentPanel);
 	}
 
+   back = new VIAButtonBack(frame,parentPanel);
 	private void registerEventHandlers() {
 		// TODO Auto-generated method stub
 
