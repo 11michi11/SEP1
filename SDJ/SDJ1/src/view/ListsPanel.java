@@ -102,32 +102,36 @@ public class ListsPanel extends VIAPanel {
 	}
 
 	public void addComponentsToPanel() {
-		JPanel first = new JPanel();
-		first.add(memberList);
-		first.add(eventList);
-		first.setOpaque(false);
-
-		JPanel second = new JPanel();
-		second.add(lecturerList);
-		second.add(participantList);
-		second.setOpaque(false);
 		
-		JPanel button = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		button.add(back);
-		button.setOpaque(false);
+		JPanel buttons = new JPanel(new GridLayout(2, 2));
+		buttons.setOpaque(false);
 
-		ImageIcon img = new ImageIcon("src/resources/Logo.png");
+		JPanel wrapLecturer = new JPanel();
+		wrapLecturer.setOpaque(false);
+		wrapLecturer.add(lecturerList);
+
+		JPanel wrapMembers = new JPanel();
+		wrapMembers.setOpaque(false);
+		wrapMembers.add(memberList);
+
+		JPanel wrapEvent = new JPanel();
+		wrapEvent.setOpaque(false);
+		wrapEvent.add(eventList);
+
+		JPanel wrapParticipant = new JPanel();
+		wrapParticipant.setOpaque(false);
+		wrapParticipant.add(participantList);
+
+		buttons.add(wrapMembers);
+		buttons.add(wrapLecturer);
+		buttons.add(wrapEvent);
+		buttons.add(wrapParticipant);
+
+		ImageIcon img = new ImageIcon("src/resources/logoGUI.png");
 		JLabel imgLab = new JLabel(img);
-		
-		JPanel components = new JPanel(new GridLayout(3, 1));
-		components.add(imgLab);
-		components.add(first);
-		components.add(second);
-		components.setOpaque(false);
-		
-		add(button, BorderLayout.BEFORE_FIRST_LINE);
-		add(components, BorderLayout.CENTER);
-		
+
+		add(imgLab, BorderLayout.NORTH);
+		add(buttons, BorderLayout.CENTER);
 	}
 
 	public static void main(String[] args) {
