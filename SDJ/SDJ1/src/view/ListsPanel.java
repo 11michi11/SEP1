@@ -42,7 +42,7 @@ public class ListsPanel extends VIAPanel {
 		eventList.setFont(new Font("Arial", Font.PLAIN, 30));
 		participantList = new VIAButtonBig("PARTICIPANT LIST");
 		participantList.setFont(new Font("Arial", Font.PLAIN, 30));
-		back = new VIAButton("");
+		back = new VIAButtonBack("");
 		
 
 		Dimension prefSize = new Dimension(350, 100);

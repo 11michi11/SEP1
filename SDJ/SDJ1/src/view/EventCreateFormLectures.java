@@ -54,9 +54,9 @@ public class EventCreateFormLectures extends VIAPanel{
 	}
 	public void initializeComponents() {
 		
-		String[] boxString = {"astronomy", "nature", "yoga"};
+		String[] boxString = {"" ,"astronomy", "nature", "yoga"};
 		
-		createForm = new JLabel("Create Form for LECTURERS");
+		createForm = new JLabel("Create Form for LECTURES");
 		createForm.setFont(new Font("Arial", Font.PLAIN, 30));
 		title = new JLabel("Title:");
 		category = new JLabel("Category:");
@@ -65,18 +65,18 @@ public class EventCreateFormLectures extends VIAPanel{
 		starDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
-		description = new JLabel("Description");
+		description = new JLabel("DESCRIPTION:");
 		fieldTitle = new JTextField(8);
 		fieldPrice = new JTextField(8);
 		fieldPlaces = new JTextField(8);
 		fieldStartDate = new JTextField(8);
 		fieldEndDate = new JTextField(8);
 		fieldLecturer = new JTextField(8);
-		lecturer = new JButton("Lecturer:");
-		save = new VIAButtonThree("SAVE");
+		lecturer = new JButton("Lecturers");
+		save = new JButton("SAVE");
 		categoryBox = new JComboBox(boxString);
 		categoryBox.setSelectedIndex(2);
-		descriptionArea = new JTextArea(10,10);
+		descriptionArea = new JTextArea(10,55);
 		
 		finalized = new JRadioButton("YES");
 		finalized.setSelected(true);
@@ -192,8 +192,23 @@ public class EventCreateFormLectures extends VIAPanel{
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(titul, BorderLayout.NORTH);
 		components.add(content, BorderLayout.CENTER);
-		components.add(button, BorderLayout.SOUTH);
+		//components.add(button, BorderLayout.SOUTH);
 		components.setOpaque(false);
+		
+		JPanel textArea = new JPanel(new BorderLayout());
+		textArea.add(description, BorderLayout.NORTH);
+		textArea.add(descriptionArea, BorderLayout.CENTER);
+		textArea.setOpaque(false);
+		
+		JPanel downPart = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		downPart.add(textArea);
+		downPart.add(save);
+		downPart.setOpaque(false);
+		
+		JPanel down = new JPanel();
+		down.add(downPart);
+		down.setOpaque(false);
+		
 
 		JPanel logo = new JPanel();
 		logo.setOpaque(false);
@@ -203,6 +218,7 @@ public class EventCreateFormLectures extends VIAPanel{
 
 		add(imgLab, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
+		add(down, BorderLayout.SOUTH);
 		
 	
 
