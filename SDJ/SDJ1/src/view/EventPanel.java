@@ -5,6 +5,9 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -48,14 +51,54 @@ public class EventPanel extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
+		JPanel currentPanel = this;
+		
+		lectures.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JPanel newContentPane = new EventCreateFormLectures(frame, currentPanel);
+				frame.setContentPane(newContentPane);
+				frame.revalidate();
+			}
+		});
+		
+		seminars.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JPanel newContentPane = new EventCreateFormSeminars(frame, currentPanel);
+				frame.setContentPane(newContentPane);
+				frame.revalidate();
+			}
+		});
+		
+		workshop.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JPanel newContentPane = new EventCreateFormWorkshop(frame, currentPanel);
+				frame.setContentPane(newContentPane);
+				frame.revalidate();
+			}
+		});
+		
+		trips.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 	}
 
 	public void addComponentsToPanel() {
-
-		
-		JPanel buttons = new JPanel(new GridLayout(2, 2));
-		buttons.setOpaque(false);
+		JPanel first = new JPanel();
+		first.add(lectures);
+		first.add(seminars);
+		first.setOpaque(false);
 
 		JPanel wrapLectures = new JPanel();
 		wrapLectures.setOpaque(false);
