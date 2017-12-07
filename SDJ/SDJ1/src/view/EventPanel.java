@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -20,6 +21,7 @@ public class EventPanel extends VIAPanel {
 	private JButton seminars;
 	private JButton workshop;
 	private JButton trips;
+	private JButton back;
 	private JFrame frame;
 	private JPanel parentPanel;
 
@@ -41,6 +43,7 @@ public class EventPanel extends VIAPanel {
 		workshop.setFont(new Font("Arial", Font.PLAIN, 30));
 		trips = new VIAButtonSmall("TRIPS");
 		trips.setFont(new Font("Arial", Font.PLAIN, 30));
+		back = new VIAButtonBack(frame, parentPanel);
 
 		Dimension prefSize = new Dimension(300, 100);
 
@@ -125,10 +128,23 @@ public class EventPanel extends VIAPanel {
 		buttons.add(wrapWorkshop);
 		buttons.add(wrapTrip);
 
-		ImageIcon img = new ImageIcon("src/resources/logoGUI.png");
+		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
+		
+		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		buttonBack.add(back);
+		buttonBack.setOpaque(false);
 
-		add(imgLab, BorderLayout.NORTH);
+		//add(imgLab, BorderLayout.NORTH);
+		//add(buttons, BorderLayout.CENTER);
+		JPanel logo = new JPanel(new BorderLayout());
+		logo.setOpaque(false);
+		logo.add(imgLab, BorderLayout.CENTER);
+		logo.add(buttonBack, BorderLayout.WEST);
+		
+		
+
+		add(logo, BorderLayout.NORTH);
 		add(buttons, BorderLayout.CENTER);
 	}
 

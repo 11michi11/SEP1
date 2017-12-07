@@ -126,11 +126,21 @@ public class ListsPanel extends VIAPanel {
 		buttons.add(wrapEvent);
 		buttons.add(wrapParticipant);
 
-		ImageIcon img = new ImageIcon("src/resources/logoGUI.png");
+		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		buttonBack.add(back);
+		buttonBack.setOpaque(false);
+
+		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
+		
+		JPanel logo = new JPanel(new BorderLayout());
+		logo.setOpaque(false);
+		logo.add(imgLab, BorderLayout.CENTER);
+		logo.add(buttonBack, BorderLayout.WEST);
+		
+		
 
-
-		add(imgLab, BorderLayout.NORTH);
+		add(logo, BorderLayout.NORTH);
 		add(buttons, BorderLayout.CENTER);
 	}
 
