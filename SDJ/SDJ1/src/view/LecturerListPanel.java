@@ -52,7 +52,7 @@ public class LecturerListPanel extends VIAPanel {
 
 		add = new VIAButtonSmall("ADD LECTURER");
 		add.setFont(new Font("Arial", Font.PLAIN, 20));
-		
+
 		Dimension prefSize = new Dimension(300, 100);
 		add.setPreferredSize(prefSize);
 
@@ -62,9 +62,10 @@ public class LecturerListPanel extends VIAPanel {
 		table = new JTable(data, columnNames);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 300));
 
-      back = new VIAButtonBack(frame,parentPanel);
-	
+		back = new VIAButtonBack(frame, parentPanel);
+
 	}
+
 	private void registerEventHandlers() {
 		// TODO Auto-generated method stub
 
@@ -102,8 +103,6 @@ public class LecturerListPanel extends VIAPanel {
 		components.add(left, BorderLayout.WEST);
 		components.add(right, BorderLayout.EAST);
 		components.setOpaque(false);
-		
-
 
 		add(imgLab, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);

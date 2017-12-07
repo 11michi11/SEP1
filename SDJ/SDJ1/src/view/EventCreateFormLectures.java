@@ -17,8 +17,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class EventCreateFormLectures extends VIAPanel{
-	
+public class EventCreateFormLectures extends VIAPanel {
+
 	private JLabel createForm;
 	private JLabel title;
 	private JLabel category;
@@ -43,7 +43,7 @@ public class EventCreateFormLectures extends VIAPanel{
 	private JRadioButton unfinalized;
 	private JFrame frame;
 	private JPanel parentPanel;
-	
+
 	public EventCreateFormLectures(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
@@ -51,12 +51,13 @@ public class EventCreateFormLectures extends VIAPanel{
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
-		addComponentsToPanel();	
+		addComponentsToPanel();
 	}
+
 	public void initializeComponents() {
-		
-		String[] boxString = {"" ,"astronomy", "nature", "yoga"};
-		
+
+		String[] boxString = { "", "astronomy", "nature", "yoga" };
+
 		createForm = new JLabel("Create Form for LECTURES");
 		createForm.setFont(new Font("Arial", Font.PLAIN, 30));
 		title = new JLabel("Title:");
@@ -78,28 +79,29 @@ public class EventCreateFormLectures extends VIAPanel{
 		back = new VIAButtonBack(frame, parentPanel);
 		categoryBox = new JComboBox(boxString);
 		categoryBox.setSelectedIndex(2);
-		descriptionArea = new JTextArea(10,55);
-		
+		descriptionArea = new JTextArea(10, 55);
+
 		finalized = new JRadioButton("YES");
 		finalized.setSelected(true);
 		finalized.setOpaque(false);
-		
+
 		unfinalized = new JRadioButton("NO");
 		unfinalized.setOpaque(false);
-		
-		 ButtonGroup group = new ButtonGroup();
-		   group.add(finalized);
-		   group.add(unfinalized);
-		   
+
+		ButtonGroup group = new ButtonGroup();
+		group.add(finalized);
+		group.add(unfinalized);
+
 		Dimension prefSize = new Dimension(70, 50);
 		save.setPreferredSize(prefSize);
-		
+
 	}
-	
-	public void registerEventHandlers() {}
-	
+
+	public void registerEventHandlers() {
+	}
+
 	public void addComponentsToPanel() {
-		
+
 		JPanel leftLabel = new JPanel(new GridLayout(4, 1));
 		leftLabel.add(title);
 		leftLabel.add(category);
@@ -160,7 +162,7 @@ public class EventCreateFormLectures extends VIAPanel{
 		JPanel fieldSeven = new JPanel();
 		fieldSeven.add(fieldLecturer);
 		fieldSeven.setOpaque(false);
-		
+
 		JPanel fieldEight = new JPanel();
 		fieldEight.add(finalized);
 		fieldEight.add(unfinalized);
@@ -197,51 +199,45 @@ public class EventCreateFormLectures extends VIAPanel{
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(titul, BorderLayout.NORTH);
 		components.add(content, BorderLayout.CENTER);
-		//components.add(button, BorderLayout.SOUTH);
+		// components.add(button, BorderLayout.SOUTH);
 		components.setOpaque(false);
-		
+
 		JPanel textArea = new JPanel(new BorderLayout());
 		textArea.add(description, BorderLayout.NORTH);
 		textArea.add(descriptionArea, BorderLayout.CENTER);
 		textArea.setOpaque(false);
-		
+
 		JPanel downPart = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		downPart.add(textArea);
 		downPart.add(save);
 		downPart.setOpaque(false);
-		
+
 		JPanel down = new JPanel();
 		down.add(downPart);
 		down.setOpaque(false);
-		
+
 		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		buttonBack.add(back);
 		buttonBack.setOpaque(false);
 
-
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
-		
+
 		JPanel logo = new JPanel(new BorderLayout());
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
 		logo.add(buttonBack, BorderLayout.WEST);
-		
-		
+
 		JPanel finalPanel = new JPanel(new BorderLayout());
 		finalPanel.add(components, BorderLayout.CENTER);
 		finalPanel.add(down, BorderLayout.SOUTH);
 		finalPanel.setOpaque(false);
-		
-		
+
 		add(logo, BorderLayout.NORTH);
 		add(finalPanel, BorderLayout.CENTER);
-		
-	
 
-		
 	}
-	
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
