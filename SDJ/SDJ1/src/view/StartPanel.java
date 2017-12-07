@@ -48,12 +48,13 @@ public class StartPanel extends VIAPanel {
 	}
 
 	private void registerEventHandlers() {
+		JPanel currentPanel = this;
 
 		events.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new EventPanel(mainFrame);
+				JPanel newContentPane = new EventPanel(mainFrame, currentPanel);
 				mainFrame.setContentPane(newContentPane);
 				mainFrame.revalidate();
 			}
@@ -63,7 +64,7 @@ public class StartPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new Newsletter(mainFrame);
+				JPanel newContentPane = new Newsletter(mainFrame, currentPanel);
 				mainFrame.setContentPane(newContentPane);
 				mainFrame.revalidate();
 			}
@@ -73,7 +74,7 @@ public class StartPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new SignUpPanel(mainFrame);
+				JPanel newContentPane = new SignUpPanel(mainFrame, currentPanel);
 				mainFrame.setContentPane(newContentPane);
 				mainFrame.revalidate();
 			}
@@ -83,7 +84,7 @@ public class StartPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new ListsPanel(mainFrame);
+				JPanel newContentPane = new ListsPanel(mainFrame, currentPanel);
 				mainFrame.setContentPane(newContentPane);
 				mainFrame.revalidate();
 			}
