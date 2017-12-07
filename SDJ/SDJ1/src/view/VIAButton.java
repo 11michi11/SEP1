@@ -25,7 +25,6 @@ public abstract class VIAButton extends JButton {
 
 	public VIAButton(String text, String path, Dimension prefSize) {
 		super(text);
-		System.out.println(font.getFontName());
 		this.FILE_PATH = path;
 		darkPath = getDarkPath();
 		setContentAreaFilled(false);
@@ -74,12 +73,10 @@ public abstract class VIAButton extends JButton {
 	private static Font loadFont() {
 		try {
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("src/resources/bernarda.ttf")));
-			Font font = new Font("bernarda", Font.PLAIN, 40);
-			//System.out.println(font.toString());
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("src/resources/VIAFont.ttf")));
+			Font font = new Font("VIAFont", Font.PLAIN, 40);
 			return font;
 		} catch (IOException | FontFormatException e) {
-			System.out.println(e.getMessage());
 			return new Font("Arial", Font.PLAIN, 40);
 		}
 	}

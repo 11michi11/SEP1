@@ -24,11 +24,12 @@ public class LecturerListPanel extends VIAPanel {
 	private JFrame frame;
 	private JButton back;
 	private JPanel parentPanel;
+	private JScrollPane scrollPane;
 
 	public LecturerListPanel(JFrame frame) {
 		super();
 		this.frame = frame;
-		setLayout(new FlowLayout());
+		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
@@ -53,14 +54,13 @@ public class LecturerListPanel extends VIAPanel {
 		add = new VIAButtonSmall("ADD LECTURER");
 		add.setFont(new Font("Arial", Font.PLAIN, 20));
 
-		Dimension prefSize = new Dimension(300, 100);
-		add.setPreferredSize(prefSize);
-
 		lecturerList = new JLabel("LECTURER LIST");
 		lecturerList.setFont(new Font("Arial", Font.PLAIN, 30));
 
 		table = new JTable(data, columnNames);
-		table.setPreferredScrollableViewportSize(new Dimension(500, 300));
+		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
+		
+		scrollPane = new JScrollPane(table);
 
 		back = new VIAButtonBack(frame, parentPanel);
 
@@ -92,11 +92,17 @@ public class LecturerListPanel extends VIAPanel {
 		labelPanel.add(lecturerList);
 		labelPanel.setOpaque(false);
 
-		JPanel logo = new JPanel();
-		logo.setOpaque(false);
-
+		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	    buttonBack.add(back);
+	    buttonBack.setOpaque(false);
+	      
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
+			
+		JPanel logo = new JPanel(new BorderLayout());
+		logo.setOpaque(false);
+		logo.add(imgLab, BorderLayout.CENTER);
+		logo.add(buttonBack, BorderLayout.WEST);
 
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(labelPanel, BorderLayout.NORTH);
@@ -104,9 +110,8 @@ public class LecturerListPanel extends VIAPanel {
 		components.add(right, BorderLayout.EAST);
 		components.setOpaque(false);
 
-		add(imgLab, BorderLayout.NORTH);
+		add(logo, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
-
 	}
 
 	public static void main(String[] args) {

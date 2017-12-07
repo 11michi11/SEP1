@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 
@@ -30,10 +31,13 @@ public class SignUpFormLecturer extends VIAPanel{
 	private JTextField fieldCategory;
 	private JButton add;
 	private JFrame frame;
+	private JPanel parentPanel;
+	private JButton back;
 
 	public SignUpFormLecturer(JFrame frame) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -58,9 +62,9 @@ public class SignUpFormLecturer extends VIAPanel{
 		fieldCategory = new JTextField(8);
 		
 		add = new VIAButtonSmall("Add to list");
+		back = new VIAButtonBack(frame, parentPanel);
 
-		Dimension prefSize = new Dimension(300, 100);
-		add.setPreferredSize(prefSize);
+
 
 	}
 
@@ -151,13 +155,19 @@ public class SignUpFormLecturer extends VIAPanel{
 		components.add(button, BorderLayout.SOUTH);
 		components.setOpaque(false);
 
-		JPanel logo = new JPanel();
-		logo.setOpaque(false);
+		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		buttonBack.add(back);
+		buttonBack.setOpaque(false);
 
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
 
-		add(imgLab, BorderLayout.NORTH);
+		JPanel logo = new JPanel(new BorderLayout());
+		logo.setOpaque(false);
+		logo.add(imgLab, BorderLayout.CENTER);
+		logo.add(buttonBack, BorderLayout.WEST);;
+
+		add(logo, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
 	}
 

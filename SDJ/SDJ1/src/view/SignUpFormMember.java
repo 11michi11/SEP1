@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 
@@ -32,10 +33,13 @@ public class SignUpFormMember extends VIAPanel {
 	private JTextField fieldPaymentYear;
 	private JButton add;
 	private JFrame frame;
+	private JPanel parentPanel;
+	private JButton back;
 
 	public SignUpFormMember(JFrame frame) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -63,8 +67,7 @@ public class SignUpFormMember extends VIAPanel {
 		
 		add = new VIAButtonSmall("Add to list");
 
-		Dimension prefSize = new Dimension(300, 100);
-		add.setPreferredSize(prefSize);
+		back = new VIAButtonBack(frame, parentPanel);
 
 	}
 
@@ -166,13 +169,19 @@ public class SignUpFormMember extends VIAPanel {
 		components.add(button, BorderLayout.SOUTH);
 		components.setOpaque(false);
 
-		JPanel logo = new JPanel();
-		logo.setOpaque(false);
+		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		buttonBack.add(back);
+		buttonBack.setOpaque(false);
 
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
 
-		add(imgLab, BorderLayout.NORTH);
+		JPanel logo = new JPanel(new BorderLayout());
+		logo.setOpaque(false);
+		logo.add(imgLab, BorderLayout.CENTER);
+		logo.add(buttonBack, BorderLayout.WEST);;
+
+		add(logo, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
 	}
 

@@ -36,22 +36,16 @@ public class EventPanel extends VIAPanel {
 	}
 
 	public void initializeComponents() {
-		lectures = new VIAButtonSmall("LECTURES");
+		lectures = new VIAButtonBig("LECTURES");
 		lectures.setFont(new Font("Arial", Font.PLAIN, 30));
-		seminars = new VIAButtonSmall("SEMINARS");
+		seminars = new VIAButtonBig("SEMINARS");
 		seminars.setFont(new Font("Arial", Font.PLAIN, 30));
-		workshop = new VIAButtonSmall("WORKSHOP");
+		workshop = new VIAButtonBig("WORKSHOP");
 		workshop.setFont(new Font("Arial", Font.PLAIN, 30));
-		trips = new VIAButtonSmall("TRIPS");
+		trips = new VIAButtonBig("TRIPS");
 		trips.setFont(new Font("Arial", Font.PLAIN, 30));
 		back = new VIAButtonBack(frame, parentPanel);
-
-		Dimension prefSize = new Dimension(300, 100);
-
-		lectures.setPreferredSize(prefSize);
-		seminars.setPreferredSize(prefSize);
-		workshop.setPreferredSize(prefSize);
-		trips.setPreferredSize(prefSize);
+		
 	}
 
 	public void registerEventHandlers() {

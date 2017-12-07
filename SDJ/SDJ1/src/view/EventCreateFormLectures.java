@@ -6,9 +6,6 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -66,7 +63,7 @@ public class EventCreateFormLectures extends VIAPanel {
 		title = new JLabel("Title:");
 		category = new JLabel("Category:");
 		price = new JLabel("Price:");
-		places = new JLabel("N° of Places:");
+		places = new JLabel("NÂ° of Places:");
 		starDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
@@ -82,7 +79,7 @@ public class EventCreateFormLectures extends VIAPanel {
 		back = new VIAButtonBack(frame, parentPanel);
 		categoryBox = new JComboBox(boxString);
 		categoryBox.setSelectedIndex(2);
-		descriptionArea = new JTextArea(6, 55);
+		descriptionArea = new JTextArea(10, 55);
 
 		finalized = new JRadioButton("YES");
 		finalized.setSelected(true);
@@ -101,28 +98,6 @@ public class EventCreateFormLectures extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
-		lecturer.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JFrame lecturerChoice = new JFrame();
-				lecturerChoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				lecturerChoice.setSize(900,500);
-				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
-				lecturerChoice.setContentPane(new LecturerChoiceList(lecturerChoice));
-				lecturerChoice.setVisible(true);
-				
-			}
-		});
-		
-		save.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
 	}
 
 	public void addComponentsToPanel() {
@@ -224,6 +199,7 @@ public class EventCreateFormLectures extends VIAPanel {
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(titul, BorderLayout.NORTH);
 		components.add(content, BorderLayout.CENTER);
+		// components.add(button, BorderLayout.SOUTH);
 		components.setOpaque(false);
 
 		JPanel textArea = new JPanel(new BorderLayout());

@@ -22,10 +22,13 @@ public class ParticipantListPanel extends VIAPanel {
 	private JButton add;
 	private JLabel participantList;
 	private JFrame frame;
+	private JButton back;
+	private JPanel parentPanel;
 
 	public ParticipantListPanel(JFrame frame) {
 		super();
 		setLayout(new BorderLayout());
+		this.frame = frame;
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
@@ -55,6 +58,8 @@ public class ParticipantListPanel extends VIAPanel {
 
 		table = new JTable(data, columnNames);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
+		
+		back = new VIAButtonBack(frame,parentPanel);
 	}
 
 	private void registerEventHandlers() {
@@ -83,11 +88,17 @@ public class ParticipantListPanel extends VIAPanel {
 		labelPanel.add(participantList);
 		labelPanel.setOpaque(false);
 
-		JPanel logo = new JPanel();
-		logo.setOpaque(false);
-
+		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	    buttonBack.add(back);
+	    buttonBack.setOpaque(false);
+	      
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
+			
+		JPanel logo = new JPanel(new BorderLayout());
+		logo.setOpaque(false);
+		logo.add(imgLab, BorderLayout.CENTER);
+		logo.add(buttonBack, BorderLayout.WEST);
 
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(labelPanel, BorderLayout.NORTH);
@@ -95,7 +106,7 @@ public class ParticipantListPanel extends VIAPanel {
 		components.add(right, BorderLayout.EAST);
 		components.setOpaque(false);
 
-		add(imgLab, BorderLayout.NORTH);
+		add(logo, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
 	}
 
