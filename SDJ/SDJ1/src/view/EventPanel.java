@@ -52,9 +52,9 @@ public class EventPanel extends VIAPanel {
 
 	public void registerEventHandlers() {
 		JPanel currentPanel = this;
-		
+
 		lectures.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new EventCreateFormLectures(frame, currentPanel);
@@ -62,9 +62,9 @@ public class EventPanel extends VIAPanel {
 				frame.revalidate();
 			}
 		});
-		
+
 		seminars.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new EventCreateFormSeminars(frame, currentPanel);
@@ -72,9 +72,9 @@ public class EventPanel extends VIAPanel {
 				frame.revalidate();
 			}
 		});
-		
+
 		workshop.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new EventCreateFormWorkshop(frame, currentPanel);
@@ -82,16 +82,17 @@ public class EventPanel extends VIAPanel {
 				frame.revalidate();
 			}
 		});
-		
+
 		trips.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+				JPanel newContentPane = new EventCreateFormTrip(frame, currentPanel);
+				frame.setContentPane(newContentPane);
+				frame.revalidate();
 			}
 		});
-		
+
 	}
 
 	public void addComponentsToPanel() {
@@ -115,6 +116,9 @@ public class EventPanel extends VIAPanel {
 		JPanel wrapTrip = new JPanel();
 		wrapTrip.setOpaque(false);
 		wrapTrip.add(trips);
+
+		JPanel buttons = new JPanel(new GridLayout(2, 2));
+		buttons.setOpaque(false);
 
 		buttons.add(wrapLectures);
 		buttons.add(wrapSeminars);
