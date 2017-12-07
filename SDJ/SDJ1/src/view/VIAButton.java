@@ -15,23 +15,24 @@ import javax.swing.event.ChangeListener;
 public abstract class VIAButton extends JButton {
 
 	protected BufferedImage image;
-	protected static Font font = new Font("Bernard MT Condensed", Font.PLAIN, 40);
+	protected Font font;
 	protected String FILE_PATH;
-	private String darkPath;
 	protected Dimension prefSize;
+	private String darkPath;
+	private int fontSize;
 
 	public VIAButton(String text, String path, Dimension prefSize) {
 		super(text);
 		this.FILE_PATH = path;
+		this.fontSize = 40;
+		this.font = new Font("Bernard MT Condensed", Font.PLAIN, fontSize);
+		setFont(font);
 		darkPath = getDarkPath();
 		setContentAreaFilled(false);
 		loadImage(FILE_PATH);
-		setFont(font);
 		this.prefSize = prefSize;
 		setPreferredSize(prefSize);
-		
-		VIAButton btn = this;
-
+	
 		getModel().addChangeListener(new ChangeListener() {
 
 			@Override
@@ -45,6 +46,11 @@ public abstract class VIAButton extends JButton {
 				}
 			}
 		});
+	}
+	
+	public void setFontSize(int size) {
+		this.fontSize = size;
+		this.font = new Font("Bernard MT Condensed", Font.PLAIN, fontSize);
 	}
 
 	protected void loadImage(String path) {

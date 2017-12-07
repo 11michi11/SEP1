@@ -73,12 +73,11 @@ public class Newsletter extends VIAPanel{
 		
 		scrollPane = new JScrollPane(table);
 		
-		listOfNewsletter = new JLabel("LIST OF NEWSLETTER");	
-		generateText = new VIAButtonSimple("GENERATE TEXT");
-		newsletter = new JLabel("NEWSLETTER");
-		newsletter.setFont(new Font("Arial", Font.PLAIN, 30));
+		listOfNewsletter = new VIALabel("LIST OF NEWSLETTER", 15);	
+		generateText = new VIAButtonSimple("Generate text");
+		newsletter = new VIALabel("NEWSLETTER", 50);
 		info = new JTextArea(10,30);
-		addInfo = new JLabel("ADDITIONAL INFO");
+		addInfo = new VIALabel("ADDITIONAL INFO",15);
 		back = new VIAButtonBack(frame, parentPanel);
 				
 		

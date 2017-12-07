@@ -61,8 +61,7 @@ public class EventCreateFormLectures extends VIAPanel {
 
 		String[] boxString = { "", "astronomy", "nature", "yoga" };
 
-		createForm = new JLabel("Create Form for LECTURES");
-		createForm.setFont(new Font("Arial", Font.PLAIN, 30));
+		createForm = new VIALabel("Create Form for LECTURES");
 		title = new JLabel("Title:");
 		category = new JLabel("Category:");
 		price = new JLabel("Price:");
