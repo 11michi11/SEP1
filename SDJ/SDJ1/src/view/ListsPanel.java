@@ -1,7 +1,9 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -19,12 +21,13 @@ public class ListsPanel extends VIAPanel {
 	private JButton lecturerList;
 	private JButton eventList;
 	private JButton participantList;
+	private JButton back;
 	private JFrame frame;
 
 	public ListsPanel(JFrame frame) {
 		super();
 		this.frame = frame;
-		setLayout(new GridLayout(3,1));
+		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
@@ -39,13 +42,17 @@ public class ListsPanel extends VIAPanel {
 		eventList.setFont(new Font("Arial", Font.PLAIN, 30));
 		participantList = new VIAButtonBig("PARTICIPANT LIST");
 		participantList.setFont(new Font("Arial", Font.PLAIN, 30));
+		back = new VIAButtonBack("");
+		
 
 		Dimension prefSize = new Dimension(350, 100);
+		Dimension backSize = new Dimension(50, 50);
 
 		lecturerList.setPreferredSize(prefSize);
 		memberList.setPreferredSize(prefSize);
 		eventList.setPreferredSize(prefSize);
 		participantList.setPreferredSize(prefSize);
+		back.setPreferredSize(backSize);
 	}
 
 	public void registerEventHandlers() {
@@ -90,6 +97,7 @@ public class ListsPanel extends VIAPanel {
 			}
 		});
 		
+	
 		
 	}
 
@@ -103,13 +111,23 @@ public class ListsPanel extends VIAPanel {
 		second.add(lecturerList);
 		second.add(participantList);
 		second.setOpaque(false);
+		
+		JPanel button = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		button.add(back);
+		button.setOpaque(false);
 
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
-
-		add(imgLab);
-		add(first);
-		add(second);
+		
+		JPanel components = new JPanel(new GridLayout(3, 1));
+		components.add(imgLab);
+		components.add(first);
+		components.add(second);
+		components.setOpaque(false);
+		
+		add(button, BorderLayout.BEFORE_FIRST_LINE);
+		add(components, BorderLayout.CENTER);
+		
 	}
 
 	public static void main(String[] args) {

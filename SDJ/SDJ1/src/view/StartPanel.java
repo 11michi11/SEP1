@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MainWindow extends JFrame {
+public class StartPanel extends VIAPanel {
 
 	private JButton events;
 	private JButton newsletter;
@@ -21,20 +21,13 @@ public class MainWindow extends JFrame {
 	private JLabel welcome;
 	private JFrame mainFrame;
 
-	public MainWindow() {
-		super("VIA - Management System");
-		this.mainFrame = this;
-		initializeFrame();
+	public StartPanel(JFrame mainFrame) {
+		super();
+		this.mainFrame = mainFrame;
+		setLayout(new BorderLayout());
 		createComponents();
 		registerEventHandlers();
 		addComponentsToFrame();
-	}
-
-	private void initializeFrame() {
-		setSize(900, 500);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 	}
 
 	private void createComponents() {
@@ -55,56 +48,50 @@ public class MainWindow extends JFrame {
 	}
 
 	private void registerEventHandlers() {
-		
+
 		events.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new EventPanel(mainFrame);
-				setContentPane(newContentPane);
-				revalidate();
+				mainFrame.setContentPane(newContentPane);
+				mainFrame.revalidate();
 			}
 		});
+		
 		newsletter.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new Newsletter(mainFrame);
-				setContentPane(newContentPane);
-				revalidate();
-				
+				mainFrame.setContentPane(newContentPane);
+				mainFrame.revalidate();
 			}
 		});
-		
+
 		signUp.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new SignUpPanel(mainFrame);
-				setContentPane(newContentPane);
-				revalidate();
-				
+				mainFrame.setContentPane(newContentPane);
+				mainFrame.revalidate();
 			}
 		});
-		
+
 		listOf.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new ListsPanel(mainFrame);
-				setContentPane(newContentPane);
-				revalidate();
-				
+				mainFrame.setContentPane(newContentPane);
+				mainFrame.revalidate();
 			}
 		});
-		
-		
+
 	}
 
 	private void addComponentsToFrame() {
-
-		VIAPanel contentPane = new VIAPanel(new BorderLayout());
-
 		JPanel buttons = new JPanel(new GridLayout(2, 2));
 		buttons.setOpaque(false);
 
@@ -131,21 +118,8 @@ public class MainWindow extends JFrame {
 
 		ImageIcon img = new ImageIcon("src/resources/logoGUI.png");
 		JLabel imgLab = new JLabel(img);
-		
-		contentPane.add(imgLab, BorderLayout.NORTH);
-		contentPane.add(buttons, BorderLayout.CENTER);
 
-		setContentPane(contentPane);
+		add(imgLab, BorderLayout.NORTH);
+		add(buttons, BorderLayout.CENTER);
 	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				MainWindow main = new MainWindow();
-				main.setVisible(true);
-			}
-		});
-	}
-
 }

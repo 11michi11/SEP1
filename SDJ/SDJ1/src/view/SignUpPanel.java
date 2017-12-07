@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -19,6 +20,7 @@ public class SignUpPanel extends VIAPanel{
 	private JButton member;
 	private JButton lecturer;
 	private JButton participant;
+	private JButton back;
 	private JFrame frame;
 	
 	public SignUpPanel(JFrame frame) {
@@ -37,6 +39,7 @@ public class SignUpPanel extends VIAPanel{
 		lecturer.setFont(new Font("Arial", Font.PLAIN, 30));
 		participant = new VIAButtonSmall("PARTICIPANT");
 		participant.setFont(new Font("Arial", Font.PLAIN, 30));
+		back = new VIAButtonBack("");
 		
 		Dimension prefSize = new Dimension(300, 100);
 		
@@ -66,6 +69,16 @@ public class SignUpPanel extends VIAPanel{
 				frame.revalidate();
 			}
 		});
+		
+		lecturer.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JPanel newContentPane = new SignUpFormLecturer(frame);
+				frame.setContentPane(newContentPane);
+				frame.revalidate();
+			}
+		});
 	}
 	
 	public void addComponentsToPanel() {		
@@ -87,15 +100,27 @@ public class SignUpPanel extends VIAPanel{
 		buttons.add(third);
 		buttons.setOpaque(false);
 		
+		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		buttonBack.add(back);
+		buttonBack.setOpaque(false);
+		
 		JPanel logo = new JPanel();
 		logo.setOpaque(false);
 		
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
 		
-		add(imgLab, BorderLayout.NORTH);
-		add(buttons, BorderLayout.CENTER);
+		JPanel finalPanel = new JPanel(new BorderLayout());
+		finalPanel.add(imgLab, BorderLayout.NORTH);
+		finalPanel.add(buttons, BorderLayout.CENTER);
+		finalPanel.setOpaque(false);
+		
+		add(buttonBack, BorderLayout.BEFORE_FIRST_LINE);
+		add(finalPanel, BorderLayout.CENTER);
+		
 	}
+	
+	
 	
 	
 	
