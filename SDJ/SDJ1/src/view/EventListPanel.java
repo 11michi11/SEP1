@@ -28,7 +28,9 @@ public class EventListPanel extends VIAPanel {
 	private JCheckBox finalized;
 	private JCheckBox finished;
 	private JFrame frame;
-
+	private JButton back;
+	private JButton parentPanel;
+	
 	public EventListPanel(JFrame frame) {
 		super();
 		this.frame = frame;
@@ -68,6 +70,8 @@ public class EventListPanel extends VIAPanel {
 		
 		signUpMember = new VIAButtonSmall("SIGN UP MEMBER");
 		signUpMember.setFont(new Font("Arial", Font.PLAIN, 20));
+		
+		back = new VIAButtonBack(frame,parentPanel);
 		
 //		Dimension prefSize = new Dimension(300,100);
 //		addEvent.setPreferredSize(prefSize);
@@ -110,7 +114,12 @@ public class EventListPanel extends VIAPanel {
 		JPanel labelPanel = new JPanel();
 		labelPanel.setOpaque(false);
 		labelPanel.add(eventList);
-		
+
+      
+      JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+      buttonBack.add(back);
+      buttonBack.setOpaque(false);
+      
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
 		
