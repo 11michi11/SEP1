@@ -37,7 +37,7 @@ public class MainWindow extends JFrame {
 
 	}
 
-	private void createComponents() {
+	private void createComponents() {    
 		events = new VIAButtonThree("EVENT");
 		newsletter = new VIAButtonThree("NEWSLETTER");
 		signUp = new VIAButtonThree("SIGN UP");
