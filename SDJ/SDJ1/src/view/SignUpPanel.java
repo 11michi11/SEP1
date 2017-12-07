@@ -41,7 +41,7 @@ public class SignUpPanel extends VIAPanel{
 		lecturer.setFont(new Font("Arial", Font.PLAIN, 30));
 		participant = new VIAButtonSmall("PARTICIPANT");
 		participant.setFont(new Font("Arial", Font.PLAIN, 30));
-		back = new VIAButtonBack(frame, this);
+		back = new VIAButtonBack(frame, parentPanel);
 		
 		Dimension prefSize = new Dimension(300, 100);
 		
