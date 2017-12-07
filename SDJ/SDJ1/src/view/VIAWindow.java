@@ -1,14 +1,11 @@
 package view;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class VIAWindow {
 
 	private JFrame frame;
-	//private JPanel contentPane;
 	
 	public VIAWindow() {
 		this.frame = new JFrame("VIA - Managment system");
@@ -22,19 +19,4 @@ public class VIAWindow {
 		this.frame.setVisible(true);
 	}
 	
-	
-	public  void showWindow() {
-		
-	}
-	
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				VIAWindow window = new VIAWindow();
-				window.frame.setVisible(true);
-			}
-		});
-	}
 }
