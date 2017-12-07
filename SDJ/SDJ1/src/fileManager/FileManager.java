@@ -21,6 +21,8 @@ import model.Member;
 import model.MemberList;
 import model.MyDate;
 import model.Newsletter;
+import model.Seminar;
+import model.Trip;
 import model.Workshop;
 
 public class FileManager {
@@ -226,6 +228,7 @@ public class FileManager {
 			event.put("finalized", Boolean.parseBoolean(divide[5]));
 			event.put("description", divide[6].trim());
 			event.put("capacity", Integer.parseInt(divide[7].trim()));
+			LecturerList lecturers= new LecturerList();
 
 			switch (type.toLowerCase()) {
 			case "lecture":
@@ -238,26 +241,32 @@ public class FileManager {
 				events.addEvent(new Lecture(event));
 				break;
 			case "seminar":
+				   lecturerLine = divideAll[1].trim();
+	                	   lecturerLine.substring(0,lecturerLine.length()-2);
+	                	   divideLecturers = lecturerLine.split(",");
+	                	   for(String i: divideLecturers) 
+	                	         lecturers.addLecturer(readLecturerFileInside(i.trim()));
+	                	   event.put("lecturers", lecturers);
+	                           events.addEvent(new Seminar(event));
+				   break;
 
 			case "workshop":
-			   LecturerList lecturers= new LecturerList();
-	         lecturerLine = divideAll[1].trim();
-	         lecturerLine.substring(0,lecturerLine.length()-2);
-	         divideLecturers = lecturerLine.split(",");
-	         for(String i: divideLecturers) 
-	            lecturers.addLecturer(readLecturerFileInside(i.trim()));
-	         event.put("lecturers", lecturers);
-            events.addEvent(new Workshop(event));
-	         
-	         
-			   event.put("lecturer", divide[8].trim());
-				events.addEvent(new Workshop(event));
-				break;
+			   lecturerLine = divideAll[1].trim();
+                	   lecturerLine.substring(0,lecturerLine.length()-2);
+                	   divideLecturers = lecturerLine.split(",");
+                	   for(String i: divideLecturers) 
+                	         lecturers.addLecturer(readLecturerFileInside(i.trim()));
+                	   event.put("lecturers", lecturers);
+                           events.addEvent(new Workshop(event));
+			   break;
 
+			case "trip":
+			    event.put("localization", divideAll[1].trim());
+			    events.addEvent(new Trip(event));
+			    break;
 			default:
-				break;
+			    System.out.println("No such type");
 			}
-			events.addEvent(new Event(event));
 		}
 
 		read.close();
