@@ -61,7 +61,7 @@ public class SignUpFormLecturer extends VIAPanel{
 		fieldCategory = new JTextField(8);
 		//fieldPaymentYear = new JTextField(8);
 		
-		add = new VIAButtonTwo("Add to list");
+		add = new VIAButtonSmall("Add to list");
 
 		Dimension prefSize = new Dimension(300, 100);
 		add.setPreferredSize(prefSize);
