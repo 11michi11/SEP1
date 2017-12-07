@@ -38,6 +38,7 @@ public class EventCreateFormLectures extends VIAPanel{
 	private JTextField fieldLecturer;
 	private JButton lecturer;
 	private JButton save;
+	private JButton back;
 	private JComboBox categoryBox;
 	private JTextArea descriptionArea;
 	private JRadioButton finalized;
@@ -74,6 +75,7 @@ public class EventCreateFormLectures extends VIAPanel{
 		fieldLecturer = new JTextField(8);
 		lecturer = new JButton("Lecturers");
 		save = new JButton("SAVE");
+		back = new VIAButtonBack("");
 		categoryBox = new JComboBox(boxString);
 		categoryBox.setSelectedIndex(2);
 		descriptionArea = new JTextArea(10,55);
@@ -215,10 +217,19 @@ public class EventCreateFormLectures extends VIAPanel{
 
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
-
-		add(imgLab, BorderLayout.NORTH);
-		add(components, BorderLayout.CENTER);
-		add(down, BorderLayout.SOUTH);
+		
+		JPanel finalPanel = new JPanel(new BorderLayout());
+		finalPanel.add(imgLab, BorderLayout.NORTH);
+		finalPanel.add(components, BorderLayout.CENTER);
+		finalPanel.add(down, BorderLayout.SOUTH);
+		finalPanel.setOpaque(false);
+		
+		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		buttonBack.add(back);
+		buttonBack.setOpaque(false);
+		
+		add(buttonBack, BorderLayout.BEFORE_FIRST_LINE);
+		add(finalPanel, BorderLayout.CENTER);
 		
 	
 
