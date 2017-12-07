@@ -16,7 +16,7 @@ public class VIAWindow {
 		this.frame.setLocationRelativeTo(null);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JPanel contentPane = new MainWindow(frame);
+		JPanel contentPane = new StartPanel(frame);
 		this.frame.setContentPane(contentPane);
 		
 		this.frame.setVisible(true);

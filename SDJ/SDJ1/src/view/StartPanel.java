@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MainWindow extends VIAPanel {
+public class StartPanel extends VIAPanel {
 
 	private JButton events;
 	private JButton newsletter;
@@ -21,7 +21,7 @@ public class MainWindow extends VIAPanel {
 	private JLabel welcome;
 	private JFrame mainFrame;
 
-	public MainWindow(JFrame mainFrame) {
+	public StartPanel(JFrame mainFrame) {
 		super();
 		this.mainFrame = mainFrame;
 		setLayout(new BorderLayout());
@@ -55,9 +55,7 @@ public class MainWindow extends VIAPanel {
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new EventPanel(mainFrame);
 				mainFrame.setContentPane(newContentPane);
-				revalidate();
-				System.out.println("!!!");
-				System.out.println(mainFrame.getContentPane() instanceof EventPanel);
+				mainFrame.revalidate();
 			}
 		});
 		
@@ -67,8 +65,7 @@ public class MainWindow extends VIAPanel {
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new Newsletter(mainFrame);
 				mainFrame.setContentPane(newContentPane);
-				revalidate();
-
+				mainFrame.revalidate();
 			}
 		});
 
@@ -78,8 +75,7 @@ public class MainWindow extends VIAPanel {
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new SignUpPanel(mainFrame);
 				mainFrame.setContentPane(newContentPane);
-				revalidate();
-
+				mainFrame.revalidate();
 			}
 		});
 
@@ -89,8 +85,7 @@ public class MainWindow extends VIAPanel {
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new ListsPanel(mainFrame);
 				mainFrame.setContentPane(newContentPane);
-				revalidate();
-
+				mainFrame.revalidate();
 			}
 		});
 
