@@ -105,20 +105,20 @@ public class SignUpPanel extends VIAPanel{
 		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		buttonBack.add(back);
 		buttonBack.setOpaque(false);
-		
-		JPanel logo = new JPanel();
-		logo.setOpaque(false);
-		
+
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
 		
-		JPanel finalPanel = new JPanel(new BorderLayout());
-		finalPanel.add(imgLab, BorderLayout.NORTH);
-		finalPanel.add(buttons, BorderLayout.CENTER);
-		finalPanel.setOpaque(false);
+		JPanel logo = new JPanel(new BorderLayout());
+		logo.setOpaque(false);
+		logo.add(imgLab, BorderLayout.CENTER);
+		logo.add(buttonBack, BorderLayout.WEST);
 		
-		add(buttonBack, BorderLayout.BEFORE_FIRST_LINE);
-		add(finalPanel, BorderLayout.CENTER);
+		
+
+		add(logo, BorderLayout.NORTH);
+		add(buttons, BorderLayout.CENTER);
+		
 		
 	}
 	

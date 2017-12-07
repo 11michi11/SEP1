@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,11 +18,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class EventCreateFormLectures extends VIAPanel{
-	
+public class EventCreateFormTrip extends VIAPanel {
+
 	private JLabel createForm;
 	private JLabel title;
-	private JLabel category;
 	private JLabel price;
 	private JLabel places;
 	private JLabel starDate;
@@ -33,21 +33,18 @@ public class EventCreateFormLectures extends VIAPanel{
 	private JTextField fieldPlaces;
 	private JTextField fieldStartDate;
 	private JTextField fieldEndDate;
-	private JTextField fieldLecturer;
-	private JButton lecturer;
+	private JTextField fieldLocation;
+	private JLabel location;
 	private JButton save;
 	private JButton back;
-	private JComboBox categoryBox;
 	private JTextArea descriptionArea;
 	private JRadioButton finalized;
 	private JRadioButton unfinalized;
 	private JFrame frame;
-	private JPanel parentPanel;
 	
-	public EventCreateFormLectures(JFrame frame, JPanel parentPanel) {
+	public EventCreateFormTrip(JFrame frame) {
 		super();
 		this.frame = frame;
-		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -56,11 +53,11 @@ public class EventCreateFormLectures extends VIAPanel{
 	public void initializeComponents() {
 		
 		String[] boxString = {"" ,"astronomy", "nature", "yoga"};
+		String[] boxLecturers = {"lecturerName", "", ""};
 		
-		createForm = new JLabel("Create Form for LECTURES");
+		createForm = new JLabel("Create Form for TRIP");
 		createForm.setFont(new Font("Arial", Font.PLAIN, 30));
 		title = new JLabel("Title:");
-		category = new JLabel("Category:");
 		price = new JLabel("Price:");
 		places = new JLabel("N° of Places:");
 		starDate = new JLabel("Start date:");
@@ -72,12 +69,10 @@ public class EventCreateFormLectures extends VIAPanel{
 		fieldPlaces = new JTextField(8);
 		fieldStartDate = new JTextField(8);
 		fieldEndDate = new JTextField(8);
-		fieldLecturer = new JTextField(8);
-		lecturer = new JButton("Lecturers");
+		fieldLocation = new JTextField(8);
+		location = new JLabel("Location:");
 		save = new JButton("SAVE");
-		back = new VIAButtonBack(frame, parentPanel);
-		categoryBox = new JComboBox(boxString);
-		categoryBox.setSelectedIndex(2);
+		back = new VIAButtonBack("");
 		descriptionArea = new JTextArea(10,55);
 		
 		finalized = new JRadioButton("YES");
@@ -87,7 +82,7 @@ public class EventCreateFormLectures extends VIAPanel{
 		unfinalized = new JRadioButton("NO");
 		unfinalized.setOpaque(false);
 		
-		 ButtonGroup group = new ButtonGroup();
+		ButtonGroup group = new ButtonGroup();
 		   group.add(finalized);
 		   group.add(unfinalized);
 		   
@@ -102,7 +97,7 @@ public class EventCreateFormLectures extends VIAPanel{
 		
 		JPanel leftLabel = new JPanel(new GridLayout(4, 1));
 		leftLabel.add(title);
-		leftLabel.add(category);
+		leftLabel.add(location);
 		leftLabel.add(price);
 		leftLabel.add(places);
 		leftLabel.setOpaque(false);
@@ -114,7 +109,7 @@ public class EventCreateFormLectures extends VIAPanel{
 		fieldOne.setOpaque(false);
 
 		JPanel fieldTwo = new JPanel();
-		fieldTwo.add(categoryBox);
+		fieldTwo.add(fieldLocation);
 		fieldTwo.setOpaque(false);
 
 		JPanel fieldThree = new JPanel();
@@ -140,14 +135,13 @@ public class EventCreateFormLectures extends VIAPanel{
 		leftSide.add(left);
 		leftSide.setOpaque(false);
 
-		JPanel rightLabel = new JPanel(new GridLayout(4, 1));
+		JPanel rightLabel = new JPanel(new GridLayout(3, 1));
 		rightLabel.add(starDate);
 		rightLabel.add(endDate);
-		rightLabel.add(lecturer);
 		rightLabel.add(finish);
 		rightLabel.setOpaque(false);
 
-		JPanel rightField = new JPanel(new GridLayout(4, 1));
+		JPanel rightField = new JPanel(new GridLayout(3, 1));
 
 		JPanel fieldFive = new JPanel();
 		fieldFive.add(fieldStartDate);
@@ -157,9 +151,7 @@ public class EventCreateFormLectures extends VIAPanel{
 		fieldSix.add(fieldEndDate);
 		fieldSix.setOpaque(false);
 
-		JPanel fieldSeven = new JPanel();
-		fieldSeven.add(fieldLecturer);
-		fieldSeven.setOpaque(false);
+
 		
 		JPanel fieldEight = new JPanel();
 		fieldEight.add(finalized);
@@ -168,7 +160,7 @@ public class EventCreateFormLectures extends VIAPanel{
 
 		rightField.add(fieldFive);
 		rightField.add(fieldSix);
-		rightField.add(fieldSeven);
+
 		rightField.add(fieldEight);
 		rightField.setOpaque(false);
 
@@ -249,9 +241,10 @@ public class EventCreateFormLectures extends VIAPanel{
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventCreateFormLectures(frame, new JPanel()));
+				frame.setContentPane(new EventCreateFormTrip(frame));
 				frame.setVisible(true);
 			}
 		});
 	}
 }
+
