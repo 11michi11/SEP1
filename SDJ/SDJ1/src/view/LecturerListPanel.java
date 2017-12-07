@@ -63,9 +63,8 @@ public class LecturerListPanel extends VIAPanel {
 		table.setPreferredScrollableViewportSize(new Dimension(500, 300));
 
       back = new VIAButtonBack(frame,parentPanel);
+	
 	}
-
-   back = new VIAButtonBack(frame,parentPanel);
 	private void registerEventHandlers() {
 		// TODO Auto-generated method stub
 
