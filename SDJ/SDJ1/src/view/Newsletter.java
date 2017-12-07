@@ -23,12 +23,12 @@ public class Newsletter extends VIAPanel{
 	private JTextArea info;
 	private JLabel addInfo;
 	private JFrame frame;
-
+	private JPanel parentPanel;
 	
-	
-	public Newsletter(JFrame frame) {
+	public Newsletter(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -143,7 +143,7 @@ public class Newsletter extends VIAPanel{
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new Newsletter(frame));
+				frame.setContentPane(new Newsletter(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

@@ -25,11 +25,9 @@ public class SignUpFormLecturer extends VIAPanel{
 	private JCheckBox advertisment;
 	private JTextField fieldName;
 	private JTextField fieldEmail;
-	//private JTextField fieldAddress;
 	private JTextField fieldID;
 	private JTextField fieldPhone;
 	private JTextField fieldCategory;
-	//private JTextField fieldPaymentYear;
 	private JButton add;
 	private JFrame frame;
 
@@ -55,13 +53,11 @@ public class SignUpFormLecturer extends VIAPanel{
 		advertisment.setOpaque(false);
 		fieldName = new JTextField(8);
 		fieldEmail = new JTextField(8);
-		//fieldAddress = new JTextField(8);
 		fieldID = new JTextField(8);
 		fieldPhone = new JTextField(8);
 		fieldCategory = new JTextField(8);
-		//fieldPaymentYear = new JTextField(8);
 		
-		add = new VIAButtonTwo("Add to list");
+		add = new VIAButtonSmall("Add to list");
 
 		Dimension prefSize = new Dimension(300, 100);
 		add.setPreferredSize(prefSize);

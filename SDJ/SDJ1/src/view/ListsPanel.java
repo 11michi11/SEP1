@@ -23,10 +23,12 @@ public class ListsPanel extends VIAPanel {
 	private JButton participantList;
 	private JButton back;
 	private JFrame frame;
+	private JPanel parentPanel;
 
-	public ListsPanel(JFrame frame) {
+	public ListsPanel(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -42,8 +44,7 @@ public class ListsPanel extends VIAPanel {
 		eventList.setFont(new Font("Arial", Font.PLAIN, 30));
 		participantList = new VIAButtonBig("PARTICIPANT LIST");
 		participantList.setFont(new Font("Arial", Font.PLAIN, 30));
-		back = new VIAButtonBack("");
-		
+		back = new VIAButtonBack(frame, parentPanel);
 
 		Dimension prefSize = new Dimension(350, 100);
 		Dimension backSize = new Dimension(50, 50);
@@ -56,9 +57,9 @@ public class ListsPanel extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
-		
+
 		lecturerList.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new LecturerListPanel(frame);
@@ -66,9 +67,9 @@ public class ListsPanel extends VIAPanel {
 				frame.revalidate();
 			}
 		});
-		
+
 		memberList.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new MemberListPanel(frame);
@@ -76,9 +77,9 @@ public class ListsPanel extends VIAPanel {
 				frame.revalidate();
 			}
 		});
-		
+
 		eventList.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new EventListPanel(frame);
@@ -86,9 +87,9 @@ public class ListsPanel extends VIAPanel {
 				frame.revalidate();
 			}
 		});
-		
+
 		participantList.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JPanel newContentPane = new ParticipantListPanel(frame);
@@ -96,38 +97,41 @@ public class ListsPanel extends VIAPanel {
 				frame.revalidate();
 			}
 		});
-		
-	
-		
+
 	}
 
 	public void addComponentsToPanel() {
-		JPanel first = new JPanel();
-		first.add(memberList);
-		first.add(eventList);
-		first.setOpaque(false);
-
-		JPanel second = new JPanel();
-		second.add(lecturerList);
-		second.add(participantList);
-		second.setOpaque(false);
 		
-		JPanel button = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		button.add(back);
-		button.setOpaque(false);
+		JPanel buttons = new JPanel(new GridLayout(2, 2));
+		buttons.setOpaque(false);
 
-		ImageIcon img = new ImageIcon("src/resources/Logo.png");
+		JPanel wrapLecturer = new JPanel();
+		wrapLecturer.setOpaque(false);
+		wrapLecturer.add(lecturerList);
+
+		JPanel wrapMembers = new JPanel();
+		wrapMembers.setOpaque(false);
+		wrapMembers.add(memberList);
+
+		JPanel wrapEvent = new JPanel();
+		wrapEvent.setOpaque(false);
+		wrapEvent.add(eventList);
+
+		JPanel wrapParticipant = new JPanel();
+		wrapParticipant.setOpaque(false);
+		wrapParticipant.add(participantList);
+
+		buttons.add(wrapMembers);
+		buttons.add(wrapLecturer);
+		buttons.add(wrapEvent);
+		buttons.add(wrapParticipant);
+
+		ImageIcon img = new ImageIcon("src/resources/logoGUI.png");
 		JLabel imgLab = new JLabel(img);
-		
-		JPanel components = new JPanel(new GridLayout(3, 1));
-		components.add(imgLab);
-		components.add(first);
-		components.add(second);
-		components.setOpaque(false);
-		
-		add(button, BorderLayout.BEFORE_FIRST_LINE);
-		add(components, BorderLayout.CENTER);
-		
+
+
+		add(imgLab, BorderLayout.NORTH);
+		add(buttons, BorderLayout.CENTER);
 	}
 
 	public static void main(String[] args) {
@@ -137,7 +141,7 @@ public class ListsPanel extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new ListsPanel(frame));
+				frame.setContentPane(new ListsPanel(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

@@ -19,11 +19,11 @@ public class StartPanel extends VIAPanel {
 	private JButton signUp;
 	private JButton listOf;
 	private JLabel welcome;
-	private JFrame mainFrame;
+	private JFrame frame;
 
 	public StartPanel(JFrame mainFrame) {
 		super();
-		this.mainFrame = mainFrame;
+		this.frame = mainFrame;
 		setLayout(new BorderLayout());
 		createComponents();
 		registerEventHandlers();
@@ -48,14 +48,15 @@ public class StartPanel extends VIAPanel {
 	}
 
 	private void registerEventHandlers() {
+		JPanel currentPanel = this;
 
 		events.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new EventPanel(mainFrame);
-				mainFrame.setContentPane(newContentPane);
-				mainFrame.revalidate();
+				JPanel newContentPane = new EventPanel(frame, currentPanel);
+				frame.setContentPane(newContentPane);
+				frame.revalidate();
 			}
 		});
 		
@@ -63,9 +64,9 @@ public class StartPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new Newsletter(mainFrame);
-				mainFrame.setContentPane(newContentPane);
-				mainFrame.revalidate();
+				JPanel newContentPane = new Newsletter(frame, currentPanel);
+				frame.setContentPane(newContentPane);
+				frame.revalidate();
 			}
 		});
 
@@ -73,9 +74,9 @@ public class StartPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new SignUpPanel(mainFrame);
-				mainFrame.setContentPane(newContentPane);
-				mainFrame.revalidate();
+				JPanel newContentPane = new SignUpPanel(frame, currentPanel);
+				frame.setContentPane(newContentPane);
+				frame.revalidate();
 			}
 		});
 
@@ -83,9 +84,9 @@ public class StartPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new ListsPanel(mainFrame);
-				mainFrame.setContentPane(newContentPane);
-				mainFrame.revalidate();
+				JPanel newContentPane = new ListsPanel(frame, currentPanel);
+				frame.setContentPane(newContentPane);
+				frame.revalidate();
 			}
 		});
 

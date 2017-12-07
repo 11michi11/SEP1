@@ -22,10 +22,12 @@ public class SignUpPanel extends VIAPanel{
 	private JButton participant;
 	private JButton back;
 	private JFrame frame;
+	private JPanel parentPanel;
 	
-	public SignUpPanel(JFrame frame) {
+	public SignUpPanel(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -39,7 +41,7 @@ public class SignUpPanel extends VIAPanel{
 		lecturer.setFont(new Font("Arial", Font.PLAIN, 30));
 		participant = new VIAButtonSmall("PARTICIPANT");
 		participant.setFont(new Font("Arial", Font.PLAIN, 30));
-		back = new VIAButtonBack("");
+		back = new VIAButtonBack(frame, parentPanel);
 		
 		Dimension prefSize = new Dimension(300, 100);
 		
@@ -103,20 +105,20 @@ public class SignUpPanel extends VIAPanel{
 		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		buttonBack.add(back);
 		buttonBack.setOpaque(false);
-		
-		JPanel logo = new JPanel();
-		logo.setOpaque(false);
-		
+
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
 		
-		JPanel finalPanel = new JPanel(new BorderLayout());
-		finalPanel.add(imgLab, BorderLayout.NORTH);
-		finalPanel.add(buttons, BorderLayout.CENTER);
-		finalPanel.setOpaque(false);
+		JPanel logo = new JPanel(new BorderLayout());
+		logo.setOpaque(false);
+		logo.add(imgLab, BorderLayout.CENTER);
+		logo.add(buttonBack, BorderLayout.WEST);
 		
-		add(buttonBack, BorderLayout.BEFORE_FIRST_LINE);
-		add(finalPanel, BorderLayout.CENTER);
+		
+
+		add(logo, BorderLayout.NORTH);
+		add(buttons, BorderLayout.CENTER);
+		
 		
 	}
 	
@@ -132,7 +134,7 @@ public class SignUpPanel extends VIAPanel{
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new SignUpPanel(frame));
+				frame.setContentPane(new SignUpPanel(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});
