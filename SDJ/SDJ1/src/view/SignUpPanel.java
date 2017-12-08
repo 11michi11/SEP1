@@ -71,14 +71,10 @@ public class SignUpPanel extends VIAPanel {
 		second.add(lecturer);
 		second.setOpaque(false);
 
-		JPanel third = new JPanel();
-		third.add(participant);
-		third.setOpaque(false);
 
-		JPanel buttons = new JPanel(new GridLayout(3, 1));
+		JPanel buttons = new JPanel(new GridLayout(2, 1));
 		buttons.add(first);
 		buttons.add(second);
-		buttons.add(third);
 		buttons.setOpaque(false);
 
 		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));

@@ -49,15 +49,9 @@ public class LecturerChoiceList extends VIAPanel {
 
 		search = new JTextField(47);
 		search.setText("SEARCH");
+		choose = new VIAButtonSmall("CHOOSE LECTURER",30);
+		lecturerList = new VIALabel("LECTURER LIST",40);
 
-		choose = new VIAButtonSmall("CHOOSE LECTURER");
-		choose.setFont(new Font("Arial", Font.PLAIN, 20));
-
-		Dimension prefSize = new Dimension(300, 100);
-		choose.setPreferredSize(prefSize);
-
-		lecturerList = new JLabel("LECTURER LIST");
-		lecturerList.setFont(new Font("Arial", Font.PLAIN, 30));
 
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 

@@ -58,7 +58,7 @@ public class EventListPanel extends VIAPanel {
 		search = new JTextField(10);
 		search.setText("SEARCH");
 		
-		eventList = new VIALabel("EVENT LIST");
+		eventList = new VIALabel("EVENT LIST",40);
 		
 		finalized = new JCheckBox("Finalized");
 		finalized.setOpaque(false);

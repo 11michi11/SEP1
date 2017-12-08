@@ -78,8 +78,8 @@ public class EventCreateFormSeminars extends VIAPanel {
 		fieldEndDate = new JTextField(8);
 		fieldLecturer = new JComboBox(boxLecturers);
 		fieldLecturer.setSelectedIndex(2);
-		lecturer = new JButton("Lecturers");
-		save = new JButton("SAVE");
+		lecturer = new VIAButtonExtraSmall("Lecturers",20);
+		save = new VIAButtonExtraSmall("SAVE",20);
 		back = new VIAButtonBack(frame, parentPanel);
 		categoryBox = new JComboBox(boxString);
 		categoryBox.setSelectedIndex(2);
@@ -96,8 +96,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 		group.add(finalized);
 		group.add(unfinalized);
 
-		Dimension prefSize = new Dimension(70, 50);
-		save.setPreferredSize(prefSize);
 
 	}
 

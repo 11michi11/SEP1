@@ -48,14 +48,10 @@ public class ParticipantListPanel extends VIAPanel {
 		search = new JTextField(47);
 		search.setText("SEARCH");
 
-		add = new VIAButtonSmall("ADD PARTICIPANT");
-		add.setFont(new Font("Arial", Font.PLAIN, 20));
+		add = new VIAButtonSmall("ADD PARTICIPANT", 30);
 		
-		Dimension prefSize = new Dimension(300, 100);
-		add.setPreferredSize(prefSize);
 
-		participantList = new JLabel("PARTICIPANT LIST");
-		participantList.setFont(new Font("Arial", Font.PLAIN, 30));
+		participantList = new VIALabel("PARTICIPANT LIST",40);
 
 		table = new JTable(data, columnNames);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));

@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -38,6 +39,7 @@ public abstract class VIAButton extends JButton {
 		this.FILE_PATH = path;
 		this.font = new Font("Bernard MT Condensed", Font.PLAIN, fontSize);
 		setFont(font);
+		setForeground(Color.BLACK);
 		darkPath = getDarkPath();
 		setContentAreaFilled(false);
 		loadImage(FILE_PATH);
