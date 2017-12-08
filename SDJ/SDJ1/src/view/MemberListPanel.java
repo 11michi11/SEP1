@@ -23,8 +23,8 @@ public class MemberListPanel extends VIAPanel {
 
 	private JTable table;
 	private JTextField search;
-	private JButton add;
-	private JButton mail;
+	private VIAButton add;
+	private VIAButton mail;
 	private JLabel memberList;
 	private JFrame frame;
 	private JButton back;
@@ -56,12 +56,9 @@ public class MemberListPanel extends VIAPanel {
 		search.setText("SEARCH");
 
 		add = new VIAButtonSmall("ADD MEMBER");
-		add.setFont(new Font("Arial", Font.PLAIN, 20));
-		mail = new VIAButtonSmall("SEND REMAIND E-MAIL");
-		mail.setFont(new Font("Arial", Font.PLAIN, 20));
+		mail = new VIAButtonSmall("SEND REMAIND E-MAIL", 30);
 
-		memberList = new JLabel("MEMBER LIST");
-		memberList.setFont(new Font("Arial", Font.PLAIN, 30));
+		memberList = new VIALabel("MEMBER LIST", 30);
 
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 

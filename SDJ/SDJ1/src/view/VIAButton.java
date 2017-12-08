@@ -23,8 +23,19 @@ public abstract class VIAButton extends JButton {
 
 	public VIAButton(String text, String path, Dimension prefSize) {
 		super(text);
-		this.FILE_PATH = path;
 		this.fontSize = 40;
+		initializeVIAButton(path, prefSize);
+	}
+	
+	public VIAButton(String text, String path, Dimension prefSize, int fontSize) {
+		super(text);
+		this.fontSize = fontSize;
+		initializeVIAButton(path, prefSize);
+	}
+	
+	
+	private void initializeVIAButton(String path, Dimension prefSize) {
+		this.FILE_PATH = path;
 		this.font = new Font("Bernard MT Condensed", Font.PLAIN, fontSize);
 		setFont(font);
 		darkPath = getDarkPath();
@@ -53,7 +64,7 @@ public abstract class VIAButton extends JButton {
 		this.font = new Font("Bernard MT Condensed", Font.PLAIN, fontSize);
 	}
 
-	protected void loadImage(String path) {
+	private void loadImage(String path) {
 		try {
 			image = ImageIO.read(new File(path));
 		} catch (IOException e) {
