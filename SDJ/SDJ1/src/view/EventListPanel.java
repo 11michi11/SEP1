@@ -77,13 +77,40 @@ public class EventListPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new SignUpFormParticipant(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
+				JFrame participant = new JFrame();
+				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				participant.setSize(900, 500);
+				participant.setTitle("VIA - Sign up new participant");
+				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel));
+				participant.setVisible(true);
 			}
 		});
 		
-		//signUpMember
+		signUpMember.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame member = new JFrame();
+				member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				member.setSize(900, 500);
+				member.setTitle("VIA - Add members to event");
+				member.setContentPane(new SignUpFormMember(member, currentPanel));
+				member.setVisible(true);
+			}
+		});
+		
+		addEvent.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame event = new JFrame();
+				event.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				event.setSize(900, 500);
+				event.setTitle("VIA - Crate new event");
+				event.setContentPane(new EventPanel(event, currentPanel));
+				event.setVisible(true);
+			}
+		});
 	}
 	
 	private void addComponentsToPanel() {
