@@ -10,6 +10,10 @@ public class VIAButtonSmall extends VIAButton{
 	public VIAButtonSmall(String text) {
 		super(text, path , prefSize);
 	}
+	
+	public VIAButtonSmall(String text, int fontSize) {
+		super(text, path , prefSize, fontSize);
+	}
 
 
 }

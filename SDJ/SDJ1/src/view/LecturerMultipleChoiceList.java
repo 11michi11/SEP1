@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,15 +18,15 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class LecturerChoiceList extends VIAPanel {
-
+public class LecturerMultipleChoiceList extends VIAPanel {
+	
 	private JTable table;
 	private JTextField search;
 	private JButton choose;
 	private JLabel lecturerList;
 	private JFrame frame;
 
-	public LecturerChoiceList(JFrame frame) {
+	public LecturerMultipleChoiceList(JFrame frame) {
 		super();
 		this.frame = frame;
 		setLayout(new FlowLayout());
@@ -35,22 +36,24 @@ public class LecturerChoiceList extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise" };
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
+		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Choice" };
+		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, false },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, false },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, false },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, false },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, false },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, false },
+				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true },
 
 		};
 
 		search = new JTextField(47);
 		search.setText("SEARCH");
-		choose = new VIAButtonSmall("CHOOSE LECTURER",30);
-		lecturerList = new VIALabel("LECTURER LIST",40);
+
+		choose = new VIAButtonSmall("CHOOSE LECTURERS", 30);
+
+		lecturerList = new VIALabel("LECTURER LIST", 40);
 
 
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
@@ -72,13 +75,17 @@ public class LecturerChoiceList extends VIAPanel {
 					return Boolean.class;
 				}
 			}
-			
+
 			@Override
 			public boolean isCellEditable(int row, int col) {
-				return false;
+				switch (col) {
+				case 5:
+					return true;
+				default:
+					return false;
+				}
 			}
 		};
-		
 		table = new JTable(model);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 300));
 	}
@@ -139,7 +146,7 @@ public class LecturerChoiceList extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new LecturerChoiceList(frame));
+				frame.setContentPane(new LecturerMultipleChoiceList(frame));
 				frame.setVisible(true);
 			}
 		});

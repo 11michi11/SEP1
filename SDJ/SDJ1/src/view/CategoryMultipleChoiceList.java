@@ -4,9 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,7 +17,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class LecturerChoiceList extends VIAPanel {
+	public class CategoryMultipleChoiceList extends VIAPanel {
 
 	private JTable table;
 	private JTextField search;
@@ -25,33 +25,26 @@ public class LecturerChoiceList extends VIAPanel {
 	private JLabel lecturerList;
 	private JFrame frame;
 
-	public LecturerChoiceList(JFrame frame) {
+	public CategoryMultipleChoiceList(JFrame frame) {
+		
 		super();
 		this.frame = frame;
 		setLayout(new FlowLayout());
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
-	}
+}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise" };
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
+		String[] columnNames = {"Category", ""};
+		Object[][] data = { { "Astrology" },{ "Meditation"},{"Reincarnation"},{"Health"},{"TraditionalBuddhism"}, {"Nature"},{"Other"}
 
 		};
 
-		search = new JTextField(47);
-		search.setText("SEARCH");
-		choose = new VIAButtonSmall("CHOOSE LECTURER",30);
-		lecturerList = new VIALabel("LECTURER LIST",40);
 
+		choose = new VIAButtonSmall("CHOOSE CATEGORY", 30);
+
+		lecturerList = new VIALabel("CATEGORY LIST", 40);
 
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
@@ -60,27 +53,23 @@ public class LecturerChoiceList extends VIAPanel {
 				switch (column) {
 				case 0:
 					return String.class;
-				case 1:
-					return String.class;
-				case 2:
-					return Integer.class;
-				case 3:
-					return String.class;
-				case 4:
-					return Boolean.class;
 				default:
 					return Boolean.class;
 				}
 			}
-			
+
 			@Override
 			public boolean isCellEditable(int row, int col) {
-				return false;
+				switch (col) {
+				case 1:
+					return true;
+				default:
+					return false;
+				}
 			}
 		};
-		
 		table = new JTable(model);
-		table.setPreferredScrollableViewportSize(new Dimension(500, 300));
+		table.setPreferredScrollableViewportSize(new Dimension(500, 125));
 	}
 
 	private void registerEventHandlers() {
@@ -99,7 +88,6 @@ public class LecturerChoiceList extends VIAPanel {
 		add(scrollPane);
 
 		JPanel left = new JPanel(new BorderLayout());
-		left.add(search, BorderLayout.NORTH);
 		left.add(scrollPane, BorderLayout.CENTER);
 		left.setOpaque(false);
 
@@ -139,7 +127,7 @@ public class LecturerChoiceList extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new LecturerChoiceList(frame));
+				frame.setContentPane(new CategoryMultipleChoiceList(frame));
 				frame.setVisible(true);
 			}
 		});

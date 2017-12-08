@@ -1,24 +1,16 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 public class EventPanel extends VIAPanel {
 
@@ -26,7 +18,7 @@ public class EventPanel extends VIAPanel {
 	private JButton seminars;
 	private JButton workshop;
 	private JButton trips;
-	private JButton back;
+	private VIAButtonBack back;
 	private JFrame frame;
 	private JPanel parentPanel;
 
@@ -88,6 +80,18 @@ public class EventPanel extends VIAPanel {
 				JPanel newContentPane = new EventCreateFormTrip(frame, currentPanel);
 				frame.setContentPane(newContentPane);
 				frame.revalidate();
+			}
+		});
+
+		back.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (parentPanel instanceof EventListPanel) {
+					frame.dispose();
+				} else {
+					back.goBack();
+				}
 			}
 		});
 

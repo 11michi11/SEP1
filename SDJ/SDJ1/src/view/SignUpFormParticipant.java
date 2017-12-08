@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,9 +26,9 @@ public class SignUpFormParticipant extends VIAPanel {
 	private JButton addToList;
 	private JFrame frame;
 	private JPanel parentPanel;
-	private JButton back;
-	
-	public SignUpFormParticipant(JFrame frame) {
+	private VIAButtonBack back;
+
+	public SignUpFormParticipant(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
@@ -36,8 +39,7 @@ public class SignUpFormParticipant extends VIAPanel {
 	}
 
 	public void initializeComonents() {
-		signUp = new JLabel("Sign-Up Form for Participant");
-		signUp.setFont(new Font("Arial", Font.PLAIN, 30));
+		signUp = new VIALabel("Sign-Up Form for Participant", 40);
 		name = new JLabel("Name:");
 		email = new JLabel("E-mail:");
 
@@ -50,7 +52,29 @@ public class SignUpFormParticipant extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
+		addToList.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (parentPanel instanceof EventListPanel) {
+					frame.dispose();
+				} else {
+					back.goBack();
+				}
+			}
+		});
+
+		back.changeListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (parentPanel instanceof EventListPanel) {
+					frame.dispose();
+				} else {
+					back.goBack();
+				}
+			}
+		});
 	}
 
 	public void addComponentsToPanel() {
@@ -87,7 +111,8 @@ public class SignUpFormParticipant extends VIAPanel {
 		JPanel logo = new JPanel(new BorderLayout());
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
-		logo.add(buttonBack, BorderLayout.WEST);;
+		logo.add(buttonBack, BorderLayout.WEST);
+		;
 
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(label, BorderLayout.NORTH);
@@ -107,7 +132,7 @@ public class SignUpFormParticipant extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new SignUpFormParticipant(frame));
+				frame.setContentPane(new SignUpFormParticipant(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

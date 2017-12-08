@@ -39,33 +39,26 @@ public class Newsletter extends VIAPanel{
 	}
 	
 	private void initializeComponents() {
-		String[] columnNames = { "Previous newsletter", "New newsletter" };
+		String[] columnNames = { "Name of newsletter"};
 		Object[][] data = { {"Michal", "andasfsuf@gdgdfg.com"},
-				{ "Michal", "andasfsuf@gdgdfg.com"},
-				{ "Michal", "andasfsuf@gdgdfg.com"},
-				{ "Michal", "andasfsuf@gdgdfg.com"},
-				{ "Michal", "andasfsuf@gdgdfg.com"},
-				{ "Michal", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Miska", "andasfsuf@gdgdfg.com"},
-				{ "Matej", "andasfsuf@gdgdfg.com"},
-				{ "Matej", "andasfsuf@gdgdfg.com"},
-				{ "Matej", "andasfsuf@gdgdfg.com"},
-				{ "Matej", "andasfsuf@gdgdfg.com"},
-				{ "Matej", "andasfsuf@gdgdfg.com"},
-				{ "Matej", "andasfsuf@gdgdfg.com"},
-				{ "Matej", "andasfsuf@gdgdfg.com"},
+				{ "Michal andasfsuf@gdgdfg.com"},
+				{ "Michal andasfsuf@gdgdfg.com"},
+				{ "Michaandasfsuf@gdgdfg.com"},
+				{ "Michalandasfsuf@gdgdfg.com"},
+				{ "Michalandasfsuf@gdgdfg.com"},
+				{ "Miskaandasfsuf@gdgdfg.com"},
+				{ "Miskaandasfsuf@gdgdfg.com"},
+				{ "Miskandasfsuf@gdgdfg.com"},
+				{ "Miskandasfsuf@gdgdfg.com"},
+				{ "Miskandasfsuf@gdgdfg.com"},
+				{ "Miskandasfsuf@gdgdfg.com"},
+				{ "Miskandasfsuf@gdgdfg.com"},
+				{ "Miskandasfsuf@gdgdfg.com"},
+				{ "Miskandasfsuf@gdgdfg.com"},
+				{ "Miskandasfsuf@gdgdfg.com"},
+				{ "Miskandasfsuf@gdgdfg.com"},
+				{ "Miskandasfsuf@gdgdfg.com"},
+				
 		};
 		
 		table = new JTable(data, columnNames);
@@ -73,11 +66,11 @@ public class Newsletter extends VIAPanel{
 		
 		scrollPane = new JScrollPane(table);
 		
-		listOfNewsletter = new VIALabel("LIST OF NEWSLETTER", 15);	
+		listOfNewsletter = new VIALabel("LIST OF NEWSLETTER", 20);	
 		generateText = new VIAButtonSimple("Generate text");
 		newsletter = new VIALabel("NEWSLETTER", 50);
 		info = new JTextArea(10,30);
-		addInfo = new VIALabel("ADDITIONAL INFO",15);
+		addInfo = new VIALabel("ADDITIONAL INFO",20);
 		back = new VIAButtonBack(frame, parentPanel);
 				
 		

@@ -5,8 +5,10 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,41 +19,45 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class LecturerChoiceList extends VIAPanel {
+public class MemberMultipleChoice extends VIAPanel {
 
 	private JTable table;
 	private JTextField search;
-	private JButton choose;
-	private JLabel lecturerList;
+	private JButton add;
+	private JLabel memberList;
 	private JFrame frame;
+	private JButton back;
+	private JPanel parentPanel;
 
-	public LecturerChoiceList(JFrame frame) {
+	public MemberMultipleChoice(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
-		setLayout(new FlowLayout());
+		this.parentPanel = parentPanel;
+		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
-		addComponentsToPanel();
+		addComponentsToPanel();	
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise" };
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
+		String[] columnNames = { "Name", "E-mail", "ID", "Choice" };
+		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", true },
 
 		};
 
 		search = new JTextField(47);
 		search.setText("SEARCH");
-		choose = new VIAButtonSmall("CHOOSE LECTURER",30);
-		lecturerList = new VIALabel("LECTURER LIST",40);
 
+		add = new VIAButtonSmall("ADD MEMBERS TO EVENT", 25);
+
+		memberList = new VIALabel("MEMBER LIST", 30);
 
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
@@ -65,8 +71,6 @@ public class LecturerChoiceList extends VIAPanel {
 				case 2:
 					return Integer.class;
 				case 3:
-					return String.class;
-				case 4:
 					return Boolean.class;
 				default:
 					return Boolean.class;
@@ -75,21 +79,31 @@ public class LecturerChoiceList extends VIAPanel {
 			
 			@Override
 			public boolean isCellEditable(int row, int col) {
-				return false;
+				if(col==3)
+					return true;
+				else
+					return false;
 			}
+			
 		};
-		
 		table = new JTable(model);
-		table.setPreferredScrollableViewportSize(new Dimension(500, 300));
+		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
+		
+		back = new VIAButtonBack(frame, parentPanel);
 	}
 
 	private void registerEventHandlers() {
-
-		choose.addActionListener(new ActionListener() {
-
+		JPanel currentPanel = this;
+		add.addActionListener(new ActionListener() {
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				JFrame member = new JFrame();
+				member.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				member.setSize(900, 500);
+				member.setTitle("VIA - Add new member");
+				member.setContentPane(new SignUpFormMember(member, currentPanel));
+				member.setVisible(true);
 			}
 		});
 	}
@@ -103,23 +117,29 @@ public class LecturerChoiceList extends VIAPanel {
 		left.add(scrollPane, BorderLayout.CENTER);
 		left.setOpaque(false);
 
-		JPanel north = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		north.add(choose);
-		north.setOpaque(false);
+		JPanel addPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		addPanel.add(add);
+		addPanel.setOpaque(false);
 
-		JPanel right = new JPanel(new BorderLayout());
-		right.add(north, BorderLayout.NORTH);
+		JPanel right = new JPanel();
+		right.add(addPanel);
 		right.setOpaque(false);
 
 		JPanel labelPanel = new JPanel();
-		labelPanel.add(lecturerList);
+		labelPanel.add(memberList);
 		labelPanel.setOpaque(false);
 
-		JPanel logo = new JPanel();
-		logo.setOpaque(false);
-
+        JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        buttonBack.add(back);
+        buttonBack.setOpaque(false);
+      
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
+		
+		JPanel logo = new JPanel(new BorderLayout());
+		logo.setOpaque(false);
+		logo.add(imgLab, BorderLayout.CENTER);
+		logo.add(buttonBack, BorderLayout.WEST);
 
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(labelPanel, BorderLayout.NORTH);
@@ -127,9 +147,8 @@ public class LecturerChoiceList extends VIAPanel {
 		components.add(right, BorderLayout.EAST);
 		components.setOpaque(false);
 
-		add(imgLab, BorderLayout.NORTH);
+		add(logo, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
-
 	}
 
 	public static void main(String[] args) {
@@ -139,11 +158,10 @@ public class LecturerChoiceList extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new LecturerChoiceList(frame));
+				frame.setContentPane(new MemberMultipleChoice(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});
 
 	}
-
 }

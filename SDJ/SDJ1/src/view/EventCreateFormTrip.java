@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -36,7 +38,7 @@ public class EventCreateFormTrip extends VIAPanel {
 	private JTextField fieldLocation;
 	private JLabel location;
 	private JButton save;
-	private JButton back;
+	private VIAButtonBack back;
 	private JTextArea descriptionArea;
 	private JRadioButton finalized;
 	private JRadioButton unfinalized;
@@ -58,15 +60,14 @@ public class EventCreateFormTrip extends VIAPanel {
 		String[] boxString = { "", "astronomy", "nature", "yoga" };
 		String[] boxLecturers = { "lecturerName", "", "" };
 
-		createForm = new JLabel("Create Form for TRIP");
-		createForm.setFont(new Font("Arial", Font.PLAIN, 30));
+		createForm = new VIALabel("Create Form for TRIP", 33);
 		title = new JLabel("Title:");
 		price = new JLabel("Price:");
-		places = new JLabel("NÂ° of Places:");
+		places = new JLabel("N° of Places:");
 		starDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
-		description = new JLabel("DESCRIPTION:");
+		description = new VIALabel("DESCRIPTION:", 20);
 		fieldTitle = new JTextField(8);
 		fieldPrice = new JTextField(8);
 		fieldPlaces = new JTextField(8);
@@ -74,9 +75,9 @@ public class EventCreateFormTrip extends VIAPanel {
 		fieldEndDate = new JTextField(8);
 		fieldLocation = new JTextField(8);
 		location = new JLabel("Location:");
-		save = new JButton("SAVE");
+		save = new VIAButtonExtraSmall("SAVE", 20);
 		back = new VIAButtonBack(frame, parentPanel);
-		descriptionArea = new JTextArea(10, 55);
+		descriptionArea = new JTextArea(7, 55);
 
 		finalized = new JRadioButton("YES");
 		finalized.setSelected(true);
@@ -89,12 +90,16 @@ public class EventCreateFormTrip extends VIAPanel {
 		group.add(finalized);
 		group.add(unfinalized);
 
-		Dimension prefSize = new Dimension(70, 50);
-		save.setPreferredSize(prefSize);
-
 	}
 
 	public void registerEventHandlers() {
+		save.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				back.goBack();
+			}
+		});
 	}
 
 	public void addComponentsToPanel() {

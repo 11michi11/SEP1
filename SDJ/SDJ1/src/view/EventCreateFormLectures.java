@@ -39,7 +39,7 @@ public class EventCreateFormLectures extends VIAPanel {
 	private JTextField fieldLecturer;
 	private JButton lecturer;
 	private JButton save;
-	private JButton back;
+	private VIAButtonBack back;
 	private JComboBox categoryBox;
 	private JTextArea descriptionArea;
 	private JRadioButton finalized;
@@ -59,9 +59,9 @@ public class EventCreateFormLectures extends VIAPanel {
 
 	public void initializeComponents() {
 
-		String[] boxString = { "", "astronomy", "nature", "yoga" };
+		String[] boxString = { "", "Astrology","Meditation", "Reincarnation","Health","Buddhism", "Nature","Other"};
 
-		createForm = new VIALabel("Create Form for LECTURES");
+		createForm = new VIALabel("Create Form for LECTURES", 33);
 		title = new JLabel("Title:");
 		category = new JLabel("Category:");
 		price = new JLabel("Price:");
@@ -69,15 +69,15 @@ public class EventCreateFormLectures extends VIAPanel {
 		starDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
-		description = new JLabel("DESCRIPTION:");
+		description = new VIALabel("DESCRIPTION:", 20);
 		fieldTitle = new JTextField(8);
 		fieldPrice = new JTextField(8);
 		fieldPlaces = new JTextField(8);
 		fieldStartDate = new JTextField(8);
 		fieldEndDate = new JTextField(8);
 		fieldLecturer = new JTextField(8);
-		lecturer = new JButton("Lecturers");
-		save = new JButton("SAVE");
+		lecturer = new VIAButtonExtraSmall("Lecturers", 20);
+		save = new VIAButtonExtraSmall("SAVE", 20);
 		back = new VIAButtonBack(frame, parentPanel);
 		categoryBox = new JComboBox(boxString);
 		categoryBox.setSelectedIndex(2);
@@ -93,33 +93,29 @@ public class EventCreateFormLectures extends VIAPanel {
 		ButtonGroup group = new ButtonGroup();
 		group.add(finalized);
 		group.add(unfinalized);
-
-		Dimension prefSize = new Dimension(70, 50);
-		save.setPreferredSize(prefSize);
-
 	}
 
 	public void registerEventHandlers() {
 		lecturer.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame lecturerChoice = new JFrame();
 				lecturerChoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				lecturerChoice.setSize(900,500);
+				lecturerChoice.setSize(900, 500);
 				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
 				lecturerChoice.setContentPane(new LecturerChoiceList(lecturerChoice));
 				lecturerChoice.setVisible(true);
-				
+
 			}
 		});
-		
+
 		save.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+				back.goBack();
+
 			}
 		});
 	}

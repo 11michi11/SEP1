@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 public class MemberListPanel extends VIAPanel {
 
@@ -27,9 +30,10 @@ public class MemberListPanel extends VIAPanel {
 	private JButton back;
 	private JPanel parentPanel;
 
-	public MemberListPanel(JFrame frame) {
+	public MemberListPanel(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -38,37 +42,63 @@ public class MemberListPanel extends VIAPanel {
 
 	private void initializeComponents() {
 		String[] columnNames = { "Name", "E-mail", "ID", "Paid" };
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "yes" },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "yes" },
+		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", true },
 
 		};
 
 		search = new JTextField(47);
 		search.setText("SEARCH");
 
-		add = new VIAButtonSmall("ADD MEMBER");
-		add.setFont(new Font("Arial", Font.PLAIN, 20));
-		mail = new VIAButtonSmall("SEND REMAIND E-MAIL");
-		mail.setFont(new Font("Arial", Font.PLAIN, 20));
+		add = new VIAButtonSmall("ADD MEMBER", 30);
+		mail = new VIAButtonSmall("SEND REMAIND E-MAIL", 30);
 
-		memberList = new JLabel("MEMBER LIST");
-		memberList.setFont(new Font("Arial", Font.PLAIN, 30));
+		memberList = new VIALabel("MEMBER LIST", 40);
 
-		table = new JTable(data, columnNames);
+		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				case 1:
+					return String.class;
+				case 2:
+					return Integer.class;
+				case 3:
+					return Boolean.class;
+				default:
+					return Boolean.class;
+				}
+			}
+		};
+		table = new JTable(model);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 		
 		back = new VIAButtonBack(frame, parentPanel);
 	}
 
 	private void registerEventHandlers() {
-		// TODO Auto-generated method stub
-
+		JPanel currentPanel = this;
+		add.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame member = new JFrame();
+				member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				member.setSize(900, 500);
+				member.setTitle("VIA - Add new member");
+				member.setContentPane(new SignUpFormMember(member, currentPanel));
+				member.setVisible(true);
+			}
+		});
 	}
 
 	private void addComponentsToPanel() {
@@ -127,7 +157,7 @@ public class MemberListPanel extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new MemberListPanel(frame));
+				frame.setContentPane(new MemberListPanel(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

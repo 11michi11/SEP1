@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -31,9 +34,10 @@ public class EventListPanel extends VIAPanel {
 	private JButton back;
 	private JPanel parentPanel;
 	
-	public EventListPanel(JFrame frame) {
+	public EventListPanel(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -54,29 +58,59 @@ public class EventListPanel extends VIAPanel {
 		search = new JTextField(10);
 		search.setText("SEARCH");
 		
-		eventList = new JLabel("EVENT LIST");
-		eventList.setFont(new Font("Arial", Font.PLAIN, 30));
+		eventList = new VIALabel("EVENT LIST",40);
 		
 		finalized = new JCheckBox("Finalized");
 		finalized.setOpaque(false);
 		finished = new JCheckBox("Finished");
 		finished.setOpaque(false);
 		
-		addEvent = new VIAButtonSmall("ADD EVENT");
-		addEvent.setFont(new Font("Arial", Font.PLAIN, 20));
-		
-		signUpParticipant = new VIAButtonSmall("SIGN UP PARTICIPANT");
-		signUpParticipant.setFont(new Font("Arial", Font.PLAIN, 20));
-		
-		signUpMember = new VIAButtonSmall("SIGN UP MEMBER");
-		signUpMember.setFont(new Font("Arial", Font.PLAIN, 20));
-		
+		addEvent = new VIAButtonSimple("ADD EVENT", 20);
+		signUpParticipant = new VIAButtonSimple("SIGN UP PARTICIPANT", 20);
+		signUpMember = new VIAButtonSimple("SIGN UP MEMBER", 20);
 		back = new VIAButtonBack(frame,parentPanel);
-		
 	}
 	
 	private void registerEventHandlers() {
-		// TODO Auto-generated method stub
+		JPanel currentPanel = this;
+		signUpParticipant.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame participant = new JFrame();
+				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				participant.setSize(900, 500);
+				participant.setTitle("VIA - Sign up new participant");
+				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel));
+				participant.setVisible(true);
+			}
+		});
+		
+		signUpMember.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame member = new JFrame();
+				member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				member.setSize(900, 500);
+				member.setTitle("VIA - Add members to event");
+				member.setContentPane(new SignUpFormMember(member, currentPanel));
+				member.setVisible(true);
+			}
+		});
+		
+		addEvent.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame event = new JFrame();
+				event.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				event.setSize(900, 500);
+				event.setTitle("VIA - Crate new event");
+				event.setContentPane(new EventPanel(event, currentPanel));
+				event.setVisible(true);
+			}
+		});
 	}
 	
 	private void addComponentsToPanel() {
@@ -146,7 +180,7 @@ public class EventListPanel extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventListPanel(frame));
+				frame.setContentPane(new EventListPanel(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

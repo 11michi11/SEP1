@@ -37,25 +37,20 @@ public class ListsPanel extends VIAPanel {
 
 	public void initializeComponents() {
 		lecturerList = new VIAButtonBig("LECTURER LIST");
-		lecturerList.setFont(new Font("Arial", Font.PLAIN, 30));
 		memberList = new VIAButtonBig("MEMBER LIST");
-		memberList.setFont(new Font("Arial", Font.PLAIN, 30));
 		eventList = new VIAButtonBig("EVENT LIST");
-		eventList.setFont(new Font("Arial", Font.PLAIN, 30));
 		participantList = new VIAButtonBig("PARTICIPANT LIST");
-		participantList.setFont(new Font("Arial", Font.PLAIN, 30));
 		back = new VIAButtonBack(frame, parentPanel);
-
-
 	}
 
 	public void registerEventHandlers() {
+		JPanel currentPanel = this;
 
 		lecturerList.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new LecturerListPanel(frame);
+				JPanel newContentPane = new LecturerListPanel(frame, currentPanel);
 				frame.setContentPane(newContentPane);
 				frame.revalidate();
 			}
@@ -65,7 +60,7 @@ public class ListsPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new MemberListPanel(frame);
+				JPanel newContentPane = new MemberListPanel(frame, currentPanel);
 				frame.setContentPane(newContentPane);
 				frame.revalidate();
 			}
@@ -75,7 +70,7 @@ public class ListsPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new EventListPanel(frame);
+				JPanel newContentPane = new EventListPanel(frame, currentPanel);
 				frame.setContentPane(newContentPane);
 				frame.revalidate();
 			}
@@ -85,7 +80,7 @@ public class ListsPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new ParticipantListPanel(frame);
+				JPanel newContentPane = new ParticipantListPanel(frame, currentPanel);
 				frame.setContentPane(newContentPane);
 				frame.revalidate();
 			}

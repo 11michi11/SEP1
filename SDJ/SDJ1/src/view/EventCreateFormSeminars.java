@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -22,7 +24,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 
 	private JLabel createForm;
 	private JLabel title;
-	private JLabel category;
+	private JButton category;
 	private JLabel price;
 	private JLabel places;
 	private JLabel starDate;
@@ -37,7 +39,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 	private JComboBox fieldLecturer;
 	private JButton lecturer;
 	private JButton save;
-	private JButton back;
+	private VIAButtonBack back;
 	private JComboBox categoryBox;
 	private JTextArea descriptionArea;
 	private JRadioButton finalized;
@@ -57,31 +59,28 @@ public class EventCreateFormSeminars extends VIAPanel {
 
 	public void initializeComponents() {
 
-		String[] boxString = { "", "astronomy", "nature", "yoga" };
-		String[] boxLecturers = { "lecturerName", "", "" };
+		String[] boxString = { "categoryTitle", ""};
+		String[] boxLecturers = { "lecturerName","" };
 
-		createForm = new JLabel("Create Form for SEMINARS");
-		createForm.setFont(new Font("Arial", Font.PLAIN, 30));
+		createForm = new VIALabel("Create Form for SEMINARS", 33);
 		title = new JLabel("Title:");
-		category = new JLabel("Category:");
+		category = new VIAButtonExtraSmall("Category",20);
 		price = new JLabel("Price:");
-		places = new JLabel("N° of Places:");
+		places = new JLabel("Nï¿½ of Places:");
 		starDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
-		description = new JLabel("DESCRIPTION:");
+		description = new VIALabel("DESCRIPTION:", 20);
 		fieldTitle = new JTextField(8);
 		fieldPrice = new JTextField(8);
 		fieldPlaces = new JTextField(8);
 		fieldStartDate = new JTextField(8);
 		fieldEndDate = new JTextField(8);
 		fieldLecturer = new JComboBox(boxLecturers);
-		fieldLecturer.setSelectedIndex(2);
-		lecturer = new JButton("Lecturers");
-		save = new JButton("SAVE");
+		lecturer = new VIAButtonExtraSmall("Lecturers",20);
+		save = new VIAButtonExtraSmall("SAVE",20);
 		back = new VIAButtonBack(frame, parentPanel);
 		categoryBox = new JComboBox(boxString);
-		categoryBox.setSelectedIndex(2);
 		descriptionArea = new JTextArea(6, 55);
 
 		finalized = new JRadioButton("YES");
@@ -95,21 +94,53 @@ public class EventCreateFormSeminars extends VIAPanel {
 		group.add(finalized);
 		group.add(unfinalized);
 
-		Dimension prefSize = new Dimension(70, 50);
-		save.setPreferredSize(prefSize);
-
 	}
 
 	public void registerEventHandlers() {
+		lecturer.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame lecturerChoice = new JFrame();
+				lecturerChoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				lecturerChoice.setSize(900, 500);
+				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
+				lecturerChoice.setContentPane(new LecturerMultipleChoiceList(lecturerChoice));
+				lecturerChoice.setVisible(true);
+
+			}
+		});
+
+		save.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				back.goBack();
+			}
+		});
+		
+		category.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame categoryChoice = new JFrame();
+				categoryChoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				categoryChoice.setSize(900, 500);
+				categoryChoice.setTitle("VIA - Choice of category for event");
+				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice));
+				categoryChoice.setVisible(true);
+			}
+		});
+		
 	}
 
 	public void addComponentsToPanel() {
 
 		JPanel leftLabel = new JPanel(new GridLayout(4, 1));
 		leftLabel.add(title);
-		leftLabel.add(category);
 		leftLabel.add(price);
 		leftLabel.add(places);
+		leftLabel.add(finish);
 		leftLabel.setOpaque(false);
 
 		JPanel leftField = new JPanel(new GridLayout(4, 1));
@@ -119,15 +150,16 @@ public class EventCreateFormSeminars extends VIAPanel {
 		fieldOne.setOpaque(false);
 
 		JPanel fieldTwo = new JPanel();
-		fieldTwo.add(categoryBox);
+		fieldTwo.add(fieldPrice);
 		fieldTwo.setOpaque(false);
 
 		JPanel fieldThree = new JPanel();
-		fieldThree.add(fieldPrice);
+		fieldThree.add(fieldPlaces);
 		fieldThree.setOpaque(false);
 
 		JPanel fieldFour = new JPanel();
-		fieldFour.add(fieldPlaces);
+		fieldFour.add(finalized);
+		fieldFour.add(unfinalized);
 		fieldFour.setOpaque(false);
 
 		leftField.add(fieldOne);
@@ -149,7 +181,8 @@ public class EventCreateFormSeminars extends VIAPanel {
 		rightLabel.add(starDate);
 		rightLabel.add(endDate);
 		rightLabel.add(lecturer);
-		rightLabel.add(finish);
+		//rightLabel.add(finish);
+		rightLabel.add(category);
 		rightLabel.setOpaque(false);
 
 		JPanel rightField = new JPanel(new GridLayout(4, 1));
@@ -167,8 +200,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		fieldSeven.setOpaque(false);
 
 		JPanel fieldEight = new JPanel();
-		fieldEight.add(finalized);
-		fieldEight.add(unfinalized);
+		fieldEight.add(categoryBox);
 		fieldEight.setOpaque(false);
 
 		rightField.add(fieldFive);
