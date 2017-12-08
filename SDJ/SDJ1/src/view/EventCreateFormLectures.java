@@ -39,7 +39,7 @@ public class EventCreateFormLectures extends VIAPanel {
 	private JTextField fieldLecturer;
 	private JButton lecturer;
 	private JButton save;
-	private JButton back;
+	private VIAButtonBack back;
 	private JComboBox categoryBox;
 	private JTextArea descriptionArea;
 	private JRadioButton finalized;
@@ -114,7 +114,7 @@ public class EventCreateFormLectures extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				back.goBack();
 
 			}
 		});

@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -36,7 +38,7 @@ public class EventCreateFormTrip extends VIAPanel {
 	private JTextField fieldLocation;
 	private JLabel location;
 	private JButton save;
-	private JButton back;
+	private VIAButtonBack back;
 	private JTextArea descriptionArea;
 	private JRadioButton finalized;
 	private JRadioButton unfinalized;
@@ -91,6 +93,13 @@ public class EventCreateFormTrip extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
+		save.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				back.goBack();
+			}
+		});
 	}
 
 	public void addComponentsToPanel() {

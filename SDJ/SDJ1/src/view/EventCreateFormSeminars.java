@@ -39,7 +39,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 	private JComboBox fieldLecturer;
 	private JButton lecturer;
 	private JButton save;
-	private JButton back;
+	private VIAButtonBack back;
 	private JComboBox categoryBox;
 	private JTextArea descriptionArea;
 	private JRadioButton finalized;
@@ -117,8 +117,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-
+				back.goBack();
 			}
 		});
 	}
