@@ -51,5 +51,9 @@ public class Member extends Participant {
 	public int getID() {
 		return ID;
 	}
+	
+	public String toString () {
+	   return ID+";"+super.toString()+";"+address+";"+phone+";"+dateOfMembership+";"+paymentYear;
+	}
 
 }
