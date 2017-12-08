@@ -26,9 +26,10 @@ public class LecturerListPanel extends VIAPanel {
 	private JPanel parentPanel;
 	private JScrollPane scrollPane;
 
-	public LecturerListPanel(JFrame frame) {
+	public LecturerListPanel(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -121,7 +122,7 @@ public class LecturerListPanel extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new LecturerListPanel(frame));
+				frame.setContentPane(new LecturerListPanel(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});
