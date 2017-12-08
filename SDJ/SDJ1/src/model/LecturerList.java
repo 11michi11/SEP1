@@ -8,7 +8,7 @@ public class LecturerList {
 	private ArrayList<Lecturer> lecturerList;
 	private Iterator<Lecturer> iter;
 	
-	public void LecturerList() {
+	public LecturerList() {
 		lecturerList = new ArrayList<Lecturer>();
 		this.iter = lecturerList.iterator();
 	}
