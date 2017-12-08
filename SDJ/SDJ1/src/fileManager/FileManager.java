@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -25,15 +24,11 @@ import model.Workshop;
 
 public class FileManager {
 
-	private File eventFile, lecturerFile, memberFile;
-	private ArrayList<File> newsletterFiles;
+	private static File eventFile = new File ("events.bin");
+	private static File lecturerFile = new File("lecturers.bin");
+	private static File memberFile = new File("members.bin");
 
-	public FileManager() {
-		this.newsletterFiles = new ArrayList<File>();
-	}
-
-	public void generateEventFile(EventList eventList) throws IOException {
-		eventFile = new File("events.bin");
+	public static void generateEventFile(EventList eventList) throws IOException {
 
 		FileOutputStream fos = new FileOutputStream(eventFile);
 		ObjectOutputStream out = new ObjectOutputStream(fos);
@@ -43,8 +38,7 @@ public class FileManager {
 		fos.close();
 	}
 
-	public void generateLecturerFile(LecturerList lecturerList) throws IOException {
-		lecturerFile = new File("lecturers.bin");
+	public static void generateLecturerFile(LecturerList lecturerList) throws IOException {
 
 		FileOutputStream fos = new FileOutputStream(lecturerFile);
 		ObjectOutputStream out = new ObjectOutputStream(fos);
@@ -54,8 +48,7 @@ public class FileManager {
 		fos.close();
 	}
 
-	public void generateMemberFile(MemberList memberList) throws IOException {
-		memberFile = new File("members.bin");
+	public static void generateMemberFile(MemberList memberList) throws IOException {
 
 		FileOutputStream fos = new FileOutputStream(memberFile);
 		ObjectOutputStream out = new ObjectOutputStream(fos);
@@ -65,17 +58,9 @@ public class FileManager {
 		fos.close();
 	}
 
-	public void generateNewsletterFile(String newsletterContent) throws IOException {
-		newsletterFiles.add(new File("Newsletter_" + new MyDate().toString() + ".txt"));
-		PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
+	
 
-		out.println(newsletterContent);
-
-		out.flush();
-		out.close();
-	}
-
-	public EventList readEventFile() throws IOException, ClassNotFoundException {
+	public static EventList readEventFile() throws IOException, ClassNotFoundException {
 		ObjectInputStream read = null;
 		FileInputStream fis = new FileInputStream(eventFile);
 
@@ -88,7 +73,7 @@ public class FileManager {
 		return events;
 	}
 
-	public LecturerList readLecturerFile() throws IOException, ClassNotFoundException {
+	public static LecturerList readLecturerFile() throws IOException, ClassNotFoundException {
 		ObjectInputStream read = null;
 		FileInputStream fis = new FileInputStream(lecturerFile);
 
@@ -101,7 +86,7 @@ public class FileManager {
 		return lecturers;
 	}
 
-	public MemberList readMemberFile() throws IOException, ClassNotFoundException {
+	public static MemberList readMemberFile() throws IOException, ClassNotFoundException {
 		ObjectInputStream read = null;
 		FileInputStream fis = new FileInputStream(memberFile);
 
@@ -114,25 +99,9 @@ public class FileManager {
 		return members;
 	}
 
-	public String readNewsletterFile(MyDate date) throws FileNotFoundException {
-		File file;
-		String newsletter = "";
-		for (File i : newsletterFiles) {
-			if (i.getName().equals("Newsletter_" + date.toString() + ".txt")) {
-				file = i;
-				Scanner read = new Scanner(file);
-				while (read.hasNext())
-					newsletter += read.nextLine() + "\n";
-				read.close();
-				return newsletter;
-			} else {
-				throw new FileNotFoundException("No newsletter on " + date.toString());
-			}
-		}
-		return "Something went wrong...";
-	}
+	
 
-	public MemberList readMemberFile(File file) throws FileNotFoundException {
+	public static MemberList readMemberFile(File file) throws FileNotFoundException {
 		MemberList members = new MemberList();
 		String line, name, email, address;
 		String[] divide, divideDate;
@@ -159,7 +128,7 @@ public class FileManager {
 		return members;
 	}
 
-	public Lecturer readLecturerFileInside(String line) {
+	public static Lecturer readLecturerFileInside(String line) {
 
 		String name, email;
 		String[] divide, categoriesDivide;
@@ -179,7 +148,7 @@ public class FileManager {
 		return (new Lecturer(name, email, phone, categories, wantsAdvertise));
 	}
 
-	public LecturerList readLecturerFile(File file) throws FileNotFoundException {
+	public static LecturerList readLecturerFile(File file) throws FileNotFoundException {
 		LecturerList lecturers = new LecturerList();
 		String line;
 		Scanner read = new Scanner(file);
@@ -193,7 +162,7 @@ public class FileManager {
 		return lecturers;
 	}
 
-	public EventList readEventFile(File file) throws FileNotFoundException {
+	public static EventList readEventFile(File file) throws FileNotFoundException {
 		EventList events = new EventList();
 		String line, type, lecturerLine;
 		String[] divide, divideDate, divideAll, divideLecturers;
