@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -60,7 +62,19 @@ public class ParticipantListPanel extends VIAPanel {
 	}
 
 	private void registerEventHandlers() {
-		// TODO Auto-generated method stub
+		JPanel currentPanel = this;
+		add.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame participant = new JFrame();
+				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				participant.setSize(900, 500);
+				participant.setTitle("VIA - Add new member");
+				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel));
+				participant.setVisible(true);
+			}
+		});
 
 	}
 
