@@ -30,9 +30,10 @@ public class MemberListPanel extends VIAPanel {
 	private JButton back;
 	private JPanel parentPanel;
 
-	public MemberListPanel(JFrame frame) {
+	public MemberListPanel(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -156,7 +157,7 @@ public class MemberListPanel extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new MemberListPanel(frame));
+				frame.setContentPane(new MemberListPanel(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

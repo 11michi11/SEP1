@@ -31,9 +31,10 @@ public class EventListPanel extends VIAPanel {
 	private JButton back;
 	private JPanel parentPanel;
 	
-	public EventListPanel(JFrame frame) {
+	public EventListPanel(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -138,7 +139,7 @@ public class EventListPanel extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventListPanel(frame));
+				frame.setContentPane(new EventListPanel(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

@@ -25,10 +25,11 @@ public class ParticipantListPanel extends VIAPanel {
 	private JButton back;
 	private JPanel parentPanel;
 
-	public ParticipantListPanel(JFrame frame) {
+	public ParticipantListPanel(JFrame frame, JPanel parentPanel) {
 		super();
 		setLayout(new BorderLayout());
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
@@ -117,7 +118,7 @@ public class ParticipantListPanel extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new ParticipantListPanel(frame));
+				frame.setContentPane(new ParticipantListPanel(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});
