@@ -23,8 +23,8 @@ public class MemberListPanel extends VIAPanel {
 
 	private JTable table;
 	private JTextField search;
-	private VIAButton add;
-	private VIAButton mail;
+	private JButton add;
+	private JButton mail;
 	private JLabel memberList;
 	private JFrame frame;
 	private JButton back;
@@ -55,7 +55,7 @@ public class MemberListPanel extends VIAPanel {
 		search = new JTextField(47);
 		search.setText("SEARCH");
 
-		add = new VIAButtonSmall("ADD MEMBER");
+		add = new VIAButtonSmall("ADD MEMBER", 30);
 		mail = new VIAButtonSmall("SEND REMAIND E-MAIL", 30);
 
 		memberList = new VIALabel("MEMBER LIST", 30);

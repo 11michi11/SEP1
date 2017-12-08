@@ -54,25 +54,17 @@ public class EventListPanel extends VIAPanel {
 		search = new JTextField(10);
 		search.setText("SEARCH");
 		
-		eventList = new JLabel("EVENT LIST");
-		eventList.setFont(new Font("Arial", Font.PLAIN, 30));
+		eventList = new VIALabel("EVENT LIST");
 		
 		finalized = new JCheckBox("Finalized");
 		finalized.setOpaque(false);
 		finished = new JCheckBox("Finished");
 		finished.setOpaque(false);
 		
-		addEvent = new VIAButtonSmall("ADD EVENT");
-		addEvent.setFont(new Font("Arial", Font.PLAIN, 20));
-		
-		signUpParticipant = new VIAButtonSmall("SIGN UP PARTICIPANT");
-		signUpParticipant.setFont(new Font("Arial", Font.PLAIN, 20));
-		
-		signUpMember = new VIAButtonSmall("SIGN UP MEMBER");
-		signUpMember.setFont(new Font("Arial", Font.PLAIN, 20));
-		
+		addEvent = new VIAButtonSimple("ADD EVENT", 20);
+		signUpParticipant = new VIAButtonSimple("SIGN UP PARTICIPANT", 20);
+		signUpMember = new VIAButtonSimple("SIGN UP MEMBER", 20);
 		back = new VIAButtonBack(frame,parentPanel);
-		
 	}
 	
 	private void registerEventHandlers() {

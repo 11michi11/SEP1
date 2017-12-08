@@ -19,8 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class LecturerMultipleChoiceList extends VIAPanel {
-	;
-
+	
 	private JTable table;
 	private JTextField search;
 	private JButton choose;

@@ -23,5 +23,9 @@ public class VIAButtonBig extends VIAButton{
 	public VIAButtonBig(String text) {
 		super(text, path, prefSize);
 	}
+	
+	public VIAButtonBig(String text, int fontSize) {
+		super(text, path , prefSize, fontSize);
+	}
 }
 

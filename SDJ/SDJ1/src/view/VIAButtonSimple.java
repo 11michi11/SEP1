@@ -9,6 +9,9 @@ public class VIAButtonSimple extends VIAButton{
 
 	public VIAButtonSimple(String text) {
 		super(text, path , prefSize);
-		setFontSize(30);
+	}
+	
+	public VIAButtonSimple(String text, int fontSize) {
+		super(text, path , prefSize, fontSize);
 	}
 }
