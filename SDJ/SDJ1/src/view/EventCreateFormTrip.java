@@ -73,7 +73,7 @@ public class EventCreateFormTrip extends VIAPanel {
 		fieldEndDate = new JTextField(8);
 		fieldLocation = new JTextField(8);
 		location = new JLabel("Location:");
-		save = new JButton("SAVE");
+		save = new VIAButtonExtraSmall("SAVE",20);
 		back = new VIAButtonBack(frame, parentPanel);
 		descriptionArea = new JTextArea(7, 55);
 
@@ -87,9 +87,6 @@ public class EventCreateFormTrip extends VIAPanel {
 		ButtonGroup group = new ButtonGroup();
 		group.add(finalized);
 		group.add(unfinalized);
-
-		Dimension prefSize = new Dimension(70, 50);
-		save.setPreferredSize(prefSize);
 
 	}
 

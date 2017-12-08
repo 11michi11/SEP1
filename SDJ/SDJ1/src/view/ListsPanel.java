@@ -36,10 +36,10 @@ public class ListsPanel extends VIAPanel {
 	}
 
 	public void initializeComponents() {
-		lecturerList = new VIAButtonBig("LECTURER LIST", 30);
-		memberList = new VIAButtonBig("MEMBER LIST", 30);
-		eventList = new VIAButtonBig("EVENT LIST", 30);
-		participantList = new VIAButtonBig("PARTICIPANT LIST", 30);
+		lecturerList = new VIAButtonBig("LECTURER LIST");
+		memberList = new VIAButtonBig("MEMBER LIST");
+		eventList = new VIAButtonBig("EVENT LIST");
+		participantList = new VIAButtonBig("PARTICIPANT LIST");
 		back = new VIAButtonBack(frame, parentPanel);
 	}
 

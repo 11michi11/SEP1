@@ -59,7 +59,7 @@ public class MemberListPanel extends VIAPanel {
 		add = new VIAButtonSmall("ADD MEMBER", 30);
 		mail = new VIAButtonSmall("SEND REMAIND E-MAIL", 30);
 
-		memberList = new VIALabel("MEMBER LIST", 30);
+		memberList = new VIALabel("MEMBER LIST", 40);
 
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 

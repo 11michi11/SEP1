@@ -52,11 +52,9 @@ public class LecturerListPanel extends VIAPanel {
 		search = new JTextField(47);
 		search.setText("SEARCH");
 
-		add = new VIAButtonSmall("ADD LECTURER");
-		add.setFont(new Font("Arial", Font.PLAIN, 20));
+		add = new VIAButtonSmall("ADD LECTURER",30);
 
-		lecturerList = new JLabel("LECTURER LIST");
-		lecturerList.setFont(new Font("Arial", Font.PLAIN, 30));
+		lecturerList = new VIALabel("LECTURER LIST",40);
 
 		table = new JTable(data, columnNames);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
