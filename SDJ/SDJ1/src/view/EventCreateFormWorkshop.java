@@ -24,7 +24,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 
 	private JLabel createForm;
 	private JLabel title;
-	private JLabel category;
+	private JButton category;
 	private JLabel price;
 	private JLabel places;
 	private JLabel starDate;
@@ -59,12 +59,12 @@ public class EventCreateFormWorkshop extends VIAPanel {
 
 	public void initializeComponents() {
 
-		String[] boxString = { "", "astronomy", "nature", "yoga" };
-		String[] boxLecturers = { "lecturerName", "", "" };
+		String[] boxString = {  "categoryTitle", ""};
+		String[] boxLecturers = { "lecturerName", "" };
 
 		createForm = new VIALabel("Create Form for WORKSHOP",40);
 		title = new JLabel("Title:");
-		category = new JLabel("Category:");
+		category = new VIAButtonExtraSmall("Category",20);
 		price = new JLabel("Price:");
 		places = new JLabel("N� of Places:");
 		starDate = new JLabel("Start date:");
@@ -77,12 +77,10 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		fieldStartDate = new JTextField(8);
 		fieldEndDate = new JTextField(8);
 		fieldLecturer = new JComboBox(boxLecturers);
-		fieldLecturer.setSelectedIndex(2);
 		lecturer = new VIAButtonExtraSmall("Lecturers",20);
 		save = new VIAButtonExtraSmall("SAVE",20);
 		back = new VIAButtonBack(frame, parentPanel);
 		categoryBox = new JComboBox(boxString);
-		categoryBox.setSelectedIndex(2);
 		descriptionArea = new JTextArea(6, 55);
 
 		finalized = new JRadioButton("YES");
@@ -122,15 +120,29 @@ public class EventCreateFormWorkshop extends VIAPanel {
 
 			}
 		});
+		
+		category.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame categoryChoice = new JFrame();
+				categoryChoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				categoryChoice.setSize(900, 500);
+				categoryChoice.setTitle("VIA - Choice of category for event");
+				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice));
+				categoryChoice.setVisible(true);
+			}
+		});
+		
 	}
 
 	public void addComponentsToPanel() {
 
 		JPanel leftLabel = new JPanel(new GridLayout(4, 1));
 		leftLabel.add(title);
-		leftLabel.add(category);
 		leftLabel.add(price);
 		leftLabel.add(places);
+		leftLabel.add(finish);
 		leftLabel.setOpaque(false);
 
 		JPanel leftField = new JPanel(new GridLayout(4, 1));
@@ -140,15 +152,16 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		fieldOne.setOpaque(false);
 
 		JPanel fieldTwo = new JPanel();
-		fieldTwo.add(categoryBox);
+		fieldTwo.add(fieldPrice);
 		fieldTwo.setOpaque(false);
 
 		JPanel fieldThree = new JPanel();
-		fieldThree.add(fieldPrice);
+		fieldThree.add(fieldPlaces);
 		fieldThree.setOpaque(false);
 
 		JPanel fieldFour = new JPanel();
-		fieldFour.add(fieldPlaces);
+		fieldFour.add(finalized);
+		fieldFour.add(unfinalized);
 		fieldFour.setOpaque(false);
 
 		leftField.add(fieldOne);
@@ -170,7 +183,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		rightLabel.add(starDate);
 		rightLabel.add(endDate);
 		rightLabel.add(lecturer);
-		rightLabel.add(finish);
+		rightLabel.add(category);
 		rightLabel.setOpaque(false);
 
 		JPanel rightField = new JPanel(new GridLayout(4, 1));
@@ -188,8 +201,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		fieldSeven.setOpaque(false);
 
 		JPanel fieldEight = new JPanel();
-		fieldEight.add(finalized);
-		fieldEight.add(unfinalized);
+		fieldEight.add(categoryBox);
 		fieldEight.setOpaque(false);
 
 		rightField.add(fieldFive);
