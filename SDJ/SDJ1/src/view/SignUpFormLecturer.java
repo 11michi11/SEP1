@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,7 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class SignUpFormLecturer extends VIAPanel{
+public class SignUpFormLecturer extends VIAPanel {
 
 	private JLabel signUp;
 	private JLabel name;
@@ -32,7 +34,7 @@ public class SignUpFormLecturer extends VIAPanel{
 	private JButton add;
 	private JFrame frame;
 	private JPanel parentPanel;
-	private JButton back;
+	private VIAButtonBack back;
 
 	public SignUpFormLecturer(JFrame frame, JPanel parentPanel) {
 		super();
@@ -59,16 +61,36 @@ public class SignUpFormLecturer extends VIAPanel{
 		fieldID = new JTextField(8);
 		fieldPhone = new JTextField(8);
 		fieldCategory = new JTextField(8);
-		
+
 		add = new VIAButtonSmall("Add to list");
 		back = new VIAButtonBack(frame, parentPanel);
-
-
 
 	}
 
 	public void registerEventHandlers() {
+		add.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (parentPanel instanceof MemberListPanel) {
+					frame.dispose();
+				} else {
+					back.goBack();
+				}
+			}
+		});
+
+		back.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (parentPanel instanceof MemberListPanel) {
+					frame.dispose();
+				} else {
+					back.goBack();
+				}
+			}
+		});
 	}
 
 	public void addComponentsToPanel() {
@@ -121,7 +143,7 @@ public class SignUpFormLecturer extends VIAPanel{
 		JPanel fieldFive = new JPanel();
 		fieldFive.add(fieldPhone);
 		fieldFive.setOpaque(false);
-		
+
 		rightField.add(fieldFour);
 		rightField.add(fieldFive);
 		rightField.setOpaque(false);
@@ -164,7 +186,8 @@ public class SignUpFormLecturer extends VIAPanel{
 		JPanel logo = new JPanel(new BorderLayout());
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
-		logo.add(buttonBack, BorderLayout.WEST);;
+		logo.add(buttonBack, BorderLayout.WEST);
+		;
 
 		add(logo, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
@@ -186,4 +209,3 @@ public class SignUpFormLecturer extends VIAPanel{
 	}
 
 }
-

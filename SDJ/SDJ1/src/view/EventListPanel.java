@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -69,7 +72,18 @@ public class EventListPanel extends VIAPanel {
 	}
 	
 	private void registerEventHandlers() {
-		// TODO Auto-generated method stub
+		JPanel currentPanel = this;
+		signUpParticipant.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JPanel newContentPane = new SignUpFormParticipant(frame, currentPanel);
+				frame.setContentPane(newContentPane);
+				frame.revalidate();
+			}
+		});
+		
+		//signUpMember
 	}
 	
 	private void addComponentsToPanel() {

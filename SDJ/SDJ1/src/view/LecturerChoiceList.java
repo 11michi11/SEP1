@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 public class LecturerChoiceList extends VIAPanel {
 
@@ -35,14 +36,14 @@ public class LecturerChoiceList extends VIAPanel {
 
 	private void initializeComponents() {
 		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise" };
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
+		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
+				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
 
 		};
 
@@ -58,14 +59,40 @@ public class LecturerChoiceList extends VIAPanel {
 		lecturerList = new JLabel("LECTURER LIST");
 		lecturerList.setFont(new Font("Arial", Font.PLAIN, 30));
 
-		table = new JTable(data, columnNames);
+		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				case 1:
+					return String.class;
+				case 2:
+					return Integer.class;
+				case 3:
+					return String.class;
+				case 4:
+					return Boolean.class;
+				default:
+					return Boolean.class;
+				}
+			}
+			
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				return false;
+			}
+		};
+		
+		table = new JTable(model);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 300));
 	}
 
 	private void registerEventHandlers() {
-		
+
 		choose.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
