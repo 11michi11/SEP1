@@ -62,7 +62,7 @@ public class EventCreateFormTrip extends VIAPanel {
 		createForm.setFont(new Font("Arial", Font.PLAIN, 30));
 		title = new JLabel("Title:");
 		price = new JLabel("Price:");
-		places = new JLabel("NÂ° of Places:");
+		places = new JLabel("N° of Places:");
 		starDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
@@ -76,7 +76,7 @@ public class EventCreateFormTrip extends VIAPanel {
 		location = new JLabel("Location:");
 		save = new JButton("SAVE");
 		back = new VIAButtonBack(frame, parentPanel);
-		descriptionArea = new JTextArea(10, 55);
+		descriptionArea = new JTextArea(7, 55);
 
 		finalized = new JRadioButton("YES");
 		finalized.setSelected(true);

@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -60,7 +62,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		String[] boxString = { "", "astronomy", "nature", "yoga" };
 		String[] boxLecturers = { "lecturerName", "", "" };
 
-		createForm = new JLabel("Create Form for SEMINARS");
+		createForm = new VIALabel("Create Form for SEMINARS");
 		createForm.setFont(new Font("Arial", Font.PLAIN, 30));
 		title = new JLabel("Title:");
 		category = new JLabel("Category:");
@@ -101,6 +103,28 @@ public class EventCreateFormSeminars extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
+		lecturer.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame lecturerChoice = new JFrame();
+				lecturerChoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				lecturerChoice.setSize(900, 500);
+				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
+				lecturerChoice.setContentPane(new LecturerMultipleChoiceList(lecturerChoice));
+				lecturerChoice.setVisible(true);
+
+			}
+		});
+
+		save.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
 	}
 
 	public void addComponentsToPanel() {
