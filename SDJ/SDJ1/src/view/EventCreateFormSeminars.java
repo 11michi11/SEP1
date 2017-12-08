@@ -81,7 +81,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		save = new VIAButtonExtraSmall("SAVE", 20);
 		back = new VIAButtonBack(frame, parentPanel);
 		categoryBox = new JComboBox(boxString);
-		descriptionArea = new JTextArea(6, 55);
+		descriptionArea = new JTextArea(5, 55);
 
 		finalized = new JRadioButton("YES");
 		finalized.setSelected(true);

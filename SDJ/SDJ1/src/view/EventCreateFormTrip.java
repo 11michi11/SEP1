@@ -77,7 +77,7 @@ public class EventCreateFormTrip extends VIAPanel {
 		location = new JLabel("Location:");
 		save = new VIAButtonExtraSmall("SAVE", 20);
 		back = new VIAButtonBack(frame, parentPanel);
-		descriptionArea = new JTextArea(7, 55);
+		descriptionArea = new JTextArea(6, 55);
 
 		finalized = new JRadioButton("YES");
 		finalized.setSelected(true);
