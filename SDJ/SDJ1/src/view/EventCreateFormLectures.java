@@ -59,7 +59,7 @@ public class EventCreateFormLectures extends VIAPanel {
 
 	public void initializeComponents() {
 
-		String[] boxString = { "", "astronomy", "nature", "yoga" };
+		String[] boxString = { "", "Astrology","Meditation", "Reincarnation","Health","Buddhism", "Nature","Other"};
 
 		createForm = new VIALabel("Create Form for LECTURES", 33);
 		title = new JLabel("Title:");
