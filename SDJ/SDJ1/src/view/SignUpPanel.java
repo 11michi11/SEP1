@@ -51,16 +51,6 @@ public class SignUpPanel extends VIAPanel {
 			}
 		});
 
-		participant.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new SignUpFormParticipant(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
-
 		lecturer.addActionListener(new ActionListener() {
 
 			@Override

@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,8 +26,8 @@ public class SignUpFormParticipant extends VIAPanel {
 	private JButton addToList;
 	private JFrame frame;
 	private JPanel parentPanel;
-	private JButton back;
-	
+	private VIAButtonBack back;
+
 	public SignUpFormParticipant(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
@@ -50,7 +53,29 @@ public class SignUpFormParticipant extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
+		addToList.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (parentPanel instanceof MemberListPanel) {
+					frame.dispose();
+				} else {
+					back.goBack();
+				}
+			}
+		});
+
+		back.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (parentPanel instanceof MemberListPanel) {
+					frame.dispose();
+				} else {
+					back.goBack();
+				}
+			}
+		});
 	}
 
 	public void addComponentsToPanel() {
@@ -87,7 +112,8 @@ public class SignUpFormParticipant extends VIAPanel {
 		JPanel logo = new JPanel(new BorderLayout());
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
-		logo.add(buttonBack, BorderLayout.WEST);;
+		logo.add(buttonBack, BorderLayout.WEST);
+		;
 
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(label, BorderLayout.NORTH);
