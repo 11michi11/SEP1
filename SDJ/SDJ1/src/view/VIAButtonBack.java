@@ -13,10 +13,12 @@ public class VIAButtonBack extends VIAButton{
 	private static final String path = "src/resources/buttonBack.jpg";
 	private JPanel parentPanel;
 	private JFrame mainFrame;
+	private ActionListener listener;
 	
 	public VIAButtonBack(JFrame mainFrame, JPanel parentPanel) {
 		super("", path, prefSize);
-		super.addActionListener(new BackButtonListaner());
+		this.actionListener = new BackButtonListaner();
+		super.addActionListener(this.actionListener);
 		this.parentPanel = parentPanel;
 		this.mainFrame = mainFrame;
 	}
@@ -24,6 +26,11 @@ public class VIAButtonBack extends VIAButton{
 	public void goBack() {
 		mainFrame.setContentPane(parentPanel);
 		mainFrame.revalidate();
+	}
+	
+	public void changeListener(ActionListener listener) {
+		super.removeActionListener(actionListener);
+		super.addActionListener(listener);
 	}
 	
 	class BackButtonListaner implements ActionListener{

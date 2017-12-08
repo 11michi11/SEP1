@@ -80,7 +80,7 @@ public class SignUpFormLecturer extends VIAPanel {
 			}
 		});
 
-		back.addActionListener(new ActionListener() {
+		back.changeListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
