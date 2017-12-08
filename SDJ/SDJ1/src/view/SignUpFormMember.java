@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -34,9 +36,9 @@ public class SignUpFormMember extends VIAPanel {
 	private JButton add;
 	private JFrame frame;
 	private JPanel parentPanel;
-	private JButton back;
+	private VIAButtonBack back;
 
-	public SignUpFormMember(JFrame frame) {
+	public SignUpFormMember(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
@@ -72,7 +74,29 @@ public class SignUpFormMember extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
-
+		add.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(parentPanel instanceof MemberListPanel) {
+					frame.dispose();
+				}else {
+					back.goBack();
+				}
+			}
+		});
+		
+		back.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(parentPanel instanceof MemberListPanel) {
+					frame.dispose();
+				}else {
+					back.goBack();
+				}
+			}
+		});
 	}
 
 	public void addComponentsToPanel() {
@@ -193,7 +217,7 @@ public class SignUpFormMember extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new SignUpFormMember(frame));
+				frame.setContentPane(new SignUpFormMember(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

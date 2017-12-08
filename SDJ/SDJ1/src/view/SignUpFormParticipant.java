@@ -25,7 +25,7 @@ public class SignUpFormParticipant extends VIAPanel {
 	private JPanel parentPanel;
 	private JButton back;
 	
-	public SignUpFormParticipant(JFrame frame) {
+	public SignUpFormParticipant(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
@@ -107,7 +107,7 @@ public class SignUpFormParticipant extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new SignUpFormParticipant(frame));
+				frame.setContentPane(new SignUpFormParticipant(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

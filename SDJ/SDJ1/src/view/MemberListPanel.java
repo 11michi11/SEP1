@@ -84,10 +84,11 @@ public class MemberListPanel extends VIAPanel {
 		table = new JTable(model);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 		
-		back = new VIAButtonBack(frame, parentPanel);//do we need it here?
+		back = new VIAButtonBack(frame, parentPanel);
 	}
 
 	private void registerEventHandlers() {
+		JPanel currentPanel = this;
 		add.addActionListener(new ActionListener() {
 			
 			@Override
@@ -96,7 +97,7 @@ public class MemberListPanel extends VIAPanel {
 				lecturerChoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				lecturerChoice.setSize(900, 500);
 				lecturerChoice.setTitle("VIA - Add new member");
-				lecturerChoice.setContentPane(new SignUpFormMember(lecturerChoice));
+				lecturerChoice.setContentPane(new SignUpFormMember(lecturerChoice, currentPanel));
 				lecturerChoice.setVisible(true);
 			}
 		});

@@ -21,6 +21,11 @@ public class VIAButtonBack extends VIAButton{
 		this.mainFrame = mainFrame;
 	}
 	
+	public void goBack() {
+		mainFrame.setContentPane(parentPanel);
+		mainFrame.revalidate();
+	}
+	
 	class BackButtonListaner implements ActionListener{
 
 		@Override

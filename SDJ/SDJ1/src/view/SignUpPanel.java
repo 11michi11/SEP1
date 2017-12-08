@@ -51,12 +51,13 @@ public class SignUpPanel extends VIAPanel{
 	}
 	
 	public void registerEventHandlers() {
+		JPanel currentPanel = this;
 		
 		member.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new SignUpFormMember(frame);
+				JPanel newContentPane = new SignUpFormMember(frame, currentPanel);
 				frame.setContentPane(newContentPane);
 				frame.revalidate();
 			}
@@ -66,7 +67,7 @@ public class SignUpPanel extends VIAPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new SignUpFormParticipant(frame);
+				JPanel newContentPane = new SignUpFormParticipant(frame, currentPanel);
 				frame.setContentPane(newContentPane);
 				frame.revalidate();
 			}
@@ -76,7 +77,7 @@ public class SignUpPanel extends VIAPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new SignUpFormLecturer(frame);
+				JPanel newContentPane = new SignUpFormLecturer(frame, currentPanel);
 				frame.setContentPane(newContentPane);
 				frame.revalidate();
 			}

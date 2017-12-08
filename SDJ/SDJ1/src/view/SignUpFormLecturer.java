@@ -34,7 +34,7 @@ public class SignUpFormLecturer extends VIAPanel{
 	private JPanel parentPanel;
 	private JButton back;
 
-	public SignUpFormLecturer(JFrame frame) {
+	public SignUpFormLecturer(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
@@ -179,7 +179,7 @@ public class SignUpFormLecturer extends VIAPanel{
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new SignUpFormLecturer(frame));
+				frame.setContentPane(new SignUpFormLecturer(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});
