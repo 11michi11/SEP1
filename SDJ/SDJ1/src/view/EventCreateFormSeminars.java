@@ -102,7 +102,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame lecturerChoice = new JFrame();
-				lecturerChoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				lecturerChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				lecturerChoice.setSize(900, 500);
 				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
 				lecturerChoice.setContentPane(new LecturerMultipleChoiceList(lecturerChoice));
@@ -127,7 +127,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame categoryChoice = new JFrame();
-				categoryChoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				categoryChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				categoryChoice.setSize(900, 500);
 				categoryChoice.setTitle("VIA - Choice of category for event");
 				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice));
