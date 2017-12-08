@@ -39,7 +39,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 	private JComboBox fieldLecturer;
 	private JButton lecturer;
 	private JButton save;
-	private JButton back;
+	private VIAButtonBack back;
 	private JComboBox categoryBox;
 	private JTextArea descriptionArea;
 	private JRadioButton finalized;
@@ -62,7 +62,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		String[] boxString = { "categoryTitle", ""};
 		String[] boxLecturers = { "lecturerName","" };
 
-		createForm = new VIALabel("Create Form for SEMINARS", 40);
+		createForm = new VIALabel("Create Form for SEMINARS", 33);
 		title = new JLabel("Title:");
 		category = new VIAButtonExtraSmall("Category",20);
 		price = new JLabel("Price:");
@@ -70,7 +70,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		starDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
-		description = new VIALabel("DESCRIPTION:",20);
+		description = new VIALabel("DESCRIPTION:", 20);
 		fieldTitle = new JTextField(8);
 		fieldPrice = new JTextField(8);
 		fieldPlaces = new JTextField(8);
@@ -94,7 +94,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 		group.add(finalized);
 		group.add(unfinalized);
 
-
 	}
 
 	public void registerEventHandlers() {
@@ -116,8 +115,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-
+				back.goBack();
 			}
 		});
 		
