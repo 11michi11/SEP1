@@ -56,7 +56,7 @@ public class SignUpFormParticipant extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (parentPanel instanceof MemberListPanel) {
+				if (parentPanel instanceof EventListPanel) {
 					frame.dispose();
 				} else {
 					back.goBack();
@@ -68,7 +68,7 @@ public class SignUpFormParticipant extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (parentPanel instanceof MemberListPanel) {
+				if (parentPanel instanceof EventListPanel) {
 					frame.dispose();
 				} else {
 					back.goBack();

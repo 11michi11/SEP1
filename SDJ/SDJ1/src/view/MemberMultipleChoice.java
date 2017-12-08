@@ -19,18 +19,17 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class MemberListPanel extends VIAPanel {
+public class MemberMultipleChoice extends VIAPanel {
 
 	private JTable table;
 	private JTextField search;
 	private JButton add;
-	private JButton mail;
 	private JLabel memberList;
 	private JFrame frame;
 	private JButton back;
 	private JPanel parentPanel;
 
-	public MemberListPanel(JFrame frame, JPanel parentPanel) {
+	public MemberMultipleChoice(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
@@ -41,7 +40,7 @@ public class MemberListPanel extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name", "E-mail", "ID", "Paid" };
+		String[] columnNames = { "Name", "E-mail", "ID", "Choice" };
 		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", true },
 				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
 				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
@@ -56,8 +55,7 @@ public class MemberListPanel extends VIAPanel {
 		search = new JTextField(47);
 		search.setText("SEARCH");
 
-		add = new VIAButtonSmall("ADD MEMBER", 30);
-		mail = new VIAButtonSmall("SEND REMAIND E-MAIL", 30);
+		add = new VIAButtonSmall("ADD MEMBERS TO EVENT", 25);
 
 		memberList = new VIALabel("MEMBER LIST", 30);
 
@@ -78,6 +76,15 @@ public class MemberListPanel extends VIAPanel {
 					return Boolean.class;
 				}
 			}
+			
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				if(col==3)
+					return true;
+				else
+					return false;
+			}
+			
 		};
 		table = new JTable(model);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
@@ -92,7 +99,7 @@ public class MemberListPanel extends VIAPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame member = new JFrame();
-				member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				member.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				member.setSize(900, 500);
 				member.setTitle("VIA - Add new member");
 				member.setContentPane(new SignUpFormMember(member, currentPanel));
@@ -110,18 +117,12 @@ public class MemberListPanel extends VIAPanel {
 		left.add(scrollPane, BorderLayout.CENTER);
 		left.setOpaque(false);
 
-		JPanel north = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		north.add(add);
-		north.setOpaque(false);
-		
+		JPanel addPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		addPanel.add(add);
+		addPanel.setOpaque(false);
 
-		JPanel south = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		south.add(mail);
-		south.setOpaque(false);
-
-		JPanel right = new JPanel(new BorderLayout());
-		right.add(north, BorderLayout.NORTH);
-		right.add(south, BorderLayout.CENTER);
+		JPanel right = new JPanel();
+		right.add(addPanel);
 		right.setOpaque(false);
 
 		JPanel labelPanel = new JPanel();
@@ -157,7 +158,7 @@ public class MemberListPanel extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new MemberListPanel(frame, new JPanel()));
+				frame.setContentPane(new MemberMultipleChoice(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});

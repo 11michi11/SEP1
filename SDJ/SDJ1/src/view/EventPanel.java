@@ -18,7 +18,7 @@ public class EventPanel extends VIAPanel {
 	private JButton seminars;
 	private JButton workshop;
 	private JButton trips;
-	private JButton back;
+	private VIAButtonBack back;
 	private JFrame frame;
 	private JPanel parentPanel;
 
@@ -80,6 +80,18 @@ public class EventPanel extends VIAPanel {
 				JPanel newContentPane = new EventCreateFormTrip(frame, currentPanel);
 				frame.setContentPane(newContentPane);
 				frame.revalidate();
+			}
+		});
+
+		back.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (parentPanel instanceof EventListPanel) {
+					frame.dispose();
+				} else {
+					back.goBack();
+				}
 			}
 		});
 
