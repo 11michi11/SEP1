@@ -50,8 +50,7 @@ public class SignUpFormMember extends VIAPanel {
 	}
 
 	public void initializeComponents() {
-		signUp = new JLabel("Sign-Up Form for MEMBER");
-		signUp.setFont(new Font("Arial", Font.PLAIN, 30));
+		signUp = new VIALabel("Sign-Up Form for MEMBER",40);
 		name = new JLabel("Name:");
 		email = new JLabel("E-mail:");
 		address = new JLabel("Address:");

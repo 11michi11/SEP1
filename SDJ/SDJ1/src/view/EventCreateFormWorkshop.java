@@ -62,16 +62,15 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		String[] boxString = { "", "astronomy", "nature", "yoga" };
 		String[] boxLecturers = { "lecturerName", "", "" };
 
-		createForm = new JLabel("Create Form for WORKSHOP");
-		createForm.setFont(new Font("Arial", Font.PLAIN, 30));
+		createForm = new VIALabel("Create Form for WORKSHOP",40);
 		title = new JLabel("Title:");
 		category = new JLabel("Category:");
 		price = new JLabel("Price:");
-		places = new JLabel("N° of Places:");
+		places = new JLabel("Nï¿½ of Places:");
 		starDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
-		description = new JLabel("DESCRIPTION:");
+		description = new VIALabel("DESCRIPTION:",20);
 		fieldTitle = new JTextField(8);
 		fieldPrice = new JTextField(8);
 		fieldPlaces = new JTextField(8);
