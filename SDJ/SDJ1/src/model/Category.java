@@ -13,7 +13,7 @@ public enum Category {
 			return Category.Reincarnation;
 		case "Health":
 			return Category.Health;
-		case "TrafitionalBuddhism":
+		case "TraditionalBuddhism":
 			return Category.TraditionalBuddhism;
 		case "Nature":
 			return Category.Nature;

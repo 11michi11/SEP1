@@ -9,7 +9,7 @@ Paz Padilla;lunes@hotmail.com;789955532;Astrology;true
 Chistian Sanchez;manana@hotmail.com;229956632;Meditation,Health,Nature;false
 Ramon Perez;ayer@hotmail.com;789956422;TraditionalBuddhism;true
 Jorge Vazquez;cantimplora@hotmail.com;203356632;Meditation,Nature;false
-Mª Isabel Moncho;erestu@hotmail.com;789936612;Astrology;true
+Isabel Moncho;erestu@hotmail.com;789936612;Astrology;true
 Jaime Molines;soyyo@hotmail.com;149956232;TraditionalBuddhism,Health;false
 Carolina Ripoll;somostodos@hotmail.com;339956632;Astrology;true
 Carlos Cervera;erestu@hotmail.com;200956632;Reincarnation,Other;false
@@ -27,7 +27,7 @@ Julian Muñoz;malapersona@hotmail.com;780000632;Meditation;true
 Chisko Yagoda;foryou@hotmail.com;299996632;TraditionalBuddhism;false
 Penelope Cruz;forme@hotmail.com;789956992;Meditation,Health;true
 Kimmy Possible;therest@hotmail.com;299999632;Astrology;false
-Algélica Jolie;ofhuman@hotmail.com;7863654632;Reincarnation;true
+Algélica Jolie;ofhuman@hotmail.com;78654632;Reincarnation;true
 Piotr Oshalawy;race@hotmail.com;266956632;Meditation;false
 Anna Duda;monday@hotmail.com;789956123;Reincarnation,Health,Other;true
 Kseña Judgeeskiveitx;tuesday@hotmail.com;209956456;Astrology;false
@@ -40,7 +40,7 @@ Joanna Shorish;january@hotmail.com;296352632;Health;false
 Monica Semankievich;february@hotmail.com;789999632;Astrology;true
 Matilda Ligansda;march@hotmail.com;209902632;TraditionalBuddhism,Nature;false
 Alexsandra Wajmenviac;april@hotmail.com;789903632;Nature;true
-Miruosava Espurna;may@hotmail.com;9029956632;Meditation,Health,Nature;false
+Miruosava Espurna;may@hotmail.com;90256632;Meditation,Health,Nature;false
 Elsvietta Giovaska;june@hotmail.com;789656532;Astrology,Nature,Other;true
 Justina Rubert;july@hotmail.com;20995663;Nature;false
 Anacstasi Kshovski;august@hotmail.com;78995222;TraditionalBuddhism,Health;true

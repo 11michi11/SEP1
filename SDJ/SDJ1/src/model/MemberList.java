@@ -57,5 +57,15 @@ public class MemberList {
 	public Member next() {
 		return iter.next();
 	}
+	
+	public String toString ()
+	{
+	   String returnString = "";
+	   for (Member e: members)
+	   {
+	      returnString += e.toString()+"\n";
+	   }
+	   return returnString;
+	}
 
 }

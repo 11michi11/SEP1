@@ -1,23 +1,15 @@
-Lecture;title;startDay(dd/mm/yyyy);endDay(dd/mm/yyyy);price;finalized;description;capacity;CATEGORY;[lecturer]
+Lecture;title;startDay(dd/mm/yyyy);endDay(dd/mm/yyyy);price;finalized;description;capacity;CATEGORY;{[lecturer]}
 Workshop;title;startDay;endDay;price;finalized;description;capacity;[];{[name;email;phone;[categories];wantsAdvertise],[name;email;phone;[categories];wantsAdvertise]}
 Seminar;title;startDay;endDay;price;finalized;description;capacity;[];{[name;email;phone;[categories];wantsAdvertise],[name;email;phone;[categories];wantsAdvertise]}
-Trip;title;startDay;endDay;price;finalized;description;capacity;location
-
-Lecture;Higher Clairvoyance;02/01/2018/16:30;02/01/2018/18:00;50;true;Clotilda Swovachka, will provide the principles of developing the “Inner Eyes”;135;TraditionalBuddhism;[Clotilda Swovachka;friday@hotmail.com;786622202;TraditionalBuddhism,Nature;true]
-Lecture;Oneness;21/02/2018/16:30;21/06/2018/18:00;25,75;false;Achieving Oneness with the Higher Soul has been designed for those who are interested in pursuing a spiritual path as it accelerates the evolutionary process of the soul.;105;Reincarnation;[Olivia Schopka;losamigos987@hotmail.com;709956632;Reincarnation,Other;true]
-Lecture;Super Brain Yoga;15/03/2018/16:30;15/03/2018/18:00;60;true;Super Brain Yoga is an ancient yogic exercise that is designed to activate, energize and strengthen the brain cells.;95;Meditation;[Kragena Novak;problemas@hotmail.com;202956632;Meditation;false]
-
-
-Workshop;Relation Healing;14/02/2018/12:30;15/02/2018/19:45;99.95;false;Learn the Energetic Approach to creating fulfilling relationships.;54;Meditation;{[Maugojata Tripka;sunday@hotmail.com;783336632;Meditation;true],[Jorge Vazquez;cantimplora@hotmail.com;203356632;Meditation,Nature;false]}
-Workshop;Archatic Yoga;31/03/2018/12:30;02/04/2018/19:45;89;true;"ARHATIC" is derived from "arhat", describing a highly evolved being.;45;Astrology;{[Guukash Subbushefski;patitofeo@hotmail.com;789906002;Astrology;true],[Kimmy Possible;therest@hotmail.com;299999632;Astrology;false]}
+Trip;title;startDay;endDay;price;finalized;description;capacity;{location}
+Lecture;Higher Clairvoyance;02/01/2018/16:30;02/01/2018/18:00;50;true;Clotilda Swovachka, will provide the principles of developing the “Inner Eyes”;135;TraditionalBuddhism;{[Clotilda Swovachka;friday@hotmail.com;786622202;TraditionalBuddhism,Nature;true]}
+Lecture;Oneness;21/02/2018/16:30;21/02/2018/18:00;25;false;Achieving Oneness with the Higher Soul has been designed for those who are interested in pursuing a spiritual path as it accelerates the evolutionary process of the soul.;105;Reincarnation;{[Olivia Schopka;losamigos987@hotmail.com;709956632;Reincarnation,Other;true]}
+Lecture;Super Brain Yoga;15/03/2018/16:30;15/03/2018/18:00;60;true;Super Brain Yoga is an ancient yogic exercise that is designed to activate, energize and strengthen the brain cells.;95;Meditation;{[Kragena Novak;problemas@hotmail.com;202956632;Meditation;false]}
 Workshop;Essence of a Man;04/04/2018/12:30;08/04/2018/19:45;125;false;The Spiritual Essence of Man course is designed to give the student a deeper understanding of the Tree of Life that is mentioned in most esoteric traditions.;33;Nature;{[Lilo Stich;marzo@hotmail.com;562356632;Nature;false],[Alexsandra Wajmenviac;april@hotmail.com;789903632;Nature;true]}
 Workshop;Super Brain Yoga & Heal;05/05/2018/12:30;21/05/2018/19:45;73.95;true;Learn to boost your vitality, recharge your brain power, experience emotional calmness and mental clarity with this ancient technique that harnesses the body's primordial energies.;46;Health;{[Glleggosh Faliusiava;thursday@hotmail.com;209956101;Health;false],[Anna Duda;monday@hotmail.com;789956123;Reincarnation,Health,Other;true]}
-
-
-
+Workshop;Archatic Yoga;31/03/2018/12:30;02/04/2018/19:45;89;true;"ARHATIC" is derived from "arhat", describing a highly evolved being.;45;Astrology;{[Guukash Subbushefski;patitofeo@hotmail.com;789906002;Astrology;true],[Kimmy Possible;therest@hotmail.com;299999632;Astrology;false]}
+Workshop;Relation Healing;14/02/2018/12:30;15/02/2018/19:45;99.95;false;Learn the Energetic Approach to creating fulfilling relationships.;54;Meditation;{[Maugojata Tripka;sunday@hotmail.com;783336632;Meditation;true],[Jorge Vazquez;cantimplora@hotmail.com;203356632;Meditation,Nature;false]}
 Seminar;Arthatic Yoga;09/06/2018/14:30;09/06/2018/18:00;75;true;Learn and experience the essence and powers of the 7 yogas;42;TraditionalBuddhism;{[Jaime Molines;soyyo@hotmail.com;149956232;TraditionalBuddhism,Health;false],[Chisko Yagoda;foryou@hotmail.com;299996632;TraditionalBuddhism;false]}
 Seminar;Crystal Healing;23/07/2018/14:30;23/07/2018/18:00;60;false;Crystal can absorb, store, project and focus subtle energies.;22;Astrology;{[Shawn Mendes;abril@hotmail.com;733956632;Astrology;true],[Pantadeuch Coixustu;agosto@hotmail.com;732568632;Astrology,Health;true]}
 Seminar;Pranic Therapy;07/09/2018/14:30;07/09/2018/18:00;99;true;Pranic Psychotherapy is the application of Pranic Healing techniques to healing and alleviating emotional and mental imbalances.;39;Meditation;{[Zenon Shiemvebitx;remethebest@hotmail.com;989956632;Meditation;true],[Andrei Dosantos;november@hotmail.com;200056632;Meditation,Nature;false]}
-
-
-Trip;Dhammakaya Meditation;05/05/2018;10/05/2018;350;false;This compound surrounded by lush tropical forest and rolling green hills in northeastern Thailand is adjacent to Phu Ruea National Park.;76;The Middle Way Meditation Retreat, Loei, Thailand
+Trip;Dhammakaya Meditation;05/05/2018;10/05/2018;350;false;This compound surrounded by lush tropical forest and rolling green hills in northeastern Thailand is adjacent to Phu Ruea National Park.;76;{The Middle Way Meditation Retreat, Loei, Thailand}
