@@ -94,10 +94,13 @@ public class EventCreateFormTrip extends VIAPanel {
 
 	public void registerEventHandlers() {
 		save.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				back.goBack();
+				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+					frame.dispose();
+				else
+					back.goBack();
 			}
 		});
 	}

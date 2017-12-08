@@ -59,7 +59,8 @@ public class EventCreateFormLectures extends VIAPanel {
 
 	public void initializeComponents() {
 
-		String[] boxString = { "", "Astrology","Meditation", "Reincarnation","Health","Buddhism", "Nature","Other"};
+		String[] boxString = { "", "Astrology", "Meditation", "Reincarnation", "Health", "Buddhism", "Nature",
+				"Other" };
 
 		createForm = new VIALabel("Create Form for LECTURES", 33);
 		title = new JLabel("Title:");
@@ -114,8 +115,10 @@ public class EventCreateFormLectures extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				back.goBack();
-
+				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+					frame.dispose();
+				else
+					back.goBack();
 			}
 		});
 	}

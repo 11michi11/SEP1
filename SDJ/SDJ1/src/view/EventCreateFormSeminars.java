@@ -59,12 +59,12 @@ public class EventCreateFormSeminars extends VIAPanel {
 
 	public void initializeComponents() {
 
-		String[] boxString = { "categoryTitle", ""};
-		String[] boxLecturers = { "lecturerName","" };
+		String[] boxString = { "categoryTitle", "" };
+		String[] boxLecturers = { "lecturerName", "" };
 
 		createForm = new VIALabel("Create Form for SEMINARS", 33);
 		title = new JLabel("Title:");
-		category = new VIAButtonExtraSmall("Category",20);
+		category = new VIAButtonExtraSmall("Category", 20);
 		price = new JLabel("Price:");
 		places = new JLabel("N� of Places:");
 		starDate = new JLabel("Start date:");
@@ -77,8 +77,8 @@ public class EventCreateFormSeminars extends VIAPanel {
 		fieldStartDate = new JTextField(8);
 		fieldEndDate = new JTextField(8);
 		fieldLecturer = new JComboBox(boxLecturers);
-		lecturer = new VIAButtonExtraSmall("Lecturers",20);
-		save = new VIAButtonExtraSmall("SAVE",20);
+		lecturer = new VIAButtonExtraSmall("Lecturers", 20);
+		save = new VIAButtonExtraSmall("SAVE", 20);
 		back = new VIAButtonBack(frame, parentPanel);
 		categoryBox = new JComboBox(boxString);
 		descriptionArea = new JTextArea(6, 55);
@@ -115,10 +115,13 @@ public class EventCreateFormSeminars extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				back.goBack();
+				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+					frame.dispose();
+				else
+					back.goBack();
 			}
 		});
-		
+
 		category.addActionListener(new ActionListener() {
 
 			@Override
@@ -131,7 +134,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 				categoryChoice.setVisible(true);
 			}
 		});
-		
+
 	}
 
 	public void addComponentsToPanel() {
@@ -181,7 +184,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		rightLabel.add(starDate);
 		rightLabel.add(endDate);
 		rightLabel.add(lecturer);
-		//rightLabel.add(finish);
+		// rightLabel.add(finish);
 		rightLabel.add(category);
 		rightLabel.setOpaque(false);
 
