@@ -59,7 +59,8 @@ public class EventCreateFormLectures extends VIAPanel {
 
 	public void initializeComponents() {
 
-		String[] boxString = { "", "Astrology","Meditation", "Reincarnation","Health","Buddhism", "Nature","Other"};
+		String[] boxString = { "", "Astrology", "Meditation", "Reincarnation", "Health", "Buddhism", "Nature",
+				"Other" };
 
 		createForm = new VIALabel("Create Form for LECTURES", 33);
 		title = new JLabel("Title:");
@@ -101,7 +102,7 @@ public class EventCreateFormLectures extends VIAPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame lecturerChoice = new JFrame();
-				lecturerChoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				lecturerChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				lecturerChoice.setSize(900, 500);
 				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
 				lecturerChoice.setContentPane(new LecturerChoiceList(lecturerChoice));
@@ -114,8 +115,10 @@ public class EventCreateFormLectures extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				back.goBack();
-
+				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+					frame.dispose();
+				else
+					back.goBack();
 			}
 		});
 	}
