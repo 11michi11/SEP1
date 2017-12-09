@@ -6,18 +6,18 @@ import java.util.Map;
 public class Seminar extends Event {
 
 	private ArrayList<Category> categories;
-	private ArrayList<Lecturer> lecturers;
+	private LecturerList lecturers;
 
 	public Seminar(Map<String, Object> configuration) {
 		super(configuration);
 		this.categories = (ArrayList<Category>) configuration.getOrDefault("category", new ArrayList<Category>());
-		this.lecturers = (ArrayList<Lecturer>) configuration.getOrDefault("lecturers", new ArrayList<Lecturer>());
+		this.lecturers = (LecturerList) configuration.getOrDefault("lecturers", new ArrayList<Lecturer>());
 	}
 
 	public void modify(Map<String, Object> configuration) {
 		super.modify(configuration);
 		this.categories = (ArrayList<Category>) configuration.getOrDefault("category", this.categories);
-		this.lecturers = (ArrayList<Lecturer>) configuration.getOrDefault("lecturers", this.lecturers);
+		this.lecturers = (LecturerList) configuration.getOrDefault("lecturers", this.lecturers);
 	}
 
 	public boolean canBeFinalized() {
@@ -42,8 +42,8 @@ public class Seminar extends Event {
 	
 	private String parseList() {
 		StringBuilder sb = new StringBuilder("");
-		for (Lecturer e : this.lecturers)
-			sb.append(e.getName() + ", ");
+		while (lecturers.hasNext())
+			sb.append(lecturers.next().getName() + ", ");
 		sb.replace(sb.length() - 2, sb.length(), "");
 		return sb.toString();
 	}

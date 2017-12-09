@@ -12,9 +12,9 @@ public class FileManagerTest
    {
       /*File memberFile = new File("src/resources/members.txt");
       
-      System.out.println(FileManager.readMemberFile(memberFile));*/
+      System.out.println(FileManager.readMemberFile(memberFile));
       
-      /*File lecturerFile = new File("src/resources/lecturer.txt");
+      File lecturerFile = new File("src/resources/lecturer.txt");
       
       System.out.println(FileManager.readLecturerFile(lecturerFile));*/
       

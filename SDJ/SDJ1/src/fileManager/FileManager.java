@@ -145,8 +145,10 @@ public class FileManager {
 			categories.add(Category.parseCategory(e.trim()));
 		}
 
-		wantsAdvertise = Boolean.parseBoolean(divide[4].trim());
-		return (new Lecturer(name, email, phone, categories, wantsAdvertise));
+		//wantsAdvertise = Boolean.parseBoolean(divide[4].trim());
+		String check= divide[4].trim();
+		System.out.println(check);
+		//return (new Lecturer(name, email, phone, categories, wantsAdvertise));
 	}
 
 	public static LecturerList readLecturerFile(File file) throws FileNotFoundException {
@@ -164,10 +166,10 @@ public class FileManager {
 		return lecturers;
 	}
 
-	public static EventList readEventFile(File file) throws FileNotFoundException {
+	public static EventList readEventFile(File file) throws FileNotFoundException{
 		EventList events = new EventList();
-		String line, type, lecturerLine, part1, part2;
-		String[] divide, divideDate, divideAll, divideLecturers;
+		String line, type, part1, part2;
+		String[] divide, divideDate, divideLecturers;
 		int startDay, startMonth, startYear, endDay, endMonth, endYear;
 
 		Scanner read = new Scanner(file);
@@ -205,7 +207,6 @@ public class FileManager {
 
 			switch (type.toLowerCase()) {
 			case "lecture":
-				// call the readLecturerFieInside somehow c:
 				//lecturerLine = divideAll[1].trim();
 				//lecturerLine.substring(0, lecturerLine.length() - 2);
 				//divideLecturers = part2.split(",");
