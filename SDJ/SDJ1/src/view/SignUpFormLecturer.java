@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -30,7 +31,7 @@ public class SignUpFormLecturer extends VIAPanel {
 	private JTextField fieldEmail;
 	private JTextField fieldID;
 	private JTextField fieldPhone;
-	private JTextField fieldCategory;
+	private JComboBox categoryBox;
 	private JButton add;
 	private JFrame frame;
 	private JPanel parentPanel;
@@ -48,6 +49,10 @@ public class SignUpFormLecturer extends VIAPanel {
 	}
 
 	public void initializeComponents() {
+		
+		String[] boxString = { "", "Astrology", "Meditation", "Reincarnation", "Health", "Buddhism", "Nature",
+		"Other" };
+		
 		signUp = new VIALabel("Sign-Up Form for LECTURER");
 		name = new JLabel("Name:");
 		email = new JLabel("E-mail:");
@@ -60,7 +65,7 @@ public class SignUpFormLecturer extends VIAPanel {
 		fieldEmail = new JTextField(8);
 		fieldID = new JTextField(8);
 		fieldPhone = new JTextField(8);
-		fieldCategory = new JTextField(8);
+		categoryBox = new JComboBox(boxString);
 
 		add = new VIAButtonSmall("Add to list");
 		back = new VIAButtonBack(frame, parentPanel);
@@ -111,7 +116,7 @@ public class SignUpFormLecturer extends VIAPanel {
 		fieldTwo.setOpaque(false);
 
 		JPanel fieldThree = new JPanel();
-		fieldThree.add(fieldCategory);
+		fieldThree.add(categoryBox);
 		fieldThree.setOpaque(false);
 
 		JPanel fieldFour = new JPanel();
