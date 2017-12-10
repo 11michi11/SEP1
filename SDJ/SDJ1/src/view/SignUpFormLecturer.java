@@ -15,21 +15,22 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import controler.VIAController;
 
 public class SignUpFormLecturer extends VIAPanel {
 
 	private JLabel signUp;
 	private JLabel name;
 	private JLabel email;
-	private JLabel id;
 	private JLabel phone;
-	private JLabel category;
+	private JButton category;
 	private JCheckBox advertisment;
 	private JTextField fieldName;
 	private JTextField fieldEmail;
-	private JTextField fieldID;
 	private JTextField fieldPhone;
 	private JComboBox categoryBox;
 	private JButton add;
@@ -49,21 +50,19 @@ public class SignUpFormLecturer extends VIAPanel {
 	}
 
 	public void initializeComponents() {
-		
+
 		String[] boxString = { "", "Astrology", "Meditation", "Reincarnation", "Health", "Buddhism", "Nature",
-		"Other" };
-		
+				"Other" };
+
 		signUp = new VIALabel("Sign-Up Form for LECTURER");
 		name = new JLabel("Name:");
 		email = new JLabel("E-mail:");
-		id = new JLabel("ID:");
 		phone = new JLabel("Phone:");
-		category = new JLabel("Category:");
+		category = new VIAButtonExtraSmall("Category", 20);
 		advertisment = new JCheckBox("Advertisment");
 		advertisment.setOpaque(false);
 		fieldName = new JTextField(8);
 		fieldEmail = new JTextField(8);
-		fieldID = new JTextField(8);
 		fieldPhone = new JTextField(8);
 		categoryBox = new JComboBox(boxString);
 
@@ -96,6 +95,46 @@ public class SignUpFormLecturer extends VIAPanel {
 				}
 			}
 		});
+
+		add.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (canFormBeSaved()) {
+					Object[] configuration = new Object[5];
+					configuration[0] = fieldName.getText();
+					configuration[1] = categoryBox.getSelectedItem();
+					configuration[2] = Integer.parseInt(fieldPhone.getText());
+					configuration[3] = fieldEmail.getText();
+					configuration[4] = advertisment.isSelected();
+					// configuration[4] = new MyDate(fieldDateOfMembership.getText());
+
+					VIAController.addMemberToList(configuration);
+
+					if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
+						frame.dispose();
+					} else {
+						back.goBack();
+					}
+				} else {
+					JOptionPane.showMessageDialog(frame, "Fill all filed to save lecturer", "Form error",
+							JOptionPane.PLAIN_MESSAGE);
+				}
+			}
+		});
+
+		category.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame categoryChoice = new JFrame();
+				categoryChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				categoryChoice.setSize(900, 500);
+				categoryChoice.setTitle("VIA - Choice of category for event");
+				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice));
+				categoryChoice.setVisible(true);
+			}
+		});
 	}
 
 	public void addComponentsToPanel() {
@@ -119,10 +158,6 @@ public class SignUpFormLecturer extends VIAPanel {
 		fieldThree.add(categoryBox);
 		fieldThree.setOpaque(false);
 
-		JPanel fieldFour = new JPanel();
-		fieldFour.add(fieldID);
-		fieldFour.setOpaque(false);
-
 		leftField.add(fieldOne);
 		leftField.add(fieldTwo);
 		leftField.add(fieldThree);
@@ -137,19 +172,17 @@ public class SignUpFormLecturer extends VIAPanel {
 		leftSide.add(left);
 		leftSide.setOpaque(false);
 
-		JPanel rightLabel = new JPanel(new GridLayout(3, 1));
-		rightLabel.add(id);
+		JPanel rightLabel = new JPanel(new GridLayout(2, 1));
 		rightLabel.add(phone);
 		rightLabel.add(advertisment);
 		rightLabel.setOpaque(false);
 
-		JPanel rightField = new JPanel(new GridLayout(3, 1));
+		JPanel rightField = new JPanel(new GridLayout(2, 1));
 
 		JPanel fieldFive = new JPanel();
 		fieldFive.add(fieldPhone);
 		fieldFive.setOpaque(false);
 
-		rightField.add(fieldFour);
 		rightField.add(fieldFive);
 		rightField.setOpaque(false);
 
@@ -210,6 +243,14 @@ public class SignUpFormLecturer extends VIAPanel {
 				frame.setVisible(true);
 			}
 		});
+
+	}
+
+	private boolean canFormBeSaved() {
+		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("")
+				&& !categoryBox.getSelectedItem().equals("") && advertisment.isSelected())
+			return true;
+		return false;
 
 	}
 
