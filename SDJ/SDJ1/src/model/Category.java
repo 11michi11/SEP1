@@ -24,4 +24,25 @@ public enum Category {
 		}
 	}
 
+	public static Category fromNumberToCategory(int number) {
+		switch (number) {
+		case 0:
+			return Category.Astrology;
+		case 1:
+			return Category.Meditation;
+		case 2:
+			return Category.Reincarnation;
+		case 3:
+			return Category.Health;
+		case 4:
+			return Category.TraditionalBuddhism;
+		case 5:
+			return Category.Nature;
+		case 6:
+			return Category.Other;
+		default:
+			return Category.Other;
+		}
+	}
+
 }
