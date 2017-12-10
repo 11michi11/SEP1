@@ -1,10 +1,8 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,8 +13,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import controler.VIAController;
+import model.MyDate;
 
 public class SignUpFormMember extends VIAPanel {
 
@@ -50,7 +52,7 @@ public class SignUpFormMember extends VIAPanel {
 	}
 
 	public void initializeComponents() {
-		signUp = new VIALabel("Sign-Up Form for MEMBER",40);
+		signUp = new VIALabel("Sign-Up Form for MEMBER", 40);
 		name = new JLabel("Name:");
 		email = new JLabel("E-mail:");
 		address = new JLabel("Address:");
@@ -64,8 +66,7 @@ public class SignUpFormMember extends VIAPanel {
 		fieldPhone = new JTextField(10);
 		fieldDateOfMembership = new JTextField(10);
 		fieldDateOfMembership.setText("dd/mm/yyyy/hh:mm");
-		
-		
+
 		add = new VIAButtonSmall("Add to list");
 
 		back = new VIAButtonBack(frame, parentPanel);
@@ -73,7 +74,7 @@ public class SignUpFormMember extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
-		
+
 		fieldDateOfMembership.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (fieldDateOfMembership.getText().equals("dd/mm/yyyy/hh:mm"))
@@ -85,28 +86,40 @@ public class SignUpFormMember extends VIAPanel {
 					fieldDateOfMembership.setText("dd/mm/yyyy/hh:mm");
 			}
 		});
-		
-		
+
 		add.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
-					frame.dispose();
-				}else {
-					back.goBack();
+				if (canFormBeSaved()) {
+					Object[] configuration = new Object[5];
+					configuration[0] = fieldName.getText();
+					configuration[1] = fieldAddress.getText();
+					configuration[2] = Integer.parseInt(fieldPhone.getText());
+					configuration[3] = fieldEmail.getText();
+					// configuration[4] = new MyDate(fieldDateOfMembership.getText());
+
+					VIAController.addMemberToList(configuration);
+
+					if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
+						frame.dispose();
+					} else {
+						back.goBack();
+					}
+				} else {
+					JOptionPane.showMessageDialog(frame, "Fill all filed to save members", "Form error",
+							JOptionPane.PLAIN_MESSAGE);
 				}
 			}
 		});
-		
-		
+
 		back.changeListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
+				if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
 					frame.dispose();
-				}else {
+				} else {
 					back.goBack();
 				}
 			}
@@ -134,7 +147,6 @@ public class SignUpFormMember extends VIAPanel {
 		JPanel fieldThree = new JPanel();
 		fieldThree.add(fieldAddress);
 		fieldThree.setOpaque(false);
-
 
 		leftField.add(fieldOne);
 		leftField.add(fieldTwo);
@@ -213,7 +225,8 @@ public class SignUpFormMember extends VIAPanel {
 		JPanel logo = new JPanel(new BorderLayout());
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
-		logo.add(buttonBack, BorderLayout.WEST);;
+		logo.add(buttonBack, BorderLayout.WEST);
+		;
 
 		add(logo, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
@@ -231,6 +244,15 @@ public class SignUpFormMember extends VIAPanel {
 				frame.setVisible(true);
 			}
 		});
+
+	}
+
+	private boolean canFormBeSaved() {
+		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("") && !fieldAddress.getText().equals("")
+				&& !fieldID.getText().equals("") && !fieldDateOfMembership.getText().equals("")
+				&& !fieldDateOfMembership.getText().equals("dd/mm/yyyy/hh:mm"))
+			return true;
+		return false;
 
 	}
 
