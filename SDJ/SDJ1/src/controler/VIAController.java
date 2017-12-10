@@ -44,6 +44,21 @@ public class VIAController {
 		System.out.println(manager.getLecturersString());
 	}
 
+	
+	public static void addParticipantToList(Object[] configuration){
+		
+		String name = (String) configuration[0];
+		String email = (String) configuration[1];
+		
+		//manager.signUpParticipantToEvent(name, email);
+
+		
+		//System.out.println(manager.getParticipantString());
+	
+	
+	
+}
+	
 	public static void main(String[] args) {
 
 		VIAController controller = new VIAController();
