@@ -61,6 +61,14 @@ public class VIAManager {
 		return this.members.getAllMembers();
 
 	}
+	public ArrayList<Lecturer> getAllLecturers() {
+		return this.lecturers.getAllLecturers();
+	}
+	
+	public ArrayList<Event> getAllEvents() {
+		return this.events.getAllEvents();
+	}
+	
 
 	public String readNewsletter(MyDate date) throws FileNotFoundException {
 

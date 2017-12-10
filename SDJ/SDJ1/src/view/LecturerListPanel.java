@@ -16,6 +16,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+import controler.VIAController;
 
 public class LecturerListPanel extends VIAPanel {
 
@@ -39,17 +42,7 @@ public class LecturerListPanel extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise" };
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", "yes" },
-
-		};
+		DefaultTableModel model = VIAController.getLecturersTableModel();
 
 		search = new JTextField(47);
 		search.setText("SEARCH");
@@ -58,7 +51,7 @@ public class LecturerListPanel extends VIAPanel {
 
 		lecturerList = new VIALabel("LECTURER LIST",40);
 
-		table = new JTable(data, columnNames);
+		table = new JTable(model);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 		
 		scrollPane = new JScrollPane(table);
