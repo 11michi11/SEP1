@@ -20,7 +20,7 @@ public abstract class Event {
 	public Event(Map<String, Object> configuration) {
 		this.title = (String) configuration.getOrDefault("title", "");
 		this.startDate = (MyDate) configuration.getOrDefault("startDay", MyDate.getDefaultDate());
-		this.startDate = (MyDate) configuration.getOrDefault("endDay", MyDate.getDefaultDate());
+		this.endDate = (MyDate) configuration.getOrDefault("endDay", MyDate.getDefaultDate());
 		this.price = (double) configuration.getOrDefault("price", 0);
 		this.finalized = (boolean) configuration.getOrDefault("finalized", false);
 		this.description = (String) configuration.getOrDefault("description", "");

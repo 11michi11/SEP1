@@ -6,18 +6,18 @@ import java.util.Map;
 public class Seminar extends Event {
 
 	private ArrayList<Category> categories;
-	private LecturerList lecturers;
+	private ArrayList<Lecturer> lecturers;
 
 	public Seminar(Map<String, Object> configuration) {
 		super(configuration);
 		this.categories = (ArrayList<Category>) configuration.getOrDefault("category", new ArrayList<Category>());
-		this.lecturers = (LecturerList) configuration.getOrDefault("lecturers", new ArrayList<Lecturer>());
+		this.lecturers = (ArrayList<Lecturer>) configuration.getOrDefault("lecturers", new ArrayList<Lecturer>());
 	}
 
 	public void modify(Map<String, Object> configuration) {
 		super.modify(configuration);
 		this.categories = (ArrayList<Category>) configuration.getOrDefault("category", this.categories);
-		this.lecturers = (LecturerList) configuration.getOrDefault("lecturers", this.lecturers);
+		this.lecturers = (ArrayList<Lecturer>) configuration.getOrDefault("lecturers", this.lecturers);
 	}
 
 	public boolean canBeFinalized() {
@@ -41,10 +41,13 @@ public class Seminar extends Event {
 	}
 	
 	private String parseList() {
-		StringBuilder sb = new StringBuilder("");
-		while (lecturers.hasNext())
-			sb.append(lecturers.next().getName() + ", ");
-		sb.replace(sb.length() - 2, sb.length(), "");
-		return sb.toString();
+		if (lecturers.size() > 0) {
+		    StringBuilder sb = new StringBuilder("");
+		    for(Lecturer e : lecturers)
+			sb.append(e.getName() + ", ");
+		    sb.replace(sb.length() - 2, sb.length(), "");
+		    return sb.toString();
+		}
+		return "";
 	}
 }
