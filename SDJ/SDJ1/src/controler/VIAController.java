@@ -59,50 +59,50 @@ public class VIAController {
 
 	}
 
-	public static DefaultTableModel getMembersTableModel() {
-		
-		String[] columnNames = { "Name", "E-mail", "ID", "Paid", "Member" };
-		ArrayList<Member> members = manager.getAllMembers();
-		Object[][] data = new Object[memebrs.size()][5];
-		
-		for(int i = 0;i<members.size();i++) {
-			Object[] row = new Object[5];
-			row[0] = members.get(i).getName();
-			
-			
-			data[i] = row;
-		}
-		
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", true , (member Object)},
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", true },
-
-		};
-		
-		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
-
-			@Override
-			public Class getColumnClass(int column) {
-				switch (column) {
-				case 0:
-					return String.class;
-				case 1:
-					return String.class;
-				case 2:
-					return Integer.class;
-				case 3:
-					return Boolean.class;
-				default:
-					return Boolean.class;
-				}
-			}
-		};
-	}
+//	public static DefaultTableModel getMembersTableModel() {
+//		
+//		String[] columnNames = { "Name", "E-mail", "ID", "Paid", "Member" };
+//		ArrayList<Member> members = manager.getAllMembers();
+//		Object[][] data = new Object[memebrs.size()][5];
+//		
+//		for(int i = 0;i<members.size();i++) {
+//			Object[] row = new Object[5];
+//			row[0] = members.get(i).getName();
+//			
+//			
+//			data[i] = row;
+//		}
+//		
+//		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", true , (member Object)},
+//				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+//				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+//				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+//				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+//				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+//				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
+//				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", true },
+//
+//		};
+//		
+//		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+//
+//			@Override
+//			public Class getColumnClass(int column) {
+//				switch (column) {
+//				case 0:
+//					return String.class;
+//				case 1:
+//					return String.class;
+//				case 2:
+//					return Integer.class;
+//				case 3:
+//					return Boolean.class;
+//				default:
+//					return Boolean.class;
+//				}
+//			}
+//		};
+//	}
 
 	public static void main(String[] args) {
 

@@ -43,7 +43,7 @@ public class MemberListPanel extends VIAPanel {
 
 	private void initializeComponents() {
 		String[] columnNames = { "Name", "E-mail", "ID", "Paid", "Member" };
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", true , (member Object)},
+		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", true},
 				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
 				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
 				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
@@ -82,6 +82,7 @@ public class MemberListPanel extends VIAPanel {
 			}
 		};
 		table = new JTable(model);
+		table.removeColumn(table.getColumnModel().getColumn(4));
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 		
 		back = new VIAButtonBack(frame, parentPanel);

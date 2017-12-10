@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -42,23 +43,23 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Lecturer" };
+		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Choice", "Lecturer" };
 		Object[][] data = {
-				{ "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+				{ "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
 
 		};
@@ -85,6 +86,10 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 					return String.class;
 				case 4:
 					return Boolean.class;
+				case 5:
+					return Boolean.class;					
+				case 6:
+					return model.Lecturer.class;
 				default:
 					return Boolean.class;
 				}
@@ -101,7 +106,7 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 			}
 		};
 		table = new JTable(model);
-		table.removeColumn(table.getColumnModel().getColumn(5));
+		table.removeColumn(table.getColumnModel().getColumn(6));
 		table.setPreferredScrollableViewportSize(new Dimension(500, 300));
 	}
 
@@ -112,11 +117,13 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TableModel model = table.getModel();
-				int[] selRows = table.getSelectedRows();
 				ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
-				for (int row : selRows)
-					lecturers.add((Lecturer) model.getValueAt(row, 5));
-
+				for (int i = 0; i < model.getRowCount(); i++) {
+					System.out.println(model.getValueAt(i, 5));
+					if (model.getValueAt(i, 5) != null && (boolean) model.getValueAt(i, 5) == true)
+						lecturers.add((Lecturer) model.getValueAt(i, 6));
+				}
+				System.out.println(Arrays.toString(lecturers.toArray()));
 				assignLecturers(lecturers);
 				frame.dispose();
 			}
@@ -178,10 +185,10 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 	private void assignLecturers(ArrayList<Lecturer> lecturers) {
 		switch (parentPanel.getClass().getName()) {
 		case "view.EventCreateFormSeminars":
-			EventCreateFormSeminars.assignCategoriesToLecturerForm(lecturers);
+			EventCreateFormSeminars.assignLecturersToLecturerForm(lecturers);
 			break;
 		case "view.EventCreateFormWorkshop":
-			EventCreateFormWorkshop.assignCategoriesToLecturerForm(lecturers);
+			EventCreateFormWorkshop.assignLecturersToLecturerForm(lecturers);
 			break;
 		}
 	}

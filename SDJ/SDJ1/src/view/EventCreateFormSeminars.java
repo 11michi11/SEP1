@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.ArrayList;
+
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -22,6 +23,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import model.Category;
+import model.Lecturer;
 
 public class EventCreateFormSeminars extends VIAPanel {
 
@@ -39,7 +41,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 	private JTextField fieldPlaces;
 	private JTextField fieldStartDate;
 	private JTextField fieldEndDate;
-	private JComboBox fieldLecturer;
 	private JButton lecturer;
 	private JButton save;
 	private VIAButtonBack back;
@@ -48,6 +49,8 @@ public class EventCreateFormSeminars extends VIAPanel {
 	private JRadioButton unfinalized;
 	private JFrame frame;
 	private JPanel parentPanel;
+	private static JComboBox lecturersBox;
+	private static ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
 	private static JComboBox categoryBox;
 	private static ArrayList<Category> categories = new ArrayList<Category>();
 
@@ -82,7 +85,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		fieldStartDate.setText("dd/mm/yyyy/hh:mm");
 		fieldEndDate = new JTextField(10);
 		fieldEndDate.setText("dd/mm/yyyy/hh:mm");
-		fieldLecturer = new JComboBox(boxLecturers);
+		lecturersBox = new JComboBox(boxLecturers);
 		lecturer = new VIAButtonExtraSmall("Lecturers", 20);
 		save = new VIAButtonExtraSmall("SAVE", 20);
 		back = new VIAButtonBack(frame, parentPanel);
@@ -112,7 +115,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 				lecturerChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				lecturerChoice.setSize(900, 500);
 				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
-				lecturerChoice.setContentPane(new LecturerMultipleChoiceList(lecturerChoice));
+				lecturerChoice.setContentPane(new LecturerMultipleChoiceList(lecturerChoice, currentPanel));
 				lecturerChoice.setVisible(true);
 
 			}
@@ -245,7 +248,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		fieldSix.setOpaque(false);
 
 		JPanel fieldSeven = new JPanel();
-		fieldSeven.add(fieldLecturer);
+		fieldSeven.add(lecturersBox);
 		fieldSeven.setOpaque(false);
 
 		JPanel fieldEight = new JPanel();
@@ -342,5 +345,15 @@ public class EventCreateFormSeminars extends VIAPanel {
 
 		DefaultComboBoxModel model = new DefaultComboBoxModel(boxString);
 		categoryBox.setModel(model);
+	}
+	
+	public static void assignLecturersToLecturerForm(ArrayList<Lecturer> lecturersList) {
+		lecturers = lecturersList;
+		String[] boxString = new String[lecturersList.size()];
+		for (int i = 0; i < lecturersList.size(); i++)
+			boxString[i] = lecturersList.get(i).getName();
+		
+		DefaultComboBoxModel model = new DefaultComboBoxModel(boxString);
+		lecturersBox.setModel(model);
 	}
 }
