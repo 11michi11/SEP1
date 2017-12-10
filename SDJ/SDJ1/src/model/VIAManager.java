@@ -7,8 +7,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import fileManager.FileManager;
-
 public class VIAManager {
 
 	private MemberList members;
@@ -16,24 +14,25 @@ public class VIAManager {
 	private EventList events;
 	private ArrayList<File> newsletterFiles;
 
-	public VIAManager () {
-	   this.newsletterFiles = new ArrayList<File>();
+	public VIAManager() {
+		this.newsletterFiles = new ArrayList<File>();
 	}
-	
+
 	public void sendReminderEmailToMembers() {
 
 	}
 
-	public void signUpMember(String name, String address, int phone, String email, MyDate dateOfMembership,
-			int paymentYear) throws IOException {
+	public String getMembersString() {
+		return members.toString();
+	}
+
+	public void signUpMember(String name, String address, int phone, String email, MyDate dateOfMembership) {
 		members.addMember(new Member(name, address, phone, email, dateOfMembership));
-		FileManager.generateMemberFile(members);
 	}
 
 	public void signUpLecturer(String name, String email, int phone, ArrayList<Category> categories,
-			boolean wantsAdvertise) throws IOException {
+			boolean wantsAdvertise) {
 		lecturers.addLecturer(new Lecturer(name, email, phone, categories, wantsAdvertise));
-		FileManager.generateLecturerFile(lecturers);
 	}
 
 	public void signUpParticipantToEvent(int eventId, Participant participant) throws EventNotFoundException {
@@ -41,32 +40,32 @@ public class VIAManager {
 	}
 
 	public void generateNewsletter(String newsletterContent) throws IOException {
-	  
-      newsletterFiles.add(new File("Newsletter_" + new MyDate().toString() + ".txt"));
-      PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
 
-      out.println(newsletterContent);
+		newsletterFiles.add(new File("Newsletter_" + new MyDate().toString() + ".txt"));
+		PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
 
-      out.flush();
-      out.close();
-	   
+		out.println(newsletterContent);
+
+		out.flush();
+		out.close();
+
 	}
 
-   public String readNewsletter (MyDate date) throws FileNotFoundException {
+	public String readNewsletter(MyDate date) throws FileNotFoundException {
 
-      String newsletter = "";
-      for (File i : newsletterFiles) {
-         if (i.getName().equals("Newsletter_" + date.toString() + ".txt")) {
-            Scanner read = new Scanner(i);
-            while (read.hasNext())
-               newsletter += read.nextLine() + "\n";
-            read.close();
-            return newsletter;
-         } else {
-            throw new FileNotFoundException("No newsletter on " + date.toString());
-         }
-      }
-      return "Something went wrong...";
-   }
+		String newsletter = "";
+		for (File i : newsletterFiles) {
+			if (i.getName().equals("Newsletter_" + date.toString() + ".txt")) {
+				Scanner read = new Scanner(i);
+				while (read.hasNext())
+					newsletter += read.nextLine() + "\n";
+				read.close();
+				return newsletter;
+			} else {
+				throw new FileNotFoundException("No newsletter on " + date.toString());
+			}
+		}
+		return "Something went wrong...";
+	}
 
 }
