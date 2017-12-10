@@ -128,7 +128,7 @@ public class FileManager {
 	return members;
     }
 
-    public static void readLecturerFileInside(String line) {
+    public static Lecturer readLecturerFileInside(String line) {
 
 	String name, email;
 	String[] divide, categoriesDivide;
@@ -144,10 +144,10 @@ public class FileManager {
 	    categories.add(Category.parseCategory(e));
 	}
 
-	// wantsAdvertise = Boolean.parseBoolean(divide[4].trim());
-	String check = divide[4];
-	System.out.println(check);
-	// return (new Lecturer(name, email, phone, categories, wantsAdvertise));
+	wantsAdvertise = Boolean.parseBoolean(divide[4].trim());
+	/*String check = divide[4];
+	System.out.println(check);*/
+	return (new Lecturer(name, email, phone, categories, wantsAdvertise));
     }
 
     public static LecturerList readLecturerFile(File file) throws FileNotFoundException {
@@ -157,8 +157,7 @@ public class FileManager {
 	read.nextLine(); // skip first line
 	while (read.hasNext()) {
 	    line = read.nextLine();
-	    // lecturers.addLecturer(readLecturerFileInside(line));
-	    readLecturerFileInside(line);
+	    lecturers.addLecturer(readLecturerFileInside(line));
 
 	}
 
@@ -219,17 +218,19 @@ public class FileManager {
 
 		// event.put("lecturer", readLecturerFileInside(part2.substring(1,
 		// part2.length()-1)));
-		readLecturerFileInside(part2.substring(1, part2.length() - 1));
+		
+		//readLecturerFileInside(part2.substring(1, part2.length() - 1));
+		event.put("lecturer", readLecturerFileInside(part2.substring(1, part2.length() - 1)));
 		events.addEvent(new Lecture(event));
 		break;
 	    case "seminar":
 		// lecturerLine = divideAll[1].trim();
 		// lecturerLine.substring(0, lecturerLine.length() - 2);
 		divideLecturers = part2.split(",");
-		for (String i : divideLecturers)
+		for (String i : divideLecturers) {
 		    readLecturerFileInside(i.substring(1, i.length() - 1));
-		// lecturers.addLecturer(readLecturerFileInside(i.trim().substring(1,
-		// i.length()-1)));
+		    lecturers.add(readLecturerFileInside(i.substring(1,i.length()-1)));
+		}
 		event.put("lecturers", lecturers);
 		events.addEvent(new Seminar(event));
 		break;
@@ -238,16 +239,16 @@ public class FileManager {
 		// lecturerLine = divideAll[1].trim();
 		// lecturerLine.substring(0, lecturerLine.length() - 2);
 		divideLecturers = part2.split(",");
-		for (String i : divideLecturers)
+		for (String i : divideLecturers) {
 		    readLecturerFileInside(i.substring(1, i.length() - 1));
-		// lecturers.addLecturer(readLecturerFileInside(i.trim().substring(1,
-		// i.length()-1)));
+		    lecturers.add(readLecturerFileInside(i.substring(1,i.length()-1)));
+		}
 		event.put("lecturers", lecturers);
 		events.addEvent(new Workshop(event));
 		break;
 
 	    case "trip":
-		event.put("localization", part2);
+		event.put("location", part2);
 		events.addEvent(new Trip(event));
 		break;
 	    default:

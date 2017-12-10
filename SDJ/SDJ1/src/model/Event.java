@@ -19,24 +19,24 @@ public abstract class Event {
 
 	public Event(Map<String, Object> configuration) {
 		this.title = (String) configuration.getOrDefault("title", "");
-		this.startDate = (MyDate) configuration.getOrDefault("startDay", MyDate.getDefaultDate());
-		this.endDate = (MyDate) configuration.getOrDefault("endDay", MyDate.getDefaultDate());
+		this.startDate = (MyDate) configuration.getOrDefault("startDate", MyDate.getDefaultDate());
+		this.endDate = (MyDate) configuration.getOrDefault("endDate", MyDate.getDefaultDate());
 		this.price = (double) configuration.getOrDefault("price", 0);
 		this.finalized = (boolean) configuration.getOrDefault("finalized", false);
 		this.description = (String) configuration.getOrDefault("description", "");
-		this.capacity = (int) configuration.getOrDefault("CAPACITY", 0);
+		this.capacity = (int) configuration.getOrDefault("capacity", 0);
 		this.ID = ++nextID;
 		this.participantList = new ParticipantList();
 	}
 
 	public void modify(Map<String, Object> configuration) {
 		this.title = (String) configuration.getOrDefault("title", this.title);
-		this.startDate = (MyDate) configuration.getOrDefault("startDay", this.startDate);
-		this.endDate = (MyDate) configuration.getOrDefault("endDay", this.endDate);
+		this.startDate = (MyDate) configuration.getOrDefault("startDate", this.startDate);
+		this.endDate = (MyDate) configuration.getOrDefault("endDate", this.endDate);
 		this.price = (double) configuration.getOrDefault("price", this.price);
 		this.finalized = (boolean) configuration.getOrDefault("finalized", this.finalized);
 		this.description = (String) configuration.getOrDefault("description", this.description);
-		this.capacity = (int) configuration.getOrDefault("CAPACITY", this.capacity);
+		this.capacity = (int) configuration.getOrDefault("capacity", this.capacity);
 	}
 
 	public void finalizeEvent() {
@@ -68,7 +68,7 @@ public abstract class Event {
 	}
 
 	public double getPriceForMembers() {
-		return this.price - (this.price * this.discount);
+		return Math.round((this.price - (this.price * this.discount))*100)/100;
 	}
 
 	public int getNumberOfAvailablePlaces() {
