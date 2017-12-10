@@ -1,15 +1,14 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -35,7 +34,7 @@ public class SignUpFormLecturer extends VIAPanel {
 	private JTextField fieldEmail;
 	private JTextField fieldPhone;
 	private JButton add;
-	private JFrame frame;
+	private static JFrame frame;
 	private JPanel parentPanel;
 	private VIAButtonBack back;
 	private static JComboBox categoryBox;
@@ -54,7 +53,7 @@ public class SignUpFormLecturer extends VIAPanel {
 
 	public void initializeComponents() {
 
-		String[] boxString = {"Choose category"};
+		String[] boxString = { "Choose category" };
 
 		signUp = new VIALabel("Sign-Up Form for LECTURER");
 		name = new JLabel("Name:");
@@ -93,11 +92,11 @@ public class SignUpFormLecturer extends VIAPanel {
 				if (canFormBeSaved()) {
 					Object[] configuration = new Object[5];
 					configuration[0] = fieldName.getText();
-					configuration[1] = categories;
+					configuration[1] = fieldEmail.getText();
 					configuration[2] = Integer.parseInt(fieldPhone.getText());
-					configuration[3] = fieldEmail.getText();
+					configuration[3] = categories;
 					configuration[4] = advertisment.isSelected();
-					
+
 					VIAController.addLecturerToList(configuration);
 
 					if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
@@ -236,8 +235,8 @@ public class SignUpFormLecturer extends VIAPanel {
 	}
 
 	private boolean canFormBeSaved() {
-		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("")
-				&& categories.size() != 0 && advertisment.isSelected())
+		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("") && categories.size() != 0
+				&& advertisment.isSelected())
 			return true;
 		return false;
 	}
@@ -245,8 +244,11 @@ public class SignUpFormLecturer extends VIAPanel {
 	public static void assignCategoriesToLecturerForm(ArrayList<Category> categoriesList) {
 		categories = categoriesList;
 		String[] boxString = new String[categoriesList.size()];
-		categoryBox = new JComboBox(boxString);
-	}
+		for (int i = 0; i < categoriesList.size(); i++)
+			boxString[i] = categoriesList.get(i).toString();
 
+		DefaultComboBoxModel model = new DefaultComboBoxModel(boxString);
+		categoryBox.setModel(model);
+	}
 
 }

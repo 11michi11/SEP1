@@ -3,9 +3,7 @@ package controler;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import model.Category;
-import model.Member;
 import model.MyDate;
 import model.VIAManager;
 import view.VIAWindow;
@@ -34,6 +32,8 @@ public class VIAController {
 	}
 
 	public static void addLecturerToList(Object[] configuration) {
+		System.out.println(Arrays.toString(configuration));
+		
 		String name = (String) configuration[0];
 		String email = (String) configuration[1];
 		int phone = (int) configuration[2];

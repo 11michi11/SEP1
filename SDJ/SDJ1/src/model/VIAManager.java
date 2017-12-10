@@ -16,6 +16,9 @@ public class VIAManager {
 
 	public VIAManager() {
 		this.newsletterFiles = new ArrayList<File>();
+		this.lecturers = new LecturerList();
+		this.members = new MemberList();
+		this.events = new EventList();
 	}
 
 	public void sendReminderEmailToMembers() {
