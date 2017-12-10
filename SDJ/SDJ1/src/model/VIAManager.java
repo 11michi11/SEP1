@@ -42,12 +42,11 @@ public class VIAManager {
 		lecturers.addLecturer(new Lecturer(name, email, phone, categories, wantsAdvertise));
 	}
 
-	public void signUpParticipantToEvent(int eventId, Participant participant) throws EventNotFoundException {
+	public void signUpParticipantToEvent(Participant participant, int eventId) throws EventNotFoundException {
 		events.getEventByID(eventId).signUpParticipant(participant);
 	}
 
 	public void generateNewsletter(String newsletterContent) throws IOException {
-
 		newsletterFiles.add(new File("Newsletter_" + new MyDate().toString() + ".txt"));
 		PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
 
@@ -57,13 +56,13 @@ public class VIAManager {
 		out.close();
 
 	}
+
 	public ArrayList<Member> getAllMembers() {
 		return this.members.getAllMembers();
 
 	}
 
 	public String readNewsletter(MyDate date) throws FileNotFoundException {
-
 		String newsletter = "";
 		for (File i : newsletterFiles) {
 			if (i.getName().equals("Newsletter_" + date.toString() + ".txt")) {
