@@ -25,6 +25,7 @@ public class MemberListPanel extends VIAPanel {
 	private JTextField search;
 	private JButton add;
 	private JButton mail;
+	private JButton delete;
 	private JLabel memberList;
 	private JFrame frame;
 	private JButton back;
@@ -56,8 +57,9 @@ public class MemberListPanel extends VIAPanel {
 		search = new JTextField(47);
 		search.setText("SEARCH");
 
-		add = new VIAButtonSmall("ADD MEMBER", 30);
-		mail = new VIAButtonSmall("SEND REMAIND E-MAIL", 30);
+		add = new VIAButtonSimple("ADD MEMBER", 20);
+		mail = new VIAButtonSimple("SEND REMAIND E-MAIL", 20);
+		delete = new VIAButtonSimple("DELETE MEMBER",20);
 
 		memberList = new VIALabel("MEMBER LIST", 40);
 
@@ -110,18 +112,23 @@ public class MemberListPanel extends VIAPanel {
 		left.add(scrollPane, BorderLayout.CENTER);
 		left.setOpaque(false);
 
-		JPanel north = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		north.add(add);
-		north.setOpaque(false);
+		JPanel addPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		addPanel .add(add);
+		addPanel .setOpaque(false);
 		
 
-		JPanel south = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		south.add(mail);
-		south.setOpaque(false);
+		JPanel mailPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		mailPanel.add(mail);
+		mailPanel.setOpaque(false);
+		
+		JPanel deletePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		deletePanel.add(delete);
+		deletePanel.setOpaque(false);
 
-		JPanel right = new JPanel(new BorderLayout());
-		right.add(north, BorderLayout.NORTH);
-		right.add(south, BorderLayout.CENTER);
+		JPanel right = new JPanel(new GridLayout(3, 1));
+		right.add(addPanel);
+		right.add(deletePanel);
+		right.add(mailPanel);
 		right.setOpaque(false);
 
 		JPanel labelPanel = new JPanel();
