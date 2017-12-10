@@ -9,8 +9,10 @@ import javax.swing.table.DefaultTableModel;
 import model.Category;
 import model.Event;
 import model.Lecturer;
+import model.EventNotFoundException;
 import model.Member;
 import model.MyDate;
+import model.Participant;
 import model.VIAManager;
 import view.VIAWindow;
 
@@ -50,15 +52,15 @@ public class VIAController {
 		System.out.println(manager.getLecturersString());
 	}
 
-	public static void addParticipantToList(Object[] configuration) {
+	public static void addParticipantToList(Object[] configuration) throws EventNotFoundException {
 
 		String name = (String) configuration[0];
 		String email = (String) configuration[1];
+		int eventId= (int) configuration[2];
 
-		// manager.signUpParticipantToEvent(name, email);
-
-		// System.out.println(manager.getParticipantString());
-
+		Participant participant = new Participant(name, email);
+		
+		manager.signUpParticipantToEvent(participant, eventId);
 	}
 
 	public static DefaultTableModel getMembersTableModel() {
