@@ -29,11 +29,12 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 	private JButton choose;
 	private JLabel lecturerList;
 	private JFrame frame;
+	private JPanel parentPanel;
 
-	public CategoryMultipleChoiceList(JFrame frame) {
-
+	public CategoryMultipleChoiceList(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
 		setLayout(new FlowLayout());
 		initializeComponents();
 		registerEventHandlers();
@@ -86,11 +87,11 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 				ArrayList<Category> categories = new ArrayList<Category>();
 
 				TableModel model = table.getModel();
-				for (int i = 0; i < 7; i++) 
-					if(model.getValueAt(i, 1) != null && (boolean)model.getValueAt(i, 1) == true)
+				for (int i = 0; i < 7; i++)
+					if (model.getValueAt(i, 1) != null && (boolean) model.getValueAt(i, 1) == true)
 						categories.add(Category.fromNumberToCategory(i));
-				
-				SignUpFormLecturer.assignCategoriesToLecturerForm(categories);
+
+				assignCategories(categories);
 				frame.dispose();
 			}
 		});
@@ -140,11 +141,27 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 				JFrame frame = new JFrame();
 				frame.setSize(900, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new CategoryMultipleChoiceList(frame));
+				frame.setContentPane(new CategoryMultipleChoiceList(frame, new JPanel()));
 				frame.setVisible(true);
 			}
 		});
 
+	}
+
+	private void assignCategories(ArrayList<Category> categories) {
+		switch (parentPanel.getClass().getName()) {
+		case "view.SignUpFormLecturer":
+			SignUpFormLecturer.assignCategoriesToLecturerForm(categories);
+			break;
+		case "view.EventCreateFormSeminars":
+			EventCreateFormSeminars.assignCategoriesToLecturerForm(categories);
+			break;
+		case "view.EventCreateFormWorkshop":
+			EventCreateFormWorkshop.assignCategoriesToLecturerForm(categories);
+			break;
+		default:
+			System.out.println("!!!");
+		}
 	}
 
 }

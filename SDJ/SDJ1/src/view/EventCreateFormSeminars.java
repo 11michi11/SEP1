@@ -8,8 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-
+import java.util.ArrayList;
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -19,6 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import model.Category;
 
 public class EventCreateFormSeminars extends VIAPanel {
 
@@ -40,12 +43,13 @@ public class EventCreateFormSeminars extends VIAPanel {
 	private JButton lecturer;
 	private JButton save;
 	private VIAButtonBack back;
-	private JComboBox categoryBox;
 	private JTextArea descriptionArea;
 	private JRadioButton finalized;
 	private JRadioButton unfinalized;
 	private JFrame frame;
 	private JPanel parentPanel;
+	private static JComboBox categoryBox;
+	private static ArrayList<Category> categories = new ArrayList<Category>();
 
 	public EventCreateFormSeminars(JFrame frame, JPanel parentPanel) {
 		super();
@@ -99,6 +103,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
+		JPanel currentPanel = this;
 		lecturer.addActionListener(new ActionListener() {
 
 			@Override
@@ -132,7 +137,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 				categoryChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				categoryChoice.setSize(900, 500);
 				categoryChoice.setTitle("VIA - Choice of category for event");
-				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice));
+				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice, currentPanel));
 				categoryChoice.setVisible(true);
 			}
 		});
@@ -226,7 +231,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 		rightLabel.add(starDate);
 		rightLabel.add(endDate);
 		rightLabel.add(lecturer);
-		// rightLabel.add(finish);
 		rightLabel.add(category);
 		rightLabel.setOpaque(false);
 
@@ -279,7 +283,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(titul, BorderLayout.NORTH);
 		components.add(content, BorderLayout.CENTER);
-		// components.add(button, BorderLayout.SOUTH);
 		components.setOpaque(false);
 
 		JPanel textArea = new JPanel(new BorderLayout());
@@ -329,5 +332,15 @@ public class EventCreateFormSeminars extends VIAPanel {
 				frame.setVisible(true);
 			}
 		});
+	}
+	
+	public static void assignCategoriesToLecturerForm(ArrayList<Category> categoriesList) {
+		categories = categoriesList;
+		String[] boxString = new String[categoriesList.size()];
+		for (int i = 0; i < categoriesList.size(); i++)
+			boxString[i] = categoriesList.get(i).toString();
+
+		DefaultComboBoxModel model = new DefaultComboBoxModel(boxString);
+		categoryBox.setModel(model);
 	}
 }

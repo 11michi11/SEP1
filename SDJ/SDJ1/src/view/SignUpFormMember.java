@@ -101,8 +101,6 @@ public class SignUpFormMember extends VIAPanel {
 						JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 								JOptionPane.PLAIN_MESSAGE);
 					}
-
-
 					if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
 						frame.dispose();
 					} else {

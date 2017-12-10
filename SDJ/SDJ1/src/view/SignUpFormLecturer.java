@@ -34,7 +34,7 @@ public class SignUpFormLecturer extends VIAPanel {
 	private JTextField fieldEmail;
 	private JTextField fieldPhone;
 	private JButton add;
-	private static JFrame frame;
+	private JFrame frame;
 	private JPanel parentPanel;
 	private VIAButtonBack back;
 	private static JComboBox categoryBox;
@@ -73,6 +73,7 @@ public class SignUpFormLecturer extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
+		JPanel currentPanel = this;
 		back.changeListener(new ActionListener() {
 
 			@Override
@@ -119,7 +120,7 @@ public class SignUpFormLecturer extends VIAPanel {
 				categoryChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				categoryChoice.setSize(900, 500);
 				categoryChoice.setTitle("VIA - Choice of category for event");
-				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice));
+				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice, currentPanel));
 				categoryChoice.setVisible(true);
 			}
 		});
