@@ -42,8 +42,8 @@ public class MemberListPanel extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name", "E-mail", "ID", "Paid" };
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", true },
+		String[] columnNames = { "Name", "E-mail", "ID", "Paid", "Member" };
+		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", true , (member Object)},
 				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
 				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
 				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },

@@ -10,8 +10,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -21,6 +23,9 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import model.Category;
+import model.Lecturer;
 
 public class EventCreateFormLectures extends VIAPanel {
 
@@ -38,16 +43,17 @@ public class EventCreateFormLectures extends VIAPanel {
 	private JTextField fieldPlaces;
 	private JTextField fieldStartDate;
 	private JTextField fieldEndDate;
-	private JTextField fieldLecturer;
-	private JButton lecturer;
 	private JButton save;
 	private VIAButtonBack back;
-	private JComboBox categoryBox;
 	private JTextArea descriptionArea;
 	private JRadioButton finalized;
 	private JRadioButton unfinalized;
 	private JFrame frame;
 	private JPanel parentPanel;
+	private JComboBox categoryBox;
+	private JButton lecturerChoice;
+	private static JTextField fieldLecturer;
+	private static Lecturer lecturer;
 
 	public EventCreateFormLectures(JFrame frame, JPanel parentPanel) {
 		super();
@@ -81,7 +87,7 @@ public class EventCreateFormLectures extends VIAPanel {
 		fieldEndDate = new JTextField(10);
 		fieldEndDate.setText("dd/mm/yyyy/hh:mm");
 		fieldLecturer = new JTextField(10);
-		lecturer = new VIAButtonExtraSmall("Lecturers", 20);
+		lecturerChoice = new VIAButtonExtraSmall("Lecturers", 20);
 		save = new VIAButtonExtraSmall("SAVE", 20);
 		back = new VIAButtonBack(frame, parentPanel);
 		categoryBox = new JComboBox(boxString);
@@ -101,7 +107,7 @@ public class EventCreateFormLectures extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
-		lecturer.addActionListener(new ActionListener() {
+		lecturerChoice.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -213,7 +219,7 @@ public class EventCreateFormLectures extends VIAPanel {
 		JPanel rightLabel = new JPanel(new GridLayout(4, 1));
 		rightLabel.add(startDate);
 		rightLabel.add(endDate);
-		rightLabel.add(lecturer);
+		rightLabel.add(lecturerChoice);
 		rightLabel.add(finish);
 		rightLabel.setOpaque(false);
 
@@ -317,4 +323,10 @@ public class EventCreateFormLectures extends VIAPanel {
 			}
 		});
 	}
+	
+	public static void assignCategoriesToLecturerForm(Lecturer lecturerChoosen) {
+		lecturer = lecturerChoosen;
+		fieldLecturer.setText(lecturer.getName());
+	}
+	
 }
