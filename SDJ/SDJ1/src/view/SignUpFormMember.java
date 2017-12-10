@@ -24,13 +24,11 @@ public class SignUpFormMember extends VIAPanel {
 	private JLabel name;
 	private JLabel email;
 	private JLabel address;
-	private JLabel id;
 	private JLabel phone;
 	private JLabel dateOfMembership;
 	private JTextField fieldName;
 	private JTextField fieldEmail;
 	private JTextField fieldAddress;
-	private JTextField fieldID;
 	private JTextField fieldPhone;
 	private JTextField fieldDateOfMembership;
 	private JButton add;
@@ -54,13 +52,11 @@ public class SignUpFormMember extends VIAPanel {
 		name = new JLabel("Name:");
 		email = new JLabel("E-mail:");
 		address = new JLabel("Address:");
-		id = new JLabel("ID:");
 		phone = new JLabel("Phone:");
 		dateOfMembership = new JLabel("Date of Membership:");
 		fieldName = new JTextField(10);
 		fieldEmail = new JTextField(10);
 		fieldAddress = new JTextField(10);
-		fieldID = new JTextField(10);
 		fieldPhone = new JTextField(10);
 		fieldDateOfMembership = new JTextField(10);
 		fieldDateOfMembership.setText("dd/mm/yyyy/hh:mm");
@@ -150,13 +146,12 @@ public class SignUpFormMember extends VIAPanel {
 		leftSide.add(left);
 		leftSide.setOpaque(false);
 
-		JPanel rightLabel = new JPanel(new GridLayout(3, 1));
+		JPanel rightLabel = new JPanel(new GridLayout(2, 1));
 		rightLabel.add(phone);
 		rightLabel.add(dateOfMembership);
-		rightLabel.add(id);
 		rightLabel.setOpaque(false);
 
-		JPanel rightField = new JPanel(new GridLayout(3, 1));
+		JPanel rightField = new JPanel(new GridLayout(2, 1));
 
 		JPanel fieldFive = new JPanel();
 		fieldFive.add(fieldPhone);
@@ -166,13 +161,9 @@ public class SignUpFormMember extends VIAPanel {
 		fieldSix.add(fieldDateOfMembership);
 		fieldSix.setOpaque(false);
 
-		JPanel fieldSeven = new JPanel();
-		fieldSeven.add(fieldID);
-		fieldSeven.setOpaque(false);
 
 		rightField.add(fieldFive);
 		rightField.add(fieldSix);
-		rightField.add(fieldSeven);
 		rightField.setOpaque(false);
 
 		JPanel right = new JPanel(new GridLayout(1, 2));
