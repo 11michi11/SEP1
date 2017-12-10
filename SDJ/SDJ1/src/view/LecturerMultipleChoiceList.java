@@ -47,19 +47,19 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 		Object[][] data = {
 				{ "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,true,
+				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
 						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
 
 		};
@@ -87,7 +87,7 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 				case 4:
 					return Boolean.class;
 				case 5:
-					return Boolean.class;					
+					return Boolean.class;
 				case 6:
 					return model.Lecturer.class;
 				default:
@@ -118,12 +118,10 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 			public void actionPerformed(ActionEvent e) {
 				TableModel model = table.getModel();
 				ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
-				for (int i = 0; i < model.getRowCount(); i++) {
-					System.out.println(model.getValueAt(i, 5));
+				for (int i = 0; i < model.getRowCount(); i++)
 					if (model.getValueAt(i, 5) != null && (boolean) model.getValueAt(i, 5) == true)
 						lecturers.add((Lecturer) model.getValueAt(i, 6));
-				}
-				System.out.println(Arrays.toString(lecturers.toArray()));
+
 				assignLecturers(lecturers);
 				frame.dispose();
 			}

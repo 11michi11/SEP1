@@ -66,7 +66,7 @@ public class VIAController {
 		Object[][] data = new Object[members.size()][5];
 
 		for (int i = 0; i < members.size(); i++) {
-			Object[] row = new Object[5];
+			Object[] row = new Object[6];
 			row[0] = members.get(i).getName();
 			row[1] = members.get(i).getEmail();
 			row[2] = members.get(i).getPhone();
@@ -90,6 +90,10 @@ public class VIAController {
 					return Integer.class;
 				case 3:
 					return Boolean.class;
+				case 4:
+					return Integer.class;
+				case 5:
+					return model.Member.class;
 				default:
 					return Boolean.class;
 				}

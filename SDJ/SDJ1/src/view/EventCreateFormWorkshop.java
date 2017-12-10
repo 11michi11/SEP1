@@ -109,7 +109,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 
 	public void registerEventHandlers() {
 		JPanel currentPanel = this;
-		
+
 		lecturer.addActionListener(new ActionListener() {
 
 			@Override
@@ -147,7 +147,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 				categoryChoice.setVisible(true);
 			}
 		});
-		
+
 		fieldStartDate.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (fieldStartDate.getText().equals("dd/mm/yyyy/hh:mm"))
@@ -187,7 +187,6 @@ public class EventCreateFormWorkshop extends VIAPanel {
 
 			}
 		});
-
 
 	}
 
@@ -341,7 +340,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 			}
 		});
 	}
-	
+
 	public static void assignCategoriesToLecturerForm(ArrayList<Category> categoriesList) {
 		categories = categoriesList;
 		String[] boxString = new String[categoriesList.size()];
@@ -351,13 +350,13 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		DefaultComboBoxModel model = new DefaultComboBoxModel(boxString);
 		categoryBox.setModel(model);
 	}
-	
+
 	public static void assignLecturersToLecturerForm(ArrayList<Lecturer> lecturersList) {
 		lecturers = lecturersList;
 		String[] boxString = new String[lecturersList.size()];
 		for (int i = 0; i < lecturersList.size(); i++)
 			boxString[i] = lecturersList.get(i).getName();
-		
+
 		DefaultComboBoxModel model = new DefaultComboBoxModel(boxString);
 		lecturersBox.setModel(model);
 	}
