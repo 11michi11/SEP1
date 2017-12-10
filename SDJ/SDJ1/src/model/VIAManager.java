@@ -26,6 +26,10 @@ public class VIAManager {
 		return members.toString();
 	}
 
+	public String getLecturersString() {
+		return lecturers.toString();
+	}
+
 	public void signUpMember(String name, String address, int phone, String email, MyDate dateOfMembership) {
 		members.addMember(new Member(name, address, phone, email, dateOfMembership));
 	}
