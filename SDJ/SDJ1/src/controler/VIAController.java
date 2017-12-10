@@ -110,10 +110,10 @@ public class VIAController {
 
 		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Lecturer" };
 		ArrayList<Lecturer> lecturers = manager.getAllLecturers();
-		Object[][] data = new Object[lecturers.size()][5];
+		Object[][] data = new Object[lecturers.size()][6];
 
 		for (int i = 0; i < lecturers.size(); i++) {
-			Object[] row = new Object[5];
+			Object[] row = new Object[6];
 			row[0] = lecturers.get(i).getName();
 			row[1] = lecturers.get(i).getEmail();
 			row[2] = lecturers.get(i).getPhone();
@@ -149,7 +149,7 @@ public class VIAController {
 
 		String[] columnNames = { "Title", "Event" };
 		ArrayList<Event> events = manager.getAllEvents();
-		Object[][] data = new Object[events.size()][5];
+		Object[][] data = new Object[events.size()][2];
 
 		for (int i = 0; i < events.size(); i++) {
 			Object[] row = new Object[2];
@@ -167,7 +167,7 @@ public class VIAController {
 				case 0:
 					return String.class;
 				case 1:
-					return String.class;
+					return Event.class;
 				default:
 					return Boolean.class;
 				}
