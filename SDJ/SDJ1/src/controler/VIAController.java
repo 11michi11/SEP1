@@ -9,8 +9,10 @@ import javax.swing.table.DefaultTableModel;
 import model.Category;
 import model.Event;
 import model.Lecturer;
+import model.EventNotFoundException;
 import model.Member;
 import model.MyDate;
+import model.Participant;
 import model.VIAManager;
 import view.VIAWindow;
 
@@ -50,15 +52,15 @@ public class VIAController {
 		System.out.println(manager.getLecturersString());
 	}
 
-	public static void addParticipantToList(Object[] configuration) {
+	public static void addParticipantToList(Object[] configuration) throws EventNotFoundException {
 
 		String name = (String) configuration[0];
 		String email = (String) configuration[1];
+		int eventId= (int) configuration[2];
 
-		// manager.signUpParticipantToEvent(name, email);
-
-		// System.out.println(manager.getParticipantString());
-
+		Participant participant = new Participant(name, email);
+		
+		manager.signUpParticipantToEvent(participant, eventId);
 	}
 
 	public static DefaultTableModel getMembersTableModel() {
@@ -108,10 +110,10 @@ public class VIAController {
 
 		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Lecturer" };
 		ArrayList<Lecturer> lecturers = manager.getAllLecturers();
-		Object[][] data = new Object[lecturers.size()][5];
+		Object[][] data = new Object[lecturers.size()][6];
 
 		for (int i = 0; i < lecturers.size(); i++) {
-			Object[] row = new Object[5];
+			Object[] row = new Object[6];
 			row[0] = lecturers.get(i).getName();
 			row[1] = lecturers.get(i).getEmail();
 			row[2] = lecturers.get(i).getPhone();
@@ -147,7 +149,7 @@ public class VIAController {
 
 		String[] columnNames = { "Title", "Event" };
 		ArrayList<Event> events = manager.getAllEvents();
-		Object[][] data = new Object[events.size()][5];
+		Object[][] data = new Object[events.size()][2];
 
 		for (int i = 0; i < events.size(); i++) {
 			Object[] row = new Object[2];
@@ -165,7 +167,7 @@ public class VIAController {
 				case 0:
 					return String.class;
 				case 1:
-					return String.class;
+					return Event.class;
 				default:
 					return Boolean.class;
 				}

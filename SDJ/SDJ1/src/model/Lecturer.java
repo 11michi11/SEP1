@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Lecturer {
+public class Lecturer implements Serializable {
 
 	private String name, email;
 	private int phone;

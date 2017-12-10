@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class EventList {
+public class EventList implements Serializable {
 
 	private ArrayList<Event> events;
 	private Iterator<Event> iter;

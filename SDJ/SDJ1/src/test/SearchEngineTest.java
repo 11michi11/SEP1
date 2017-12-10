@@ -11,7 +11,7 @@ public class SearchEngineTest
 
    public static void main(String[] args)
    {
-      MemberList members = new MemberList();
+      /*MemberList members = new MemberList();
       
       MyDate date1 = new MyDate(5, 5, 2015);
       MyDate date2 = new MyDate(2, 4, 2010);
@@ -26,7 +26,7 @@ public class SearchEngineTest
       members.addMember(member2);
       members.addMember(member3);
       members.addMember(member4);
-     
+     */
    }
 
 }
