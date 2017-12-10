@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -25,14 +27,12 @@ public class SignUpFormMember extends VIAPanel {
 	private JLabel id;
 	private JLabel phone;
 	private JLabel dateOfMembership;
-	private JLabel payment;
 	private JTextField fieldName;
 	private JTextField fieldEmail;
 	private JTextField fieldAddress;
 	private JTextField fieldID;
 	private JTextField fieldPhone;
 	private JTextField fieldDateOfMembership;
-	private JTextField fieldPaymentYear;
 	private JButton add;
 	private JFrame frame;
 	private JPanel parentPanel;
@@ -57,14 +57,14 @@ public class SignUpFormMember extends VIAPanel {
 		id = new JLabel("ID:");
 		phone = new JLabel("Phone:");
 		dateOfMembership = new JLabel("Date of Membership:");
-		payment = new JLabel("Payment:");
-		fieldName = new JTextField(8);
-		fieldEmail = new JTextField(8);
-		fieldAddress = new JTextField(8);
-		fieldID = new JTextField(8);
-		fieldPhone = new JTextField(8);
-		fieldDateOfMembership = new JTextField(8);
-		fieldPaymentYear = new JTextField(8);
+		fieldName = new JTextField(10);
+		fieldEmail = new JTextField(10);
+		fieldAddress = new JTextField(10);
+		fieldID = new JTextField(10);
+		fieldPhone = new JTextField(10);
+		fieldDateOfMembership = new JTextField(10);
+		fieldDateOfMembership.setText("dd/mm/yyyy/hh:mm");
+		
 		
 		add = new VIAButtonSmall("Add to list");
 
@@ -73,6 +73,20 @@ public class SignUpFormMember extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
+		
+		fieldDateOfMembership.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+				if (fieldDateOfMembership.getText().equals("dd/mm/yyyy/hh:mm"))
+					fieldDateOfMembership.setText("");
+			}
+
+			public void focusLost(FocusEvent e) {
+				if (fieldDateOfMembership.getText().equals(""))
+					fieldDateOfMembership.setText("dd/mm/yyyy/hh:mm");
+			}
+		});
+		
+		
 		add.addActionListener(new ActionListener() {
 			
 			@Override
@@ -100,14 +114,14 @@ public class SignUpFormMember extends VIAPanel {
 	}
 
 	public void addComponentsToPanel() {
-		JPanel leftLabel = new JPanel(new GridLayout(4, 1));
+		JPanel leftLabel = new JPanel(new GridLayout(3, 1));
 		leftLabel.add(name);
 		leftLabel.add(email);
 		leftLabel.add(address);
-		leftLabel.add(id);
+
 		leftLabel.setOpaque(false);
 
-		JPanel leftField = new JPanel(new GridLayout(4, 1));
+		JPanel leftField = new JPanel(new GridLayout(3, 1));
 
 		JPanel fieldOne = new JPanel();
 		fieldOne.add(fieldName);
@@ -121,14 +135,10 @@ public class SignUpFormMember extends VIAPanel {
 		fieldThree.add(fieldAddress);
 		fieldThree.setOpaque(false);
 
-		JPanel fieldFour = new JPanel();
-		fieldFour.add(fieldID);
-		fieldFour.setOpaque(false);
 
 		leftField.add(fieldOne);
 		leftField.add(fieldTwo);
 		leftField.add(fieldThree);
-		leftField.add(fieldFour);
 		leftField.setOpaque(false);
 
 		JPanel left = new JPanel(new GridLayout(1, 2));
@@ -143,7 +153,7 @@ public class SignUpFormMember extends VIAPanel {
 		JPanel rightLabel = new JPanel(new GridLayout(3, 1));
 		rightLabel.add(phone);
 		rightLabel.add(dateOfMembership);
-		rightLabel.add(payment);
+		rightLabel.add(id);
 		rightLabel.setOpaque(false);
 
 		JPanel rightField = new JPanel(new GridLayout(3, 1));
@@ -157,7 +167,7 @@ public class SignUpFormMember extends VIAPanel {
 		fieldSix.setOpaque(false);
 
 		JPanel fieldSeven = new JPanel();
-		fieldSeven.add(fieldPaymentYear);
+		fieldSeven.add(fieldID);
 		fieldSeven.setOpaque(false);
 
 		rightField.add(fieldFive);
