@@ -13,8 +13,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import controler.VIAController;
 
 public class SignUpFormParticipant extends VIAPanel {
 
@@ -72,6 +75,29 @@ public class SignUpFormParticipant extends VIAPanel {
 					frame.dispose();
 				} else {
 					back.goBack();
+				}
+			}
+		});
+		
+		addToList.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (canFormBeSaved()) {
+					Object[] configuration = new Object[5];
+					configuration[0] = fieldName.getText();
+					configuration[1] = fieldEmail.getText();
+
+					VIAController.addMemberToList(configuration);
+
+					if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
+						frame.dispose();
+					} else {
+						back.goBack();
+					}
+				} else {
+					JOptionPane.showMessageDialog(frame, "Fill all filed to save participant", "Form error",
+							JOptionPane.PLAIN_MESSAGE);
 				}
 			}
 		});
@@ -136,6 +162,12 @@ public class SignUpFormParticipant extends VIAPanel {
 				frame.setVisible(true);
 			}
 		});
+
+	}
+	private boolean canFormBeSaved() {
+		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals(""))
+			return true;
+		return false;
 
 	}
 
