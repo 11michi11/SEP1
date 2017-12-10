@@ -18,7 +18,6 @@ public class FileManagerTest
       
       System.out.println(FileManager.readLecturerFile(lecturerFile));*/
       
-      
       File eventFile = new File("src/resources/events.txt");
       
       System.out.println(FileManager.readEventFile(eventFile));

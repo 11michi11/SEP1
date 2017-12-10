@@ -34,12 +34,22 @@ public class MyDate {
 	public MyDate(String dateString) throws InvalidDateInput {
 		String[] dateArray, timeArray;
 		dateArray = dateString.split("/");
-		day = Integer.parseInt(dateArray[0]);
-		month = Integer.parseInt(dateArray[1]);
-		year = Integer.parseInt(dateArray[2]);
-		timeArray = dateArray[3].split(":");
-		hour = Integer.parseInt(timeArray[0]);
-		minute = Integer.parseInt(timeArray[1]);
+		if (dateArray.length==4) {
+		    day = Integer.parseInt(dateArray[0]);
+		    month = Integer.parseInt(dateArray[1]);
+		    year = Integer.parseInt(dateArray[2]);
+		    timeArray = dateArray[3].split(":");
+		    if (timeArray.length==2) {
+			hour = Integer.parseInt(timeArray[0]);
+			minute = Integer.parseInt(timeArray[1]);
+		    }
+		    else {
+			throw new InvalidDateInput("Invalid date");
+		    }
+		}
+		else {
+		    throw new InvalidDateInput("Invalid date");
+		}
 		if (!isValid()) {
 			throw new InvalidDateInput("Invalid date");
 		}
