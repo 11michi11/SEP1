@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -27,7 +29,7 @@ public class EventCreateFormLectures extends VIAPanel {
 	private JLabel category;
 	private JLabel price;
 	private JLabel places;
-	private JLabel starDate;
+	private JLabel startDate;
 	private JLabel endDate;
 	private JLabel description;
 	private JLabel finish;
@@ -67,16 +69,18 @@ public class EventCreateFormLectures extends VIAPanel {
 		category = new JLabel("Category:");
 		price = new JLabel("Price:");
 		places = new JLabel("N° of Places:");
-		starDate = new JLabel("Start date:");
+		startDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
 		description = new VIALabel("DESCRIPTION:", 20);
 		fieldTitle = new JTextField(8);
 		fieldPrice = new JTextField(8);
 		fieldPlaces = new JTextField(8);
-		fieldStartDate = new JTextField(8);
-		fieldEndDate = new JTextField(8);
-		fieldLecturer = new JTextField(8);
+		fieldStartDate = new JTextField(10);
+		fieldStartDate.setText("dd/mm/yyyy/hh:mm");
+		fieldEndDate = new JTextField(10);
+		fieldEndDate.setText("dd/mm/yyyy/hh:mm");
+		fieldLecturer = new JTextField(10);
 		lecturer = new VIAButtonExtraSmall("Lecturers", 20);
 		save = new VIAButtonExtraSmall("SAVE", 20);
 		back = new VIAButtonBack(frame, parentPanel);
@@ -121,6 +125,47 @@ public class EventCreateFormLectures extends VIAPanel {
 					back.goBack();
 			}
 		});
+		
+		fieldStartDate.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+				if (fieldStartDate.getText().equals("dd/mm/yyyy/hh:mm"))
+					fieldStartDate.setText("");
+			}
+
+			public void focusLost(FocusEvent e) {
+				if (fieldStartDate.getText().equals(""))
+					fieldStartDate.setText("dd/mm/yyyy/hh:mm");
+			}
+		});
+
+		fieldStartDate.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+
+		fieldEndDate.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+				if (fieldEndDate.getText().equals("dd/mm/yyyy/hh:mm"))
+					fieldEndDate.setText("");
+			}
+
+			public void focusLost(FocusEvent e) {
+				if (fieldEndDate.getText().equals(""))
+					fieldEndDate.setText("dd/mm/yyyy/hh:mm");
+			}
+		});
+
+		fieldEndDate.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+
 	}
 
 	public void addComponentsToPanel() {
@@ -166,7 +211,7 @@ public class EventCreateFormLectures extends VIAPanel {
 		leftSide.setOpaque(false);
 
 		JPanel rightLabel = new JPanel(new GridLayout(4, 1));
-		rightLabel.add(starDate);
+		rightLabel.add(startDate);
 		rightLabel.add(endDate);
 		rightLabel.add(lecturer);
 		rightLabel.add(finish);

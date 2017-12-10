@@ -1,13 +1,13 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -66,7 +66,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		title = new JLabel("Title:");
 		category = new VIAButtonExtraSmall("Category", 20);
 		price = new JLabel("Price:");
-		places = new JLabel("Nï¿½ of Places:");
+		places = new JLabel("N° of Places:");
 		starDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
@@ -74,8 +74,10 @@ public class EventCreateFormSeminars extends VIAPanel {
 		fieldTitle = new JTextField(8);
 		fieldPrice = new JTextField(8);
 		fieldPlaces = new JTextField(8);
-		fieldStartDate = new JTextField(8);
-		fieldEndDate = new JTextField(8);
+		fieldStartDate = new JTextField(10);
+		fieldStartDate.setText("dd/mm/yyyy/hh:mm");
+		fieldEndDate = new JTextField(10);
+		fieldEndDate.setText("dd/mm/yyyy/hh:mm");
 		fieldLecturer = new JComboBox(boxLecturers);
 		lecturer = new VIAButtonExtraSmall("Lecturers", 20);
 		save = new VIAButtonExtraSmall("SAVE", 20);
@@ -132,6 +134,46 @@ public class EventCreateFormSeminars extends VIAPanel {
 				categoryChoice.setTitle("VIA - Choice of category for event");
 				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice));
 				categoryChoice.setVisible(true);
+			}
+		});
+
+		fieldStartDate.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+				if (fieldStartDate.getText().equals("dd/mm/yyyy/hh:mm"))
+					fieldStartDate.setText("");
+			}
+
+			public void focusLost(FocusEvent e) {
+				if (fieldStartDate.getText().equals(""))
+					fieldStartDate.setText("dd/mm/yyyy/hh:mm");
+			}
+		});
+
+		fieldStartDate.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+
+		fieldEndDate.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+				if (fieldEndDate.getText().equals("dd/mm/yyyy/hh:mm"))
+					fieldEndDate.setText("");
+			}
+
+			public void focusLost(FocusEvent e) {
+				if (fieldEndDate.getText().equals(""))
+					fieldEndDate.setText("dd/mm/yyyy/hh:mm");
+			}
+		});
+
+		fieldEndDate.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
 			}
 		});
 
