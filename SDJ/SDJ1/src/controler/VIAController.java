@@ -60,30 +60,23 @@ public class VIAController {
 	}
 
 	public static DefaultTableModel getMembersTableModel() {
-		
-		String[] columnNames = { "Name", "E-mail", "ID", "Paid", "Member" };
+
+		String[] columnNames = { "Name", "E-mail", "Phone", "Paid", "ID", "Member" };
 		ArrayList<Member> members = manager.getAllMembers();
-		Object[][] data = new Object[memebrs.size()][5];
-		
-		for(int i = 0;i<members.size();i++) {
-			Object[] row = new Object[5];
+		Object[][] data = new Object[members.size()][5];
+
+		for (int i = 0; i < members.size(); i++) {
+			Object[] row = new Object[6];
 			row[0] = members.get(i).getName();
-			
-			
+			row[1] = members.get(i).getEmail();
+			row[2] = members.get(i).getPhone();
+			row[3] = members.get(i).hasPaid();
+			row[4] = members.get(i).getID();
+			row[5] = members.get(i);
+
 			data[i] = row;
 		}
-		
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", true , (member Object)},
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", true },
 
-		};
-		
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
 			@Override
@@ -97,11 +90,16 @@ public class VIAController {
 					return Integer.class;
 				case 3:
 					return Boolean.class;
+				case 4:
+					return Integer.class;
+				case 5:
+					return model.Member.class;
 				default:
 					return Boolean.class;
 				}
 			}
 		};
+		return model;
 	}
 
 	public static void main(String[] args) {

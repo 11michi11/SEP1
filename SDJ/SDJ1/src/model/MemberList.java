@@ -58,6 +58,11 @@ public class MemberList {
 		return iter.next();
 	}
 	
+	public ArrayList<Member> getAllMembers() {
+		return this.members;
+
+	}
+	
 	public String toString ()
 	{
 	   String returnString = "";
