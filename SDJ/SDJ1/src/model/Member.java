@@ -52,6 +52,14 @@ public class Member extends Participant {
 		return ID;
 	}
 	
+	public static int getNextId() {
+	    return nextID;
+	}
+	
+	public static void setNextID (int lastID) {
+	    nextID = lastID;
+	}
+	
 	public String toString () {
 	   return ID+";"+super.toString()+";"+address+";"+phone+";"+dateOfMembership+";"+paymentYear;
 	}

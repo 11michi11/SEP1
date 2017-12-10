@@ -102,6 +102,14 @@ public abstract class Event {
 	public int getID() {
 		return this.ID;
 	}
+	
+	public static int getNextId() {
+	    return nextID;
+	}
+	
+	public static void setNextID (int lastID) {
+	    nextID = lastID;
+	}
 
 	public ParticipantList getParticipantList() {
 		return this.participantList;

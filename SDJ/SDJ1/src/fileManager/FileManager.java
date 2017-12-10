@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import model.Category;
+import model.Event;
 import model.EventList;
 import model.Lecture;
 import model.Lecturer;
@@ -34,6 +35,7 @@ public class FileManager {
 	ObjectOutputStream out = new ObjectOutputStream(fos);
 
 	out.writeObject(eventList);
+	out.writeInt(Event.getNextId());
 	out.close();
 	fos.close();
     }
@@ -44,6 +46,7 @@ public class FileManager {
 	ObjectOutputStream out = new ObjectOutputStream(fos);
 
 	out.writeObject(lecturerList);
+	out.writeInt(Lecturer.getNextId());
 	out.close();
 	fos.close();
     }
@@ -54,6 +57,7 @@ public class FileManager {
 	ObjectOutputStream out = new ObjectOutputStream(fos);
 
 	out.writeObject(memberList);
+	out.writeInt(Member.getNextId());
 	out.close();
 	fos.close();
     }
@@ -64,7 +68,7 @@ public class FileManager {
 
 	read = new ObjectInputStream(fis);
 	EventList events = (EventList) read.readObject();
-
+	Event.setNextID(read.readInt());
 	fis.close();
 	read.close();
 
@@ -77,7 +81,7 @@ public class FileManager {
 
 	read = new ObjectInputStream(fis);
 	LecturerList lecturers = (LecturerList) read.readObject();
-
+	Lecturer.setNextID(read.readInt());
 	fis.close();
 	read.close();
 
@@ -90,7 +94,7 @@ public class FileManager {
 
 	read = new ObjectInputStream(fis);
 	MemberList members = (MemberList) read.readObject();
-
+	Member.setNextID(read.readInt());
 	fis.close();
 	read.close();
 

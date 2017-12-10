@@ -22,6 +22,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+import controler.VIAController;
 
 public class EventListPanel extends VIAPanel {
 	
@@ -50,11 +53,9 @@ public class EventListPanel extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name" };
-		Object[][] data = { { "Event" }, { "Michal" }, { "Michal" }, { "Michal" }, { "Michal" }, { "Michal" },
-				{ "Michal" }, { "Michal" }, };
+		DefaultTableModel model = VIAController.getEventsTableModel();
 
-		table = new JTable(data, columnNames);
+		table = new JTable(model);
 		table.setPreferredScrollableViewportSize(new Dimension(400, 300));
 		
 		scrollPane = new JScrollPane(table);
