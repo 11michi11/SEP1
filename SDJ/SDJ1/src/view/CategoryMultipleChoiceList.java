@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,8 +18,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
-	public class CategoryMultipleChoiceList extends VIAPanel {
+import model.Category;
+
+public class CategoryMultipleChoiceList extends VIAPanel {
 
 	private JTable table;
 	private JTextField search;
@@ -26,21 +31,21 @@ import javax.swing.table.DefaultTableModel;
 	private JFrame frame;
 
 	public CategoryMultipleChoiceList(JFrame frame) {
-		
+
 		super();
 		this.frame = frame;
 		setLayout(new FlowLayout());
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
-}
+	}
 
 	private void initializeComponents() {
-		String[] columnNames = {"Category", ""};
-		Object[][] data = { { "Astrology" },{ "Meditation"},{"Reincarnation"},{"Health"},{"TraditionalBuddhism"}, {"Nature"},{"Other"}
+		String[] columnNames = { "Category", "" };
+		Object[][] data = { { "Astrology" }, { "Meditation" }, { "Reincarnation" }, { "Health" },
+				{ "TraditionalBuddhism" }, { "Nature" }, { "Other" }
 
 		};
-
 
 		choose = new VIAButtonSmall("CHOOSE CATEGORY", 30);
 
@@ -78,6 +83,14 @@ import javax.swing.table.DefaultTableModel;
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				ArrayList<Category> categories = new ArrayList<Category>();
+
+				TableModel model = table.getModel();
+				for (int i = 0; i < 7; i++) 
+					if(model.getValueAt(i, 1) != null && (boolean)model.getValueAt(i, 1) == true)
+						categories.add(Category.fromNumberToCategory(i));
+				
+				SignUpFormLecturer.assignCategoriesToLecturerForm(categories);
 				frame.dispose();
 			}
 		});

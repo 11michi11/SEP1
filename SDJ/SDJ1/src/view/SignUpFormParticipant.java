@@ -1,14 +1,11 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import controler.VIAController;
 
 public class SignUpFormParticipant extends VIAPanel {
@@ -55,18 +51,6 @@ public class SignUpFormParticipant extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
-		addToList.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (parentPanel instanceof EventListPanel || parentPanel instanceof ParticipantListPanel) {
-					frame.dispose();
-				} else {
-					back.goBack();
-				}
-			}
-		});
-
 		back.changeListener(new ActionListener() {
 
 			@Override
@@ -168,7 +152,6 @@ public class SignUpFormParticipant extends VIAPanel {
 		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals(""))
 			return true;
 		return false;
-
 	}
-
+	
 }

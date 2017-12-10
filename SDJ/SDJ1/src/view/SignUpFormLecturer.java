@@ -1,14 +1,14 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controler.VIAController;
+import model.Category;
 
 public class SignUpFormLecturer extends VIAPanel {
 
@@ -32,11 +33,12 @@ public class SignUpFormLecturer extends VIAPanel {
 	private JTextField fieldName;
 	private JTextField fieldEmail;
 	private JTextField fieldPhone;
-	private JComboBox categoryBox;
 	private JButton add;
-	private JFrame frame;
+	private static JFrame frame;
 	private JPanel parentPanel;
 	private VIAButtonBack back;
+	private static JComboBox categoryBox;
+	private static ArrayList<Category> categories = new ArrayList<Category>();
 
 	public SignUpFormLecturer(JFrame frame, JPanel parentPanel) {
 		super();
@@ -51,8 +53,7 @@ public class SignUpFormLecturer extends VIAPanel {
 
 	public void initializeComponents() {
 
-		String[] boxString = { "", "Astrology", "Meditation", "Reincarnation", "Health", "Buddhism", "Nature",
-				"Other" };
+		String[] boxString = { "Choose category" };
 
 		signUp = new VIALabel("Sign-Up Form for LECTURER");
 		name = new JLabel("Name:");
@@ -72,18 +73,6 @@ public class SignUpFormLecturer extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
-		add.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (parentPanel instanceof MemberListPanel || parentPanel instanceof LecturerListPanel) {
-					frame.dispose();
-				} else {
-					back.goBack();
-				}
-			}
-		});
-
 		back.changeListener(new ActionListener() {
 
 			@Override
@@ -103,13 +92,12 @@ public class SignUpFormLecturer extends VIAPanel {
 				if (canFormBeSaved()) {
 					Object[] configuration = new Object[5];
 					configuration[0] = fieldName.getText();
-					configuration[1] = categoryBox.getSelectedItem();
+					configuration[1] = fieldEmail.getText();
 					configuration[2] = Integer.parseInt(fieldPhone.getText());
-					configuration[3] = fieldEmail.getText();
+					configuration[3] = categories;
 					configuration[4] = advertisment.isSelected();
-					// configuration[4] = new MyDate(fieldDateOfMembership.getText());
 
-					VIAController.addMemberToList(configuration);
+					VIAController.addLecturerToList(configuration);
 
 					if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
 						frame.dispose();
@@ -247,11 +235,20 @@ public class SignUpFormLecturer extends VIAPanel {
 	}
 
 	private boolean canFormBeSaved() {
-		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("")
-				&& !categoryBox.getSelectedItem().equals("") && advertisment.isSelected())
+		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("") && categories.size() != 0
+				&& advertisment.isSelected())
 			return true;
 		return false;
+	}
 
+	public static void assignCategoriesToLecturerForm(ArrayList<Category> categoriesList) {
+		categories = categoriesList;
+		String[] boxString = new String[categoriesList.size()];
+		for (int i = 0; i < categoriesList.size(); i++)
+			boxString[i] = categoriesList.get(i).toString();
+
+		DefaultComboBoxModel model = new DefaultComboBoxModel(boxString);
+		categoryBox.setModel(model);
 	}
 
 }
