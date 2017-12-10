@@ -4,25 +4,46 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class MyDate {
-	private int day, month, year;
+	private int day, month, year, hour, minute;
 
 	public MyDate() {
 		GregorianCalendar currentDate = new GregorianCalendar();
 		day = currentDate.get(GregorianCalendar.DATE);
 		month = currentDate.get(GregorianCalendar.MONTH) + 1;
-		year = currentDate.get(GregorianCalendar.YEAR);
+		year = currentDate.get
+		     (GregorianCalendar.YEAR);
+		hour = currentDate.get(GregorianCalendar.HOUR);
+		minute = currentDate.get(GregorianCalendar.MINUTE);
 	}
 
-	public MyDate(int day, int month, int year) {
+	public MyDate(int day, int month, int year, int hour, int minute) {
 		this.day = day;
 		this.month = month;
 		this.year = year;
+		this.hour = hour;
+		this.minute = minute;
 	}
 
 	public MyDate(MyDate object) {
 		day = object.day;
 		month = object.month;
 		year = object.year;
+		hour = object.hour;
+		minute = object.minute;
+	}
+	
+	public MyDate (String dateString) throws InvalidDateInput {
+	   String[] dateArray, timeArray;
+	   dateArray = dateString.split("/");
+	   day = Integer.parseInt(dateArray[0]);
+	   month = Integer.parseInt(dateArray[1]);
+	   year = Integer.parseInt(dateArray[2]);
+	   timeArray = dateArray[3].split(":");
+	   hour = Integer.parseInt(timeArray[0]);
+	   minute = Integer.parseInt(timeArray[1]);
+	   if (!isValid()) {
+         throw new InvalidDateInput ("Invalid date");
+      }
 	}
 
 	public static int convertToMonthNumber(String monthName) {
@@ -63,11 +84,15 @@ public class MyDate {
 	public static MyDate today() {
 		GregorianCalendar currentDate = new GregorianCalendar();
 		return new MyDate(currentDate.get(GregorianCalendar.DATE), currentDate.get(GregorianCalendar.MONTH) + 1,
-				currentDate.get(GregorianCalendar.YEAR));
+				currentDate.get(GregorianCalendar.YEAR), currentDate.get(GregorianCalendar.HOUR), currentDate.get(GregorianCalendar.MINUTE));
 	}
 
-	public static MyDate getDefaultDate() {
-		return new MyDate(1, 1, 1);
+	public static MyDate getDefaultDate(){
+		return new MyDate(1, 1, 1, 0, 0);
+	}
+	
+	public boolean isValid () {
+	   return month > 1 && month < 12 && day>1 && day<DayInMonth() && year>1000; 
 	}
 
 	public boolean LeapYear() {
@@ -169,7 +194,7 @@ public class MyDate {
 	}
 
 	public MyDate copy() {
-		return new MyDate(day, month, year);
+		return new MyDate(day, month, year, hour, minute);
 	}
 
 	public void nextDays(int days) {

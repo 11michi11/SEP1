@@ -137,16 +137,16 @@ public class FileManager {
 		boolean wantsAdvertise;
 		ArrayList<Category> categories = new ArrayList<Category>();
 		divide = line.split(";");
-		name = divide[0].trim();
-		email = divide[1].trim();
-		phone = Integer.parseInt(divide[2].trim());
+		name = divide[0];
+		email = divide[1];
+		phone = Integer.parseInt(divide[2]);
 		categoriesDivide = divide[3].split(",");
 		for (String e : categoriesDivide) {
-			categories.add(Category.parseCategory(e.trim()));
+			categories.add(Category.parseCategory(e));
 		}
 
 		//wantsAdvertise = Boolean.parseBoolean(divide[4].trim());
-		String check= divide[4].trim();
+		String check= divide[4];
 		System.out.println(check);
 		//return (new Lecturer(name, email, phone, categories, wantsAdvertise));
 	}
