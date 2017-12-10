@@ -36,7 +36,7 @@ public class Workshop extends Event {
 	double priceForMembers = super.getPriceForMembers();
 	int places = super.getCapacity();
 
-	return title + "\n\t" + description + "\nDate: " + startDate + "-" + endDate + "\nLecturers: " + lecturers
+	return "\t" + title + "\n" + description + "\nDate: " + startDate + "-" + endDate + "\nLecturers: " + lecturers
 		+ "\nPrice: " + price + "\nPrice for members: " + priceForMembers + "\nAvaliable places: " + places;
     }
 
