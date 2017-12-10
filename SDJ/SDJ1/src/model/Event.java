@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Map;
 
-public abstract class Event {
+public abstract class Event implements Serializable {
 
 	public static double discount = 0.2;
 	private String title;
