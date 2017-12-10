@@ -173,7 +173,6 @@ public class SignUpFormMember extends VIAPanel {
 		fieldSix.add(fieldDateOfMembership);
 		fieldSix.setOpaque(false);
 
-
 		rightField.add(fieldFive);
 		rightField.add(fieldSix);
 		rightField.setOpaque(false);
@@ -240,7 +239,6 @@ public class SignUpFormMember extends VIAPanel {
 
 	private boolean canFormBeSaved() {
 		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("") && !fieldAddress.getText().equals("")
-				&& !fieldID.getText().equals("") && !fieldDateOfMembership.getText().equals("")
 				&& !fieldDateOfMembership.getText().equals("dd/mm/yyyy/hh:mm"))
 			return true;
 		return false;
