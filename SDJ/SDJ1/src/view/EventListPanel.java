@@ -6,14 +6,18 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -110,6 +114,28 @@ public class EventListPanel extends VIAPanel {
 				event.setContentPane(new EventPanel(event, currentPanel));
 				event.setVisible(true);
 			}
+		});
+		
+		table.addMouseListener(new MouseAdapter() {
+		    public void mousePressed(MouseEvent mouseEvent) {
+		        JTable table =(JTable) mouseEvent.getSource();
+		        Point point = mouseEvent.getPoint();
+		        int row = table.rowAtPoint(point);
+		        if (mouseEvent.getClickCount() == 2) {
+		        	JOptionPane.showMessageDialog(frame,
+							"Event name:\n"
+							+ "Category:\n"
+							+ "Lecturer:\n"
+							+ "Location:\n"
+							+ "Price:\n"
+							+ "N° of Places:\n"
+							+ "Start date:\n"
+							+ "End date:\n"
+							+ "Finalized:\n"
+							+ "Description:\n",
+							"Start Messege", JOptionPane.PLAIN_MESSAGE); 
+		        }
+		    }
 		});
 	}
 	
