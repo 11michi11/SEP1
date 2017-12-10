@@ -19,6 +19,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import controler.VIAController;
+
 public class MemberListPanel extends VIAPanel {
 
 	private JTable table;
@@ -42,17 +44,7 @@ public class MemberListPanel extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name", "E-mail", "ID", "Paid", "Member" };
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", true , (member Object)},
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", true },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", true },
 
-		};
 
 		search = new JTextField(47);
 		search.setText("SEARCH");
@@ -63,24 +55,7 @@ public class MemberListPanel extends VIAPanel {
 
 		memberList = new VIALabel("MEMBER LIST", 40);
 
-		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
-
-			@Override
-			public Class getColumnClass(int column) {
-				switch (column) {
-				case 0:
-					return String.class;
-				case 1:
-					return String.class;
-				case 2:
-					return Integer.class;
-				case 3:
-					return Boolean.class;
-				default:
-					return Boolean.class;
-				}
-			}
-		};
+		DefaultTableModel model = VIAController.getMembersTableModel();
 		table = new JTable(model);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 		

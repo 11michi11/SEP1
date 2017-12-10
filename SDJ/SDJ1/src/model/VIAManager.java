@@ -57,6 +57,10 @@ public class VIAManager {
 		out.close();
 
 	}
+	public ArrayList<Member> getAllMembers() {
+		return this.members.getAllMembers();
+
+	}
 
 	public String readNewsletter(MyDate date) throws FileNotFoundException {
 
