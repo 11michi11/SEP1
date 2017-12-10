@@ -10,8 +10,7 @@ public class MyDate {
 		GregorianCalendar currentDate = new GregorianCalendar();
 		day = currentDate.get(GregorianCalendar.DATE);
 		month = currentDate.get(GregorianCalendar.MONTH) + 1;
-		year = currentDate.get
-		     (GregorianCalendar.YEAR);
+		year = currentDate.get(GregorianCalendar.YEAR);
 		hour = currentDate.get(GregorianCalendar.HOUR);
 		minute = currentDate.get(GregorianCalendar.MINUTE);
 	}
@@ -31,19 +30,19 @@ public class MyDate {
 		hour = object.hour;
 		minute = object.minute;
 	}
-	
-	public MyDate (String dateString) throws InvalidDateInput {
-	   String[] dateArray, timeArray;
-	   dateArray = dateString.split("/");
-	   day = Integer.parseInt(dateArray[0]);
-	   month = Integer.parseInt(dateArray[1]);
-	   year = Integer.parseInt(dateArray[2]);
-	   timeArray = dateArray[3].split(":");
-	   hour = Integer.parseInt(timeArray[0]);
-	   minute = Integer.parseInt(timeArray[1]);
-	   if (!isValid()) {
-         throw new InvalidDateInput ("Invalid date");
-      }
+
+	public MyDate(String dateString) throws InvalidDateInput {
+		String[] dateArray, timeArray;
+		dateArray = dateString.split("/");
+		day = Integer.parseInt(dateArray[0]);
+		month = Integer.parseInt(dateArray[1]);
+		year = Integer.parseInt(dateArray[2]);
+		timeArray = dateArray[3].split(":");
+		hour = Integer.parseInt(timeArray[0]);
+		minute = Integer.parseInt(timeArray[1]);
+		if (!isValid()) {
+			throw new InvalidDateInput("Invalid date");
+		}
 	}
 
 	public static int convertToMonthNumber(String monthName) {
@@ -84,15 +83,16 @@ public class MyDate {
 	public static MyDate today() {
 		GregorianCalendar currentDate = new GregorianCalendar();
 		return new MyDate(currentDate.get(GregorianCalendar.DATE), currentDate.get(GregorianCalendar.MONTH) + 1,
-				currentDate.get(GregorianCalendar.YEAR), currentDate.get(GregorianCalendar.HOUR), currentDate.get(GregorianCalendar.MINUTE));
+				currentDate.get(GregorianCalendar.YEAR), currentDate.get(GregorianCalendar.HOUR),
+				currentDate.get(GregorianCalendar.MINUTE));
 	}
 
-	public static MyDate getDefaultDate(){
+	public static MyDate getDefaultDate() {
 		return new MyDate(1, 1, 1, 0, 0);
 	}
-	
-	public boolean isValid () {
-	   return month > 1 && month < 12 && day>1 && day<DayInMonth() && year>1000; 
+
+	public boolean isValid() {
+		return month > 1 && month <= 12 && day > 1 && day <= DayInMonth() && year > 1000;
 	}
 
 	public boolean LeapYear() {

@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controler.VIAController;
+import model.InvalidDateInput;
 import model.MyDate;
 
 public class SignUpFormMember extends VIAPanel {
@@ -93,9 +94,14 @@ public class SignUpFormMember extends VIAPanel {
 					configuration[1] = fieldAddress.getText();
 					configuration[2] = Integer.parseInt(fieldPhone.getText());
 					configuration[3] = fieldEmail.getText();
-					// configuration[4] = new MyDate(fieldDateOfMembership.getText());
+					try {
+						configuration[4] = new MyDate(fieldDateOfMembership.getText());
+						VIAController.addMemberToList(configuration);
+					} catch (InvalidDateInput e1) {
+						JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
+								JOptionPane.PLAIN_MESSAGE);
+					}
 
-					VIAController.addMemberToList(configuration);
 
 					if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
 						frame.dispose();
