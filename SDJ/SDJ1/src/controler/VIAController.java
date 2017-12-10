@@ -7,6 +7,8 @@ import java.util.Arrays;
 import javax.swing.table.DefaultTableModel;
 
 import model.Category;
+import model.Event;
+import model.Lecturer;
 import model.Member;
 import model.MyDate;
 import model.VIAManager;
@@ -97,6 +99,77 @@ public class VIAController {
 		};
 		return model;
 	}
+	
+	public static DefaultTableModel getLecturersTableModel() {
+
+		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Lecturer" };
+		ArrayList<Lecturer> lecturers = manager.getAllLecturers();
+		Object[][] data = new Object[lecturers.size()][5];
+
+		for (int i = 0; i < lecturers.size(); i++) {
+			Object[] row = new Object[5];
+			row[0] = lecturers.get(i).getName();
+			row[1] = lecturers.get(i).getEmail();
+			row[2] = lecturers.get(i).getPhone();
+			row[3] = lecturers.get(i).getCategories();
+			row[4] = lecturers.get(i).isWantsAdvertise();
+			row[5] = lecturers.get(i);
+
+			data[i] = row;
+		}
+
+		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				case 1:
+					return String.class;
+				case 2:
+					return Integer.class;
+				case 3:
+					return Boolean.class;
+				default:
+					return Boolean.class;
+				}
+			}
+		};
+		return model;
+	}
+	
+	public static DefaultTableModel getEventsTableModel() {
+
+		String[] columnNames = { "Title", "Event" };
+		ArrayList<Event> events = manager.getAllEvents();
+		Object[][] data = new Object[events.size()][5];
+
+		for (int i = 0; i < events.size(); i++) {
+			Object[] row = new Object[2];
+			row[0] = events.get(i).getTitle();
+			row[1] = events.get(i);
+
+			data[i] = row;
+		}
+
+		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				case 1:
+					return String.class;
+				default:
+					return Boolean.class;
+				}
+			}
+		};
+		return model;
+	}
+	
 
 	public static void main(String[] args) {
 
