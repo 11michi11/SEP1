@@ -57,6 +57,7 @@ public class MemberListPanel extends VIAPanel {
 
 		DefaultTableModel model = VIAController.getMembersTableModel();
 		table = new JTable(model);
+		table.removeColumn(table.getColumnModel().getColumn(5));
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 		
 		back = new VIAButtonBack(frame, parentPanel);

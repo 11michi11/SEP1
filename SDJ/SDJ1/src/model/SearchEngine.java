@@ -1,37 +1,38 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SearchEngine {
 
-	public MemberList searchForMembers(MemberList members, String needle) {
-		MemberList searchedMembers = new MemberList();
+	public ArrayList<Member> searchForMembers(MemberList members, String needle) {
+		 ArrayList<Member> searchedMembers= new ArrayList<Member>();
 		while (members.hasNext()) {
 			Member member = members.next();
 			if (search(member.getName(), needle) || search(Integer.toString(member.getID()), needle))
-				searchedMembers.addMember(member);
+				searchedMembers.add(member);
 		}
 		return searchedMembers;
 	}
 
-	public LecturerList searchForLecturers(LecturerList lecturers, String needle) {
-		LecturerList searchedLecturers = new LecturerList();
+	public ArrayList<Lecturer> searchForLecturers(LecturerList lecturers, String needle) {
+		ArrayList<Lecturer> searchedLecturers = new ArrayList<Lecturer>();
 		while (lecturers.hasNext()) {
 			Lecturer lecturer = lecturers.next();
 			if (search(lecturer.getName(), needle) || search(Integer.toString(lecturer.getID()), needle))
-				searchedLecturers.addLecturer(lecturer);
+				searchedLecturers.add(lecturer);
 		}
 		return searchedLecturers;
 	}
 
-	public EventList searchForEvents(EventList events, String needle) {
-		EventList searchedEvents = new EventList();
+	public ArrayList<Event> searchForEvents(EventList events, String needle) {
+		ArrayList<Event> searchedEvents = new ArrayList<Event>();
 		while (events.hasNext()) {
 			Event event = events.next();
 			if (search(event.getTitle(), needle) || search(Integer.toString(event.getID()), needle)
 					|| search(event.getStartDate().toString(), needle))
-				searchedEvents.addEvent(event);
+				searchedEvents.add(event);
 		}
 		return searchedEvents;
 	}

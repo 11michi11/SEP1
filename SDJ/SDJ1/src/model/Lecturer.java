@@ -52,6 +52,14 @@ public class Lecturer {
 		return this.ID;
 	}
 	
+	public static int getNextId() {
+	    return nextID;
+	}
+	
+	public static void setNextID (int lastID) {
+	    nextID = lastID;
+	}
+	
 	public ArrayList<Category> getCategories() {
 		return categories;
 	}
