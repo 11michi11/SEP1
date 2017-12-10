@@ -4,9 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,6 +17,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+import model.Category;
+import model.Lecturer;
 
 public class LecturerChoiceList extends VIAPanel {
 
@@ -35,23 +40,31 @@ public class LecturerChoiceList extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise" };
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true },
+		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Lecturer" };
+		Object[][] data = {
+				{ "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
+				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
+				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
+						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
 
 		};
 
 		search = new JTextField(47);
 		search.setText("SEARCH");
-		choose = new VIAButtonSmall("CHOOSE LECTURER",30);
-		lecturerList = new VIALabel("LECTURER LIST",40);
-
+		choose = new VIAButtonSmall("CHOOSE LECTURER", 30);
+		lecturerList = new VIALabel("LECTURER LIST", 40);
 
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
@@ -68,18 +81,21 @@ public class LecturerChoiceList extends VIAPanel {
 					return String.class;
 				case 4:
 					return Boolean.class;
+				case 5:
+					return model.Lecturer.class;
 				default:
 					return Boolean.class;
 				}
 			}
-			
+
 			@Override
 			public boolean isCellEditable(int row, int col) {
 				return false;
 			}
 		};
-		
+
 		table = new JTable(model);
+		table.removeColumn(table.getColumnModel().getColumn(5));
 		table.setPreferredScrollableViewportSize(new Dimension(500, 300));
 	}
 
@@ -89,6 +105,10 @@ public class LecturerChoiceList extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				TableModel model = table.getModel();
+				int selRow = table.getSelectedRow();
+				Lecturer selected = (Lecturer) model.getValueAt(selRow, 5);
+				EventCreateFormLectures.assignCategoriesToLecturerForm(selected);
 				frame.dispose();
 			}
 		});
