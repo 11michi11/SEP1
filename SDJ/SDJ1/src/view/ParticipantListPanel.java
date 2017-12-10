@@ -21,6 +21,7 @@ import javax.swing.JTextField;
 public class ParticipantListPanel extends VIAPanel {
 
 	private JTable table;
+	private JTable event;
 	private JTextField search;
 	private JButton add;
 	private JButton delete;
@@ -41,13 +42,16 @@ public class ParticipantListPanel extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Event", "Name", "E-mail" };
-		Object[][] data = { {"Title", "Matej", "andasfsuf@gdgdfg.com" }, {"Title", "Michal", "andasfsuf@gdgdfg.com" },
-				{"Title", "Michal", "andasfsuf@gdgdfg.com" }, {"Title", "Michal", "andasfsuf@gdgdfg.com" },
-				{"Title", "Michal", "andasfsuf@gdgdfg.com" }, {"Title", "Michal", "andasfsuf@gdgdfg.com" },
-				{"Title", "Michal", "andasfsuf@gdgdfg.com" }, {"Title", "Miska", "andasfsuf@gdgdfg.com" },
+		String[] columnNames = {"Name", "E-mail" };
+		Object[][] data = { {"Matej", "andasfsuf@gdgdfg.com" }, {"Michal", "andasfsuf@gdgdfg.com" },
+				{"Michal", "andasfsuf@gdgdfg.com" }, {"Michal", "andasfsuf@gdgdfg.com" },
+				{"Michal", "andasfsuf@gdgdfg.com" }, {"Michal", "andasfsuf@gdgdfg.com" },
+				{"Michal", "andasfsuf@gdgdfg.com" }, {"Miska", "andasfsuf@gdgdfg.com" },
 
 		};
+		
+		String[] columnEvent = {"Title"};
+		Object[][] dataEvent = {{"english"}, {"mother fucker"}};
 
 		search = new JTextField(47);
 		search.setText("SEARCH");
@@ -57,9 +61,12 @@ public class ParticipantListPanel extends VIAPanel {
 		
 
 		participantList = new VIALabel("PARTICIPANT LIST",40);
+		
+		event = new JTable(dataEvent, columnEvent);
+		event.setPreferredScrollableViewportSize(new Dimension(50, 290));
 
 		table = new JTable(data, columnNames);
-		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
+		table.setPreferredScrollableViewportSize(new Dimension(100, 290));
 		
 		back = new VIAButtonBack(frame,parentPanel);
 	}
@@ -82,13 +89,28 @@ public class ParticipantListPanel extends VIAPanel {
 	}
 
 	private void addComponentsToPanel() {
-		JScrollPane scrollPane = new JScrollPane(table);
-		add(scrollPane);
+		JScrollPane scrollPaneOne = new JScrollPane(event);
+		add(scrollPaneOne);
+		
+		JScrollPane scrollPaneTwo = new JScrollPane(table);
+		add(scrollPaneTwo);
 
 		JPanel left = new JPanel(new BorderLayout());
-		left.add(search, BorderLayout.NORTH);
-		left.add(scrollPane, BorderLayout.CENTER);
+		
+		JPanel tables = new JPanel(new GridLayout(1, 2));
+		tables.add(scrollPaneOne);
+		tables.add(scrollPaneTwo);
+		tables.setOpaque(false);
+		
+		JPanel text = new JPanel();
+		text.add(search);
+		text.setOpaque(false);
+
+		left.add(text);
+		left.add(tables, BorderLayout.SOUTH);
 		left.setOpaque(false);
+		
+		
 
 		JPanel addPanel = new JPanel();
 		addPanel.add(add);
