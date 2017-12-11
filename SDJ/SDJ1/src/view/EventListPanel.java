@@ -56,6 +56,7 @@ public class EventListPanel extends VIAPanel {
 		DefaultTableModel model = VIAController.getEventsTableModel();
 
 		table = new JTable(model);
+		table.removeColumn(table.getColumnModel().getColumn(2));
 		table.setPreferredScrollableViewportSize(new Dimension(400, 300));
 		
 		scrollPane = new JScrollPane(table);

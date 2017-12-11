@@ -154,14 +154,15 @@ public class VIAController {
 	
 	public static DefaultTableModel getEventsTableModel() {
 
-		String[] columnNames = { "Title", "Event" };
+		String[] columnNames = { "Title", "Type", "Event" };
 		ArrayList<Event> events = manager.getAllEvents();
-		Object[][] data = new Object[events.size()][2];
+		Object[][] data = new Object[events.size()][3];
 
 		for (int i = 0; i < events.size(); i++) {
-			Object[] row = new Object[2];
+			Object[] row = new Object[3];
 			row[0] = events.get(i).getTitle();
-			row[1] = events.get(i);
+			row[1] = events.get(i).getClass().getName().substring(6);
+			row[2] = events.get(i);
 
 			data[i] = row;
 		}
@@ -229,6 +230,7 @@ public class VIAController {
 		return model;
 	    
 	}
+	
 	public static DefaultTableModel getSearchedLecturers (String line) {
 	    
 	    ArrayList<Lecturer> lecturers = SearchEngine.searchForLecturers(manager.getAllLecturers(), line);
@@ -270,6 +272,8 @@ public class VIAController {
 		};
 		return model;
 	}
+	
+
 	public static DefaultTableModel getSearchedEvents (String line) {
 	    
 	    ArrayList<Event> events = SearchEngine.searchForEvents(manager.getAllEvents(), line);
@@ -305,7 +309,6 @@ public class VIAController {
 		return model;
 	}
 	
-
 	public static void main(String[] args) {
 
 		VIAController controller = new VIAController();
