@@ -22,7 +22,7 @@ public abstract class Event implements Serializable {
 		this.title = (String) configuration.getOrDefault("title", "");
 		this.startDate = (MyDate) configuration.getOrDefault("startDate", MyDate.getDefaultDate());
 		this.endDate = (MyDate) configuration.getOrDefault("endDate", MyDate.getDefaultDate());
-		this.price = (double) configuration.getOrDefault("price", 0);
+		this.price = (double) configuration.getOrDefault("price", 0.0);
 		this.finalized = (boolean) configuration.getOrDefault("finalized", false);
 		this.description = (String) configuration.getOrDefault("description", "");
 		this.capacity = (int) configuration.getOrDefault("capacity", 0);

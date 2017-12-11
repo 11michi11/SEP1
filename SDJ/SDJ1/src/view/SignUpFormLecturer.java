@@ -78,7 +78,7 @@ public class SignUpFormLecturer extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (parentPanel instanceof MemberListPanel || parentPanel instanceof LecturerListPanel) {
+				if (parentPanel instanceof LecturerListPanel) {
 					frame.dispose();
 				} else {
 					back.goBack();
@@ -100,7 +100,7 @@ public class SignUpFormLecturer extends VIAPanel {
 
 					VIAController.addLecturerToList(configuration);
 
-					if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
+					if (parentPanel instanceof EventListPanel || parentPanel instanceof LecturerListPanel) {
 						frame.dispose();
 					} else {
 						back.goBack();
@@ -236,8 +236,7 @@ public class SignUpFormLecturer extends VIAPanel {
 	}
 
 	private boolean canFormBeSaved() {
-		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("") && categories.size() != 0
-				&& advertisment.isSelected())
+		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("") && categories.size() != 0)
 			return true;
 		return false;
 	}

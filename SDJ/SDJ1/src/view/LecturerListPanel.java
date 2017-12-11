@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,13 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
 import controler.VIAController;
 
 public class LecturerListPanel extends VIAPanel {
 
-	private JTable table;
+	private static JTable table;
 	private JTextField search;
 	private JButton add;
 	private JLabel lecturerList;
@@ -47,13 +47,14 @@ public class LecturerListPanel extends VIAPanel {
 		search = new JTextField(47);
 		search.setText("SEARCH");
 
-		add = new VIAButtonSmall("ADD LECTURER",30);
+		add = new VIAButtonSmall("ADD LECTURER", 30);
 
-		lecturerList = new VIALabel("LECTURER LIST",40);
+		lecturerList = new VIALabel("LECTURER LIST", 40);
 
 		table = new JTable(model);
+		table.removeColumn(table.getColumnModel().getColumn(5));
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
-		
+
 		scrollPane = new JScrollPane(table);
 
 		back = new VIAButtonBack(frame, parentPanel);
@@ -62,9 +63,9 @@ public class LecturerListPanel extends VIAPanel {
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
-		
+
 		add.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame lecturer = new JFrame();
@@ -107,12 +108,12 @@ public class LecturerListPanel extends VIAPanel {
 		labelPanel.setOpaque(false);
 
 		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
-	    buttonBack.add(back);
-	    buttonBack.setOpaque(false);
-	      
+		buttonBack.add(back);
+		buttonBack.setOpaque(false);
+
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
-			
+
 		JPanel logo = new JPanel(new BorderLayout());
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
@@ -140,6 +141,13 @@ public class LecturerListPanel extends VIAPanel {
 			}
 		});
 
+	}
+
+	public static void refreshTable() {
+		if (table != null) {
+			DefaultTableModel model = VIAController.getLecturersTableModel();
+			table.setModel(model);
+		}
 	}
 
 }

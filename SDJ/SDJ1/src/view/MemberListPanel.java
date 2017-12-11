@@ -23,7 +23,7 @@ import controler.VIAController;
 
 public class MemberListPanel extends VIAPanel {
 
-	private JTable table;
+	private static JTable table;
 	private JTextField search;
 	private JButton add;
 	private JButton mail;
@@ -154,5 +154,10 @@ public class MemberListPanel extends VIAPanel {
 			}
 		});
 
+	}
+	
+	public static void refreshTable() {
+		DefaultTableModel model = VIAController.getMembersTableModel();
+		table.setModel(model);
 	}
 }
