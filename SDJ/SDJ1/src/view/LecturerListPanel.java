@@ -75,7 +75,14 @@ public class LecturerListPanel extends VIAPanel {
 				lecturer.setVisible(true);
 			}
 		});
-
+		search.addActionListener(new ActionListener() {
+		    
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+			DefaultTableModel model = VIAController.getSearchedMembers(search.getText());
+			table.setModel(model);
+		    }
+		});
 	}
 
 	private void addComponentsToPanel() {
