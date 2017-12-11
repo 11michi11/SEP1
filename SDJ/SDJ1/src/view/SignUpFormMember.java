@@ -62,7 +62,7 @@ public class SignUpFormMember extends VIAPanel {
 		fieldAddress = new JTextField(10);
 		fieldPhone = new JTextField(10);
 		fieldDateOfMembership = new JTextField(10);
-		fieldDateOfMembership.setText("dd/mm/yyyy/hh:mm");
+		fieldDateOfMembership.setText("dd/mm/yyyy");
 
 		add = new VIAButtonSmall("Add to list");
 
@@ -74,13 +74,13 @@ public class SignUpFormMember extends VIAPanel {
 
 		fieldDateOfMembership.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
-				if (fieldDateOfMembership.getText().equals("dd/mm/yyyy/hh:mm"))
+				if (fieldDateOfMembership.getText().equals("dd/mm/yyyy"))
 					fieldDateOfMembership.setText("");
 			}
 
 			public void focusLost(FocusEvent e) {
 				if (fieldDateOfMembership.getText().equals(""))
-					fieldDateOfMembership.setText("dd/mm/yyyy/hh:mm");
+					fieldDateOfMembership.setText("dd/mm/yyyy");
 			}
 		});
 
@@ -242,8 +242,9 @@ public class SignUpFormMember extends VIAPanel {
 	}
 
 	private boolean canFormBeSaved() {
-		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("") && !fieldAddress.getText().equals("")
-				&& !fieldDateOfMembership.getText().equals("dd/mm/yyyy/hh:mm"))
+		System.out.println(fieldEmail.getText());
+	    if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("") && !fieldAddress.getText().equals("")
+				&& !fieldDateOfMembership.getText().equals("dd/mm/yyyy"))
 			return true;
 		return false;
 

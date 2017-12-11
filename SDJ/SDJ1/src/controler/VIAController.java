@@ -13,6 +13,7 @@ import model.EventNotFoundException;
 import model.Member;
 import model.MyDate;
 import model.Participant;
+import model.SearchEngine;
 import model.VIAManager;
 import view.VIAWindow;
 
@@ -158,6 +159,128 @@ public class VIAController {
 
 			data[i] = row;
 		}
+
+		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				case 1:
+					return Event.class;
+				default:
+					return Boolean.class;
+				}
+			}
+		};
+		return model;
+	}
+	
+	public static DefaultTableModel getSearchedMembers (String line) {
+	    
+	    ArrayList<Member> members = SearchEngine.searchForMembers(manager.getAllMembers(), line);
+	    String[] columnNames = { "Name", "E-mail", "Phone", "Paid", "ID", "Member" };
+
+	    Object[][] data = new Object[members.size()][5];
+
+		for (int i = 0; i < members.size(); i++) {
+			Object[] row = new Object[6];
+			row[0] = members.get(i).getName();
+			row[1] = members.get(i).getEmail();
+			row[2] = members.get(i).getPhone();
+			row[3] = members.get(i).hasPaid();
+			row[4] = members.get(i).getID();
+			row[5] = members.get(i);
+
+			data[i] = row;
+		}
+		
+		System.out.println(Arrays.deepToString(data));
+		
+		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				case 1:
+					return String.class;
+				case 2:
+					return Integer.class;
+				case 3:
+					return Boolean.class;
+				case 4:
+					return Integer.class;
+				case 5:
+					return model.Member.class;
+				default:
+					return Boolean.class;
+				}
+			}
+		};
+		return model;
+	    
+	}
+	public static DefaultTableModel getSearchedLecturers (String line) {
+	    
+	    ArrayList<Lecturer> lecturers = SearchEngine.searchForLecturers(manager.getAllLecturers(), line);
+	    String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Lecturer" };
+		Object[][] data = new Object[lecturers.size()][6];
+
+		for (int i = 0; i < lecturers.size(); i++) {
+			Object[] row = new Object[6];
+			row[0] = lecturers.get(i).getName();
+			row[1] = lecturers.get(i).getEmail();
+			row[2] = lecturers.get(i).getPhone();
+			row[3] = lecturers.get(i).getCategories();
+			row[4] = lecturers.get(i).isWantsAdvertise();
+			row[5] = lecturers.get(i);
+
+			data[i] = row;
+		}
+		
+		System.out.println(Arrays.deepToString(data));
+
+
+		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				case 1:
+					return String.class;
+				case 2:
+					return Integer.class;
+				case 3:
+					return Boolean.class;
+				default:
+					return Boolean.class;
+				}
+			}
+		};
+		return model;
+	}
+	public static DefaultTableModel getSearchedEvents (String line) {
+	    
+	    ArrayList<Event> events = SearchEngine.searchForEvents(manager.getAllEvents(), line);
+
+		String[] columnNames = { "Title", "Event" };
+		Object[][] data = new Object[events.size()][2];
+
+		for (int i = 0; i < events.size(); i++) {
+			Object[] row = new Object[2];
+			row[0] = events.get(i).getTitle();
+			row[1] = events.get(i);
+
+			data[i] = row;
+		}
+		
+		System.out.println(Arrays.deepToString(data));
+
 
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
