@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+import controler.VIAController;
 import model.Category;
 import model.Lecturer;
 
@@ -43,26 +44,7 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Choice", "Lecturer" };
-		Object[][] data = {
-				{ "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true, true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-
-		};
+		
 
 		search = new JTextField(47);
 		search.setText("SEARCH");
@@ -71,40 +53,7 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 
 		lecturerList = new VIALabel("LECTURER LIST", 40);
 
-		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
-
-			@Override
-			public Class getColumnClass(int column) {
-				switch (column) {
-				case 0:
-					return String.class;
-				case 1:
-					return String.class;
-				case 2:
-					return Integer.class;
-				case 3:
-					return String.class;
-				case 4:
-					return Boolean.class;
-				case 5:
-					return Boolean.class;
-				case 6:
-					return model.Lecturer.class;
-				default:
-					return Boolean.class;
-				}
-			}
-
-			@Override
-			public boolean isCellEditable(int row, int col) {
-				switch (col) {
-				case 5:
-					return true;
-				default:
-					return false;
-				}
-			}
-		};
+		DefaultTableModel model = VIAController.getLecturersMultipleTableModel();
 		table = new JTable(model);
 		table.removeColumn(table.getColumnModel().getColumn(6));
 		table.setPreferredScrollableViewportSize(new Dimension(500, 300));
