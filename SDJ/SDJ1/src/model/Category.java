@@ -1,7 +1,7 @@
 package model;
 
 public enum Category {
-	Astrology, Meditation, Reincarnation, Health, TraditionalBuddhism, Nature, Other;
+	Astrology, Meditation, Reincarnation, Health, Buddhism, Nature, Other;
 
 	public static Category parseCategory(String category) {
 		switch (category) {
@@ -14,7 +14,7 @@ public enum Category {
 		case "Health":
 			return Category.Health;
 		case "TraditionalBuddhism":
-			return Category.TraditionalBuddhism;
+			return Category.Buddhism;
 		case "Nature":
 			return Category.Nature;
 		case "Other":
@@ -35,7 +35,7 @@ public enum Category {
 		case 3:
 			return Category.Health;
 		case 4:
-			return Category.TraditionalBuddhism;
+			return Category.Buddhism;
 		case 5:
 			return Category.Nature;
 		case 6:

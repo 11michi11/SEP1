@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class MyDate {
+public class MyDate implements Serializable {
     private int day, month, year, hour, minute;
 
     public MyDate() {
@@ -22,15 +23,15 @@ public class MyDate {
 	this.hour = hour;
 	this.minute = minute;
     }
-
-    public MyDate(MyDate object) {
-	day = object.day;
-	month = object.month;
-	year = object.year;
-	hour = object.hour;
-	minute = object.minute;
+    
+    public MyDate(int day, int month, int year) {
+	this.day = day;
+	this.month = month;
+	this.year = year;
+	this.hour = 0;
+	this.minute = 0;
     }
-
+    
     public MyDate(String dateString) throws InvalidDateInput {
 	String[] dateArray, timeArray;
 	dateArray = dateString.split("/");
@@ -45,7 +46,15 @@ public class MyDate {
 	    } else {
 		throw new InvalidDateInput("Invalid date");
 	    }
-	} else {
+	} else if (dateArray.length == 3) {
+	    day = Integer.parseInt(dateArray[0]);
+	    month = Integer.parseInt(dateArray[1]);
+	    year = Integer.parseInt(dateArray[2]);
+	    hour = 0;
+	    minute = 0;
+	}
+	
+	else {
 	    throw new InvalidDateInput("Invalid date");
 	}
 	if (!isValid()) {
@@ -122,7 +131,7 @@ public class MyDate {
 	    return 28;
     }
 
-    public String DayOfWeek() {
+    /*public String DayOfWeek() {
 	int h;
 	if (month > 2)
 	    h = (day + (13 * (month + 1) / 5) + year % 100 + (year % 100) / 4 + year / 400 + year / 20) % 7;
@@ -144,9 +153,9 @@ public class MyDate {
 	else if (h == 6)
 	    return "Friday";
 	return null;
-    }
+    }*/
 
-    public String getMonthName() {
+    /*public String getMonthName() {
 	switch (month) {
 	case 1:
 	    return "January";
@@ -174,9 +183,9 @@ public class MyDate {
 	    return "December";
 	}
 	return "That's not a month!";
-    }
+    }*/
 
-    public void nextDay() {
+    /*public void nextDay() {
 	if (DayInMonth() == day && month != 12) {
 	    day = 1;
 	    month++;
@@ -187,7 +196,7 @@ public class MyDate {
 	} else
 	    day++;
 
-    }
+    }*/
 
     public boolean equals(Object sth) {
 	if (!(sth instanceof MyDate))
@@ -205,7 +214,7 @@ public class MyDate {
 	return new MyDate(day, month, year, hour, minute);
     }
 
-    public void nextDays(int days) {
+    /*public void nextDays(int days) {
 	if (DayInMonth() < day + days) {
 	    while (days + day > DayInMonth()) {
 		days -= DayInMonth();
@@ -219,9 +228,9 @@ public class MyDate {
 	    day += days;
 	} else
 	    day += days;
-    }
+    }*/
 
-    public boolean isBefore(MyDate obj) {
+    /*public boolean isBefore(MyDate obj) {
 	if (year < obj.year)
 	    return true;
 	else if (year > obj.year)
@@ -238,9 +247,9 @@ public class MyDate {
 		    return false;
 	    }
 	}
-    }
+    }*/
 
-    public int daysBetween(MyDate other) {
+    /*public int daysBetween(MyDate other) {
 	int result = 0;
 	if (this.isBefore(other)) {
 	    MyDate additional = this.copy();
@@ -257,7 +266,7 @@ public class MyDate {
 	}
 	return result;
 
-    }
+    }*/
 
     public void setDay(int d) {
 	day = d;

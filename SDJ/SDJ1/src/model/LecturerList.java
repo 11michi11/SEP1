@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class LecturerList {
+public class LecturerList implements Serializable {
 	
 	private ArrayList<Lecturer> lecturerList;
 	private Iterator<Lecturer> iter;

@@ -44,7 +44,7 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 	private void initializeComponents() {
 		String[] columnNames = { "Category", "" };
 		Object[][] data = { { "Astrology" }, { "Meditation" }, { "Reincarnation" }, { "Health" },
-				{ "TraditionalBuddhism" }, { "Nature" }, { "Other" }
+				{ "Buddhism" }, { "Nature" }, { "Other" }
 
 		};
 

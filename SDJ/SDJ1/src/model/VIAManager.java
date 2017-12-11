@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class VIAManager {
@@ -42,12 +43,11 @@ public class VIAManager {
 		lecturers.addLecturer(new Lecturer(name, email, phone, categories, wantsAdvertise));
 	}
 
-	public void signUpParticipantToEvent(int eventId, Participant participant) throws EventNotFoundException {
+	public void signUpParticipantToEvent(Participant participant, int eventId) throws EventNotFoundException {
 		events.getEventByID(eventId).signUpParticipant(participant);
 	}
 
 	public void generateNewsletter(String newsletterContent) throws IOException {
-
 		newsletterFiles.add(new File("Newsletter_" + new MyDate().toString() + ".txt"));
 		PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
 
@@ -57,10 +57,12 @@ public class VIAManager {
 		out.close();
 
 	}
+
 	public ArrayList<Member> getAllMembers() {
 		return this.members.getAllMembers();
 
 	}
+
 	public ArrayList<Lecturer> getAllLecturers() {
 		return this.lecturers.getAllLecturers();
 	}
@@ -69,9 +71,29 @@ public class VIAManager {
 		return this.events.getAllEvents();
 	}
 	
+	public void addEvent(Map<String, Object> configuration) {
+		Event event;
+		switch((String) configuration.get("type")) {
+		case "Lecture":
+			event = new Lecture(configuration);
+			events.addEvent(event);
+			break;
+		case "Workshop":
+			event = new Workshop(configuration);
+			events.addEvent(event);
+			break;
+		case "Seminar":
+			event = new Seminar(configuration);
+			events.addEvent(event);
+			break;
+		case "Trip":
+			event = new Trip(configuration);
+			events.addEvent(event);
+			break;
+		}
+	}
 
 	public String readNewsletter(MyDate date) throws FileNotFoundException {
-
 		String newsletter = "";
 		for (File i : newsletterFiles) {
 			if (i.getName().equals("Newsletter_" + date.toString() + ".txt")) {

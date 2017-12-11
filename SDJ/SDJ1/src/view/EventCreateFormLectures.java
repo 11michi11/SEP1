@@ -1,31 +1,32 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import controler.VIAController;
 import model.Category;
+import model.InvalidDateInput;
 import model.Lecturer;
+import model.MyDate;
 
 public class EventCreateFormLectures extends VIAPanel {
 
@@ -125,13 +126,42 @@ public class EventCreateFormLectures extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				HashMap<String, Object> configuration = new HashMap<String, Object>();
+				configuration.put("type", "Lecture");
+
+				if (!fieldTitle.getText().equals(""))
+					configuration.put("title", fieldTitle.getText());
+				if (!fieldPrice.getText().equals(""))
+					configuration.put("price", Double.parseDouble(fieldPrice.getText()));
+				if (!fieldPlaces.getText().equals(""))
+					configuration.put("capacity", Integer.parseInt(fieldPlaces.getText()));
+				if (descriptionArea.getText().equals(""))
+					configuration.put("descriptionArea", descriptionArea.getText());
+				if (categoryBox.getSelectedItem().toString().equals(""))
+					configuration.put("category", Category.parseCategory(categoryBox.getSelectedItem().toString()));
+				if (lecturer != null)
+					configuration.put("lecturer", lecturer);
+
+				configuration.put("finalized", finalized.isSelected());
+
+				try {
+					if (fieldStartDate.getText().equals(""))
+						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
+					if (fieldEndDate.getText().equals(""))
+						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
+					VIAController.addEventToList(configuration);
+				} catch (InvalidDateInput ex) {
+					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
+							JOptionPane.PLAIN_MESSAGE);
+				}
+
 				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
 					frame.dispose();
 				else
 					back.goBack();
 			}
 		});
-		
+
 		fieldStartDate.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (fieldStartDate.getText().equals("dd/mm/yyyy/hh:mm"))
@@ -323,10 +353,9 @@ public class EventCreateFormLectures extends VIAPanel {
 			}
 		});
 	}
-	
+
 	public static void assignCategoriesToLecturerForm(Lecturer lecturerChoosen) {
 		lecturer = lecturerChoosen;
 		fieldLecturer.setText(lecturer.getName());
 	}
-	
 }

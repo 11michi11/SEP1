@@ -28,7 +28,7 @@ import controler.VIAController;
 
 public class EventListPanel extends VIAPanel {
 	
-	private JTable table;
+	private static JTable table;
 	private JScrollPane scrollPane;
 	private JTextField search;
 	private JLabel eventList;
@@ -56,6 +56,7 @@ public class EventListPanel extends VIAPanel {
 		DefaultTableModel model = VIAController.getEventsTableModel();
 
 		table = new JTable(model);
+		table.removeColumn(table.getColumnModel().getColumn(2));
 		table.setPreferredScrollableViewportSize(new Dimension(400, 300));
 		
 		scrollPane = new JScrollPane(table);
@@ -212,6 +213,11 @@ public class EventListPanel extends VIAPanel {
 			}
 		});
 
+	}
+	
+	public static void refreshTable() {
+		DefaultTableModel model = VIAController.getEventsTableModel();
+		table.setModel(model);
 	}
 
 }

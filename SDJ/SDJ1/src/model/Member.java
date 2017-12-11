@@ -1,6 +1,8 @@
 package model;
 
-public class Member extends Participant {
+import java.io.Serializable;
+
+public class Member extends Participant implements Serializable {
 
 	private String address;
 	private int phone;

@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Map;
 
-public abstract class Event {
+public abstract class Event implements Serializable {
 
 	public static double discount = 0.2;
 	private String title;
@@ -21,7 +22,7 @@ public abstract class Event {
 		this.title = (String) configuration.getOrDefault("title", "");
 		this.startDate = (MyDate) configuration.getOrDefault("startDate", MyDate.getDefaultDate());
 		this.endDate = (MyDate) configuration.getOrDefault("endDate", MyDate.getDefaultDate());
-		this.price = (double) configuration.getOrDefault("price", 0);
+		this.price = (double) configuration.getOrDefault("price", 0.0);
 		this.finalized = (boolean) configuration.getOrDefault("finalized", false);
 		this.description = (String) configuration.getOrDefault("description", "");
 		this.capacity = (int) configuration.getOrDefault("capacity", 0);

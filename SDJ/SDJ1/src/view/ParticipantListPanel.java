@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,8 +21,9 @@ import javax.swing.JTextField;
 public class ParticipantListPanel extends VIAPanel {
 
 	private JTable table;
-	private JTextField search;
+	private JTable event;
 	private JButton add;
+	private JButton delete;
 	private JLabel participantList;
 	private JFrame frame;
 	private JButton back;
@@ -39,24 +41,29 @@ public class ParticipantListPanel extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name", "E-mail" };
-		Object[][] data = { { "Matej", "andasfsuf@gdgdfg.com" }, { "Michal", "andasfsuf@gdgdfg.com" },
-				{ "Michal", "andasfsuf@gdgdfg.com" }, { "Michal", "andasfsuf@gdgdfg.com" },
-				{ "Michal", "andasfsuf@gdgdfg.com" }, { "Michal", "andasfsuf@gdgdfg.com" },
-				{ "Michal", "andasfsuf@gdgdfg.com" }, { "Miska", "andasfsuf@gdgdfg.com" },
+		String[] columnNames = {"Name", "E-mail" };
+		Object[][] data = { {"Matej", "andasfsuf@gdgdfg.com" }, {"Michal", "andasfsuf@gdgdfg.com" },
+				{"Michal", "andasfsuf@gdgdfg.com" }, {"Michal", "andasfsuf@gdgdfg.com" },
+				{"Michal", "andasfsuf@gdgdfg.com" }, {"Michal", "andasfsuf@gdgdfg.com" },
+				{"Michal", "andasfsuf@gdgdfg.com" }, {"Miska", "andasfsuf@gdgdfg.com" },
 
 		};
+		
+		String[] columnEvent = {"Title"};
+		Object[][] dataEvent = {{"english"}, {"mother fucker"}};
 
-		search = new JTextField(47);
-		search.setText("SEARCH");
 
 		add = new VIAButtonSmall("ADD PARTICIPANT", 30);
+		delete = new VIAButtonSmall("DELETE PARTICIPANT", 30);
 		
 
 		participantList = new VIALabel("PARTICIPANT LIST",40);
+		
+		event = new JTable(dataEvent, columnEvent);
+		event.setPreferredScrollableViewportSize(new Dimension(200, 290));
 
 		table = new JTable(data, columnNames);
-		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
+		table.setPreferredScrollableViewportSize(new Dimension(350, 290));
 		
 		back = new VIAButtonBack(frame,parentPanel);
 	}
@@ -79,20 +86,45 @@ public class ParticipantListPanel extends VIAPanel {
 	}
 
 	private void addComponentsToPanel() {
-		JScrollPane scrollPane = new JScrollPane(table);
-		add(scrollPane);
+		JScrollPane scrollPaneOne = new JScrollPane(event);
+		add(scrollPaneOne);
+		
+		JScrollPane scrollPaneTwo = new JScrollPane(table);
+		add(scrollPaneTwo);
 
 		JPanel left = new JPanel(new BorderLayout());
-		left.add(search, BorderLayout.NORTH);
-		left.add(scrollPane, BorderLayout.CENTER);
+		
+		JPanel tableEvent = new JPanel();
+		tableEvent.add(scrollPaneOne);
+		tableEvent.setOpaque(false);
+		
+		JPanel tableParticipant = new JPanel();
+		tableParticipant.add(scrollPaneTwo);
+		tableParticipant.setOpaque(false);
+		
+		JPanel tables = new JPanel(new BorderLayout());
+		tables.add(tableEvent, BorderLayout.WEST);
+		tables.add(tableParticipant, BorderLayout.EAST);
+		tables.setOpaque(false);
+		
+
+		
+		left.add(tables);
 		left.setOpaque(false);
+		
+		
 
-		JPanel north = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		north.add(add);
-		north.setOpaque(false);
+		JPanel addPanel = new JPanel();
+		addPanel.add(add);
+		addPanel.setOpaque(false);
+		
+		JPanel deletePanel = new JPanel();
+		deletePanel.add(delete);
+		deletePanel.setOpaque(false);
 
-		JPanel right = new JPanel(new BorderLayout());
-		right.add(north, BorderLayout.NORTH);
+		JPanel right = new JPanel(new GridLayout(2, 1));
+		right.add(addPanel);
+		right.add(deletePanel);
 		right.setOpaque(false);
 
 		JPanel labelPanel = new JPanel();

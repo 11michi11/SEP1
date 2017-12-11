@@ -1,11 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.swing.plaf.metal.MetalMenuBarUI;
 
-public class MemberList {
+public class MemberList implements Serializable {
 
 	private ArrayList<Member> members;
 	private Iterator<Member> iter;
