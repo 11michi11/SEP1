@@ -199,22 +199,6 @@ public class EventListPanel extends VIAPanel {
 
 		add(logo, BorderLayout.NORTH);
 		add(eventForm, BorderLayout.CENTER);
-
-	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventListPanel(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
-
 	}
 
 	public static void refreshTable() {
