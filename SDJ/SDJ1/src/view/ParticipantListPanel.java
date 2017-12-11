@@ -4,24 +4,30 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+import controler.VIAController;
+import model.Event;
 
 public class ParticipantListPanel extends VIAPanel {
 
-	private JTable table;
-	private JTable event;
+	private static JTable table;
+	private static JTable events;
 	private JButton add;
 	private JButton delete;
 	private JLabel participantList;
@@ -41,28 +47,22 @@ public class ParticipantListPanel extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = {"Name", "E-mail" };
-		Object[][] data = { {"Matej", "andasfsuf@gdgdfg.com" }, {"Michal", "andasfsuf@gdgdfg.com" },
-				{"Michal", "andasfsuf@gdgdfg.com" }, {"Michal", "andasfsuf@gdgdfg.com" },
-				{"Michal", "andasfsuf@gdgdfg.com" }, {"Michal", "andasfsuf@gdgdfg.com" },
-				{"Michal", "andasfsuf@gdgdfg.com" }, {"Miska", "andasfsuf@gdgdfg.com" },
-
-		};
-		
-		String[] columnEvent = {"Title"};
-		Object[][] dataEvent = {{"english"}, {"mother fucker"}};
-
-
 		add = new VIAButtonSmall("ADD PARTICIPANT", 30);
 		delete = new VIAButtonSmall("DELETE PARTICIPANT", 30);
 		
-
 		participantList = new VIALabel("PARTICIPANT LIST",40);
 		
-		event = new JTable(dataEvent, columnEvent);
-		event.setPreferredScrollableViewportSize(new Dimension(200, 290));
+		DefaultTableModel eventModel = VIAController.getParticipantEventsTableModel();
+		events = new JTable(eventModel);
+		events.removeColumn(events.getColumnModel().getColumn(1));
+		events.setPreferredScrollableViewportSize(new Dimension(200, 290));
 
-		table = new JTable(data, columnNames);
+		String[] columnNames = {"Name", "Email", "Member"};
+		Object[][] data = {};
+		
+		DefaultTableModel pariticipantModel = new DefaultTableModel(data, columnNames);
+		table = new JTable(pariticipantModel);
+		table.removeColumn(table.getColumnModel().getColumn(2));
 		table.setPreferredScrollableViewportSize(new Dimension(350, 290));
 		
 		back = new VIAButtonBack(frame,parentPanel);
@@ -78,15 +78,28 @@ public class ParticipantListPanel extends VIAPanel {
 				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				participant.setSize(900, 500);
 				participant.setTitle("VIA - Add new member");
-				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel));
+				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
+				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel, event.getID()));
 				participant.setVisible(true);
+			}
+		});
+		
+		events.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent mouseEvent) {
+				JTable table = (JTable) mouseEvent.getSource();
+				Point point = mouseEvent.getPoint();
+				int row = table.rowAtPoint(point);
+				if (mouseEvent.getClickCount() == 2) {
+					Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
+					DefaultTableModel pariticipantModel = VIAController.getParticipantTableModel(event);
+				}
 			}
 		});
 
 	}
 
 	private void addComponentsToPanel() {
-		JScrollPane scrollPaneOne = new JScrollPane(event);
+		JScrollPane scrollPaneOne = new JScrollPane(events);
 		add(scrollPaneOne);
 		
 		JScrollPane scrollPaneTwo = new JScrollPane(table);
@@ -107,12 +120,8 @@ public class ParticipantListPanel extends VIAPanel {
 		tables.add(tableParticipant, BorderLayout.EAST);
 		tables.setOpaque(false);
 		
-
-		
 		left.add(tables);
-		left.setOpaque(false);
-		
-		
+		left.setOpaque(false);	
 
 		JPanel addPanel = new JPanel();
 		addPanel.add(add);
@@ -152,19 +161,14 @@ public class ParticipantListPanel extends VIAPanel {
 		add(logo, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
 	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new ParticipantListPanel(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
-
+	
+	public static void refreshTable() {
+		if (table != null) {
+			Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
+			DefaultTableModel model = VIAController.getParticipantTableModel(event);
+			table.setModel(model);
+			table.removeColumn(table.getColumnModel().getColumn(2));
+		}
 	}
 
 }

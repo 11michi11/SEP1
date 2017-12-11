@@ -19,6 +19,7 @@ import model.VIAManager;
 import view.EventListPanel;
 import view.LecturerListPanel;
 import view.MemberListPanel;
+import view.ParticipantListPanel;
 import view.VIAWindow;
 
 public class VIAController {
@@ -41,7 +42,7 @@ public class VIAController {
 
 		manager.signUpMember(name, address, phone, email, dateOfMembership);
 		MemberListPanel.refreshTable();
-		
+
 		System.out.println(manager.getMembersString());
 	}
 
@@ -63,11 +64,12 @@ public class VIAController {
 
 		String name = (String) configuration[0];
 		String email = (String) configuration[1];
-		int eventId= (int) configuration[2];
+		int eventId = (int) configuration[2];
 
 		Participant participant = new Participant(name, email);
-		
+
 		manager.signUpParticipantToEvent(participant, eventId);
+		ParticipantListPanel.refreshTable();
 	}
 
 	public static void addEventToList(Map<String, Object> configuration) {
@@ -117,7 +119,7 @@ public class VIAController {
 		};
 		return model;
 	}
-	
+
 	public static DefaultTableModel getLecturersTableModel() {
 		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Lecturer" };
 		ArrayList<Lecturer> lecturers = manager.getAllLecturers();
@@ -159,7 +161,7 @@ public class VIAController {
 		};
 		return model;
 	}
-	
+
 	public static DefaultTableModel getLecturersMultipleTableModel() {
 		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Choice", "Lecturer" };
 		ArrayList<Lecturer> lecturers = manager.getAllLecturers();
@@ -201,7 +203,7 @@ public class VIAController {
 					return Boolean.class;
 				}
 			}
-			
+
 			@Override
 			public boolean isCellEditable(int row, int col) {
 				switch (col) {
@@ -214,7 +216,7 @@ public class VIAController {
 		};
 		return model;
 	}
-	
+
 	public static DefaultTableModel getEventsTableModel() {
 		String[] columnNames = { "Title", "Type", "Event" };
 		ArrayList<Event> events = manager.getAllEvents();
@@ -237,6 +239,8 @@ public class VIAController {
 				case 0:
 					return String.class;
 				case 1:
+					return String.class;
+				case 2:
 					return Event.class;
 				default:
 					return Boolean.class;
@@ -245,13 +249,76 @@ public class VIAController {
 		};
 		return model;
 	}
-	
-	public static DefaultTableModel getSearchedMembers (String line) {
-	    
-	    ArrayList<Member> members = SearchEngine.searchForMembers(manager.getAllMembers(), line);
-	    String[] columnNames = { "Name", "E-mail", "Phone", "Paid", "ID", "Member" };
 
-	    Object[][] data = new Object[members.size()][5];
+	public static DefaultTableModel getParticipantEventsTableModel() {
+		String[] columnNames = { "Title", "Event" };
+		ArrayList<Event> events = manager.getAllEvents();
+		Object[][] data = new Object[events.size()][2];
+
+		for (int i = 0; i < events.size(); i++) {
+			Object[] row = new Object[2];
+			row[0] = events.get(i).getTitle();
+			row[1] = events.get(i);
+
+			data[i] = row;
+		}
+
+		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				case 1:
+					return Event.class;
+				default:
+					return Boolean.class;
+				}
+			}
+		};
+		return model;
+	}
+
+	public static DefaultTableModel getParticipantTableModel(Event event) {
+		String[] columnNames = { "Name", "Email", "Participant" };
+		ArrayList<Participant> participants = event.getParticipantList().getAllPerticipants();
+		Object[][] data = new Object[participants.size()][3];
+
+		for (int i = 0; i < participants.size(); i++) {
+			Object[] row = new Object[3];
+			row[0] = participants.get(i).getName();
+			row[1] = participants.get(i).getEmail();
+			row[2] = participants.get(i);
+
+			data[i] = row;
+		}
+
+		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				case 1:
+					return String.class;
+				case 2:
+					return model.Participant.class;
+				default:
+					return Boolean.class;
+				}
+			}
+		};
+		return model;
+	}
+
+	public static DefaultTableModel getSearchedMembers(String line) {
+
+		ArrayList<Member> members = SearchEngine.searchForMembers(manager.getAllMembers(), line);
+		String[] columnNames = { "Name", "E-mail", "Phone", "Paid", "ID", "Member" };
+
+		Object[][] data = new Object[members.size()][5];
 
 		for (int i = 0; i < members.size(); i++) {
 			Object[] row = new Object[6];
@@ -264,9 +331,9 @@ public class VIAController {
 
 			data[i] = row;
 		}
-		
+
 		System.out.println(Arrays.deepToString(data));
-		
+
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
 			@Override
@@ -290,13 +357,13 @@ public class VIAController {
 			}
 		};
 		return model;
-	    
+
 	}
-	
-	public static DefaultTableModel getSearchedLecturers (String line) {
-	    
-	    ArrayList<Lecturer> lecturers = SearchEngine.searchForLecturers(manager.getAllLecturers(), line);
-	    String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Lecturer" };
+
+	public static DefaultTableModel getSearchedLecturers(String line) {
+
+		ArrayList<Lecturer> lecturers = SearchEngine.searchForLecturers(manager.getAllLecturers(), line);
+		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Lecturer" };
 		Object[][] data = new Object[lecturers.size()][6];
 
 		for (int i = 0; i < lecturers.size(); i++) {
@@ -310,9 +377,8 @@ public class VIAController {
 
 			data[i] = row;
 		}
-		
-		System.out.println(Arrays.deepToString(data));
 
+		System.out.println(Arrays.deepToString(data));
 
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
@@ -338,11 +404,10 @@ public class VIAController {
 		};
 		return model;
 	}
-	
 
-	public static DefaultTableModel getSearchedEvents (String line) {
-	    
-	    ArrayList<Event> events = SearchEngine.searchForEvents(manager.getAllEvents(), line);
+	public static DefaultTableModel getSearchedEvents(String line) {
+
+		ArrayList<Event> events = SearchEngine.searchForEvents(manager.getAllEvents(), line);
 
 		String[] columnNames = { "Title", "Event" };
 		Object[][] data = new Object[events.size()][3];
@@ -355,7 +420,7 @@ public class VIAController {
 
 			data[i] = row;
 		}
-		
+
 		System.out.println(Arrays.deepToString(data));
 
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
@@ -374,7 +439,7 @@ public class VIAController {
 		};
 		return model;
 	}
-	
+
 	public static void main(String[] args) {
 
 		VIAController controller = new VIAController();
@@ -389,5 +454,7 @@ public class VIAController {
 			}
 		});
 	}
+
+	
 
 }

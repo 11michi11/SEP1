@@ -25,9 +25,10 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import controler.VIAController;
+import model.Event;
 
 public class EventListPanel extends VIAPanel {
-	
+
 	private static JTable table;
 	private JScrollPane scrollPane;
 	private JTextField search;
@@ -40,7 +41,7 @@ public class EventListPanel extends VIAPanel {
 	private JFrame frame;
 	private JButton back;
 	private JPanel parentPanel;
-	
+
 	public EventListPanel(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
@@ -58,25 +59,25 @@ public class EventListPanel extends VIAPanel {
 		table = new JTable(model);
 		table.removeColumn(table.getColumnModel().getColumn(2));
 		table.setPreferredScrollableViewportSize(new Dimension(400, 300));
-		
+
 		scrollPane = new JScrollPane(table);
-		
+
 		search = new JTextField(10);
 		search.setText("SEARCH");
-		
-		eventList = new VIALabel("EVENT LIST",40);
-		
+
+		eventList = new VIALabel("EVENT LIST", 40);
+
 		finalized = new JCheckBox("Finalized");
 		finalized.setOpaque(false);
 		finished = new JCheckBox("Finished");
 		finished.setOpaque(false);
-		
+
 		addEvent = new VIAButtonSimple("ADD EVENT", 20);
 		signUpParticipant = new VIAButtonSimple("SIGN UP PARTICIPANT", 20);
 		signUpMember = new VIAButtonSimple("SIGN UP MEMBER", 20);
-		back = new VIAButtonBack(frame,parentPanel);
+		back = new VIAButtonBack(frame, parentPanel);
 	}
-	
+
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
 		signUpParticipant.addActionListener(new ActionListener() {
@@ -87,13 +88,14 @@ public class EventListPanel extends VIAPanel {
 				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				participant.setSize(900, 500);
 				participant.setTitle("VIA - Sign up new participant");
-				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel));
+				Event event = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
+				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel, event.getID()));
 				participant.setVisible(true);
 			}
 		});
-		
+
 		signUpMember.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame member = new JFrame();
@@ -104,9 +106,9 @@ public class EventListPanel extends VIAPanel {
 				member.setVisible(true);
 			}
 		});
-		
+
 		addEvent.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame event = new JFrame();
@@ -117,27 +119,20 @@ public class EventListPanel extends VIAPanel {
 				event.setVisible(true);
 			}
 		});
-		
+
 		table.addMouseListener(new MouseAdapter() {
-		    public void mousePressed(MouseEvent mouseEvent) {
-		        JTable table =(JTable) mouseEvent.getSource();
-		        Point point = mouseEvent.getPoint();
-		        int row = table.rowAtPoint(point);
-		        if (mouseEvent.getClickCount() == 2) {
-		        	JOptionPane.showMessageDialog(frame,
-							"Event name:\n"
-							+ "Category:\n"
-							+ "Lecturer:\n"
-							+ "Location:\n"
-							+ "Price:\n"
-							+ "NÂ° of Places:\n"
-							+ "Start date:\n"
-							+ "End date:\n"
-							+ "Finalized:\n"
-							+ "Description:\n",
-							"Start Messege", JOptionPane.PLAIN_MESSAGE); 
-		        }
-		    }
+			public void mousePressed(MouseEvent mouseEvent) {
+				JTable table = (JTable) mouseEvent.getSource();
+				Point point = mouseEvent.getPoint();
+				int row = table.rowAtPoint(point);
+				if (mouseEvent.getClickCount() == 2) {
+					JOptionPane.showMessageDialog(frame,
+							"Event name:\n" + "Category:\n" + "Lecturer:\n" + "Location:\n" + "Price:\n"
+									+ "N° of Places:\n" + "Start date:\n" + "End date:\n" + "Finalized:\n"
+									+ "Description:\n",
+							"Start Messege", JOptionPane.PLAIN_MESSAGE);
+				}
+			}
 		});
 		
 		search.addActionListener(new ActionListener() {
@@ -150,16 +145,16 @@ public class EventListPanel extends VIAPanel {
 		    }
 		});
 	}
-	
+
 	private void addComponentsToPanel() {
 		JPanel left = new JPanel(new BorderLayout());
 		left.add(search, BorderLayout.NORTH);
 		left.add(scrollPane, BorderLayout.CENTER);
-		
+
 		JPanel addPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		addPanel.setOpaque(false);
 		addPanel.add(addEvent);
-		
+
 		JPanel signMemberPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		signMemberPanel.setOpaque(false);
 		signMemberPanel.add(signUpMember);
@@ -167,49 +162,46 @@ public class EventListPanel extends VIAPanel {
 		JPanel signParticipantPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		signParticipantPanel.setOpaque(false);
 		signParticipantPanel.add(signUpParticipant);
-		
+
 		JPanel right = new JPanel(new GridLayout(3, 1));
 		right.setOpaque(false);
 		right.add(addPanel);
 		right.add(signMemberPanel);
 		right.add(signParticipantPanel);
-		
-		JPanel center = new JPanel(new GridLayout(2,  1));
+
+		JPanel center = new JPanel(new GridLayout(2, 1));
 		center.setOpaque(false);
 		center.add(finalized);
 		center.add(finished);
-		
+
 		JPanel labelPanel = new JPanel();
 		labelPanel.setOpaque(false);
 		labelPanel.add(eventList);
 
-      
-        JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        buttonBack.add(back);
-        buttonBack.setOpaque(false);
-      
+		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		buttonBack.add(back);
+		buttonBack.setOpaque(false);
+
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
-		
+
 		JPanel logo = new JPanel(new BorderLayout());
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
 		logo.add(buttonBack, BorderLayout.WEST);
-		
+
 		JPanel eventForm = new JPanel(new BorderLayout());
 		eventForm.add(labelPanel, BorderLayout.NORTH);
 		eventForm.add(left, BorderLayout.WEST);
 		eventForm.add(center, BorderLayout.CENTER);
 		eventForm.add(right, BorderLayout.EAST);
 		eventForm.setOpaque(false);
-		
-		add(logo ,BorderLayout.NORTH);
+
+		add(logo, BorderLayout.NORTH);
 		add(eventForm, BorderLayout.CENTER);
-			
+
 	}
 
-	
-	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 
@@ -224,10 +216,12 @@ public class EventListPanel extends VIAPanel {
 		});
 
 	}
-	
+
 	public static void refreshTable() {
-		DefaultTableModel model = VIAController.getEventsTableModel();
-		table.setModel(model);
+		if (table != null) {
+			DefaultTableModel model = VIAController.getEventsTableModel();
+			table.setModel(model);
+		}
 	}
 
 }

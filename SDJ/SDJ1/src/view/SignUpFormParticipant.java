@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,7 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 import controler.VIAController;
+import model.Event;
+import model.EventNotFoundException;
 
 public class SignUpFormParticipant extends VIAPanel {
 
@@ -26,10 +30,12 @@ public class SignUpFormParticipant extends VIAPanel {
 	private JFrame frame;
 	private JPanel parentPanel;
 	private VIAButtonBack back;
+	private int eventID;
 
-	public SignUpFormParticipant(JFrame frame, JPanel parentPanel) {
+	public SignUpFormParticipant(JFrame frame, JPanel parentPanel, int eventID) {
 		super();
 		this.frame = frame;
+		this.eventID = eventID;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComonents();
@@ -62,7 +68,7 @@ public class SignUpFormParticipant extends VIAPanel {
 				}
 			}
 		});
-		
+
 		addToList.addActionListener(new ActionListener() {
 
 			@Override
@@ -71,10 +77,16 @@ public class SignUpFormParticipant extends VIAPanel {
 					Object[] configuration = new Object[5];
 					configuration[0] = fieldName.getText();
 					configuration[1] = fieldEmail.getText();
+					configuration[2] = eventID;
 
-					VIAController.addMemberToList(configuration);
+					try {
+						VIAController.addParticipantToList(configuration);
+					} catch (EventNotFoundException e1) {
+						JOptionPane.showMessageDialog(frame, "Event not found, contactc administrator", "Form error",
+								JOptionPane.PLAIN_MESSAGE);
+					}
 
-					if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
+					if (parentPanel instanceof EventListPanel || parentPanel instanceof ParticipantListPanel) {
 						frame.dispose();
 					} else {
 						back.goBack();
@@ -134,24 +146,10 @@ public class SignUpFormParticipant extends VIAPanel {
 		add(components, BorderLayout.CENTER);
 	}
 
-	public static void main(String[] args) {
-
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new SignUpFormParticipant(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
-
-	}
 	private boolean canFormBeSaved() {
 		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals(""))
 			return true;
 		return false;
 	}
-	
+
 }
