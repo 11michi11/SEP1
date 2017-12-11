@@ -80,8 +80,10 @@ public class LecturerListPanel extends VIAPanel {
 		    
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-			DefaultTableModel model = VIAController.getSearchedMembers(search.getText());
+			DefaultTableModel model = VIAController.getSearchedLecturers(search.getText());
 			table.setModel(model);
+			table.removeColumn(table.getColumnModel().getColumn(5));
+
 		    }
 		});
 	}

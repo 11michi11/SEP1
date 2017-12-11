@@ -144,8 +144,9 @@ public class EventListPanel extends VIAPanel {
 		    
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-			DefaultTableModel model = VIAController.getSearchedMembers(search.getText());
+			DefaultTableModel model = VIAController.getSearchedEvents(search.getText());
 			table.setModel(model);
+			table.removeColumn(table.getColumnModel().getColumn(2));
 		    }
 		});
 	}
