@@ -22,7 +22,6 @@ public class ParticipantListPanel extends VIAPanel {
 
 	private JTable table;
 	private JTable event;
-	private JTextField search;
 	private JButton add;
 	private JButton delete;
 	private JLabel participantList;
@@ -53,8 +52,6 @@ public class ParticipantListPanel extends VIAPanel {
 		String[] columnEvent = {"Title"};
 		Object[][] dataEvent = {{"english"}, {"mother fucker"}};
 
-		search = new JTextField(47);
-		search.setText("SEARCH");
 
 		add = new VIAButtonSmall("ADD PARTICIPANT", 30);
 		delete = new VIAButtonSmall("DELETE PARTICIPANT", 30);
