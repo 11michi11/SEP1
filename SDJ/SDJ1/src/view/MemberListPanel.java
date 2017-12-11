@@ -40,18 +40,17 @@ public class MemberListPanel extends VIAPanel {
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
-		addComponentsToPanel();	
+		addComponentsToPanel();
 	}
 
 	private void initializeComponents() {
-
 
 		search = new JTextField(47);
 		search.setText("SEARCH");
 
 		add = new VIAButtonSimple("ADD MEMBER", 20);
 		mail = new VIAButtonSimple("SEND REMAIND E-MAIL", 20);
-		delete = new VIAButtonSimple("DELETE MEMBER",20);
+		delete = new VIAButtonSimple("DELETE MEMBER", 20);
 
 		memberList = new VIALabel("MEMBER LIST", 40);
 
@@ -59,14 +58,14 @@ public class MemberListPanel extends VIAPanel {
 		table = new JTable(model);
 		table.removeColumn(table.getColumnModel().getColumn(5));
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
-		
+
 		back = new VIAButtonBack(frame, parentPanel);
 	}
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
 		add.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame member = new JFrame();
@@ -89,14 +88,13 @@ public class MemberListPanel extends VIAPanel {
 		left.setOpaque(false);
 
 		JPanel addPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		addPanel .add(add);
-		addPanel .setOpaque(false);
-		
+		addPanel.add(add);
+		addPanel.setOpaque(false);
 
 		JPanel mailPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		mailPanel.add(mail);
 		mailPanel.setOpaque(false);
-		
+
 		JPanel deletePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		deletePanel.add(delete);
 		deletePanel.setOpaque(false);
@@ -111,13 +109,13 @@ public class MemberListPanel extends VIAPanel {
 		labelPanel.add(memberList);
 		labelPanel.setOpaque(false);
 
-        JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        buttonBack.add(back);
-        buttonBack.setOpaque(false);
-      
+		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		buttonBack.add(back);
+		buttonBack.setOpaque(false);
+
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
-		
+
 		JPanel logo = new JPanel(new BorderLayout());
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
@@ -146,9 +144,11 @@ public class MemberListPanel extends VIAPanel {
 		});
 
 	}
-	
+
 	public static void refreshTable() {
-		DefaultTableModel model = VIAController.getMembersTableModel();
-		table.setModel(model);
+		if (table != null) {
+			DefaultTableModel model = VIAController.getMembersTableModel();
+			table.setModel(model);
+		}
 	}
 }

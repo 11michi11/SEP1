@@ -66,14 +66,14 @@ public class VIAManager {
 	public ArrayList<Lecturer> getAllLecturers() {
 		return this.lecturers.getAllLecturers();
 	}
-	
+
 	public ArrayList<Event> getAllEvents() {
 		return this.events.getAllEvents();
 	}
-	
+
 	public void addEvent(Map<String, Object> configuration) {
 		Event event;
-		switch((String) configuration.get("type")) {
+		switch ((String) configuration.get("type")) {
 		case "Lecture":
 			event = new Lecture(configuration);
 			events.addEvent(event);
