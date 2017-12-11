@@ -2,7 +2,6 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Point;
@@ -10,12 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -30,6 +27,7 @@ public class ParticipantListPanel extends VIAPanel {
 	private static JTable events;
 	private JButton add;
 	private JButton delete;
+	private JButton member;
 	private JLabel participantList;
 	private JFrame frame;
 	private JButton back;
@@ -47,8 +45,9 @@ public class ParticipantListPanel extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		add = new VIAButtonSmall("ADD PARTICIPANT", 30);
-		delete = new VIAButtonSmall("DELETE PARTICIPANT", 30);
+		add = new VIAButtonSimple("ADD PARTICIPANT", 20);
+		delete = new VIAButtonSimple("DELETE PARTICIPANT", 20);
+		member = new VIAButtonSimple("ADD MEMBER", 20);
 		
 		participantList = new VIALabel("PARTICIPANT LIST",40);
 		
@@ -63,7 +62,7 @@ public class ParticipantListPanel extends VIAPanel {
 		DefaultTableModel pariticipantModel = new DefaultTableModel(data, columnNames);
 		table = new JTable(pariticipantModel);
 		table.removeColumn(table.getColumnModel().getColumn(2));
-		table.setPreferredScrollableViewportSize(new Dimension(350, 290));
+		table.setPreferredScrollableViewportSize(new Dimension(320, 290));
 		
 		back = new VIAButtonBack(frame,parentPanel);
 	}
@@ -130,8 +129,14 @@ public class ParticipantListPanel extends VIAPanel {
 		JPanel deletePanel = new JPanel();
 		deletePanel.add(delete);
 		deletePanel.setOpaque(false);
+		
+		JPanel memberPanel = new JPanel();
+		memberPanel.add(member);
+		memberPanel.setOpaque(false);
+		
 
-		JPanel right = new JPanel(new GridLayout(2, 1));
+		JPanel right = new JPanel(new GridLayout(3, 1));
+		right.add(memberPanel);
 		right.add(addPanel);
 		right.add(deletePanel);
 		right.setOpaque(false);

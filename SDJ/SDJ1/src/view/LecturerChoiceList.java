@@ -152,18 +152,4 @@ public class LecturerChoiceList extends VIAPanel {
 
 	}
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new LecturerChoiceList(frame));
-				frame.setVisible(true);
-			}
-		});
-
-	}
-
 }

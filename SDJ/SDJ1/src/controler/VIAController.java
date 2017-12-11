@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
-
 import javax.swing.table.DefaultTableModel;
 
 import fileManager.FileManager;
@@ -32,7 +31,6 @@ public class VIAController {
 	public VIAController() {
 		this.manager = new VIAManager();
 		showWindow();
-
 	}
 	
 	public static void performClosingOperations () throws IOException {
@@ -69,7 +67,6 @@ public class VIAController {
 	}
 
 	public static void addParticipantToList(Object[] configuration) throws EventNotFoundException {
-
 		String name = (String) configuration[0];
 		String email = (String) configuration[1];
 		int eventId = (int) configuration[2];
@@ -462,7 +459,5 @@ public class VIAController {
 			}
 		});
 	}
-
-	
 
 }
