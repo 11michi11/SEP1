@@ -22,7 +22,6 @@ public class ParticipantListPanel extends VIAPanel {
 
 	private JTable table;
 	private JTable event;
-	private JTextField search;
 	private JButton add;
 	private JButton delete;
 	private JLabel participantList;
@@ -53,8 +52,6 @@ public class ParticipantListPanel extends VIAPanel {
 		String[] columnEvent = {"Title"};
 		Object[][] dataEvent = {{"english"}, {"mother fucker"}};
 
-		search = new JTextField(47);
-		search.setText("SEARCH");
 
 		add = new VIAButtonSmall("ADD PARTICIPANT", 30);
 		delete = new VIAButtonSmall("DELETE PARTICIPANT", 30);
@@ -63,10 +60,10 @@ public class ParticipantListPanel extends VIAPanel {
 		participantList = new VIALabel("PARTICIPANT LIST",40);
 		
 		event = new JTable(dataEvent, columnEvent);
-		event.setPreferredScrollableViewportSize(new Dimension(50, 290));
+		event.setPreferredScrollableViewportSize(new Dimension(200, 290));
 
 		table = new JTable(data, columnNames);
-		table.setPreferredScrollableViewportSize(new Dimension(100, 290));
+		table.setPreferredScrollableViewportSize(new Dimension(350, 290));
 		
 		back = new VIAButtonBack(frame,parentPanel);
 	}
@@ -97,17 +94,22 @@ public class ParticipantListPanel extends VIAPanel {
 
 		JPanel left = new JPanel(new BorderLayout());
 		
-		JPanel tables = new JPanel(new GridLayout(1, 2));
-		tables.add(scrollPaneOne);
-		tables.add(scrollPaneTwo);
+		JPanel tableEvent = new JPanel();
+		tableEvent.add(scrollPaneOne);
+		tableEvent.setOpaque(false);
+		
+		JPanel tableParticipant = new JPanel();
+		tableParticipant.add(scrollPaneTwo);
+		tableParticipant.setOpaque(false);
+		
+		JPanel tables = new JPanel(new BorderLayout());
+		tables.add(tableEvent, BorderLayout.WEST);
+		tables.add(tableParticipant, BorderLayout.EAST);
 		tables.setOpaque(false);
 		
-		JPanel text = new JPanel();
-		text.add(search);
-		text.setOpaque(false);
 
-		left.add(text);
-		left.add(tables, BorderLayout.SOUTH);
+		
+		left.add(tables);
 		left.setOpaque(false);
 		
 		

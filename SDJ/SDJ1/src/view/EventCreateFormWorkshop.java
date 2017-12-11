@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -19,13 +20,17 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import controler.VIAController;
 import model.Category;
+import model.InvalidDateInput;
 import model.Lecturer;
+import model.MyDate;
 
 public class EventCreateFormWorkshop extends VIAPanel {
 
@@ -128,6 +133,32 @@ public class EventCreateFormWorkshop extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				HashMap<String, Object> configuration = new HashMap<String, Object>();
+				configuration.put("type", "Workshop");
+
+				if (!fieldTitle.getText().equals(""))
+					configuration.put("title", fieldTitle.getText());
+				if (!fieldPrice.getText().equals(""))
+					configuration.put("price", Double.parseDouble(fieldPrice.getText()));
+				if (!fieldPlaces.getText().equals(""))
+					configuration.put("capacity", Integer.parseInt(fieldPlaces.getText()));
+				if (descriptionArea.getText().equals(""))
+					configuration.put("descriptionArea", descriptionArea.getText());
+				configuration.put("finalized", finalized.isSelected());
+				configuration.put("category", categories);
+				configuration.put("lecturers", lecturers);
+
+				try {
+					if (fieldStartDate.getText().equals(""))
+						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
+					if (fieldEndDate.getText().equals(""))
+						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
+					VIAController.addEventToList(configuration);
+				} catch (InvalidDateInput ex) {
+					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
+							JOptionPane.PLAIN_MESSAGE);
+				}
+
 				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
 					frame.dispose();
 				else
@@ -360,4 +391,5 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		DefaultComboBoxModel model = new DefaultComboBoxModel(boxString);
 		lecturersBox.setModel(model);
 	}
+
 }

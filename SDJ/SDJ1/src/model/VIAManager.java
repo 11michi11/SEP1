@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class VIAManager {
@@ -61,6 +62,7 @@ public class VIAManager {
 		return this.members.getAllMembers();
 
 	}
+
 	public ArrayList<Lecturer> getAllLecturers() {
 		return this.lecturers.getAllLecturers();
 	}
@@ -69,6 +71,27 @@ public class VIAManager {
 		return this.events.getAllEvents();
 	}
 	
+	public void addEvent(Map<String, Object> configuration) {
+		Event event;
+		switch((String) configuration.get("type")) {
+		case "Lecture":
+			event = new Lecture(configuration);
+			events.addEvent(event);
+			break;
+		case "Workshop":
+			event = new Workshop(configuration);
+			events.addEvent(event);
+			break;
+		case "Seminar":
+			event = new Seminar(configuration);
+			events.addEvent(event);
+			break;
+		case "Trip":
+			event = new Trip(configuration);
+			events.addEvent(event);
+			break;
+		}
+	}
 
 	public String readNewsletter(MyDate date) throws FileNotFoundException {
 		String newsletter = "";

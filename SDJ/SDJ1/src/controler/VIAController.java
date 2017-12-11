@@ -3,13 +3,14 @@ package controler;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 import javax.swing.table.DefaultTableModel;
 
 import model.Category;
 import model.Event;
-import model.Lecturer;
 import model.EventNotFoundException;
+import model.Lecturer;
 import model.Member;
 import model.MyDate;
 import model.Participant;
@@ -62,6 +63,11 @@ public class VIAController {
 		Participant participant = new Participant(name, email);
 		
 		manager.signUpParticipantToEvent(participant, eventId);
+	}
+
+	public static void addEventToList(Map<String, Object> configuration) {
+		manager.addEvent(configuration);
+		System.out.println(Arrays.toString(manager.getAllEvents().toArray()));
 	}
 
 	public static DefaultTableModel getMembersTableModel() {
