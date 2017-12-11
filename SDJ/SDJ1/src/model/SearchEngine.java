@@ -10,7 +10,9 @@ public class SearchEngine {
 	
 	ArrayList<Member> searchedMembers = new ArrayList<Member>();
 	for (Member e : members) {
-	    if (search(e.getName(), needle) || search(Integer.toString(e.getID()), needle))
+	    if (search(e.getName(), needle))
+		searchedMembers.add(e);
+	    else if(search(Integer.toString(e.getID()), needle))
 		searchedMembers.add(e);
 	}
 
@@ -40,17 +42,18 @@ public class SearchEngine {
 	Pattern p = Pattern.compile(stack);
 	Matcher m = p.matcher("");
 	m.reset(needle);
-	if (m.matches() || m.hitEnd())
+	System.out.println(needle+" in "+stack);
+	if (m.matches() || m.hitEnd()) {
+	    System.out.println("case 1");
 	    return true;
+	}
 	else if (stack.length() > needle.length()) {
-	    char[] temp = new char[stack.length() - 1];
-	    stack.getChars(1, stack.length(), temp, 0);
-	    String newStack = "";
-	    for (char i : temp)
-		newStack += i;
-	    search(newStack, needle);
+	    String newStack = stack.substring(1,stack.length());
+	    System.out.println("case 2");
+	    return search(newStack, needle);
+	} else {
+	    System.out.println("case 3");
 	    return false;
-	} else
-	    return false;
+	}
     }
 }

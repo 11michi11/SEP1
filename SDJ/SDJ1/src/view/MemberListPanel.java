@@ -76,6 +76,15 @@ public class MemberListPanel extends VIAPanel {
 				member.setVisible(true);
 			}
 		});
+		search.addActionListener(new ActionListener() {
+		    
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+			DefaultTableModel model = VIAController.getSearchedMembers(search.getText());
+			table.setModel(model);
+			table.removeColumn(table.getColumnModel().getColumn(5));
+		    }
+		});
 	}
 
 	private void addComponentsToPanel() {
