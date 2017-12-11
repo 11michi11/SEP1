@@ -83,7 +83,6 @@ public class LecturerListPanel extends VIAPanel {
 			DefaultTableModel model = VIAController.getSearchedLecturers(search.getText());
 			table.setModel(model);
 			table.removeColumn(table.getColumnModel().getColumn(5));
-
 		    }
 		});
 	}
@@ -149,6 +148,7 @@ public class LecturerListPanel extends VIAPanel {
 		if (table != null) {
 			DefaultTableModel model = VIAController.getLecturersTableModel();
 			table.setModel(model);
+			table.removeColumn(table.getColumnModel().getColumn(5));
 		}
 	}
 

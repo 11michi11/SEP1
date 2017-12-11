@@ -1,12 +1,14 @@
 package controler;
 
 import java.awt.EventQueue;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
 import javax.swing.table.DefaultTableModel;
 
+import fileManager.FileManager;
 import model.Category;
 import model.Event;
 import model.EventNotFoundException;
@@ -31,6 +33,12 @@ public class VIAController {
 		this.manager = new VIAManager();
 		showWindow();
 
+	}
+	
+	public static void performClosingOperations () throws IOException {
+	    	FileManager.generateEventFile(manager.getEventList());
+	    	FileManager.generateLecturerFile(manager.getLecturerList());
+	    	FileManager.generateMemberFile(manager.getMemberList());
 	}
 
 	public static void addMemberToList(Object[] configuration) {
@@ -392,11 +400,11 @@ public class VIAController {
 				case 2:
 					return Integer.class;
 				case 3:
-					return Boolean.class;
+					return String.class;
 				case 4:
-					return Integer.class;
+					return Boolean.class;
 				case 5:
-					return model.Member.class;
+					return model.Lecturer.class;
 				default:
 					return Boolean.class;
 				}

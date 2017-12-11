@@ -70,6 +70,18 @@ public class VIAManager {
 	public ArrayList<Event> getAllEvents() {
 		return this.events.getAllEvents();
 	}
+	
+	public MemberList getMemberList() {
+	    return members;
+	}
+
+	public LecturerList getLecturerList() {
+	    return lecturers;
+	}
+
+	public EventList getEventList() {
+	    return events;
+	}
 
 	public void addEvent(Map<String, Object> configuration) {
 		Event event;

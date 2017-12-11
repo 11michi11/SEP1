@@ -221,6 +221,7 @@ public class EventListPanel extends VIAPanel {
 		if (table != null) {
 			DefaultTableModel model = VIAController.getEventsTableModel();
 			table.setModel(model);
+			table.removeColumn(table.getColumnModel().getColumn(2));
 		}
 	}
 
