@@ -15,10 +15,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import controler.VIAController;
-import model.Event;
 import model.Member;
 
 public class MemberListPanel extends VIAPanel {
@@ -51,6 +52,7 @@ public class MemberListPanel extends VIAPanel {
 		add = new VIAButtonSimple("ADD MEMBER", 20);
 		mail = new VIAButtonSimple("SEND REMAIND E-MAIL", 20);
 		delete = new VIAButtonSimple("DELETE MEMBER", 20);
+		delete.setEnabled(false);
 
 		memberList = new VIALabel("MEMBER LIST", 40);
 
@@ -64,6 +66,13 @@ public class MemberListPanel extends VIAPanel {
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+	        public void valueChanged(ListSelectionEvent event) {
+	            delete.setEnabled(true);
+	        }
+	    });
+		
 		add.addActionListener(new ActionListener() {
 
 			@Override

@@ -65,6 +65,7 @@ public class SignUpFormMember extends VIAPanel {
 		fieldDateOfMembership.setText("dd/mm/yyyy");
 
 		add = new VIAButtonSmall("Add to list");
+		
 
 		back = new VIAButtonBack(frame, parentPanel);
 

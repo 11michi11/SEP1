@@ -72,6 +72,10 @@ public class VIAManager {
 	public ArrayList<Event> getAllEvents() {
 		return this.events.getAllEvents();
 	}
+	
+	public ArrayList<File> getAllNewsletters() {
+		return this.newsletterFiles;
+	}
 
 	public MemberList getMemberList() {
 		return members;

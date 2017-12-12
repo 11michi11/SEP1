@@ -1,6 +1,7 @@
 package controler;
 
 import java.awt.EventQueue;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -183,6 +184,11 @@ public class VIAController {
 					return Boolean.class;
 				}
 			}
+			
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				return false;
+			}
 		};
 		return model;
 	}
@@ -233,6 +239,47 @@ public class VIAController {
 			public boolean isCellEditable(int row, int col) {
 				switch (col) {
 				case 5:
+					return true;
+				default:
+					return false;
+				}
+			}
+		};
+		return model;
+	}
+	
+	public static DefaultTableModel getNesletterTableModel() {
+		String[] columnNames = { "Name of newsletter" };
+		ArrayList<File> newsletter = manager.getAllNewsletters();
+		Object[][] data = new Object[newsletter.size()][2];
+
+		for (int i = 0; i < newsletter.size(); i++) {
+			Object[] row = new Object[2];
+			row[0] = newsletter.get(i).getName();
+			row[1] = newsletter.get(i);
+
+			data[i] = row;
+		}
+
+		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				case 1:
+					return model.Newsletter.class;
+				case 2:
+				default:
+					return Boolean.class;
+				}
+			}
+
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				switch (col) {
+				case 1:
 					return true;
 				default:
 					return false;
@@ -469,7 +516,7 @@ public class VIAController {
 
 		VIAController controller = new VIAController();
 		try {
-			Object[] member ={"Micha³","Adres",666,"email",new MyDate("12/12/2017")};
+			Object[] member ={"Michaï¿½","Adres",666,"email",new MyDate("12/12/2017")};
 			addMemberToList(member);
 			
 		} catch (InvalidDateInput e) {// TODO Auto-generated catch block

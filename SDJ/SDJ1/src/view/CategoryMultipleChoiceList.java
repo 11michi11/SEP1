@@ -17,6 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -49,6 +51,7 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 		};
 
 		choose = new VIAButtonSmall("CHOOSE CATEGORY", 30);
+		choose.setEnabled(false);
 
 		lecturerList = new VIALabel("CATEGORY LIST", 40);
 
@@ -79,6 +82,13 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 	}
 
 	private void registerEventHandlers() {
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+	        public void valueChanged(ListSelectionEvent event) {
+	            choose.setEnabled(true);
+	        }
+	    });
+
 
 		choose.addActionListener(new ActionListener() {
 
