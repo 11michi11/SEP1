@@ -4,11 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 import controler.VIAController;
 import model.Event;
+import model.Participant;
 
 public class ParticipantListPanel extends VIAPanel {
 
@@ -85,6 +84,19 @@ public class ParticipantListPanel extends VIAPanel {
 				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
 				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel, event.getID()));
 				participant.setVisible(true);
+			}
+		});
+		
+		delete.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
+				Participant participant = (Participant) table.getModel().getValueAt(table.getSelectedRow(), 2);
+				event.signOffParticipant(participant);
+				DefaultTableModel pariticipantModel = VIAController.getParticipantTableModel(event);
+				table.setModel(pariticipantModel);
+				table.removeColumn(table.getColumnModel().getColumn(2));
 			}
 		});
 
