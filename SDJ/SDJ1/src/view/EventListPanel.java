@@ -39,7 +39,7 @@ public class EventListPanel extends VIAPanel {
 	private JButton signUpParticipant;
 	private JButton signUpMember;
 	private JButton modify;
-	private JCheckBox finalized;
+	private JCheckBox notFinalized;
 	private JCheckBox finished;
 	private JFrame frame;
 	private JButton back;
@@ -70,8 +70,8 @@ public class EventListPanel extends VIAPanel {
 
 		eventList = new VIALabel("EVENT LIST", 40);
 
-		finalized = new JCheckBox("Finalized");
-		finalized.setOpaque(false);
+		notFinalized = new JCheckBox("Not finalized");
+		notFinalized.setOpaque(false);
 		finished = new JCheckBox("Finished");
 		finished.setOpaque(false);
 
@@ -87,6 +87,22 @@ public class EventListPanel extends VIAPanel {
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
+
+		notFinalized.addActionListener(new ActionListener() {
+			@Override
+
+			public void actionPerformed(ActionEvent e) {
+				if (notFinalized.isSelected()) {
+					DefaultTableModel model = VIAController.getNotFinalizedEvents();
+					table.setModel(model);
+					table.removeColumn(table.getColumnModel().getColumn(2));
+				} else {
+					DefaultTableModel model = VIAController.getEventsTableModel();
+					table.setModel(model);
+					table.removeColumn(table.getColumnModel().getColumn(2));
+				}
+			}
+		});
 
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent event) {
@@ -219,7 +235,7 @@ public class EventListPanel extends VIAPanel {
 
 		JPanel center = new JPanel(new GridLayout(2, 1));
 		center.setOpaque(false);
-		center.add(finalized);
+		center.add(notFinalized);
 		center.add(finished);
 
 		JPanel labelPanel = new JPanel();
