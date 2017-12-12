@@ -24,10 +24,6 @@ public class VIAManager {
 		this.events = new EventList();
 	}
 
-	public void sendReminderEmailToMembers() {
-
-	}
-
 	public String getMembersString() {
 		return members.toString();
 	}

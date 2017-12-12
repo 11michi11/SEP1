@@ -45,6 +45,14 @@ public class VIAController {
 	    	manager.updateLecturerList();
 	    	manager.updateEventList();
 	}
+	
+	public static void emailsWhoHasntPaid() throws IOException{
+	    FileManager.generateListOfEmailsWhoHasntPaid(manager.getMemberList().getListOfEmailsWhoHasntPaid());
+	}
+	
+	public static void Allemails() throws IOException{
+	    FileManager.generateListOfAllEmails(manager.getMemberList().getListOfEmails());
+	}
 
 	public static void addMemberToList(Object[] configuration) {
 		String name = (String) configuration[0];

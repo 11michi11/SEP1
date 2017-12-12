@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -28,7 +29,25 @@ public class FileManager {
 	private static File eventFile = new File("events.bin");
 	private static File lecturerFile = new File("lecturers.bin");
 	private static File memberFile = new File("members.bin");
-
+	private static File emailsWhoHasntPaid = new File("emailsWhoHasntPaid.txt");
+	private static File allEmails = new File("allEmails.txt");
+	
+	public static void generateListOfEmailsWhoHasntPaid(ArrayList <String> emails) throws IOException {
+	    
+	    	PrintWriter out = new PrintWriter(emailsWhoHasntPaid);
+	    	out.println(emails);
+	    	out.flush();
+    		out.close();
+	}
+	
+	public static void generateListOfAllEmails(ArrayList <String> emails) throws IOException {
+	    
+	    	PrintWriter out = new PrintWriter(allEmails);
+	    	out.println(allEmails);
+	    	out.flush();
+		out.close();
+	}
+	
 	public static void generateEventFile(EventList eventList) throws IOException {
 
 		FileOutputStream fos = new FileOutputStream(eventFile);

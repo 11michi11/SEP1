@@ -33,6 +33,14 @@ public class MemberList implements Serializable {
 		}
 		return emails;
 	}
+	
+	public ArrayList<String> getListOfEmailsWhoHasntPaid() {
+		ArrayList<String> emails = new ArrayList<String>();
+		for (Member e : getListOfMembersWhoHasntPaid()) {
+			emails.add(e.getEmail());
+		}
+		return emails;
+	}
 
 	public ArrayList<Member> getAllMembers() {
 		return this.members;
