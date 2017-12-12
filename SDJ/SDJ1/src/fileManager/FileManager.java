@@ -26,9 +26,9 @@ import model.Workshop;
 
 public class FileManager {
 
-	private static File eventFile = new File("events.bin");
-	private static File lecturerFile = new File("lecturers.bin");
-	private static File memberFile = new File("members.bin");
+	private static File eventFile = new File("src/resources/events.bin");
+	private static File lecturerFile = new File("src/resources/lecturers.bin");
+	private static File memberFile = new File("src/resources/members.bin");
 	private static File emailsWhoHasntPaid = new File("emailsWhoHasntPaid.txt");
 	private static File allEmails = new File("allEmails.txt");
 	
