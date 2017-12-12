@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
+import fileManager.FileManager;
+
 public class VIAManager {
 
 	private MemberList members;
@@ -74,6 +76,10 @@ public class VIAManager {
 	public ArrayList<Event> getAllEvents() {
 		return this.events.getAllEvents();
 	}
+	
+	public ArrayList<File> getAllNewsletters() {
+		return this.newsletterFiles;
+	}
 
 	public MemberList getMemberList() {
 		return members;
@@ -85,6 +91,18 @@ public class VIAManager {
 
 	public EventList getEventList() {
 		return events;
+	}
+	
+	public void updateMemberList () throws ClassNotFoundException, IOException {
+	    this.members = FileManager.readMemberFile();
+	}
+	
+	public void updateLecturerList () throws ClassNotFoundException, IOException {
+	    this.lecturers = FileManager.readLecturerFile();
+	}
+	
+	public void updateEventList () throws ClassNotFoundException, IOException {
+	    this.events = FileManager.readEventFile();
 	}
 
 	public void addEvent(Map<String, Object> configuration) {

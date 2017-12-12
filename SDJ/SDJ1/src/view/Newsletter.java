@@ -13,6 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
+
+import controler.VIAController;
 
 public class Newsletter extends VIAPanel{
 	
@@ -39,29 +42,10 @@ public class Newsletter extends VIAPanel{
 	}
 	
 	private void initializeComponents() {
-		String[] columnNames = { "Name of newsletter"};
-		Object[][] data = { {"Michal", "andasfsuf@gdgdfg.com"},
-				{ "Michal andasfsuf@gdgdfg.com"},
-				{ "Michal andasfsuf@gdgdfg.com"},
-				{ "Michaandasfsuf@gdgdfg.com"},
-				{ "Michalandasfsuf@gdgdfg.com"},
-				{ "Michalandasfsuf@gdgdfg.com"},
-				{ "Miskaandasfsuf@gdgdfg.com"},
-				{ "Miskaandasfsuf@gdgdfg.com"},
-				{ "Miskandasfsuf@gdgdfg.com"},
-				{ "Miskandasfsuf@gdgdfg.com"},
-				{ "Miskandasfsuf@gdgdfg.com"},
-				{ "Miskandasfsuf@gdgdfg.com"},
-				{ "Miskandasfsuf@gdgdfg.com"},
-				{ "Miskandasfsuf@gdgdfg.com"},
-				{ "Miskandasfsuf@gdgdfg.com"},
-				{ "Miskandasfsuf@gdgdfg.com"},
-				{ "Miskandasfsuf@gdgdfg.com"},
-				{ "Miskandasfsuf@gdgdfg.com"},
-				
-		};
+
+		DefaultTableModel model = VIAController.getNesletterTableModel();
 		
-		table = new JTable(data, columnNames);
+		table = new JTable(model);
 		table.setPreferredScrollableViewportSize(new Dimension(450, 50));
 		
 		scrollPane = new JScrollPane(table);
