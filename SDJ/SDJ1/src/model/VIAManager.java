@@ -38,6 +38,10 @@ public class VIAManager {
 		members.addMember(new Member(name, address, phone, email, dateOfMembership));
 	}
 
+	public void deleteMember(Member member) {
+		members.deleteMember(member);
+	}
+
 	public void signUpLecturer(String name, String email, int phone, ArrayList<Category> categories,
 			boolean wantsAdvertise) {
 		lecturers.addLecturer(new Lecturer(name, email, phone, categories, wantsAdvertise));
@@ -70,17 +74,17 @@ public class VIAManager {
 	public ArrayList<Event> getAllEvents() {
 		return this.events.getAllEvents();
 	}
-	
+
 	public MemberList getMemberList() {
-	    return members;
+		return members;
 	}
 
 	public LecturerList getLecturerList() {
-	    return lecturers;
+		return lecturers;
 	}
 
 	public EventList getEventList() {
-	    return events;
+		return events;
 	}
 
 	public void addEvent(Map<String, Object> configuration) {

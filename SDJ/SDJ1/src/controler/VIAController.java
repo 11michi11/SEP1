@@ -11,6 +11,7 @@ import fileManager.FileManager;
 import model.Category;
 import model.Event;
 import model.EventNotFoundException;
+import model.InvalidDateInput;
 import model.Lecturer;
 import model.Member;
 import model.MyDate;
@@ -32,11 +33,11 @@ public class VIAController {
 		this.manager = new VIAManager();
 		showWindow();
 	}
-	
-	public static void performClosingOperations () throws IOException {
-	    	FileManager.generateEventFile(manager.getEventList());
-	    	FileManager.generateLecturerFile(manager.getLecturerList());
-	    	FileManager.generateMemberFile(manager.getMemberList());
+
+	public static void performClosingOperations() throws IOException {
+		FileManager.generateEventFile(manager.getEventList());
+		FileManager.generateLecturerFile(manager.getLecturerList());
+		FileManager.generateMemberFile(manager.getMemberList());
 	}
 
 	public static void addMemberToList(Object[] configuration) {
@@ -50,6 +51,11 @@ public class VIAController {
 		MemberListPanel.refreshTable();
 
 		System.out.println(manager.getMembersString());
+	}
+
+	public static void deleteMember(Member member) {
+		manager.deleteMember(member);
+		MemberListPanel.refreshTable();
 	}
 
 	public static void addLecturerToList(Object[] configuration) {
@@ -448,7 +454,13 @@ public class VIAController {
 	public static void main(String[] args) {
 
 		VIAController controller = new VIAController();
-
+		try {
+			Object[] member ={"Micha³","Adres",666,"email",new MyDate("12/12/2017")};
+			addMemberToList(member);
+			
+		} catch (InvalidDateInput e) {// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public static void showWindow() {

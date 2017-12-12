@@ -2,9 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +18,8 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import controler.VIAController;
+import model.Event;
+import model.Member;
 
 public class MemberListPanel extends VIAPanel {
 
@@ -76,6 +76,7 @@ public class MemberListPanel extends VIAPanel {
 				member.setVisible(true);
 			}
 		});
+		
 		search.addActionListener(new ActionListener() {
 		    
 		    @Override
@@ -85,6 +86,16 @@ public class MemberListPanel extends VIAPanel {
 			table.removeColumn(table.getColumnModel().getColumn(5));
 		    }
 		});
+		
+		delete.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Member member = (Member) table.getModel().getValueAt(table.getSelectedRow(), 5);
+				VIAController.deleteMember(member);
+			}
+		});
+		
 	}
 
 	private void addComponentsToPanel() {
