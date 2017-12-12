@@ -58,6 +58,15 @@ public class EventList implements Serializable {
 		;
 		return finalizedNotFinished;
 	}
+	
+	public ArrayList<Event> getFinishedEvents() {
+	    ArrayList<Event> finishedEvents = new ArrayList<Event>();
+	    for (Event i : this.events)
+		if (i.isFinished())
+		    finishedEvents.add(i);
+	    ;
+	    return finishedEvents;
+	}
 
 	public String toString() {
 		String print = "";
