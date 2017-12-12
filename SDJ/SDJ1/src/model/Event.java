@@ -80,6 +80,10 @@ public abstract class Event implements Serializable {
 		this.participantList.addParticipant(participant);
 	}
 
+	public void signOffParticipant(Participant participant) {
+		this.participantList.removeParticipant(participant);
+	}
+
 	public String getTitle() {
 		return this.title;
 	}
