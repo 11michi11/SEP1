@@ -7,7 +7,7 @@ import java.util.Iterator;
 public class EventList implements Serializable {
 
 	private ArrayList<Event> events;
-	private Iterator<Event> iter;
+	private transient Iterator<Event> iter;
 
 	public EventList() {
 		this.events = new ArrayList<Event>();

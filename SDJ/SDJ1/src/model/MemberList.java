@@ -9,7 +9,7 @@ import javax.swing.plaf.metal.MetalMenuBarUI;
 public class MemberList implements Serializable {
 
 	private ArrayList<Member> members;
-	private Iterator<Member> iter;
+	private transient Iterator<Member> iter;
 	
 	public MemberList() {
 		this.members = new ArrayList<Member>();

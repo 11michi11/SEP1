@@ -7,7 +7,7 @@ import java.util.Iterator;
 public class LecturerList implements Serializable {
 	
 	private ArrayList<Lecturer> lecturerList;
-	private Iterator<Lecturer> iter;
+	private transient Iterator<Lecturer> iter;
 	
 	public LecturerList() {
 		lecturerList = new ArrayList<Lecturer>();
