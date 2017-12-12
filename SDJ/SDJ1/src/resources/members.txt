@@ -1,4 +1,5 @@
 name;address;phone;email;dd/mm/yyyy
+Michaela Golhova; ul Inte Banska Bystrica;652626262; miska@via.dk;15/10/2015
 Michal Pompa;ul. MLodnickiegio 40/1 WrocLaw;758875598;266494@via.dk;20/03/2015
 Miska Golhova; ul. Internawna 17 Banska Bystrica;235532253; 1515144@via.dk;15/08/2016
 Daniela Koch; ul. Doroyata 52 Kloski Wroclaw;986659965; daniela@via.dk;02/03/2014
