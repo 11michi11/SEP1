@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 import controler.VIAController;
 import model.Event;
+import model.Member;
 import model.Participant;
 
 public class ParticipantListPanel extends VIAPanel {
@@ -52,7 +54,7 @@ public class ParticipantListPanel extends VIAPanel {
 		delete.setEnabled(false);
 		member = new VIAButtonSimple("ADD MEMBER", 20);
 		member.setEnabled(false);
-		
+
 		participantList = new VIALabel("PARTICIPANT LIST", 40);
 
 		DefaultTableModel eventModel = VIAController.getParticipantEventsTableModel();
@@ -86,9 +88,9 @@ public class ParticipantListPanel extends VIAPanel {
 				participant.setVisible(true);
 			}
 		});
-		
+
 		delete.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
@@ -100,23 +102,38 @@ public class ParticipantListPanel extends VIAPanel {
 			}
 		});
 
-		events.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-	        public void valueChanged(ListSelectionEvent e) {
-	            add.setEnabled(true);
-	            member.setEnabled(true);
-	            
-	            Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
+		member.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame participant = new JFrame();
+				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				participant.setSize(900, 500);
+				participant.setTitle("VIA - Add new member");
+				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
+				participant.setContentPane(new MemberMultipleChoice(participant, currentPanel, event));
+				participant.setVisible(true);
+
+			}
+		});
+
+		events.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				add.setEnabled(true);
+				member.setEnabled(true);
+
+				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
 				DefaultTableModel pariticipantModel = VIAController.getParticipantTableModel(event);
 				table.setModel(pariticipantModel);
 				table.removeColumn(table.getColumnModel().getColumn(2));
-	        }
-	    });
-		
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-	        public void valueChanged(ListSelectionEvent e) {
-	            delete.setEnabled(true);
-	        }
-	    });
+			}
+		});
+
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				delete.setEnabled(true);
+			}
+		});
 
 	}
 
@@ -196,6 +213,16 @@ public class ParticipantListPanel extends VIAPanel {
 			table.setModel(model);
 			table.removeColumn(table.getColumnModel().getColumn(2));
 		}
+	}
+
+	public static void addMembersToEvent(ArrayList<Member> members) {
+		Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
+		for (Member e : members)
+			event.signUpParticipant(e);
+
+		DefaultTableModel model = VIAController.getParticipantTableModel(event);
+		table.setModel(model);
+		table.removeColumn(table.getColumnModel().getColumn(2));
 	}
 
 }

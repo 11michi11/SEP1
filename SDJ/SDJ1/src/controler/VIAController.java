@@ -248,6 +248,54 @@ public class VIAController {
 		return model;
 	}
 
+	public static DefaultTableModel getMembersMultipleTableModel(){
+		String[] columnNames = { "Name", "E-mail", "ID", "Choice", "Member" };
+		ArrayList<Member> members = manager.getAllMembers();
+		Object[][] data = new Object[members.size()][5];
+
+		for (int i = 0; i < members.size(); i++) {
+			Object[] row = new Object[5];
+			row[0] = members.get(i).getName();
+			row[1] = members.get(i).getEmail();
+			row[2] = members.get(i).getID();
+			row[3] = false;
+			row[4] = members.get(i);
+
+			data[i] = row;
+		}
+		
+		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				case 1:
+					return String.class;
+				case 2:
+					return Integer.class;
+				case 3:
+					return Boolean.class;
+				case 4:
+					return Member.class;
+				default:
+					return Boolean.class;
+				}
+			}
+			
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				if(col==3)
+					return true;
+				else
+					return false;
+			}
+			
+		};
+		return model;
+	}
+	
 	public static DefaultTableModel getNesletterTableModel() {
 		String[] columnNames = { "Name of newsletter" };
 		ArrayList<File> newsletter = manager.getAllNewsletters();
