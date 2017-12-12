@@ -48,29 +48,29 @@ public class ParticipantListPanel extends VIAPanel {
 		add = new VIAButtonSimple("ADD PARTICIPANT", 20);
 		delete = new VIAButtonSimple("DELETE PARTICIPANT", 20);
 		member = new VIAButtonSimple("ADD MEMBER", 20);
-		
-		participantList = new VIALabel("PARTICIPANT LIST",40);
-		
+
+		participantList = new VIALabel("PARTICIPANT LIST", 40);
+
 		DefaultTableModel eventModel = VIAController.getParticipantEventsTableModel();
 		events = new JTable(eventModel);
 		events.removeColumn(events.getColumnModel().getColumn(1));
 		events.setPreferredScrollableViewportSize(new Dimension(200, 290));
 
-		String[] columnNames = {"Name", "Email", "Member"};
+		String[] columnNames = { "Name", "Email", "Member" };
 		Object[][] data = {};
-		
+
 		DefaultTableModel pariticipantModel = new DefaultTableModel(data, columnNames);
 		table = new JTable(pariticipantModel);
 		table.removeColumn(table.getColumnModel().getColumn(2));
 		table.setPreferredScrollableViewportSize(new Dimension(320, 290));
-		
-		back = new VIAButtonBack(frame,parentPanel);
+
+		back = new VIAButtonBack(frame, parentPanel);
 	}
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
 		add.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame participant = new JFrame();
@@ -82,7 +82,7 @@ public class ParticipantListPanel extends VIAPanel {
 				participant.setVisible(true);
 			}
 		});
-		
+
 		events.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent mouseEvent) {
 				JTable table = (JTable) mouseEvent.getSource();
@@ -100,40 +100,39 @@ public class ParticipantListPanel extends VIAPanel {
 	private void addComponentsToPanel() {
 		JScrollPane scrollPaneOne = new JScrollPane(events);
 		add(scrollPaneOne);
-		
+
 		JScrollPane scrollPaneTwo = new JScrollPane(table);
 		add(scrollPaneTwo);
 
 		JPanel left = new JPanel(new BorderLayout());
-		
+
 		JPanel tableEvent = new JPanel();
 		tableEvent.add(scrollPaneOne);
 		tableEvent.setOpaque(false);
-		
+
 		JPanel tableParticipant = new JPanel();
 		tableParticipant.add(scrollPaneTwo);
 		tableParticipant.setOpaque(false);
-		
+
 		JPanel tables = new JPanel(new BorderLayout());
 		tables.add(tableEvent, BorderLayout.WEST);
 		tables.add(tableParticipant, BorderLayout.EAST);
 		tables.setOpaque(false);
-		
+
 		left.add(tables);
-		left.setOpaque(false);	
+		left.setOpaque(false);
 
 		JPanel addPanel = new JPanel();
 		addPanel.add(add);
 		addPanel.setOpaque(false);
-		
+
 		JPanel deletePanel = new JPanel();
 		deletePanel.add(delete);
 		deletePanel.setOpaque(false);
-		
+
 		JPanel memberPanel = new JPanel();
 		memberPanel.add(member);
 		memberPanel.setOpaque(false);
-		
 
 		JPanel right = new JPanel(new GridLayout(3, 1));
 		right.add(memberPanel);
@@ -146,12 +145,12 @@ public class ParticipantListPanel extends VIAPanel {
 		labelPanel.setOpaque(false);
 
 		JPanel buttonBack = new JPanel(new FlowLayout(FlowLayout.LEFT));
-	    buttonBack.add(back);
-	    buttonBack.setOpaque(false);
-	      
+		buttonBack.add(back);
+		buttonBack.setOpaque(false);
+
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
 		JLabel imgLab = new JLabel(img);
-			
+
 		JPanel logo = new JPanel(new BorderLayout());
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
@@ -166,7 +165,7 @@ public class ParticipantListPanel extends VIAPanel {
 		add(logo, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
 	}
-	
+
 	public static void refreshTable() {
 		if (table != null) {
 			Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);

@@ -34,6 +34,14 @@ public class MemberList implements Serializable {
 		return emails;
 	}
 
+	public ArrayList<Member> getAllMembers() {
+		return this.members;
+	}
+
+	public void deleteMember(Member member) {
+		members.remove(member);
+	}
+
 	public Member getMemberByID(int ID) throws MemberNotFoundException {
 		for(Member e : this.members) {
 			if (ID == e.getID()) {
@@ -57,11 +65,6 @@ public class MemberList implements Serializable {
 
 	public Member next() {
 		return iter.next();
-	}
-	
-	public ArrayList<Member> getAllMembers() {
-		return this.members;
-
 	}
 	
 	public String toString ()
