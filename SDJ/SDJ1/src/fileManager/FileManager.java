@@ -34,7 +34,7 @@ public class FileManager {
 	
 	public static void generateListOfEmailsWhoHasntPaid(ArrayList <String> emails) throws IOException {
 	    
-	    	PrintWriter out = new PrintWriter(emailsWhoHasntPaid);
+	    	PrintWriter out = new PrintWriter(emails.toString());
 	    	out.println(emails);
 	    	out.flush();
     		out.close();
@@ -42,7 +42,7 @@ public class FileManager {
 	
 	public static void generateListOfAllEmails(ArrayList <String> emails) throws IOException {
 	    
-	    	PrintWriter out = new PrintWriter(allEmails);
+	    	PrintWriter out = new PrintWriter(emails.toString());
 	    	out.println(allEmails);
 	    	out.flush();
 		out.close();
