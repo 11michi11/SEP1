@@ -51,7 +51,7 @@ public class VIAController {
 		FileManager.generateListOfEmailsWhoHasntPaid(manager.getMemberList().getListOfEmailsWhoHasntPaid());
 	}
 
-	public static void Allemails() throws IOException {
+	public static void allEmails() throws IOException {
 		FileManager.generateListOfAllEmails(manager.getMemberList().getListOfEmails());
 	}
 
@@ -101,9 +101,8 @@ public class VIAController {
 	public static void addEventToList(Map<String, Object> configuration) {
 		manager.addEvent(configuration);
 		EventListPanel.refreshTable();
-		System.out.println(Arrays.toString(manager.getAllEvents().toArray()));
 	}
-
+	
 	public static DefaultTableModel getMembersTableModel() {
 		String[] columnNames = { "Name", "E-mail", "Phone", "Paid", "ID", "Member" };
 		ArrayList<Member> members = manager.getAllMembers();

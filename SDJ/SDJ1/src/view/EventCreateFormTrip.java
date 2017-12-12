@@ -138,7 +138,12 @@ public class EventCreateFormTrip extends VIAPanel {
 						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
 					if (fieldEndDate.getText().equals(""))
 						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
-					VIAController.addEventToList(configuration);
+
+					if (event == null)
+						VIAController.addEventToList(configuration);
+					else
+						event.modify(configuration);
+
 				} catch (InvalidDateInput ex) {
 					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
@@ -332,7 +337,7 @@ public class EventCreateFormTrip extends VIAPanel {
 		fieldStartDate.setText(event.getStartDate().toString());
 		fieldEndDate.setText(event.getEndDate().toString());
 		location.setText(((Trip) event).getLocation());
-		descriptionArea.setText(((Trip)event).getDescription());
+		descriptionArea.setText(((Trip) event).getDescription());
 	}
 
 }

@@ -82,7 +82,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		registerEventHandlers();
 		addComponentsToPanel();
 	}
-		
+
 	public void initializeComponents() {
 
 		String[] boxString = { "categoryTitle", "" };
@@ -122,7 +122,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 		group.add(finalized);
 		group.add(unfinalized);
 
-		if(event != null)
+		if (event != null)
 			fillFieldWithEventData();
 	}
 
@@ -166,7 +166,12 @@ public class EventCreateFormSeminars extends VIAPanel {
 						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
 					if (fieldEndDate.getText().equals(""))
 						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
-					VIAController.addEventToList(configuration);
+
+					if (event == null)
+						VIAController.addEventToList(configuration);
+					else
+						event.modify(configuration);
+
 				} catch (InvalidDateInput ex) {
 					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
@@ -411,8 +416,8 @@ public class EventCreateFormSeminars extends VIAPanel {
 		fieldPlaces.setText(String.valueOf(event.getCapacity()));
 		fieldStartDate.setText(event.getStartDate().toString());
 		fieldEndDate.setText(event.getEndDate().toString());
-		assignLecturersToLecturerForm(((Seminar)event).getLecturers());
-		assignCategoriesToLecturerForm(((Seminar)event).getCategories());
+		assignLecturersToLecturerForm(((Seminar) event).getLecturers());
+		assignCategoriesToLecturerForm(((Seminar) event).getCategories());
 	}
-	
+
 }

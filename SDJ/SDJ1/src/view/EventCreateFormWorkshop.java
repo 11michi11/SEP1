@@ -71,7 +71,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		registerEventHandlers();
 		addComponentsToPanel();
 	}
-	
+
 	public EventCreateFormWorkshop(JFrame frame, JPanel parentPanel, Event event) {
 		super();
 		this.frame = frame;
@@ -82,7 +82,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		registerEventHandlers();
 		addComponentsToPanel();
 	}
-	
+
 	public void initializeComponents() {
 
 		String[] boxString = { "categoryTitle", "" };
@@ -122,9 +122,9 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		group.add(finalized);
 		group.add(unfinalized);
 
-		if(event != null)
+		if (event != null)
 			fillFieldWithEventData();
-		
+
 	}
 
 	public void registerEventHandlers() {
@@ -168,7 +168,12 @@ public class EventCreateFormWorkshop extends VIAPanel {
 						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
 					if (fieldEndDate.getText().equals(""))
 						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
-					VIAController.addEventToList(configuration);
+
+					if (event == null)
+						VIAController.addEventToList(configuration);
+					else
+						event.modify(configuration);
+
 				} catch (InvalidDateInput ex) {
 					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
@@ -413,8 +418,8 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		fieldPlaces.setText(String.valueOf(event.getCapacity()));
 		fieldStartDate.setText(event.getStartDate().toString());
 		fieldEndDate.setText(event.getEndDate().toString());
-		assignLecturersToLecturerForm(((Workshop)event).getLecturers());
-		assignCategoriesToLecturerForm(((Workshop)event).getCategories());
+		assignLecturersToLecturerForm(((Workshop) event).getLecturers());
+		assignCategoriesToLecturerForm(((Workshop) event).getCategories());
 	}
-	
+
 }

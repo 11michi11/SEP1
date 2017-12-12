@@ -167,7 +167,12 @@ public class EventCreateFormLectures extends VIAPanel {
 						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
 					if (fieldEndDate.getText().equals(""))
 						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
-					VIAController.addEventToList(configuration);
+
+					if (event == null)
+						VIAController.addEventToList(configuration);
+					else
+						event.modify(configuration);
+
 				} catch (InvalidDateInput ex) {
 					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
