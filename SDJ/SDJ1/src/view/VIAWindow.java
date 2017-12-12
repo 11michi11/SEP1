@@ -29,7 +29,12 @@ public class VIAWindow {
 		    @Override
 		    public void windowOpened(WindowEvent e) {
 			// TODO Auto-generated method stub
-			
+			try {
+			    VIAController.performOpeningOperations();
+			} catch (ClassNotFoundException | IOException e1) {
+			    // TODO Auto-generated catch block
+			    e1.printStackTrace();
+			}
 		    }
 		    
 		    @Override

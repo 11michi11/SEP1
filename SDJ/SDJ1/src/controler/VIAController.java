@@ -31,7 +31,7 @@ public class VIAController {
 	private static VIAWindow window;
 
 	public VIAController() {
-		this.manager = new VIAManager();
+		manager = new VIAManager();
 		showWindow();
 	}
 
@@ -39,6 +39,12 @@ public class VIAController {
 		FileManager.generateEventFile(manager.getEventList());
 		FileManager.generateLecturerFile(manager.getLecturerList());
 		FileManager.generateMemberFile(manager.getMemberList());
+	}
+	
+	public static void performOpeningOperations () throws ClassNotFoundException, IOException {
+	    	manager.updateMemberList();
+	    	manager.updateLecturerList();
+	    	manager.updateEventList();
 	}
 
 	public static void addMemberToList(Object[] configuration) {
