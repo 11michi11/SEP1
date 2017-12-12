@@ -22,6 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import controler.VIAController;
@@ -74,12 +76,22 @@ public class EventListPanel extends VIAPanel {
 
 		addEvent = new VIAButtonSimple("ADD EVENT", 20);
 		signUpParticipant = new VIAButtonSimple("SIGN UP PARTICIPANT", 20);
+		signUpParticipant.setEnabled(false);
 		signUpMember = new VIAButtonSimple("SIGN UP MEMBER", 20);
+		signUpMember.setEnabled(false);
 		back = new VIAButtonBack(frame, parentPanel);
 	}
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+	        public void valueChanged(ListSelectionEvent event) {
+	            signUpParticipant.setEnabled(true);
+	            signUpMember.setEnabled(true);
+	        }
+	    });
+		
 		signUpParticipant.addActionListener(new ActionListener() {
 
 			@Override
