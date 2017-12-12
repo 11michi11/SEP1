@@ -17,6 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -50,6 +52,7 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 		search.setText("SEARCH");
 
 		choose = new VIAButtonSmall("CHOOSE LECTURERS", 30);
+		choose.setEnabled(false);
 
 		lecturerList = new VIALabel("LECTURER LIST", 40);
 
@@ -60,6 +63,12 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 	}
 
 	private void registerEventHandlers() {
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+	        public void valueChanged(ListSelectionEvent event) {
+	            choose.setEnabled(true);
+	        }
+	    });
 
 		choose.addActionListener(new ActionListener() {
 
@@ -114,21 +123,7 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 		add(components, BorderLayout.CENTER);
 
 	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new LecturerMultipleChoiceList(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
-
-	}
-
+	
 	private void assignLecturers(ArrayList<Lecturer> lecturers) {
 		switch (parentPanel.getClass().getName()) {
 		case "view.EventCreateFormSeminars":

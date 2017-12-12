@@ -169,6 +169,11 @@ public class VIAController {
 					return Boolean.class;
 				}
 			}
+			
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				return false;
+			}
 		};
 		return model;
 	}

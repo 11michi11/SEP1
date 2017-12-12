@@ -16,9 +16,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+import controler.VIAController;
 import model.Category;
 import model.Lecturer;
 
@@ -40,59 +43,15 @@ public class LecturerChoiceList extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Name", "E-mail", "Phone", "Category", "Advertise", "Lecturer" };
-		Object[][] data = {
-				{ "Matej", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Michal", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-				{ "Miska", "andasfsuf@gdgdfg.com", "59599295", "astronomy", true,
-						new Lecturer("Matej", "asd", 62, new ArrayList<Category>(), true) },
-
-		};
+		
 
 		search = new JTextField(47);
 		search.setText("SEARCH");
 		choose = new VIAButtonSmall("CHOOSE LECTURER", 30);
+		choose.setEnabled(false);
 		lecturerList = new VIALabel("LECTURER LIST", 40);
 
-		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
-
-			@Override
-			public Class getColumnClass(int column) {
-				switch (column) {
-				case 0:
-					return String.class;
-				case 1:
-					return String.class;
-				case 2:
-					return Integer.class;
-				case 3:
-					return String.class;
-				case 4:
-					return Boolean.class;
-				case 5:
-					return model.Lecturer.class;
-				default:
-					return Boolean.class;
-				}
-			}
-
-			@Override
-			public boolean isCellEditable(int row, int col) {
-				return false;
-			}
-		};
+		DefaultTableModel model = VIAController.getLecturersTableModel();
 
 		table = new JTable(model);
 		table.removeColumn(table.getColumnModel().getColumn(5));
@@ -100,6 +59,12 @@ public class LecturerChoiceList extends VIAPanel {
 	}
 
 	private void registerEventHandlers() {
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+	        public void valueChanged(ListSelectionEvent event) {
+	            choose.setEnabled(true);
+	        }
+	    });
 
 		choose.addActionListener(new ActionListener() {
 
