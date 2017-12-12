@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import controler.VIAController;
@@ -46,9 +48,12 @@ public class ParticipantListPanel extends VIAPanel {
 
 	private void initializeComponents() {
 		add = new VIAButtonSimple("ADD PARTICIPANT", 20);
+		add.setEnabled(false);
 		delete = new VIAButtonSimple("DELETE PARTICIPANT", 20);
+		delete.setEnabled(false);
 		member = new VIAButtonSimple("ADD MEMBER", 20);
-
+		member.setEnabled(false);
+		
 		participantList = new VIALabel("PARTICIPANT LIST", 40);
 
 		DefaultTableModel eventModel = VIAController.getParticipantEventsTableModel();
@@ -83,17 +88,23 @@ public class ParticipantListPanel extends VIAPanel {
 			}
 		});
 
-		events.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent mouseEvent) {
-				JTable table = (JTable) mouseEvent.getSource();
-				Point point = mouseEvent.getPoint();
-				int row = table.rowAtPoint(point);
-				if (mouseEvent.getClickCount() == 2) {
-					Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
-					DefaultTableModel pariticipantModel = VIAController.getParticipantTableModel(event);
-				}
-			}
-		});
+		events.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+	        public void valueChanged(ListSelectionEvent e) {
+	            add.setEnabled(true);
+	            member.setEnabled(true);
+	            
+	            Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
+				DefaultTableModel pariticipantModel = VIAController.getParticipantTableModel(event);
+				table.setModel(pariticipantModel);
+				table.removeColumn(table.getColumnModel().getColumn(2));
+	        }
+	    });
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+	        public void valueChanged(ListSelectionEvent e) {
+	            delete.setEnabled(true);
+	        }
+	    });
 
 	}
 
