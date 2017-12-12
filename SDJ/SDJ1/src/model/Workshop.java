@@ -20,6 +20,14 @@ public class Workshop extends Event {
 		this.lecturers = (ArrayList<Lecturer>) configuration.getOrDefault("lecturers", this.lecturers);
 	}
 
+	public ArrayList<Lecturer> getLecturers() {
+		return this.lecturers;
+	}
+
+	public ArrayList<Category> getCategories() {
+		return this.categories;
+	}
+	
 	public boolean canBeFinalized() {
 		if (super.canBeFinalized() && !categories.isEmpty())
 			return true;
@@ -31,7 +39,7 @@ public class Workshop extends Event {
 		String description = super.getDescription();
 		String startDate = super.getStartDate().toString();
 		String endDate = super.getEndDate().toString();
-		String lecturers = parseList();
+		String lecturers = parseLecturersList();
 		double price = super.getPrice();
 		double priceForMembers = super.getPriceForMembers();
 		int places = super.getCapacity();
@@ -40,7 +48,7 @@ public class Workshop extends Event {
 				+ "\nPrice: " + price + "\nPrice for members: " + priceForMembers + "\nAvaliable places: " + places;
 	}
 
-	private String parseList() {
+	private String parseLecturersList() {
 		if (lecturers.size() > 0) {
 			StringBuilder sb = new StringBuilder("");
 			for (Lecturer e : lecturers)

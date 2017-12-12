@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -24,9 +23,12 @@ import javax.swing.JTextField;
 
 import controler.VIAController;
 import model.Category;
+import model.Event;
 import model.InvalidDateInput;
+import model.Lecture;
 import model.Lecturer;
 import model.MyDate;
+import model.Trip;
 
 public class EventCreateFormLectures extends VIAPanel {
 
@@ -55,10 +57,22 @@ public class EventCreateFormLectures extends VIAPanel {
 	private JButton lecturerChoice;
 	private static JTextField fieldLecturer;
 	private static Lecturer lecturer;
+	private Event event;
 
 	public EventCreateFormLectures(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
+		setLayout(new BorderLayout());
+		initializeComponents();
+		registerEventHandlers();
+		addComponentsToPanel();
+	}
+
+	public EventCreateFormLectures(JFrame frame, JPanel parentPanel, Event event) {
+		super();
+		this.frame = frame;
+		this.event = event;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
@@ -105,6 +119,9 @@ public class EventCreateFormLectures extends VIAPanel {
 		ButtonGroup group = new ButtonGroup();
 		group.add(finalized);
 		group.add(unfinalized);
+
+		if (event != null)
+			fillFieldWithEventData();
 	}
 
 	public void registerEventHandlers() {
@@ -126,6 +143,7 @@ public class EventCreateFormLectures extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				HashMap<String, Object> configuration = new HashMap<String, Object>();
 				configuration.put("type", "Lecture");
 
@@ -154,7 +172,6 @@ public class EventCreateFormLectures extends VIAPanel {
 					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
 				}
-
 				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
 					frame.dispose();
 				else
@@ -341,21 +358,17 @@ public class EventCreateFormLectures extends VIAPanel {
 
 	}
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventCreateFormLectures(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
-	}
-
-	public static void assignCategoriesToLecturerForm(Lecturer lecturerChoosen) {
+	public static void assignLecturerToForm(Lecturer lecturerChoosen) {
 		lecturer = lecturerChoosen;
 		fieldLecturer.setText(lecturer.getName());
+	}
+
+	private void fillFieldWithEventData() {
+		fieldTitle.setText(event.getTitle());
+		fieldPrice.setText(String.valueOf(event.getPrice()));
+		fieldPlaces.setText(String.valueOf(event.getCapacity()));
+		fieldStartDate.setText(event.getStartDate().toString());
+		fieldEndDate.setText(event.getEndDate().toString());
+		assignLecturerToForm(((Lecture) event).getLecturer());
 	}
 }

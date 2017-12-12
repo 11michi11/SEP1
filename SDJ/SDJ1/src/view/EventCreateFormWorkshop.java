@@ -1,10 +1,8 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,9 +26,11 @@ import javax.swing.JTextField;
 
 import controler.VIAController;
 import model.Category;
+import model.Event;
 import model.InvalidDateInput;
 import model.Lecturer;
 import model.MyDate;
+import model.Workshop;
 
 public class EventCreateFormWorkshop extends VIAPanel {
 
@@ -56,6 +56,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 	private JRadioButton unfinalized;
 	private JFrame frame;
 	private JPanel parentPanel;
+	private Event event;
 	private static JComboBox lecturersBox;
 	private static ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
 	private static JComboBox categoryBox;
@@ -70,7 +71,18 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		registerEventHandlers();
 		addComponentsToPanel();
 	}
-
+	
+	public EventCreateFormWorkshop(JFrame frame, JPanel parentPanel, Event event) {
+		super();
+		this.frame = frame;
+		this.event = event;
+		this.parentPanel = parentPanel;
+		setLayout(new BorderLayout());
+		initializeComponents();
+		registerEventHandlers();
+		addComponentsToPanel();
+	}
+	
 	public void initializeComponents() {
 
 		String[] boxString = { "categoryTitle", "" };
@@ -110,6 +122,9 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		group.add(finalized);
 		group.add(unfinalized);
 
+		if(event != null)
+			fillFieldWithEventData();
+		
 	}
 
 	public void registerEventHandlers() {
@@ -392,4 +407,14 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		lecturersBox.setModel(model);
 	}
 
+	private void fillFieldWithEventData() {
+		fieldTitle.setText(event.getTitle());
+		fieldPrice.setText(String.valueOf(event.getPrice()));
+		fieldPlaces.setText(String.valueOf(event.getCapacity()));
+		fieldStartDate.setText(event.getStartDate().toString());
+		fieldEndDate.setText(event.getEndDate().toString());
+		assignLecturersToLecturerForm(((Workshop)event).getLecturers());
+		assignCategoriesToLecturerForm(((Workshop)event).getCategories());
+	}
+	
 }

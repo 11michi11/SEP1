@@ -38,6 +38,7 @@ public class EventListPanel extends VIAPanel {
 	private JButton addEvent;
 	private JButton signUpParticipant;
 	private JButton signUpMember;
+	private JButton modify;
 	private JCheckBox finalized;
 	private JCheckBox finished;
 	private JFrame frame;
@@ -79,19 +80,22 @@ public class EventListPanel extends VIAPanel {
 		signUpParticipant.setEnabled(false);
 		signUpMember = new VIAButtonSimple("SIGN UP MEMBER", 20);
 		signUpMember.setEnabled(false);
+		modify = new VIAButtonSimple("MODIFY EVENT", 20);
+		modify.setEnabled(false);
 		back = new VIAButtonBack(frame, parentPanel);
 	}
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
-		
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-	        public void valueChanged(ListSelectionEvent event) {
-	            signUpParticipant.setEnabled(true);
-	            signUpMember.setEnabled(true);
-	        }
-	    });
-		
+
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent event) {
+				signUpParticipant.setEnabled(true);
+				signUpMember.setEnabled(true);
+				modify.setEnabled(true);
+			}
+		});
+
 		signUpParticipant.addActionListener(new ActionListener() {
 
 			@Override
@@ -116,6 +120,33 @@ public class EventListPanel extends VIAPanel {
 				member.setTitle("VIA - Add members to event");
 				member.setContentPane(new SignUpFormMember(member, currentPanel));
 				member.setVisible(true);
+			}
+		});
+
+		modify.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame participant = new JFrame();
+				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				participant.setSize(900, 500);
+				participant.setTitle("VIA - Modify event");
+				Event event = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
+				switch (event.getClass().getName()) {
+				case "model.Lecture":
+					participant.setContentPane(new EventCreateFormLectures(participant, currentPanel, event));
+					break;
+				case "model.Seminar":
+					participant.setContentPane(new EventCreateFormSeminars(participant, currentPanel, event));
+					break;
+				case "model.Workshop":
+					participant.setContentPane(new EventCreateFormWorkshop(participant, currentPanel, event));
+					break;
+				case "model.Trip":
+					participant.setContentPane(new EventCreateFormTrip(participant, currentPanel, event));
+					break;
+				}
+				participant.setVisible(true);
 			}
 		});
 
@@ -146,15 +177,15 @@ public class EventListPanel extends VIAPanel {
 				}
 			}
 		});
-		
+
 		search.addActionListener(new ActionListener() {
-		    
-		    @Override
-		    public void actionPerformed(ActionEvent e) {
-			DefaultTableModel model = VIAController.getSearchedEvents(search.getText());
-			table.setModel(model);
-			table.removeColumn(table.getColumnModel().getColumn(2));
-		    }
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel model = VIAController.getSearchedEvents(search.getText());
+				table.setModel(model);
+				table.removeColumn(table.getColumnModel().getColumn(2));
+			}
 		});
 	}
 
@@ -175,11 +206,16 @@ public class EventListPanel extends VIAPanel {
 		signParticipantPanel.setOpaque(false);
 		signParticipantPanel.add(signUpParticipant);
 
-		JPanel right = new JPanel(new GridLayout(3, 1));
+		JPanel modifyPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		modifyPanel.setOpaque(false);
+		modifyPanel.add(modify);
+
+		JPanel right = new JPanel(new GridLayout(4, 1));
 		right.setOpaque(false);
 		right.add(addPanel);
 		right.add(signMemberPanel);
 		right.add(signParticipantPanel);
+		right.add(modifyPanel);
 
 		JPanel center = new JPanel(new GridLayout(2, 1));
 		center.setOpaque(false);

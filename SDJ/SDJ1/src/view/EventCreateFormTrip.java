@@ -1,10 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +12,6 @@ import java.util.HashMap;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -25,9 +21,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import controler.VIAController;
-import model.Category;
+import model.Event;
 import model.InvalidDateInput;
 import model.MyDate;
+import model.Trip;
 
 public class EventCreateFormTrip extends VIAPanel {
 
@@ -53,10 +50,22 @@ public class EventCreateFormTrip extends VIAPanel {
 	private JRadioButton unfinalized;
 	private JFrame frame;
 	private JPanel parentPanel;
+	private Event event;
 
 	public EventCreateFormTrip(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		this.parentPanel = parentPanel;
+		setLayout(new BorderLayout());
+		initializeComponents();
+		registerEventHandlers();
+		addComponentsToPanel();
+	}
+
+	public EventCreateFormTrip(JFrame frame, JPanel parentPanel, Event event) {
+		super();
+		this.frame = frame;
+		this.event = event;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
@@ -119,7 +128,7 @@ public class EventCreateFormTrip extends VIAPanel {
 					configuration.put("capacity", Integer.parseInt(fieldPlaces.getText()));
 				if (descriptionArea.getText().equals(""))
 					configuration.put("descriptionArea", descriptionArea.getText());
-				if(fieldLocation.getText().equals(""))
+				if (fieldLocation.getText().equals(""))
 					configuration.put("location", fieldLocation.getText());
 
 				configuration.put("finalized", finalized.isSelected());
@@ -141,7 +150,7 @@ public class EventCreateFormTrip extends VIAPanel {
 					back.goBack();
 			}
 		});
-		
+
 		fieldStartDate.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (fieldStartDate.getText().equals("dd/mm/yyyy/hh:mm"))
@@ -278,7 +287,6 @@ public class EventCreateFormTrip extends VIAPanel {
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(titul, BorderLayout.NORTH);
 		components.add(content, BorderLayout.CENTER);
-		// components.add(button, BorderLayout.SOUTH);
 		components.setOpaque(false);
 
 		JPanel textArea = new JPanel(new BorderLayout());
@@ -317,16 +325,14 @@ public class EventCreateFormTrip extends VIAPanel {
 
 	}
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventCreateFormTrip(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
+	private void fillFieldWithEventData() {
+		fieldTitle.setText(event.getTitle());
+		fieldPrice.setText(String.valueOf(event.getPrice()));
+		fieldPlaces.setText(String.valueOf(event.getCapacity()));
+		fieldStartDate.setText(event.getStartDate().toString());
+		fieldEndDate.setText(event.getEndDate().toString());
+		location.setText(((Trip) event).getLocation());
+		descriptionArea.setText(((Trip)event).getDescription());
 	}
+
 }

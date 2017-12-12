@@ -26,6 +26,10 @@ public class Lecture extends Event {
 		return false;
 	}
 
+	public Lecturer getLecturer() {
+		return this.lecturer;
+	}
+
 	public String toString() {
 		String title = super.getTitle();
 		String description = super.getDescription();

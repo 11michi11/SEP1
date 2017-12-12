@@ -131,33 +131,6 @@ public class MyDate implements Serializable {
 			return 28;
 	}
 
-	/*
-	 * public String DayOfWeek() { int h; if (month > 2) h = (day + (13 * (month +
-	 * 1) / 5) + year % 100 + (year % 100) / 4 + year / 400 + year / 20) % 7; else h
-	 * = (day + (13 * (month + 13) / 5) + (year - 1) % 100 + ((year - 1) % 100) / 4
-	 * + (year - 1) / 400 + (year - 1) / 20) % 7; if (h == 0) return "Saturday";
-	 * else if (h == 1) return "Sunday"; else if (h == 2) return "Monday"; else if
-	 * (h == 3) return "Tuesday"; else if (h == 4) return "Wednesday"; else if (h ==
-	 * 5) return "Thursday"; else if (h == 6) return "Friday"; return null; }
-	 */
-
-	/*
-	 * public String getMonthName() { switch (month) { case 1: return "January";
-	 * case 2: return "February"; case 3: return "March"; case 4: return "April";
-	 * case 5: return "May"; case 6: return "June"; case 7: return "July"; case 8:
-	 * return "August"; case 9: return "September"; case 10: return "October"; case
-	 * 11: return "November"; case 12: return "December"; } return
-	 * "That's not a month!"; }
-	 */
-
-	/*
-	 * public void nextDay() { if (DayInMonth() == day && month != 12) { day = 1;
-	 * month++; } else if (DayInMonth() == day && month == 12) { day = 1; month = 1;
-	 * year++; } else day++;
-	 * 
-	 * }
-	 */
-
 	public boolean equals(Object sth) {
 		if (!(sth instanceof MyDate))
 			return false;
@@ -173,29 +146,6 @@ public class MyDate implements Serializable {
 	public MyDate copy() {
 		return new MyDate(day, month, year, hour, minute);
 	}
-
-	/*
-	 * public void nextDays(int days) { if (DayInMonth() < day + days) { while (days
-	 * + day > DayInMonth()) { days -= DayInMonth(); if (month < 12) month++; else {
-	 * month = 1; year++; } } day += days; } else day += days; }
-	 */
-
-	/*
-	 * public boolean isBefore(MyDate obj) { if (year < obj.year) return true; else
-	 * if (year > obj.year) return false; else { if (month < obj.month) return true;
-	 * else if (month > obj.month) return false; else { if (day < obj.day) return
-	 * true; else return false; } } }
-	 */
-
-	/*
-	 * public int daysBetween(MyDate other) { int result = 0; if
-	 * (this.isBefore(other)) { MyDate additional = this.copy(); while
-	 * (!additional.equals(other)) { additional.nextDay(); result++; } } else {
-	 * MyDate additional = other.copy(); while (!additional.equals(this)) {
-	 * additional.nextDay(); result++; } } return result;
-	 * 
-	 * }
-	 */
 
 	public void setDay(int d) {
 		day = d;

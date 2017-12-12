@@ -73,7 +73,7 @@ public class LecturerChoiceList extends VIAPanel {
 				TableModel model = table.getModel();
 				int selRow = table.getSelectedRow();
 				Lecturer selected = (Lecturer) model.getValueAt(selRow, 5);
-				EventCreateFormLectures.assignCategoriesToLecturerForm(selected);
+				EventCreateFormLectures.assignLecturerToForm(selected);
 				frame.dispose();
 			}
 		});

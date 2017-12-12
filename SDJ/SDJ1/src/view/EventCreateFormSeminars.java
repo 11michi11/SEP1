@@ -26,9 +26,11 @@ import javax.swing.JTextField;
 
 import controler.VIAController;
 import model.Category;
+import model.Event;
 import model.InvalidDateInput;
 import model.Lecturer;
 import model.MyDate;
+import model.Seminar;
 
 public class EventCreateFormSeminars extends VIAPanel {
 
@@ -54,6 +56,7 @@ public class EventCreateFormSeminars extends VIAPanel {
 	private JRadioButton unfinalized;
 	private JFrame frame;
 	private JPanel parentPanel;
+	private Event event;
 	private static JComboBox lecturersBox;
 	private static ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
 	private static JComboBox categoryBox;
@@ -69,6 +72,17 @@ public class EventCreateFormSeminars extends VIAPanel {
 		addComponentsToPanel();
 	}
 
+	public EventCreateFormSeminars(JFrame frame, JPanel parentPanel, Event event) {
+		super();
+		this.frame = frame;
+		this.event = event;
+		this.parentPanel = parentPanel;
+		setLayout(new BorderLayout());
+		initializeComponents();
+		registerEventHandlers();
+		addComponentsToPanel();
+	}
+		
 	public void initializeComponents() {
 
 		String[] boxString = { "categoryTitle", "" };
@@ -108,6 +122,8 @@ public class EventCreateFormSeminars extends VIAPanel {
 		group.add(finalized);
 		group.add(unfinalized);
 
+		if(event != null)
+			fillFieldWithEventData();
 	}
 
 	public void registerEventHandlers() {
@@ -388,4 +404,15 @@ public class EventCreateFormSeminars extends VIAPanel {
 		DefaultComboBoxModel model = new DefaultComboBoxModel(boxString);
 		lecturersBox.setModel(model);
 	}
+
+	private void fillFieldWithEventData() {
+		fieldTitle.setText(event.getTitle());
+		fieldPrice.setText(String.valueOf(event.getPrice()));
+		fieldPlaces.setText(String.valueOf(event.getCapacity()));
+		fieldStartDate.setText(event.getStartDate().toString());
+		fieldEndDate.setText(event.getEndDate().toString());
+		assignLecturersToLecturerForm(((Seminar)event).getLecturers());
+		assignCategoriesToLecturerForm(((Seminar)event).getCategories());
+	}
+	
 }
