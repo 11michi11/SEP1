@@ -34,16 +34,16 @@ public class FileManager {
 	
 	public static void generateListOfEmailsWhoHasntPaid(ArrayList <String> emails) throws IOException {
 	    
-	    	PrintWriter out = new PrintWriter(emails.toString());
-	    	out.println(emails);
+	    	PrintWriter out = new PrintWriter(emailsWhoHasntPaid);
+	    	out.println(emails.toString());
 	    	out.flush();
     		out.close();
 	}
 	
 	public static void generateListOfAllEmails(ArrayList <String> emails) throws IOException {
 	    
-	    	PrintWriter out = new PrintWriter(emails.toString());
-	    	out.println(allEmails);
+	    	PrintWriter out = new PrintWriter(allEmails);
+	    	out.println(emails.toString());
 	    	out.flush();
 		out.close();
 	}
