@@ -103,6 +103,22 @@ public class EventListPanel extends VIAPanel {
 				}
 			}
 		});
+		
+		finished.addActionListener(new ActionListener() {
+		    @Override
+		    
+		    public void actionPerformed(ActionEvent e) {
+			if (finished.isSelected()) {
+			    DefaultTableModel model = VIAController.getFinishedEvents();
+			    table.setModel(model);
+			    table.removeColumn(table.getColumnModel().getColumn(2));
+			} else {
+			    DefaultTableModel model = VIAController.getEventsTableModel();
+			    table.setModel(model);
+			    table.removeColumn(table.getColumnModel().getColumn(2));
+			}
+		    }
+		});
 
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent event) {
