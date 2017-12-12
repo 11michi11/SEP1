@@ -72,7 +72,7 @@ public class VIAManager {
 	public ArrayList<Event> getAllEvents() {
 		return this.events.getAllEvents();
 	}
-	
+
 	public ArrayList<File> getAllNewsletters() {
 		return this.newsletterFiles;
 	}
@@ -88,17 +88,17 @@ public class VIAManager {
 	public EventList getEventList() {
 		return events;
 	}
-	
-	public void updateMemberList () throws ClassNotFoundException, IOException {
-	    this.members = FileManager.readMemberFile();
+
+	public void updateMemberList() throws ClassNotFoundException, IOException {
+		this.members = FileManager.readMemberFile();
 	}
-	
-	public void updateLecturerList () throws ClassNotFoundException, IOException {
-	    this.lecturers = FileManager.readLecturerFile();
+
+	public void updateLecturerList() throws ClassNotFoundException, IOException {
+		this.lecturers = FileManager.readLecturerFile();
 	}
-	
-	public void updateEventList () throws ClassNotFoundException, IOException {
-	    this.events = FileManager.readEventFile();
+
+	public void updateEventList() throws ClassNotFoundException, IOException {
+		this.events = FileManager.readEventFile();
 	}
 
 	public void addEvent(Map<String, Object> configuration) {

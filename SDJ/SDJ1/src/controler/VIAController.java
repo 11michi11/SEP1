@@ -40,19 +40,19 @@ public class VIAController {
 		FileManager.generateLecturerFile(manager.getLecturerList());
 		FileManager.generateMemberFile(manager.getMemberList());
 	}
-	
-	public static void performOpeningOperations () throws ClassNotFoundException, IOException {
-	    	manager.updateMemberList();
-	    	manager.updateLecturerList();
-	    	manager.updateEventList();
+
+	public static void performOpeningOperations() throws ClassNotFoundException, IOException {
+		manager.updateMemberList();
+		manager.updateLecturerList();
+		manager.updateEventList();
 	}
-	
-	public static void emailsWhoHasntPaid() throws IOException{
-	    FileManager.generateListOfEmailsWhoHasntPaid(manager.getMemberList().getListOfEmailsWhoHasntPaid());
+
+	public static void emailsWhoHasntPaid() throws IOException {
+		FileManager.generateListOfEmailsWhoHasntPaid(manager.getMemberList().getListOfEmailsWhoHasntPaid());
 	}
-	
-	public static void Allemails() throws IOException{
-	    FileManager.generateListOfAllEmails(manager.getMemberList().getListOfEmails());
+
+	public static void Allemails() throws IOException {
+		FileManager.generateListOfAllEmails(manager.getMemberList().getListOfEmails());
 	}
 
 	public static void addMemberToList(Object[] configuration) {
@@ -184,7 +184,7 @@ public class VIAController {
 					return Boolean.class;
 				}
 			}
-			
+
 			@Override
 			public boolean isCellEditable(int row, int col) {
 				return false;
@@ -247,7 +247,7 @@ public class VIAController {
 		};
 		return model;
 	}
-	
+
 	public static DefaultTableModel getNesletterTableModel() {
 		String[] columnNames = { "Name of newsletter" };
 		ArrayList<File> newsletter = manager.getAllNewsletters();
@@ -513,15 +513,7 @@ public class VIAController {
 	}
 
 	public static void main(String[] args) {
-
 		VIAController controller = new VIAController();
-		try {
-			Object[] member ={"Micha�","Adres",666,"email",new MyDate("12/12/2017")};
-			addMemberToList(member);
-			
-		} catch (InvalidDateInput e) {// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	public static void showWindow() {
