@@ -140,10 +140,10 @@ public class FileManager {
 			day = Integer.parseInt(divideDate[0].trim());
 			month = Integer.parseInt(divideDate[1].trim());
 			year = Integer.parseInt(divideDate[2].trim());
-			divideTime = divideDate[3].split(":");
+			/*divideTime = divideDate[3].split(":");
 			hour = Integer.parseInt(divideTime[0]);
-			minute = Integer.parseInt(divideTime[1]);
-			dateOfMembership = new MyDate(day, month, year, hour, minute);
+			minute = Integer.parseInt(divideTime[1]);*/
+			dateOfMembership = new MyDate(day, month, year);
 			members.addMember(new Member(name, address, phone, email, dateOfMembership));
 		}
 
