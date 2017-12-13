@@ -7,12 +7,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
-
 import fileManager.FileManager;
 import model.Category;
 import model.Event;
 import model.EventNotFoundException;
-import model.InvalidDateInput;
 import model.Lecturer;
 import model.Member;
 import model.MyDate;
@@ -107,7 +105,7 @@ public class VIAController {
 		manager.generateNewsletter(newsletterContent);
 		view.Newsletter.refreshTable();
 	}
-	
+
 	public static DefaultTableModel getMembersTableModel() {
 		String[] columnNames = { "Name", "E-mail", "Phone", "Paid", "ID", "Member" };
 		ArrayList<Member> members = manager.getAllMembers();
@@ -589,7 +587,7 @@ public class VIAController {
 					return Boolean.class;
 				}
 			}
-			
+
 			@Override
 			public boolean isCellEditable(int row, int col) {
 				return false;
@@ -629,7 +627,7 @@ public class VIAController {
 					return Boolean.class;
 				}
 			}
-			
+
 			@Override
 			public boolean isCellEditable(int row, int col) {
 				return false;
@@ -669,7 +667,7 @@ public class VIAController {
 					return Boolean.class;
 				}
 			}
-			
+
 			@Override
 			public boolean isCellEditable(int row, int col) {
 				return false;
