@@ -78,8 +78,8 @@ public class Lecturer implements Serializable {
 	}
 
 	public String toString() {
-		return "Name: " + name + "\nEmail address: " + email + "\nPhone number: " + phone
-				+ "\nCategories of given speeches: " + categories.toString();
+		return "\nName: " + name + "\nEmail address: " + email + "\nPhone number: " + phone
+				+ "\nCategories of given speeches: " + categories.toString().substring(1, categories.toString().length()-1);
 	}
 
 }

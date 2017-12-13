@@ -45,7 +45,8 @@ public class Workshop extends Event {
 		int places = super.getCapacity();
 
 		return "\t" + title + "\n" + description + "\nDate: " + startDate + "-" + endDate + "\nLecturers: " + lecturers
-				+ "\nPrice: " + price + "\nPrice for members: " + priceForMembers + "\nAvaliable places: " + places;
+			+"\nCategories of given speeches: " + categories.toString().substring(1, categories.toString().length()-1)	
+			+ "\nPrice: " + price + "\nPrice for members: " + priceForMembers + "\nAvaliable places: " + places;
 	}
 
 	private String parseLecturersList() {

@@ -29,6 +29,10 @@ public class Lecture extends Event {
 	public Lecturer getLecturer() {
 		return this.lecturer;
 	}
+	
+	public Category getCategory() {
+	    return this.category;
+	}
 
 	public String toString() {
 		String title = super.getTitle();
@@ -41,7 +45,7 @@ public class Lecture extends Event {
 		int places = super.getCapacity();
 
 		return "\t" + title + "\n" + description + "\nDate: " + startDate + "-" + endDate + "\nLecturer: "
-				+ lecturerName + "\nPrice: " + price + "\nPrice for members: " + priceForMembers
+				+ lecturerName + "\nCategories of given speeches: " + category.toString().substring(1, category.toString().length()-1)+ "\nPrice: " + price + "\nPrice for members: " + priceForMembers
 				+ "\nAvaliable places: " + places;
 	}
 
