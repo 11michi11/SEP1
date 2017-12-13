@@ -201,11 +201,14 @@ public class EventListPanel extends VIAPanel {
 				Point point = mouseEvent.getPoint();
 				int row = table.rowAtPoint(point);
 				if (mouseEvent.getClickCount() == 2) {
-					JOptionPane.showMessageDialog(frame,
+				    String message = table.getModel().getValueAt(table.getSelectedRow(), 2).toString();
+				    JOptionPane.showMessageDialog(frame,message,"Start Message", JOptionPane.PLAIN_MESSAGE);
+				    
+				    /*JOptionPane.showMessageDialog(frame,
 							"Event name:\n" + "Category:\n" + "Lecturer:\n" + "Location:\n" + "Price:\n"
 									+ "N° of Places:\n" + "Start date:\n" + "End date:\n" + "Finalized:\n"
 									+ "Description:\n",
-							"Start Messege", JOptionPane.PLAIN_MESSAGE);
+							"Start Messege", JOptionPane.PLAIN_MESSAGE);*/
 				}
 			}
 		});
