@@ -24,6 +24,10 @@ public class SearchEngine {
 		for (Lecturer e : lecturers) {
 			if (search(e.getName(), needle) || search(Integer.toString(e.getID()), needle))
 				searchedLecturers.add(e);
+			else
+			    for(Category i: e.getCategories())
+				if(search(i.toString(), needle))
+				    searchedLecturers.add(e);
 		}
 		return searchedLecturers;
 	}
@@ -39,6 +43,8 @@ public class SearchEngine {
 	}
 
 	public static boolean search(String stack, String needle) {
+	    	stack=stack.toLowerCase();
+	    	needle=needle.toLowerCase();
 		Pattern p = Pattern.compile(stack);
 		Matcher m = p.matcher("");
 		m.reset(needle);

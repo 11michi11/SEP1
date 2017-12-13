@@ -196,4 +196,19 @@ public class MyDate implements Serializable {
 		}
 		return returnString;
 	}
+	public String toStringToFile() {
+		String returnString = "";
+		if (day < 10) {
+			returnString += "0" + day;
+		} else {
+			returnString += day;
+		}
+		if (month < 10) {
+			returnString += "-0" + month;
+		} else {
+			returnString += "-" + month;
+		}
+		returnString += "-" + year;
+		return returnString;
+	}
 }
