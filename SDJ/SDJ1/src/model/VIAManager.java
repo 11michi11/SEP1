@@ -51,7 +51,7 @@ public class VIAManager {
 	}
 
 	public void generateNewsletter(String newsletterContent) throws IOException {
-		newsletterFiles.add(new File("Newsletter_" + new MyDate().toString() + ".txt"));
+		newsletterFiles.add(new File("Newsletter_" + new MyDate().toString().substring(0, 10) + ".txt"));
 		PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
 
 		out.println(newsletterContent);

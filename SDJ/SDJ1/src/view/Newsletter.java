@@ -5,10 +5,15 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -49,6 +54,7 @@ public class Newsletter extends VIAPanel {
 		DefaultTableModel model = VIAController.getNewsletterTableModel();
 
 		table = new JTable(model);
+		table.removeColumn(table.getColumnModel().getColumn(1));
 		table.setPreferredScrollableViewportSize(new Dimension(450, 50));
 
 		scrollPane = new JScrollPane(table);
@@ -64,6 +70,19 @@ public class Newsletter extends VIAPanel {
 
 	private void registerEventHandlers() {
 
+		generateText.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					VIAController.generateNewsletter(info.getText());
+				} catch (IOException e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(frame, "File not found", "File error",
+							JOptionPane.PLAIN_MESSAGE);
+				}
+			}
+		});
 	}
 
 	private void addComponentsToPanel() {
