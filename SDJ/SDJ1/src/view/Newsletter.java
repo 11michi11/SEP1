@@ -2,11 +2,10 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.ImageIcon;
@@ -21,9 +20,9 @@ import javax.swing.JTextArea;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import controler.VIAController;
-import model.Event;
 
 public class Newsletter extends VIAPanel {
 
@@ -69,6 +68,22 @@ public class Newsletter extends VIAPanel {
 	}
 
 	private void registerEventHandlers() {
+		JPanel currentPanel = this;
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent event) {
+				TableModel model = table.getModel();
+				int selRow = table.getSelectedRow();
+				File newsletter = (File) model.getValueAt(selRow, 1);
+				
+				JFrame newsletterFrame = new JFrame();
+				newsletterFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				newsletterFrame.setSize(900, 500);
+				newsletterFrame.setTitle("VIA - Add new member");
+				newsletterFrame.setContentPane(new NewsletterContent(newsletterFrame, currentPanel, newsletter));
+				newsletterFrame.setVisible(true);
+			}
+		});
 
 		generateText.addActionListener(new ActionListener() {
 			
