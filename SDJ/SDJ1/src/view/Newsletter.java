@@ -3,8 +3,11 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -70,18 +73,23 @@ public class Newsletter extends VIAPanel {
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
 		
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent event) {
-				TableModel model = table.getModel();
-				int selRow = table.getSelectedRow();
-				File newsletter = (File) model.getValueAt(selRow, 1);
-				
-				JFrame newsletterFrame = new JFrame();
-				newsletterFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				newsletterFrame.setSize(900, 500);
-				newsletterFrame.setTitle("VIA - Add new member");
-				newsletterFrame.setContentPane(new NewsletterContent(newsletterFrame, currentPanel, newsletter));
-				newsletterFrame.setVisible(true);
+		table.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent mouseEvent) {
+				JTable table = (JTable) mouseEvent.getSource();
+				Point point = mouseEvent.getPoint();
+				int row = table.rowAtPoint(point);
+				if (mouseEvent.getClickCount() == 2) {
+					TableModel model = table.getModel();
+					int selRow = table.getSelectedRow();
+					File newsletter = (File) model.getValueAt(selRow, 1);
+					
+					JFrame newsletterFrame = new JFrame();
+					newsletterFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					newsletterFrame.setSize(900, 500);
+					newsletterFrame.setTitle("VIA - Add new member");
+					newsletterFrame.setContentPane(new NewsletterContent(newsletterFrame, currentPanel, newsletter));
+					newsletterFrame.setVisible(true);
+				}
 			}
 		});
 
