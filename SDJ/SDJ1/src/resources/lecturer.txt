@@ -1,4 +1,3 @@
-name;email;phone;[categories];wantsAdvertise
 Kartagena Kubicz;domik@hotmail.com;789956632;Astrology,Meditation;true
 Merche Aguado;helloworld@hotmail.com;209956632;TraditionalBuddhism;false
 Merche Rios;tequeremos@hotmail.com;789156632;Reincarnation;true

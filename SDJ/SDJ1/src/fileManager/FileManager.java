@@ -31,25 +31,23 @@ public class FileManager {
 	private static File memberFile = new File("src/resources/members.bin");
 	private static File emailsWhoHasntPaid = new File("emailsWhoHasntPaid.txt");
 	private static File allEmails = new File("allEmails.txt");
-	
-	public static void generateListOfEmailsWhoHasntPaid(ArrayList <String> emails) throws IOException {
-	    
-	    	PrintWriter out = new PrintWriter(emailsWhoHasntPaid);
-	    	out.println(emails.toString());
-	    	out.flush();
-    		out.close();
-	}
-	
-	public static void generateListOfAllEmails(ArrayList <String> emails) throws IOException {
-	    
-	    	PrintWriter out = new PrintWriter(allEmails);
-	    	out.println(emails.toString());
-	    	out.flush();
+
+	public static void generateListOfEmailsWhoHasntPaid(ArrayList<String> emails) throws IOException {
+
+		PrintWriter out = new PrintWriter(emailsWhoHasntPaid);
+		out.println(emails.toString());
+		out.flush();
 		out.close();
 	}
-	
-	
-	
+
+	public static void generateListOfAllEmails(ArrayList<String> emails) throws IOException {
+
+		PrintWriter out = new PrintWriter(allEmails);
+		out.println(emails.toString());
+		out.flush();
+		out.close();
+	}
+
 	public static void generateEventFile(EventList eventList) throws IOException {
 
 		FileOutputStream fos = new FileOutputStream(eventFile);
@@ -130,7 +128,6 @@ public class FileManager {
 		MyDate dateOfMembership;
 
 		Scanner read = new Scanner(file);
-		read.nextLine(); // skip first line
 		while (read.hasNext()) {
 			line = read.nextLine();
 			divide = line.split(";");
@@ -142,9 +139,6 @@ public class FileManager {
 			day = Integer.parseInt(divideDate[0].trim());
 			month = Integer.parseInt(divideDate[1].trim());
 			year = Integer.parseInt(divideDate[2].trim());
-			/*divideTime = divideDate[3].split(":");
-			hour = Integer.parseInt(divideTime[0]);
-			minute = Integer.parseInt(divideTime[1]);*/
 			dateOfMembership = new MyDate(day, month, year);
 			members.addMember(new Member(name, address, phone, email, dateOfMembership));
 		}
@@ -170,9 +164,6 @@ public class FileManager {
 		}
 
 		wantsAdvertise = Boolean.parseBoolean(divide[4].trim());
-		/*
-		 * String check = divide[4]; System.out.println(check);
-		 */
 		return (new Lecturer(name, email, phone, categories, wantsAdvertise));
 	}
 
@@ -180,7 +171,6 @@ public class FileManager {
 		LecturerList lecturers = new LecturerList();
 		String line;
 		Scanner read = new Scanner(file);
-		read.nextLine(); // skip first line
 		while (read.hasNext()) {
 			line = read.nextLine();
 			lecturers.addLecturer(readLecturerFileInside(line));
@@ -245,8 +235,6 @@ public class FileManager {
 				break;
 
 			case "workshop":
-				// lecturerLine = divideAll[1].trim();
-				// lecturerLine.substring(0, lecturerLine.length() - 2);
 				divideLecturers = part2.split(",");
 				for (String i : divideLecturers) {
 					readLecturerFileInside(i.substring(1, i.length() - 1));
@@ -268,22 +256,23 @@ public class FileManager {
 		read.close();
 		return events;
 	}
-	
-	public static void generateNewsletter(String additionalInfo, ArrayList<File> newsletterFiles, EventList events, LecturerList lecturers) throws IOException {
+
+	public static void generateNewsletter(String additionalInfo, ArrayList<File> newsletterFiles, EventList events,
+			LecturerList lecturers) throws IOException {
 		newsletterFiles.add(new File("Newsletter_" + new MyDate().toStringToFile() + ".txt"));
 		PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
-		String newsletterContent="";
-		newsletterContent+=new MyDate().toStringToFile();
-		newsletterContent+="\nUpcoming events:\n"+events.getFinalizedNotFinished().toString();
-		newsletterContent+="\nOur sponsors: \n"+lecturers.getLecturersToAdvertise().toString();
-		if(!(additionalInfo.equals("")))
-		    newsletterContent+="\nYou may find interesting:\n"+additionalInfo;
+		String newsletterContent = "";
+		newsletterContent += new MyDate().toStringToFile();
+		newsletterContent += "\nUpcoming events:\n" + events.getFinalizedNotFinished().toString();
+		newsletterContent += "\nOur sponsors: \n" + lecturers.getLecturersToAdvertise().toString();
+		if (!(additionalInfo.equals("")))
+			newsletterContent += "\nYou may find interesting:\n" + additionalInfo;
 		out.println(newsletterContent);
 
 		out.flush();
 		out.close();
 	}
-	
+
 	public static String readNewsletter(MyDate date, ArrayList<File> newsletterFiles) throws FileNotFoundException {
 		String newsletter = "";
 		for (File i : newsletterFiles) {
@@ -299,7 +288,5 @@ public class FileManager {
 		}
 		return "Something went wrong...";
 	}
-	
-	
 
 }
