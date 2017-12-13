@@ -27,7 +27,7 @@ import model.Event;
 
 public class Newsletter extends VIAPanel {
 
-	private JTable table;
+	private static JTable table;
 	private JScrollPane scrollPane;
 	private JLabel listOfNewsletter;
 	private JButton generateText;
@@ -130,6 +130,14 @@ public class Newsletter extends VIAPanel {
 		add(left, BorderLayout.WEST);
 		add(textArea, BorderLayout.EAST);
 
+	}
+	
+	public static void refreshTable() {
+		if (table != null) {
+			DefaultTableModel model = VIAController.getNewsletterTableModel();
+			table.setModel(model);
+			table.removeColumn(table.getColumnModel().getColumn(1));
+		}
 	}
 
 }

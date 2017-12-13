@@ -105,6 +105,7 @@ public class VIAController {
 
 	public static void generateNewsletter(String newsletterContent) throws IOException {
 		manager.generateNewsletter(newsletterContent);
+		view.Newsletter.refreshTable();
 	}
 	
 	public static DefaultTableModel getMembersTableModel() {
