@@ -48,16 +48,12 @@ public class SearchEngine {
 		Pattern p = Pattern.compile(stack);
 		Matcher m = p.matcher("");
 		m.reset(needle);
-		System.out.println(needle + " in " + stack);
 		if (m.matches() || m.hitEnd()) {
-			System.out.println("case 1");
 			return true;
 		} else if (stack.length() > needle.length()) {
 			String newStack = stack.substring(1, stack.length());
-			System.out.println("case 2");
 			return search(newStack, needle);
 		} else {
-			System.out.println("case 3");
 			return false;
 		}
 	}
