@@ -51,13 +51,7 @@ public class VIAManager {
 	}
 
 	public void generateNewsletter(String newsletterContent) throws IOException {
-		newsletterFiles.add(new File("Newsletter_" + new MyDate().toString() + ".txt"));
-		PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
-
-		out.println(newsletterContent);
-
-		out.flush();
-		out.close();
+	    FileManager.generateNewsletter(newsletterContent, newsletterFiles);
 
 	}
 
@@ -128,19 +122,7 @@ public class VIAManager {
 	}
 
 	public String readNewsletter(MyDate date) throws FileNotFoundException {
-		String newsletter = "";
-		for (File i : newsletterFiles) {
-			if (i.getName().equals("Newsletter_" + date.toString() + ".txt")) {
-				Scanner read = new Scanner(i);
-				while (read.hasNext())
-					newsletter += read.nextLine() + "\n";
-				read.close();
-				return newsletter;
-			} else {
-				throw new FileNotFoundException("No newsletter on " + date.toString());
-			}
-		}
-		return "Something went wrong...";
+		return FileManager.readNewsletter(date, newsletterFiles);
 	}
 	
 }

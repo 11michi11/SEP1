@@ -48,6 +48,8 @@ public class FileManager {
 		out.close();
 	}
 	
+	
+	
 	public static void generateEventFile(EventList eventList) throws IOException {
 
 		FileOutputStream fos = new FileOutputStream(eventFile);
@@ -283,5 +285,38 @@ public class FileManager {
 		read.close();
 		return events;
 	}
+	
+	public static void generateNewsletter(String additionalInfo, ArrayList<File> newsletterFiles, EventList events, LecturerList lecturers) throws IOException {
+		newsletterFiles.add(new File("Newsletter_" + new MyDate().toString() + ".txt"));
+		PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
+		String newsletterContent="";
+		newsletterContent+=new MyDate().toStringToFile();
+		newsletterContent+="\nUpcoming events:\n"+events.getFinalizedNotFinished().toString();
+		newsletterContent+="\nOur sponsors: \n"+lecturers.getLecturersToAdvertise().toString();
+		if(!(additionalInfo.equals("")))
+		    newsletterContent+="\nYou may find interesting:\n"+additionalInfo;
+		out.println(newsletterContent);
+
+		out.flush();
+		out.close();
+	}
+	
+	public static String readNewsletter(MyDate date, ArrayList<File> newsletterFiles) throws FileNotFoundException {
+		String newsletter = "";
+		for (File i : newsletterFiles) {
+			if (i.getName().equals("Newsletter_" + date.toString() + ".txt")) {
+				Scanner read = new Scanner(i);
+				while (read.hasNext())
+					newsletter += read.nextLine() + "\n";
+				read.close();
+				return newsletter;
+			} else {
+				throw new FileNotFoundException("No newsletter on " + date.toString());
+			}
+		}
+		return "Something went wrong...";
+	}
+	
+	
 
 }
