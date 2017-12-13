@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -18,9 +19,11 @@ import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import controler.VIAController;
 import model.Member;
+import model.MemberAlreadyPaidException;
 
 public class MemberListPanel extends VIAPanel {
 
@@ -33,6 +36,7 @@ public class MemberListPanel extends VIAPanel {
 	private JFrame frame;
 	private JButton back;
 	private JPanel parentPanel;
+	private static int clickCount = 0;
 
 	public MemberListPanel(JFrame frame, JPanel parentPanel) {
 		super();
@@ -66,13 +70,32 @@ public class MemberListPanel extends VIAPanel {
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
-		
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-	        public void valueChanged(ListSelectionEvent event) {
-	            delete.setEnabled(true);
-	        }
-	    });
-		
+
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent event) {
+				delete.setEnabled(true);
+				
+				clickCount++;
+				
+				TableModel model = table.getModel();
+				int selRow = table.getSelectedRow();
+				if (table.getSelectedColumn() == 3) {
+					Member member = (Member) model.getValueAt(selRow, 5);
+					if (!member.hasPaid() && clickCount == 1) {
+						try {
+							member.pay();
+						} catch (MemberAlreadyPaidException e) {
+							e.printStackTrace();
+						}
+					} else if ((boolean) model.getValueAt(selRow, 3) == true && clickCount == 1)
+						member.unPay();
+					
+					if(clickCount == 2)
+						clickCount = 0;
+				}
+			}
+		});
+
 		add.addActionListener(new ActionListener() {
 
 			@Override
@@ -85,26 +108,26 @@ public class MemberListPanel extends VIAPanel {
 				member.setVisible(true);
 			}
 		});
-		
+
 		search.addActionListener(new ActionListener() {
-		    
-		    @Override
-		    public void actionPerformed(ActionEvent e) {
-			DefaultTableModel model = VIAController.getSearchedMembers(search.getText());
-			table.setModel(model);
-			table.removeColumn(table.getColumnModel().getColumn(5));
-		    }
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel model = VIAController.getSearchedMembers(search.getText());
+				table.setModel(model);
+				table.removeColumn(table.getColumnModel().getColumn(5));
+			}
 		});
-		
+
 		delete.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Member member = (Member) table.getModel().getValueAt(table.getSelectedRow(), 5);
 				VIAController.deleteMember(member);
 			}
 		});
-		
+
 	}
 
 	private void addComponentsToPanel() {

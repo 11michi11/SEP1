@@ -41,6 +41,10 @@ public class Member extends Participant implements Serializable {
 		else
 			throw new MemberAlreadyPaidException("Member has paid for that year");
 	}
+	
+	public void unPay() {
+		this.paymentYear = MyDate.getCurrentYear() - 1;
+	}
 
 	public String getAddress() {
 		return address;

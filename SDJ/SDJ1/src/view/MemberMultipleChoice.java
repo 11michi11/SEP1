@@ -64,6 +64,7 @@ public class MemberMultipleChoice extends VIAPanel {
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
+		
 		add.addActionListener(new ActionListener() {
 
 			@Override
