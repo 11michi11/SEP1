@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -90,18 +91,18 @@ public class VIAManager {
 	}
 	
 	public void updateMemberList () throws ClassNotFoundException, IOException {
-//	    this.members = FileManager.readMemberFile();
-	    this.members = FileManager.readMemberFile(new File("src/resources/members.txt"));
+	    this.members = FileManager.readMemberFile();
+//	    this.members = FileManager.readMemberFile(new File("src/resources/members.txt"));
 	}
 	
 	public void updateLecturerList () throws ClassNotFoundException, IOException {
-//	    this.lecturers = FileManager.readLecturerFile();
-	    this.lecturers = FileManager.readLecturerFile(new File("src/resources/lecturer.txt"));
+	    this.lecturers = FileManager.readLecturerFile();
+//	    this.lecturers = FileManager.readLecturerFile(new File("src/resources/lecturer.txt"));
 	}
 	
 	public void updateEventList () throws ClassNotFoundException, IOException {
-//	    this.events = FileManager.readEventFile();
-	    this.events = FileManager.readEventFile(new File("src/resources/events.txt"));
+	    this.events = FileManager.readEventFile();
+//	    this.events = FileManager.readEventFile(new File("src/resources/events.txt"));
 	}
 
 	public void addEvent(Map<String, Object> configuration) {

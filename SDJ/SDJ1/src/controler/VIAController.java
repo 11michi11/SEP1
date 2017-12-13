@@ -106,7 +106,19 @@ public class VIAController {
 	public static DefaultTableModel getMembersTableModel() {
 		String[] columnNames = { "Name", "E-mail", "Phone", "Paid", "ID", "Member" };
 		ArrayList<Member> members = manager.getAllMembers();
-		Object[][] data = new Object[members.size()][5];
+		Object[][] data = new Object[members.size()][6];
+
+		for (int i = 0; i < members.size(); i++) {
+			Object[] row = new Object[6];
+			row[0] = members.get(i).getName();
+			row[1] = members.get(i).getEmail();
+			row[2] = members.get(i).getPhone();
+			row[3] = members.get(i).hasPaid();
+			row[4] = members.get(i).getID();
+			row[5] = members.get(i);
+
+			data[i] = row;
+		}
 
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 			@Override
@@ -127,6 +139,14 @@ public class VIAController {
 				default:
 					return Boolean.class;
 				}
+			}
+
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				if (col == 3)
+					return true;
+				else
+					return false;
 			}
 
 		};
@@ -283,7 +303,7 @@ public class VIAController {
 		return model;
 	}
 
-	public static DefaultTableModel getNesletterTableModel() {
+	public static DefaultTableModel getNewsletterTableModel() {
 		String[] columnNames = { "Name of newsletter" };
 		ArrayList<File> newsletter = manager.getAllNewsletters();
 		Object[][] data = new Object[newsletter.size()][2];
@@ -313,12 +333,7 @@ public class VIAController {
 
 			@Override
 			public boolean isCellEditable(int row, int col) {
-				switch (col) {
-				case 1:
-					return true;
-				default:
-					return false;
-				}
+				return false;
 			}
 		};
 		return model;
@@ -353,6 +368,11 @@ public class VIAController {
 					return Boolean.class;
 				}
 			}
+
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				return false;
+			}
 		};
 		return model;
 	}
@@ -382,6 +402,11 @@ public class VIAController {
 				default:
 					return Boolean.class;
 				}
+			}
+
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				return false;
 			}
 		};
 		return model;
@@ -415,6 +440,11 @@ public class VIAController {
 				default:
 					return Boolean.class;
 				}
+			}
+
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				return false;
 			}
 		};
 		return model;
@@ -462,6 +492,14 @@ public class VIAController {
 					return Boolean.class;
 				}
 			}
+
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				if (col == 3)
+					return true;
+				else
+					return false;
+			}
 		};
 		return model;
 
@@ -485,8 +523,6 @@ public class VIAController {
 			data[i] = row;
 		}
 
-		System.out.println(Arrays.deepToString(data));
-
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
 			@Override
@@ -508,6 +544,11 @@ public class VIAController {
 					return Boolean.class;
 				}
 			}
+
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				return false;
+			}
 		};
 		return model;
 	}
@@ -528,8 +569,6 @@ public class VIAController {
 			data[i] = row;
 		}
 
-		System.out.println(Arrays.deepToString(data));
-
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
 			@Override
@@ -544,6 +583,11 @@ public class VIAController {
 				default:
 					return Boolean.class;
 				}
+			}
+			
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				return false;
 			}
 		};
 		return model;
@@ -565,8 +609,6 @@ public class VIAController {
 			data[i] = row;
 		}
 
-		System.out.println(Arrays.deepToString(data));
-
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
 			@Override
@@ -581,6 +623,11 @@ public class VIAController {
 				default:
 					return Boolean.class;
 				}
+			}
+			
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				return false;
 			}
 		};
 		return model;
@@ -602,8 +649,6 @@ public class VIAController {
 			data[i] = row;
 		}
 
-		System.out.println(Arrays.deepToString(data));
-
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
 			@Override
@@ -618,6 +663,11 @@ public class VIAController {
 				default:
 					return Boolean.class;
 				}
+			}
+			
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				return false;
 			}
 		};
 		return model;
