@@ -103,6 +103,11 @@ public class VIAController {
 		EventListPanel.refreshTable();
 	}
 
+	public static void generateNewsletter(String newsletterContent) throws IOException {
+		manager.generateNewsletter(newsletterContent);
+		view.Newsletter.refreshTable();
+	}
+	
 	public static DefaultTableModel getMembersTableModel() {
 		String[] columnNames = { "Name", "E-mail", "Phone", "Paid", "ID", "Member" };
 		ArrayList<Member> members = manager.getAllMembers();
@@ -304,7 +309,7 @@ public class VIAController {
 	}
 
 	public static DefaultTableModel getNewsletterTableModel() {
-		String[] columnNames = { "Name of newsletter" };
+		String[] columnNames = { "Name of newsletter", "Newsletter" };
 		ArrayList<File> newsletter = manager.getAllNewsletters();
 		Object[][] data = new Object[newsletter.size()][2];
 

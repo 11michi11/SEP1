@@ -198,18 +198,11 @@ public class FileManager {
 		int startDay, startMonth, startYear, startHour, startMinute, endDay, endMonth, endYear, endHour, endMinute;
 
 		Scanner read = new Scanner(file);
-		read.nextLine(); // skip first line
-		read.nextLine(); // skip first line
-		read.nextLine(); // skip first line
-		read.nextLine(); // skip first line
 		while (read.hasNext()) {
 			HashMap<String, Object> event = new HashMap<String, Object>();
 			line = read.nextLine();
 			part1 = line.substring(0, line.indexOf("{"));
 			part2 = line.substring(line.indexOf("{") + 1, line.length() - 1);
-			// divideAll = line.split("{");
-
-			// divideAll[1].substring(0, divideAll[1].length()-2);
 			divide = part1.split(";");
 			type = divide[0];
 
@@ -238,20 +231,10 @@ public class FileManager {
 
 			switch (type.toLowerCase()) {
 			case "lecture":
-				// lecturerLine = divideAll[1].trim();
-				// lecturerLine.substring(0, lecturerLine.length() - 2);
-				// divideLecturers = part2.split(",");
-
-				// event.put("lecturer", readLecturerFileInside(part2.substring(1,
-				// part2.length()-1)));
-
-				// readLecturerFileInside(part2.substring(1, part2.length() - 1));
 				event.put("lecturer", readLecturerFileInside(part2.substring(1, part2.length() - 1)));
 				events.addEvent(new Lecture(event));
 				break;
 			case "seminar":
-				// lecturerLine = divideAll[1].trim();
-				// lecturerLine.substring(0, lecturerLine.length() - 2);
 				divideLecturers = part2.split(",");
 				for (String i : divideLecturers) {
 					readLecturerFileInside(i.substring(1, i.length() - 1));
