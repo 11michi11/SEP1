@@ -45,7 +45,7 @@ public class Lecture extends Event {
 		int places = super.getCapacity();
 
 		return "\t" + title + "\n" + description + "\nDate: " + startDate + "-" + endDate + "\nLecturer: "
-				+ lecturerName + "\nCategories of given speeches: " + category.toString().substring(1, category.toString().length()-1)+ "\nPrice: " + price + "\nPrice for members: " + priceForMembers
+				+ lecturerName + "\nCategorie of given speech: " + category.toString()+ "\nPrice: " + price + "\nPrice for members: " + priceForMembers
 				+ "\nAvaliable places: " + places;
 	}
 
