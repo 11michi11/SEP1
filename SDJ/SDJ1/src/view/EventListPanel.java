@@ -124,11 +124,16 @@ public class EventListPanel extends VIAPanel {
 			public void valueChanged(ListSelectionEvent event) {
 				signUpParticipant.setEnabled(true);
 				signUpMember.setEnabled(true);
-				Event eventObj = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
-				if(!eventObj.isFinalized())
+				if (table.getSelectedRow()!=-1) {
+				    Event eventObj = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
+				    if(!eventObj.isFinalized())
 					modify.setEnabled(true);
-				else
+				    else
 					modify.setEnabled(false);
+				}
+				else {
+				    modify.setEnabled(false);
+				}
 			}
 		});
 
