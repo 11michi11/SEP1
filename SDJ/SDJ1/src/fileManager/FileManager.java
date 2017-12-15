@@ -1,6 +1,7 @@
 package fileManager;
 
 import java.io.BufferedWriter;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -263,23 +264,33 @@ public class FileManager {
     
     public static void generateFileOfNewsletters(String newsletterName) throws IOException
     {
-	Writer output;
-	output = new BufferedWriter(new FileWriter(allNewsletters, true));
-	output.append(newsletterName); //add a line to the file
-	output.close();
+	FileOutputStream fos = new FileOutputStream(allNewsletters, true);
+	ObjectOutputStream out = new ObjectOutputStream(fos);
+
+	out.writeObject(newsletterName);
+	out.close();
+	fos.close();
     }
     
-    public static void getAllNewsletters() throws IOException, ClassNotFoundException
-    {
+    public static ArrayList<File> getAllNewsletters() throws IOException, ClassNotFoundException{
 	ArrayList<File> newsletters=new ArrayList<File>();
 	ObjectInputStream read = null;
 	FileInputStream fis = new FileInputStream(allNewsletters);
 
 	read = new ObjectInputStream(fis);
-	String newsletterNames= (String)read.readObject();
-	System.out.println(newsletterNames);
-	fis.close();
-	read.close();
+	String newsletterName;
+	while(true){
+	    try {
+		newsletterName=(String)read.readObject();
+		newsletters.add(new File(newsletterName));
+	    }
+	    catch(EOFException eofe) {
+		fis.close();
+		read.close();
+		return newsletters;
+	    }
+	}
+	
 
 	
     }

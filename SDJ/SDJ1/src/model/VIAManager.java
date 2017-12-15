@@ -100,8 +100,7 @@ public class VIAManager {
 	}
 	
 	public void updateNewsletterList() throws ClassNotFoundException, IOException {
-	    //this.newsletterFiles= FileManager.getAllNewsletters();
-	    FileManager.getAllNewsletters();
+	    this.newsletterFiles= FileManager.getAllNewsletters();
 	}
 
 	public void addEvent(Map<String, Object> configuration) {
