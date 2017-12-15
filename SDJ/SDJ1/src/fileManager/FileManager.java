@@ -35,7 +35,7 @@ public class FileManager {
     private static File memberFile = new File("src/resources/members.bin");
     private static File emailsWhoHasntPaid = new File("emailsWhoHasntPaid.txt");
     private static File allEmails = new File("allEmails.txt");
-    private static File allNewsletters = new File("src/resources/allNewsletters.bin");
+    private static File allNewsletters = new File("src/resources/allNewsletters.txt");
 
     public static void generateListOfEmailsWhoHasntPaid(ArrayList<String> emails) throws IOException {
 
@@ -274,30 +274,18 @@ public class FileManager {
     
     public static ArrayList<File> getAllNewsletters() throws IOException, ClassNotFoundException{
 	ArrayList<File> newsletters=new ArrayList<File>();
-	ObjectInputStream read = null;
-	FileInputStream fis = new FileInputStream(allNewsletters);
-
-	read = new ObjectInputStream(fis);
-	String newsletterName;
-	while(true){
-	    try {
-		newsletterName=(String)read.readObject();
-		newsletters.add(new File(newsletterName));
-	    }
-	    catch(EOFException eofe) {
-		fis.close();
-		read.close();
-		return newsletters;
-	    }
-	}
 	
-
-	
-    }
+	String line;
+	Scanner read = new Scanner(allNewsletters);
+	line=read.nextLine();
+	System.out.println(line);
+	read.close();
+	return newsletters;
+	}	
 
     public static void generateNewsletter(String additionalInfo, ArrayList<File> newsletterFiles, EventList events,
 	    LecturerList lecturers) throws IOException {
-	newsletterFiles.add(new File("src/resources/Newsletter_" + new MyDate().toStringToFile() + ".txt"));
+	newsletterFiles.add(new File("src/resources/Newsletter_" + new MyDate(24,12,1798).toStringToFile() + ".txt"));
 	PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
 	String newsletterContent = "";
 	newsletterContent += new MyDate().toStringToFile();
@@ -309,7 +297,7 @@ public class FileManager {
 	
 	out.flush();
 	out.close();
-	generateFileOfNewsletters("src/resources/Newsletter_" + new MyDate().toStringToFile() + ".txt");
+	generateFileOfNewsletters("src/resources/Newsletter_" + new MyDate(24,14,1798).toStringToFile() + ".txt");
     }
 
     public static String readNewsletter(MyDate date, ArrayList<File> newsletterFiles) throws FileNotFoundException {

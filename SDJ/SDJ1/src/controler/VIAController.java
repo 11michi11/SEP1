@@ -40,9 +40,9 @@ public class VIAController {
     }
 
     public static void performOpeningOperations() throws ClassNotFoundException, IOException {
-	//manager.updateMemberList();
-	//manager.updateLecturerList();
-	//manager.updateEventList();
+	manager.updateMemberList();
+	manager.updateLecturerList();
+	manager.updateEventList();
 	manager.updateNewsletterList();
     }
 

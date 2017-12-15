@@ -38,25 +38,6 @@ public class SearchEngine {
 	    if (search(e.getTitle(), needle) || search(Integer.toString(e.getID()), needle)
 		    || search(e.getStartDate().toString(), needle))
 		searchedEvents.add(e);
-	    /*else if (e.getClass().getName().equals("model.Lecture")) {
-		if (search(((Lecture) e).getCategory().toString(), needle)) {
-		    System.out.println(((Lecture) e).getCategory().toString());
-		    searchedEvents.add(e);
-		}
-	    } else if (e.getClass().getName().equals("model.Seminar")) {
-		for (Category i : ((Seminar) e).getCategories())
-		    if (search(i.toString(), needle)) {
-			System.out.println(i.toString());
-			searchedEvents.add(e);
-		    }
-	    } else if (e.getClass().getName().equals("model.Workshop")) {
-		for (Category i : ((Workshop) e).getCategories())
-		    if (search(i.toString(), needle)) {
-			System.out.println(i.toString());
-			searchedEvents.add(e);
-		    }
-	    }*/
-	    
 	    else {
 		
         	    switch (e.getClass().getName()) {
