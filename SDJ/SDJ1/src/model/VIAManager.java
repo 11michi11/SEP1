@@ -98,6 +98,11 @@ public class VIAManager {
 		// this.events = FileManager.readEventFile();
 		this.events = FileManager.readEventFile(new File("src/resources/events.txt"));
 	}
+	
+	public void updateNewsletterList() throws ClassNotFoundException, IOException {
+	    //this.newsletterFiles= FileManager.getAllNewsletters();
+	    FileManager.getAllNewsletters();
+	}
 
 	public void addEvent(Map<String, Object> configuration) {
 		Event event;
