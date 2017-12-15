@@ -271,15 +271,10 @@ public class FileManager {
     
     public static ArrayList<File> getAllNewsletters() throws IOException, ClassNotFoundException{
 	ArrayList<File> newsletters=new ArrayList<File>();
-	
-	String newsletterName;
 	Scanner read = new Scanner(allNewsletters);
 	while(read.hasNextLine())
-	{
 	    newsletters.add(new File(read.nextLine()));
-	}
 	read.close();
-
 	return newsletters;
 	}	
 

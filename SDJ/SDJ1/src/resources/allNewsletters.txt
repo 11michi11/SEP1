@@ -1,3 +1,4 @@
 src/resources/Newsletter_24-12-1798.txt
 src/resources/Newsletter_24-12-1998.txt
 src/resources/Newsletter_24-12-2098.txt
+src/resources/Newsletter_15-12-2017.txt
