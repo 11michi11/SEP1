@@ -259,7 +259,7 @@ public class FileManager {
 
 	public static void generateNewsletter(String additionalInfo, ArrayList<File> newsletterFiles, EventList events,
 			LecturerList lecturers) throws IOException {
-		newsletterFiles.add(new File("Newsletter_" + new MyDate().toStringToFile() + ".txt"));
+		newsletterFiles.add(new File("src/resources/Newsletter_" + new MyDate().toStringToFile() + ".txt"));
 		PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
 		String newsletterContent = "";
 		newsletterContent += new MyDate().toStringToFile();
@@ -276,7 +276,7 @@ public class FileManager {
 	public static String readNewsletter(MyDate date, ArrayList<File> newsletterFiles) throws FileNotFoundException {
 		String newsletter = "";
 		for (File i : newsletterFiles) {
-			if (i.getName().equals("Newsletter_" + date.toStringToFile() + ".txt")) {
+			if (i.getName().equals("src/resources/Newsletter_" + date.toStringToFile() + ".txt")) {
 				Scanner read = new Scanner(i);
 				while (read.hasNext())
 					newsletter += read.nextLine() + "\n";
