@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -76,6 +78,7 @@ public class LecturerListPanel extends VIAPanel {
 				lecturer.setVisible(true);
 			}
 		});
+		
 		search.addActionListener(new ActionListener() {
 		    
 		    @Override
@@ -84,6 +87,16 @@ public class LecturerListPanel extends VIAPanel {
 			table.setModel(model);
 			table.removeColumn(table.getColumnModel().getColumn(5));
 		    }
+		});
+		
+		search.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+					search.setText("");
+			}
+			
+			public void focusLost(FocusEvent e) {
+				
+			}
 		});
 	}
 
@@ -128,20 +141,6 @@ public class LecturerListPanel extends VIAPanel {
 
 		add(logo, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
-	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new LecturerListPanel(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
-
 	}
 
 	public static void refreshTable() {

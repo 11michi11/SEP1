@@ -6,6 +6,9 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -32,6 +35,7 @@ public class MemberListPanel extends VIAPanel {
 	private JButton add;
 	private JButton mail;
 	private JButton delete;
+	private JButton mailPaid;
 	private JLabel memberList;
 	private JFrame frame;
 	private JButton back;
@@ -54,8 +58,9 @@ public class MemberListPanel extends VIAPanel {
 		search.setText("SEARCH");
 
 		add = new VIAButtonSimple("ADD MEMBER", 20);
-		mail = new VIAButtonSimple("SEND REMAIND E-MAIL", 20);
+		mail = new VIAButtonSimple("GENERATE EMAILS LIST", 20);
 		delete = new VIAButtonSimple("DELETE MEMBER", 20);
+		mailPaid = new VIAButtonSimple("EMAIL LIST OF WHO HASN'T PAID", 15);
 		delete.setEnabled(false);
 
 		memberList = new VIALabel("MEMBER LIST", 40);
@@ -118,6 +123,16 @@ public class MemberListPanel extends VIAPanel {
 				table.removeColumn(table.getColumnModel().getColumn(5));
 			}
 		});
+		
+		search.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+					search.setText("");
+			}
+			
+			public void focusLost(FocusEvent e) {
+				
+			}
+		});
 
 		delete.addActionListener(new ActionListener() {
 
@@ -125,6 +140,36 @@ public class MemberListPanel extends VIAPanel {
 			public void actionPerformed(ActionEvent e) {
 				Member member = (Member) table.getModel().getValueAt(table.getSelectedRow(), 5);
 				VIAController.deleteMember(member);
+			}
+		});
+		
+		mail.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					VIAController.allEmails();
+					JOptionPane.showMessageDialog(frame, "File generated succesfully", "File generated",
+							JOptionPane.PLAIN_MESSAGE);
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(frame, "Something went wrong. Contact administrator", "File error",
+							JOptionPane.PLAIN_MESSAGE);
+				}
+			}
+		});
+		
+		mailPaid.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					VIAController.emailsWhoHasntPaid();
+					JOptionPane.showMessageDialog(frame, "File generated succesfully", "File generated",
+							JOptionPane.PLAIN_MESSAGE);
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(frame, "Something went wrong. Contact administrator", "File error",
+							JOptionPane.PLAIN_MESSAGE);
+				}
 			}
 		});
 
@@ -147,14 +192,19 @@ public class MemberListPanel extends VIAPanel {
 		mailPanel.add(mail);
 		mailPanel.setOpaque(false);
 
+		JPanel mailPaidPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		mailPaidPanel.add(mailPaid);
+		mailPaidPanel.setOpaque(false);
+
 		JPanel deletePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		deletePanel.add(delete);
 		deletePanel.setOpaque(false);
 
-		JPanel right = new JPanel(new GridLayout(3, 1));
+		JPanel right = new JPanel(new GridLayout(4, 1));
 		right.add(addPanel);
 		right.add(deletePanel);
 		right.add(mailPanel);
+		right.add(mailPaidPanel);
 		right.setOpaque(false);
 
 		JPanel labelPanel = new JPanel();
