@@ -220,7 +220,12 @@ public class EventListPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel model = VIAController.getSearchedEvents(search.getText());
+				DefaultTableModel model;
+				if(notFinalized.isSelected())
+					model = VIAController.getSearchedEventsWhenNotFinalized(search.getText());
+				else
+					model = VIAController.getSearchedEvents(search.getText());
+				
 				table.setModel(model);
 				table.removeColumn(table.getColumnModel().getColumn(2));
 			}
