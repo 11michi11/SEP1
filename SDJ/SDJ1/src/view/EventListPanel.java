@@ -9,6 +9,8 @@ import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -87,6 +89,16 @@ public class EventListPanel extends VIAPanel {
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
+		
+		search.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+					search.setText("");
+			}
+			
+			public void focusLost(FocusEvent e) {
+				
+			}
+		});
 
 		notFinalized.addActionListener(new ActionListener() {
 			@Override
@@ -103,36 +115,35 @@ public class EventListPanel extends VIAPanel {
 				}
 			}
 		});
-		
+
 		finished.addActionListener(new ActionListener() {
-		    @Override
-		    
-		    public void actionPerformed(ActionEvent e) {
-			if (finished.isSelected()) {
-			    DefaultTableModel model = VIAController.getFinishedEvents();
-			    table.setModel(model);
-			    table.removeColumn(table.getColumnModel().getColumn(2));
-			} else {
-			    DefaultTableModel model = VIAController.getEventsTableModel();
-			    table.setModel(model);
-			    table.removeColumn(table.getColumnModel().getColumn(2));
+			@Override
+
+			public void actionPerformed(ActionEvent e) {
+				if (finished.isSelected()) {
+					DefaultTableModel model = VIAController.getFinishedEvents();
+					table.setModel(model);
+					table.removeColumn(table.getColumnModel().getColumn(2));
+				} else {
+					DefaultTableModel model = VIAController.getEventsTableModel();
+					table.setModel(model);
+					table.removeColumn(table.getColumnModel().getColumn(2));
+				}
 			}
-		    }
 		});
 
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent event) {
 				signUpParticipant.setEnabled(true);
 				signUpMember.setEnabled(true);
-				if (table.getSelectedRow()!=-1) {
-				    Event eventObj = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
-				    if(!eventObj.isFinalized())
-					modify.setEnabled(true);
-				    else
+				if (table.getSelectedRow() != -1) {
+					Event eventObj = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
+					if (!eventObj.isFinalized())
+						modify.setEnabled(true);
+					else
+						modify.setEnabled(false);
+				} else {
 					modify.setEnabled(false);
-				}
-				else {
-				    modify.setEnabled(false);
 				}
 			}
 		});
@@ -210,8 +221,8 @@ public class EventListPanel extends VIAPanel {
 				Point point = mouseEvent.getPoint();
 				int row = table.rowAtPoint(point);
 				if (mouseEvent.getClickCount() == 2) {
-				    String message = table.getModel().getValueAt(table.getSelectedRow(), 2).toString();
-				    JOptionPane.showMessageDialog(frame,message,"Start Message", JOptionPane.PLAIN_MESSAGE);
+					String message = table.getModel().getValueAt(table.getSelectedRow(), 2).toString();
+					JOptionPane.showMessageDialog(frame, message, "Start Message", JOptionPane.PLAIN_MESSAGE);
 				}
 			}
 		});
@@ -221,11 +232,11 @@ public class EventListPanel extends VIAPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel model;
-				if(notFinalized.isSelected())
+				if (notFinalized.isSelected())
 					model = VIAController.getSearchedEventsWhenNotFinalized(search.getText());
 				else
 					model = VIAController.getSearchedEvents(search.getText());
-				
+
 				table.setModel(model);
 				table.removeColumn(table.getColumnModel().getColumn(2));
 			}

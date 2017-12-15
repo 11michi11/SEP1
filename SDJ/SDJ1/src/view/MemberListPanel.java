@@ -6,6 +6,8 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -116,6 +118,16 @@ public class MemberListPanel extends VIAPanel {
 				DefaultTableModel model = VIAController.getSearchedMembers(search.getText());
 				table.setModel(model);
 				table.removeColumn(table.getColumnModel().getColumn(5));
+			}
+		});
+		
+		search.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+					search.setText("");
+			}
+			
+			public void focusLost(FocusEvent e) {
+				
 			}
 		});
 
