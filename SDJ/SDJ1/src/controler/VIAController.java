@@ -4,7 +4,6 @@ import java.awt.EventQueue;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 import fileManager.FileManager;
@@ -163,7 +162,7 @@ public class VIAController {
 			row[1] = lecturers.get(i).getEmail();
 			row[2] = lecturers.get(i).getPhone();
 			row[3] = lecturers.get(i).getCategories();
-			row[4] = lecturers.get(i).isWantsAdvertise();
+			row[4] = lecturers.get(i).ifWantsAdvertise();
 			row[5] = lecturers.get(i);
 
 			data[i] = row;
@@ -210,7 +209,7 @@ public class VIAController {
 			row[1] = lecturers.get(i).getEmail();
 			row[2] = lecturers.get(i).getPhone();
 			row[3] = lecturers.get(i).getCategories();
-			row[4] = lecturers.get(i).isWantsAdvertise();
+			row[4] = lecturers.get(i).ifWantsAdvertise();
 			row[5] = false;
 			row[6] = lecturers.get(i);
 
@@ -514,7 +513,7 @@ public class VIAController {
 			row[1] = lecturers.get(i).getEmail();
 			row[2] = lecturers.get(i).getPhone();
 			row[3] = lecturers.get(i).getCategories();
-			row[4] = lecturers.get(i).isWantsAdvertise();
+			row[4] = lecturers.get(i).ifWantsAdvertise();
 			row[5] = lecturers.get(i);
 
 			data[i] = row;

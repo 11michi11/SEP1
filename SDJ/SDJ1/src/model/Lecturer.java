@@ -69,7 +69,7 @@ public class Lecturer implements Serializable {
 		this.categories = categories;
 	}
 
-	public boolean isWantsAdvertise() {
+	public boolean ifWantsAdvertise() {
 		return wantsAdvertise;
 	}
 
