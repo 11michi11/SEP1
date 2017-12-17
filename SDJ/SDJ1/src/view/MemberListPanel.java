@@ -107,6 +107,8 @@ public class MemberListPanel extends VIAPanel {
 				JFrame member = new JFrame();
 				member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				member.setSize(900, 500);
+				member.setLocationRelativeTo(null);
+				member.setResizable(false);
 				member.setTitle("VIA - Add new member");
 				member.setContentPane(new SignUpFormMember(member, currentPanel));
 				member.setVisible(true);

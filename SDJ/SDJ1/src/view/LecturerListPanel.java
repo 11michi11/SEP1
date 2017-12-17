@@ -70,6 +70,8 @@ public class LecturerListPanel extends VIAPanel {
 				JFrame lecturer = new JFrame();
 				lecturer.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				lecturer.setSize(900, 500);
+				lecturer.setLocationRelativeTo(null);
+				lecturer.setResizable(false);
 				lecturer.setTitle("VIA - Add new member");
 				lecturer.setContentPane(new SignUpFormLecturer(lecturer, currentPanel));
 				lecturer.setVisible(true);

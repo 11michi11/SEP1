@@ -36,7 +36,6 @@ public class EventPanel extends VIAPanel {
 		workshop = new VIAButtonBig("WORKSHOP");
 		trips = new VIAButtonBig("TRIPS");
 		back = new VIAButtonBack(frame, parentPanel);
-
 	}
 
 	public void registerEventHandlers() {

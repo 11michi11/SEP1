@@ -44,7 +44,6 @@ public class Newsletter extends VIAPanel {
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
-
 	}
 
 	private void initializeComponents() {
@@ -80,6 +79,8 @@ public class Newsletter extends VIAPanel {
 					JFrame newsletterFrame = new JFrame();
 					newsletterFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 					newsletterFrame.setSize(900, 500);
+					newsletterFrame.setLocationRelativeTo(null);
+					newsletterFrame.setResizable(false);
 					newsletterFrame.setTitle("VIA - Add new member");
 					newsletterFrame.setContentPane(new NewsletterContent(newsletter));
 					newsletterFrame.setVisible(true);
