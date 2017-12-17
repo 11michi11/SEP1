@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.HashMap;
-
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,7 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import controler.VIAController;
 import model.Category;
 import model.Event;
@@ -28,7 +26,6 @@ import model.InvalidDateInput;
 import model.Lecture;
 import model.Lecturer;
 import model.MyDate;
-import model.Trip;
 
 public class EventCreateFormLectures extends VIAPanel {
 
@@ -162,10 +159,12 @@ public class EventCreateFormLectures extends VIAPanel {
 
 				configuration.put("finalized", finalized.isSelected());
 
+				boolean close = false;
+
 				try {
-					if (fieldStartDate.getText().equals(""))
+					if (!fieldStartDate.getText().equals(""))
 						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
-					if (fieldEndDate.getText().equals(""))
+					if (!fieldEndDate.getText().equals(""))
 						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
 
 					if (event == null)
@@ -173,14 +172,17 @@ public class EventCreateFormLectures extends VIAPanel {
 					else
 						event.modify(configuration);
 
+					close = true;
 				} catch (InvalidDateInput ex) {
 					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
 				}
-				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
-					frame.dispose();
-				else
-					back.goBack();
+				if (close) {
+					if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+						frame.dispose();
+					else
+						back.goBack();
+				}
 			}
 		});
 

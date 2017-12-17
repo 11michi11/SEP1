@@ -163,6 +163,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 				configuration.put("category", categories);
 				configuration.put("lecturers", lecturers);
 
+				boolean close = false;
 				try {
 					if (fieldStartDate.getText().equals(""))
 						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
@@ -173,16 +174,17 @@ public class EventCreateFormWorkshop extends VIAPanel {
 						VIAController.addEventToList(configuration);
 					else
 						event.modify(configuration);
-
+					close = true;
 				} catch (InvalidDateInput ex) {
 					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
 				}
-
-				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
-					frame.dispose();
-				else
-					back.goBack();
+				if (close) {
+					if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+						frame.dispose();
+					else
+						back.goBack();
+				}
 			}
 		});
 
@@ -377,19 +379,6 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		add(logo, BorderLayout.NORTH);
 		add(finalPanel, BorderLayout.CENTER);
 
-	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventCreateFormWorkshop(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
 	}
 
 	public static void assignCategoriesToLecturerForm(ArrayList<Category> categoriesList) {

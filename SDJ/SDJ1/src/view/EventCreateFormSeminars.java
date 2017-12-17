@@ -161,10 +161,12 @@ public class EventCreateFormSeminars extends VIAPanel {
 				configuration.put("category", categories);
 				configuration.put("lecturers", lecturers);
 
+				boolean close = false;
+
 				try {
-					if (fieldStartDate.getText().equals(""))
+					if (!fieldStartDate.getText().equals(""))
 						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
-					if (fieldEndDate.getText().equals(""))
+					if (!fieldEndDate.getText().equals(""))
 						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
 
 					if (event == null)
@@ -172,16 +174,18 @@ public class EventCreateFormSeminars extends VIAPanel {
 					else
 						event.modify(configuration);
 
+					close = true;
 				} catch (InvalidDateInput ex) {
 					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
 				}
 
-				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
-					frame.dispose();
-				else
-					back.goBack();
-
+				if (close) {
+					if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+						frame.dispose();
+					else
+						back.goBack();
+				}
 			}
 		});
 
@@ -375,19 +379,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 		add(logo, BorderLayout.NORTH);
 		add(finalPanel, BorderLayout.CENTER);
 
-	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventCreateFormSeminars(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
 	}
 
 	public static void assignCategoriesToLecturerForm(ArrayList<Category> categoriesList) {
