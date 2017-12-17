@@ -29,7 +29,7 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 	private JTable table;
 	private JTextField search;
 	private JButton choose;
-	private JLabel lecturerList;
+	private JLabel categoryList;
 	private JFrame frame;
 	private JPanel parentPanel;
 
@@ -53,7 +53,7 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 		choose = new VIAButtonSmall("CHOOSE CATEGORY", 30);
 		choose.setEnabled(false);
 
-		lecturerList = new VIALabel("CATEGORY LIST", 40);
+		categoryList = new VIALabel("CATEGORY LIST", 40);
 
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
