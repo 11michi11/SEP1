@@ -18,7 +18,7 @@ public class LecturerList implements Serializable {
 	public LecturerList getLecturersToAdvertise() {
 		LecturerList lecturersToAdvertise = new LecturerList();
 		for (Lecturer i : lecturerList)
-			if (i.isWantsAdvertise())
+			if (i.ifWantsAdvertise())
 				lecturersToAdvertise.addLecturer(i);
 
 		return lecturersToAdvertise;
@@ -27,7 +27,7 @@ public class LecturerList implements Serializable {
 	public ArrayList<Lecturer> getLecturersToPay() {
 		ArrayList<Lecturer> lecturersToPay = new ArrayList<Lecturer>();
 		for (Lecturer i : lecturerList)
-			if (!(i.isWantsAdvertise()))
+			if (!(i.ifWantsAdvertise()))
 				lecturersToPay.add(i);
 
 		return lecturersToPay;
