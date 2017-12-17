@@ -114,6 +114,8 @@ public class SignUpFormLecturer extends VIAPanel {
 				JFrame categoryChoice = new JFrame();
 				categoryChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				categoryChoice.setSize(900, 500);
+				categoryChoice.setLocationRelativeTo(null);
+				categoryChoice.setResizable(false);
 				categoryChoice.setTitle("VIA - Choice of category for event");
 				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice, currentPanel));
 				categoryChoice.setVisible(true);

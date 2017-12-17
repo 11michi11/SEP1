@@ -129,6 +129,8 @@ public class EventCreateFormLectures extends VIAPanel {
 				JFrame lecturerChoice = new JFrame();
 				lecturerChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				lecturerChoice.setSize(900, 500);
+				lecturerChoice.setLocationRelativeTo(null);
+				lecturerChoice.setResizable(false);
 				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
 				lecturerChoice.setContentPane(new LecturerChoiceList(lecturerChoice));
 				lecturerChoice.setVisible(true);

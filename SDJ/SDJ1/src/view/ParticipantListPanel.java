@@ -79,6 +79,8 @@ public class ParticipantListPanel extends VIAPanel {
 				JFrame participant = new JFrame();
 				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				participant.setSize(900, 500);
+				participant.setLocationRelativeTo(null);
+				participant.setResizable(false);
 				participant.setTitle("VIA - Add new member");
 				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
 				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel, event.getID()));
@@ -106,6 +108,8 @@ public class ParticipantListPanel extends VIAPanel {
 				JFrame member = new JFrame();
 				member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				member.setSize(900, 500);
+				member.setLocationRelativeTo(null);
+				member.setResizable(false);
 				member.setTitle("VIA - Add new member");
 				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
 				member.setContentPane(new MemberMultipleChoice(member, currentPanel, event));
