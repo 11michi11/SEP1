@@ -7,7 +7,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,7 +17,6 @@ import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-
 import controler.VIAController;
 import model.Event;
 import model.Member;
@@ -31,9 +29,9 @@ public class ParticipantListPanel extends VIAPanel {
 	private JButton add;
 	private JButton delete;
 	private JButton member;
+	private JButton back;
 	private JLabel participantList;
 	private JFrame frame;
-	private JButton back;
 	private JPanel parentPanel;
 
 	public ParticipantListPanel(JFrame frame, JPanel parentPanel) {
@@ -44,7 +42,6 @@ public class ParticipantListPanel extends VIAPanel {
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
-
 	}
 
 	private void initializeComponents() {
@@ -82,6 +79,8 @@ public class ParticipantListPanel extends VIAPanel {
 				JFrame participant = new JFrame();
 				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				participant.setSize(900, 500);
+				participant.setLocationRelativeTo(null);
+				participant.setResizable(false);
 				participant.setTitle("VIA - Add new member");
 				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
 				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel, event.getID()));
@@ -106,13 +105,15 @@ public class ParticipantListPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame participant = new JFrame();
-				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				participant.setSize(900, 500);
-				participant.setTitle("VIA - Add new member");
+				JFrame member = new JFrame();
+				member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				member.setSize(900, 500);
+				member.setLocationRelativeTo(null);
+				member.setResizable(false);
+				member.setTitle("VIA - Add new member");
 				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
-				participant.setContentPane(new MemberMultipleChoice(participant, currentPanel, event));
-				participant.setVisible(true);
+				member.setContentPane(new MemberMultipleChoice(member, currentPanel, event));
+				member.setVisible(true);
 
 			}
 		});

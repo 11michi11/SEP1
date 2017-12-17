@@ -6,7 +6,9 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,7 +22,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
 import controler.VIAController;
 import model.Member;
 import model.MemberAlreadyPaidException;
@@ -28,15 +29,16 @@ import model.MemberAlreadyPaidException;
 public class MemberListPanel extends VIAPanel {
 
 	private static JTable table;
+	private static int clickCount = 0;
 	private JTextField search;
 	private JButton add;
 	private JButton mail;
 	private JButton delete;
+	private JButton mailPaid;
 	private JLabel memberList;
 	private JFrame frame;
 	private JButton back;
 	private JPanel parentPanel;
-	private static int clickCount = 0;
 
 	public MemberListPanel(JFrame frame, JPanel parentPanel) {
 		super();
@@ -54,8 +56,9 @@ public class MemberListPanel extends VIAPanel {
 		search.setText("SEARCH");
 
 		add = new VIAButtonSimple("ADD MEMBER", 20);
-		mail = new VIAButtonSimple("SEND REMAIND E-MAIL", 20);
+		mail = new VIAButtonSimple("GENERATE EMAILS LIST", 20);
 		delete = new VIAButtonSimple("DELETE MEMBER", 20);
+		mailPaid = new VIAButtonSimple("EMAIL LIST OF WHO HASN'T PAID", 15);
 		delete.setEnabled(false);
 
 		memberList = new VIALabel("MEMBER LIST", 40);
@@ -74,9 +77,10 @@ public class MemberListPanel extends VIAPanel {
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent event) {
 				delete.setEnabled(true);
-				
+
+				//Click count prevents double click bug
 				clickCount++;
-				
+
 				TableModel model = table.getModel();
 				int selRow = table.getSelectedRow();
 				if (table.getSelectedColumn() == 3) {
@@ -89,8 +93,8 @@ public class MemberListPanel extends VIAPanel {
 						}
 					} else if ((boolean) model.getValueAt(selRow, 3) == true && clickCount == 1)
 						member.unPay();
-					
-					if(clickCount == 2)
+
+					if (clickCount == 2)
 						clickCount = 0;
 				}
 			}
@@ -103,6 +107,8 @@ public class MemberListPanel extends VIAPanel {
 				JFrame member = new JFrame();
 				member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				member.setSize(900, 500);
+				member.setLocationRelativeTo(null);
+				member.setResizable(false);
 				member.setTitle("VIA - Add new member");
 				member.setContentPane(new SignUpFormMember(member, currentPanel));
 				member.setVisible(true);
@@ -119,12 +125,52 @@ public class MemberListPanel extends VIAPanel {
 			}
 		});
 
+		search.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+				search.setText("");
+			}
+
+			public void focusLost(FocusEvent e) {
+
+			}
+		});
+
 		delete.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Member member = (Member) table.getModel().getValueAt(table.getSelectedRow(), 5);
 				VIAController.deleteMember(member);
+			}
+		});
+
+		mail.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					VIAController.generateAllEmails();
+					JOptionPane.showMessageDialog(frame, "File generated succesfully", "File generated",
+							JOptionPane.PLAIN_MESSAGE);
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(frame, "Something went wrong. Contact administrator", "File error",
+							JOptionPane.PLAIN_MESSAGE);
+				}
+			}
+		});
+
+		mailPaid.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					VIAController.generateEmailsWhoHasntPaid();
+					JOptionPane.showMessageDialog(frame, "File generated succesfully", "File generated",
+							JOptionPane.PLAIN_MESSAGE);
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(frame, "Something went wrong. Contact administrator", "File error",
+							JOptionPane.PLAIN_MESSAGE);
+				}
 			}
 		});
 
@@ -147,14 +193,19 @@ public class MemberListPanel extends VIAPanel {
 		mailPanel.add(mail);
 		mailPanel.setOpaque(false);
 
+		JPanel mailPaidPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		mailPaidPanel.add(mailPaid);
+		mailPaidPanel.setOpaque(false);
+
 		JPanel deletePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		deletePanel.add(delete);
 		deletePanel.setOpaque(false);
 
-		JPanel right = new JPanel(new GridLayout(3, 1));
+		JPanel right = new JPanel(new GridLayout(4, 1));
 		right.add(addPanel);
 		right.add(deletePanel);
 		right.add(mailPanel);
+		right.add(mailPaidPanel);
 		right.setOpaque(false);
 
 		JPanel labelPanel = new JPanel();

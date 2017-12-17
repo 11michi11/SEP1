@@ -15,7 +15,7 @@ public class StartPanel extends VIAPanel {
 	private JButton events;
 	private JButton newsletter;
 	private JButton signUp;
-	private JButton listOf; 	
+	private JButton listOf;
 	private JLabel welcome;
 	private JFrame frame;
 
@@ -48,7 +48,7 @@ public class StartPanel extends VIAPanel {
 				frame.revalidate();
 			}
 		});
-		
+
 		newsletter.addActionListener(new ActionListener() {
 
 			@Override

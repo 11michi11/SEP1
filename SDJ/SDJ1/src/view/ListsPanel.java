@@ -1,14 +1,11 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -89,7 +86,6 @@ public class ListsPanel extends VIAPanel {
 	}
 
 	public void addComponentsToPanel() {
-		
 		JPanel buttons = new JPanel(new GridLayout(2, 2));
 		buttons.setOpaque(false);
 
@@ -125,24 +121,8 @@ public class ListsPanel extends VIAPanel {
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
 		logo.add(buttonBack, BorderLayout.WEST);
-		
-		
 
 		add(logo, BorderLayout.NORTH);
 		add(buttons, BorderLayout.CENTER);
 	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new ListsPanel(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
-	}
-
 }

@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -10,7 +9,6 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -23,7 +21,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import controler.VIAController;
 import model.Category;
 import model.Event;
@@ -34,6 +31,10 @@ import model.Workshop;
 
 public class EventCreateFormWorkshop extends VIAPanel {
 
+	private static JComboBox lecturersBox;
+	private static ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
+	private static JComboBox categoryBox;
+	private static ArrayList<Category> categories = new ArrayList<Category>();
 	private JLabel createForm;
 	private JLabel title;
 	private JButton category;
@@ -57,10 +58,6 @@ public class EventCreateFormWorkshop extends VIAPanel {
 	private JFrame frame;
 	private JPanel parentPanel;
 	private Event event;
-	private static JComboBox lecturersBox;
-	private static ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
-	private static JComboBox categoryBox;
-	private static ArrayList<Category> categories = new ArrayList<Category>();
 
 	public EventCreateFormWorkshop(JFrame frame, JPanel parentPanel) {
 		super();
@@ -137,6 +134,8 @@ public class EventCreateFormWorkshop extends VIAPanel {
 				JFrame lecturerChoice = new JFrame();
 				lecturerChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				lecturerChoice.setSize(900, 500);
+				lecturerChoice.setLocationRelativeTo(null);
+				lecturerChoice.setResizable(false);
 				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
 				lecturerChoice.setContentPane(new LecturerMultipleChoiceList(lecturerChoice, currentPanel));
 				lecturerChoice.setVisible(true);
@@ -163,6 +162,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 				configuration.put("category", categories);
 				configuration.put("lecturers", lecturers);
 
+				boolean close = false;
 				try {
 					if (fieldStartDate.getText().equals(""))
 						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
@@ -173,16 +173,17 @@ public class EventCreateFormWorkshop extends VIAPanel {
 						VIAController.addEventToList(configuration);
 					else
 						event.modify(configuration);
-
+					close = true;
 				} catch (InvalidDateInput ex) {
 					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
 				}
-
-				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
-					frame.dispose();
-				else
-					back.goBack();
+				if (close) {
+					if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+						frame.dispose();
+					else
+						back.goBack();
+				}
 			}
 		});
 
@@ -193,6 +194,8 @@ public class EventCreateFormWorkshop extends VIAPanel {
 				JFrame categoryChoice = new JFrame();
 				categoryChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				categoryChoice.setSize(900, 500);
+				categoryChoice.setLocationRelativeTo(null);
+				categoryChoice.setResizable(false);
 				categoryChoice.setTitle("VIA - Choice of category for event");
 				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice, currentPanel));
 				categoryChoice.setVisible(true);
@@ -210,15 +213,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 					fieldStartDate.setText("dd/mm/yyyy/hh:mm");
 			}
 		});
-
-		fieldStartDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
+		
 		fieldEndDate.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (fieldEndDate.getText().equals("dd/mm/yyyy/hh:mm"))
@@ -230,15 +225,6 @@ public class EventCreateFormWorkshop extends VIAPanel {
 					fieldEndDate.setText("dd/mm/yyyy/hh:mm");
 			}
 		});
-
-		fieldEndDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
 	}
 
 	public void addComponentsToPanel() {
@@ -340,7 +326,6 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(titul, BorderLayout.NORTH);
 		components.add(content, BorderLayout.CENTER);
-		// components.add(button, BorderLayout.SOUTH);
 		components.setOpaque(false);
 
 		JPanel textArea = new JPanel(new BorderLayout());
@@ -377,19 +362,6 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		add(logo, BorderLayout.NORTH);
 		add(finalPanel, BorderLayout.CENTER);
 
-	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventCreateFormWorkshop(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
 	}
 
 	public static void assignCategoriesToLecturerForm(ArrayList<Category> categoriesList) {

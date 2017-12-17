@@ -6,7 +6,6 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,10 +18,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
 import controler.VIAController;
 import model.Event;
-import model.Lecturer;
 import model.Member;
 
 public class MemberMultipleChoice extends VIAPanel {
@@ -30,9 +27,9 @@ public class MemberMultipleChoice extends VIAPanel {
 	private JTable table;
 	private JTextField search;
 	private JButton add;
+	private JButton back;
 	private JLabel memberList;
 	private JFrame frame;
-	private JButton back;
 	private JPanel parentPanel;
 	private Event event;
 
@@ -64,7 +61,7 @@ public class MemberMultipleChoice extends VIAPanel {
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
-		
+
 		add.addActionListener(new ActionListener() {
 
 			@Override

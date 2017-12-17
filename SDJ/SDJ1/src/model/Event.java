@@ -6,16 +6,16 @@ import java.util.Map;
 public abstract class Event implements Serializable {
 
 	public static double discount = 0.2;
+	private static int nextID = 0;
 	private String title;
+	private String description;
 	private MyDate startDate;
 	private MyDate endDate;
 	private double price;
 	private boolean finalized;
 	private boolean finished;
-	private String description;
 	private int capacity;
 	private int ID;
-	private static int nextID = 0;
 	private ParticipantList participantList;
 
 	public Event(Map<String, Object> configuration) {
@@ -69,7 +69,7 @@ public abstract class Event implements Serializable {
 	}
 
 	public double getPriceForMembers() {
-		return Math.round((this.price - (this.price * this.discount))*100)/100;
+		return Math.round((this.price - (this.price * this.discount)) * 100) / 100;
 	}
 
 	public int getNumberOfAvailablePlaces() {
@@ -107,13 +107,13 @@ public abstract class Event implements Serializable {
 	public int getID() {
 		return this.ID;
 	}
-	
+
 	public static int getNextId() {
-	    return nextID;
+		return nextID;
 	}
-	
-	public static void setNextID (int lastID) {
-	    nextID = lastID;
+
+	public static void setNextID(int lastID) {
+		nextID = lastID;
 	}
 
 	public ParticipantList getParticipantList() {

@@ -2,20 +2,21 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class EventList implements Serializable {
 
 	private ArrayList<Event> events;
-	private transient Iterator<Event> iter;
 
 	public EventList() {
 		this.events = new ArrayList<Event>();
-		this.iter = events.iterator();
 	}
 
 	public void addEvent(Event event) {
 		this.events.add(event);
+	}
+
+	public ArrayList<Event> getAllEvents() {
+		return this.events;
 	}
 
 	public Event getEventByID(int ID) throws EventNotFoundException {
@@ -46,26 +47,22 @@ public class EventList implements Serializable {
 		return notFinalizedEvents;
 	}
 
-	public ArrayList<Event> getAllEvents() {
-		return this.events;
-	}
-
 	public EventList getFinalizedNotFinished() {
 		EventList finalizedNotFinished = new EventList();
 		for (Event i : this.events)
 			if (i.isFinalized() && !(i.isFinished()))
 				finalizedNotFinished.addEvent(i);
-		;
+
 		return finalizedNotFinished;
 	}
-	
+
 	public ArrayList<Event> getFinishedEvents() {
-	    ArrayList<Event> finishedEvents = new ArrayList<Event>();
-	    for (Event i : this.events)
-		if (i.isFinished())
-		    finishedEvents.add(i);
-	    ;
-	    return finishedEvents;
+		ArrayList<Event> finishedEvents = new ArrayList<Event>();
+		for (Event i : this.events)
+			if (i.isFinished())
+				finishedEvents.add(i);
+
+		return finishedEvents;
 	}
 
 	public String toString() {
@@ -74,13 +71,4 @@ public class EventList implements Serializable {
 			print += i.toString() + "\n";
 		return print;
 	}
-
-	public boolean hasNext() {
-		return iter.hasNext();
-	}
-
-	public Event next() {
-		return iter.next();
-	}
-
 }

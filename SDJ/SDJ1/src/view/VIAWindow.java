@@ -3,10 +3,8 @@ package view;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import controler.VIAController;
 
 public class VIAWindow {
@@ -17,6 +15,7 @@ public class VIAWindow {
 		this.frame = new JFrame("VIA - Managment system");
 		this.frame.setSize(900, 500);
 		this.frame.setLocationRelativeTo(null);
+		this.frame.setResizable(false);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JPanel contentPane = new StartPanel(frame);
@@ -43,7 +42,7 @@ public class VIAWindow {
 					e1.printStackTrace();
 				}
 			}
-
+		
 			@Override
 			public void windowActivated(WindowEvent arg0) {
 			}

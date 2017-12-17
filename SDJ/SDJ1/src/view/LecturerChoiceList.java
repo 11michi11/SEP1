@@ -2,12 +2,9 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,9 +17,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
 import controler.VIAController;
-import model.Category;
 import model.Lecturer;
 
 public class LecturerChoiceList extends VIAPanel {
@@ -43,8 +38,6 @@ public class LecturerChoiceList extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		
-
 		search = new JTextField(47);
 		search.setText("SEARCH");
 		choose = new VIAButtonSmall("CHOOSE LECTURER", 30);
@@ -114,7 +107,6 @@ public class LecturerChoiceList extends VIAPanel {
 
 		add(imgLab, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
-
 	}
 
 }

@@ -34,6 +34,10 @@ import model.Seminar;
 
 public class EventCreateFormSeminars extends VIAPanel {
 
+	private static JComboBox lecturersBox;
+	private static ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
+	private static JComboBox categoryBox;
+	private static ArrayList<Category> categories = new ArrayList<Category>();
 	private JLabel createForm;
 	private JLabel title;
 	private JButton category;
@@ -57,10 +61,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 	private JFrame frame;
 	private JPanel parentPanel;
 	private Event event;
-	private static JComboBox lecturersBox;
-	private static ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
-	private static JComboBox categoryBox;
-	private static ArrayList<Category> categories = new ArrayList<Category>();
 
 	public EventCreateFormSeminars(JFrame frame, JPanel parentPanel) {
 		super();
@@ -112,10 +112,10 @@ public class EventCreateFormSeminars extends VIAPanel {
 		descriptionArea = new JTextArea(5, 55);
 
 		finalized = new JRadioButton("YES");
-		finalized.setSelected(true);
 		finalized.setOpaque(false);
 
 		unfinalized = new JRadioButton("NO");
+		unfinalized.setSelected(true);
 		unfinalized.setOpaque(false);
 
 		ButtonGroup group = new ButtonGroup();
@@ -135,6 +135,8 @@ public class EventCreateFormSeminars extends VIAPanel {
 				JFrame lecturerChoice = new JFrame();
 				lecturerChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				lecturerChoice.setSize(900, 500);
+				lecturerChoice.setLocationRelativeTo(null);
+				lecturerChoice.setResizable(false);
 				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
 				lecturerChoice.setContentPane(new LecturerMultipleChoiceList(lecturerChoice, currentPanel));
 				lecturerChoice.setVisible(true);
@@ -161,10 +163,12 @@ public class EventCreateFormSeminars extends VIAPanel {
 				configuration.put("category", categories);
 				configuration.put("lecturers", lecturers);
 
+				boolean close = false;
+
 				try {
-					if (fieldStartDate.getText().equals(""))
+					if (!fieldStartDate.getText().equals(""))
 						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
-					if (fieldEndDate.getText().equals(""))
+					if (!fieldEndDate.getText().equals(""))
 						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
 
 					if (event == null)
@@ -172,16 +176,18 @@ public class EventCreateFormSeminars extends VIAPanel {
 					else
 						event.modify(configuration);
 
+					close = true;
 				} catch (InvalidDateInput ex) {
 					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
 				}
 
-				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
-					frame.dispose();
-				else
-					back.goBack();
-
+				if (close) {
+					if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+						frame.dispose();
+					else
+						back.goBack();
+				}
 			}
 		});
 
@@ -192,6 +198,8 @@ public class EventCreateFormSeminars extends VIAPanel {
 				JFrame categoryChoice = new JFrame();
 				categoryChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				categoryChoice.setSize(900, 500);
+				categoryChoice.setLocationRelativeTo(null);
+				categoryChoice.setResizable(false);
 				categoryChoice.setTitle("VIA - Choice of category for event");
 				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice, currentPanel));
 				categoryChoice.setVisible(true);
@@ -210,14 +218,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 			}
 		});
 
-		fieldStartDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
 		fieldEndDate.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (fieldEndDate.getText().equals("dd/mm/yyyy/hh:mm"))
@@ -229,15 +229,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 					fieldEndDate.setText("dd/mm/yyyy/hh:mm");
 			}
 		});
-
-		fieldEndDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
 	}
 
 	public void addComponentsToPanel() {
@@ -375,19 +366,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 		add(logo, BorderLayout.NORTH);
 		add(finalPanel, BorderLayout.CENTER);
 
-	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventCreateFormSeminars(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
 	}
 
 	public static void assignCategoriesToLecturerForm(ArrayList<Category> categoriesList) {

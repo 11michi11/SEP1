@@ -2,16 +2,13 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class LecturerList implements Serializable {
-	
+
 	private ArrayList<Lecturer> lecturerList;
-	private transient Iterator<Lecturer> iter;
-	
+
 	public LecturerList() {
 		lecturerList = new ArrayList<Lecturer>();
-		this.iter = lecturerList.iterator();
 	}
 
 	public void addLecturer(Lecturer lecturer) {
@@ -23,6 +20,7 @@ public class LecturerList implements Serializable {
 		for (Lecturer i : lecturerList)
 			if (i.isWantsAdvertise())
 				lecturersToAdvertise.addLecturer(i);
+
 		return lecturersToAdvertise;
 	}
 
@@ -31,6 +29,7 @@ public class LecturerList implements Serializable {
 		for (Lecturer i : lecturerList)
 			if (!(i.isWantsAdvertise()))
 				lecturersToPay.add(i);
+
 		return lecturersToPay;
 	}
 
@@ -40,6 +39,7 @@ public class LecturerList implements Serializable {
 			for (Category j : i.getCategories())
 				if (j.equals(category))
 					AllLecturersInCategory.add(i);
+
 		return AllLecturersInCategory;
 	}
 
@@ -51,15 +51,7 @@ public class LecturerList implements Serializable {
 		String print = "";
 		for (Lecturer i : lecturerList)
 			print += i.toString() + "\n";
+
 		return print;
 	}
-	
-	public boolean hasNext() {
-		return iter.hasNext();
-	}
-
-	public Lecturer next() {
-		return iter.next();
-	}
-
 }

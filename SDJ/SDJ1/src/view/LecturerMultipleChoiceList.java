@@ -2,13 +2,10 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,9 +18,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
 import controler.VIAController;
-import model.Category;
 import model.Lecturer;
 
 public class LecturerMultipleChoiceList extends VIAPanel {
@@ -46,8 +41,6 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		
-
 		search = new JTextField(47);
 		search.setText("SEARCH");
 
@@ -63,12 +56,12 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 	}
 
 	private void registerEventHandlers() {
-		
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-	        public void valueChanged(ListSelectionEvent event) {
-	            choose.setEnabled(true);
-	        }
-	    });
+
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent event) {
+				choose.setEnabled(true);
+			}
+		});
 
 		choose.addActionListener(new ActionListener() {
 
@@ -121,9 +114,8 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 
 		add(imgLab, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
-
 	}
-	
+
 	private void assignLecturers(ArrayList<Lecturer> lecturers) {
 		switch (parentPanel.getClass().getName()) {
 		case "view.EventCreateFormSeminars":

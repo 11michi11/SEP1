@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.HashMap;
-
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,7 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import controler.VIAController;
 import model.Category;
 import model.Event;
@@ -28,10 +26,11 @@ import model.InvalidDateInput;
 import model.Lecture;
 import model.Lecturer;
 import model.MyDate;
-import model.Trip;
 
 public class EventCreateFormLectures extends VIAPanel {
 
+	private static JTextField fieldLecturer;
+	private static Lecturer lecturer;
 	private JLabel createForm;
 	private JLabel title;
 	private JLabel category;
@@ -55,8 +54,6 @@ public class EventCreateFormLectures extends VIAPanel {
 	private JPanel parentPanel;
 	private JComboBox categoryBox;
 	private JButton lecturerChoice;
-	private static JTextField fieldLecturer;
-	private static Lecturer lecturer;
 	private Event event;
 
 	public EventCreateFormLectures(JFrame frame, JPanel parentPanel) {
@@ -110,10 +107,10 @@ public class EventCreateFormLectures extends VIAPanel {
 		descriptionArea = new JTextArea(6, 55);
 
 		finalized = new JRadioButton("YES");
-		finalized.setSelected(true);
 		finalized.setOpaque(false);
 
 		unfinalized = new JRadioButton("NO");
+		unfinalized.setSelected(true);
 		unfinalized.setOpaque(false);
 
 		ButtonGroup group = new ButtonGroup();
@@ -132,6 +129,8 @@ public class EventCreateFormLectures extends VIAPanel {
 				JFrame lecturerChoice = new JFrame();
 				lecturerChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				lecturerChoice.setSize(900, 500);
+				lecturerChoice.setLocationRelativeTo(null);
+				lecturerChoice.setResizable(false);
 				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
 				lecturerChoice.setContentPane(new LecturerChoiceList(lecturerChoice));
 				lecturerChoice.setVisible(true);
@@ -162,10 +161,12 @@ public class EventCreateFormLectures extends VIAPanel {
 
 				configuration.put("finalized", finalized.isSelected());
 
+				boolean close = false;
+
 				try {
-					if (fieldStartDate.getText().equals(""))
+					if (!fieldStartDate.getText().equals(""))
 						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
-					if (fieldEndDate.getText().equals(""))
+					if (!fieldEndDate.getText().equals(""))
 						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
 
 					if (event == null)
@@ -173,14 +174,17 @@ public class EventCreateFormLectures extends VIAPanel {
 					else
 						event.modify(configuration);
 
+					close = true;
 				} catch (InvalidDateInput ex) {
 					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
 				}
-				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
-					frame.dispose();
-				else
-					back.goBack();
+				if (close) {
+					if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+						frame.dispose();
+					else
+						back.goBack();
+				}
 			}
 		});
 
@@ -196,14 +200,6 @@ public class EventCreateFormLectures extends VIAPanel {
 			}
 		});
 
-		fieldStartDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
 		fieldEndDate.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (fieldEndDate.getText().equals("dd/mm/yyyy/hh:mm"))
@@ -215,15 +211,6 @@ public class EventCreateFormLectures extends VIAPanel {
 					fieldEndDate.setText("dd/mm/yyyy/hh:mm");
 			}
 		});
-
-		fieldEndDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
 	}
 
 	public void addComponentsToPanel() {

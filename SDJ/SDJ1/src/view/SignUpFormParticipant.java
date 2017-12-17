@@ -1,12 +1,10 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,9 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import controler.VIAController;
-import model.Event;
 import model.EventNotFoundException;
 
 public class SignUpFormParticipant extends VIAPanel {
@@ -27,9 +23,9 @@ public class SignUpFormParticipant extends VIAPanel {
 	private JTextField fieldName;
 	private JTextField fieldEmail;
 	private JButton addToList;
+	private VIAButtonBack back;
 	private JFrame frame;
 	private JPanel parentPanel;
-	private VIAButtonBack back;
 	private int eventID;
 
 	public SignUpFormParticipant(JFrame frame, JPanel parentPanel, int eventID) {
@@ -52,7 +48,6 @@ public class SignUpFormParticipant extends VIAPanel {
 		fieldEmail = new JTextField(8);
 
 		addToList = new VIAButtonSmall("Add to list");
-
 		back = new VIAButtonBack(frame, parentPanel);
 	}
 
@@ -134,7 +129,6 @@ public class SignUpFormParticipant extends VIAPanel {
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
 		logo.add(buttonBack, BorderLayout.WEST);
-		;
 
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(label, BorderLayout.NORTH);

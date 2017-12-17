@@ -2,16 +2,15 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -25,7 +24,6 @@ import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-
 import controler.VIAController;
 import model.Event;
 
@@ -53,7 +51,6 @@ public class EventListPanel extends VIAPanel {
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
-
 	}
 
 	private void initializeComponents() {
@@ -88,6 +85,15 @@ public class EventListPanel extends VIAPanel {
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
 
+		search.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+				search.setText("");
+			}
+
+			public void focusLost(FocusEvent e) {
+			}
+		});
+
 		notFinalized.addActionListener(new ActionListener() {
 			@Override
 
@@ -103,36 +109,35 @@ public class EventListPanel extends VIAPanel {
 				}
 			}
 		});
-		
+
 		finished.addActionListener(new ActionListener() {
-		    @Override
-		    
-		    public void actionPerformed(ActionEvent e) {
-			if (finished.isSelected()) {
-			    DefaultTableModel model = VIAController.getFinishedEvents();
-			    table.setModel(model);
-			    table.removeColumn(table.getColumnModel().getColumn(2));
-			} else {
-			    DefaultTableModel model = VIAController.getEventsTableModel();
-			    table.setModel(model);
-			    table.removeColumn(table.getColumnModel().getColumn(2));
+			@Override
+
+			public void actionPerformed(ActionEvent e) {
+				if (finished.isSelected()) {
+					DefaultTableModel model = VIAController.getFinishedEvents();
+					table.setModel(model);
+					table.removeColumn(table.getColumnModel().getColumn(2));
+				} else {
+					DefaultTableModel model = VIAController.getEventsTableModel();
+					table.setModel(model);
+					table.removeColumn(table.getColumnModel().getColumn(2));
+				}
 			}
-		    }
 		});
 
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent event) {
 				signUpParticipant.setEnabled(true);
 				signUpMember.setEnabled(true);
-				if (table.getSelectedRow()!=-1) {
-				    Event eventObj = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
-				    if(!eventObj.isFinalized())
-					modify.setEnabled(true);
-				    else
+				if (table.getSelectedRow() != -1) {
+					Event eventObj = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
+					if (!eventObj.isFinalized())
+						modify.setEnabled(true);
+					else
+						modify.setEnabled(false);
+				} else {
 					modify.setEnabled(false);
-				}
-				else {
-				    modify.setEnabled(false);
 				}
 			}
 		});
@@ -144,6 +149,8 @@ public class EventListPanel extends VIAPanel {
 				JFrame participant = new JFrame();
 				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				participant.setSize(900, 500);
+				participant.setLocationRelativeTo(null);
+				participant.setResizable(false);
 				participant.setTitle("VIA - Sign up new participant");
 				Event event = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
 				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel, event.getID()));
@@ -158,6 +165,8 @@ public class EventListPanel extends VIAPanel {
 				JFrame member = new JFrame();
 				member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				member.setSize(900, 500);
+				member.setLocationRelativeTo(null);
+				member.setResizable(false);
 				member.setTitle("VIA - Add members to event");
 				member.setContentPane(new SignUpFormMember(member, currentPanel));
 				member.setVisible(true);
@@ -168,26 +177,28 @@ public class EventListPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame participant = new JFrame();
-				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				participant.setSize(900, 500);
-				participant.setTitle("VIA - Modify event");
+				JFrame modifyEvent = new JFrame();
+				modifyEvent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				modifyEvent.setSize(900, 500);
+				modifyEvent.setLocationRelativeTo(null);
+				modifyEvent.setResizable(false);
+				modifyEvent.setTitle("VIA - Modify event");
 				Event event = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
 				switch (event.getClass().getName()) {
 				case "model.Lecture":
-					participant.setContentPane(new EventCreateFormLectures(participant, currentPanel, event));
+					modifyEvent.setContentPane(new EventCreateFormLectures(modifyEvent, currentPanel, event));
 					break;
 				case "model.Seminar":
-					participant.setContentPane(new EventCreateFormSeminars(participant, currentPanel, event));
+					modifyEvent.setContentPane(new EventCreateFormSeminars(modifyEvent, currentPanel, event));
 					break;
 				case "model.Workshop":
-					participant.setContentPane(new EventCreateFormWorkshop(participant, currentPanel, event));
+					modifyEvent.setContentPane(new EventCreateFormWorkshop(modifyEvent, currentPanel, event));
 					break;
 				case "model.Trip":
-					participant.setContentPane(new EventCreateFormTrip(participant, currentPanel, event));
+					modifyEvent.setContentPane(new EventCreateFormTrip(modifyEvent, currentPanel, event));
 					break;
 				}
-				participant.setVisible(true);
+				modifyEvent.setVisible(true);
 			}
 		});
 
@@ -198,6 +209,8 @@ public class EventListPanel extends VIAPanel {
 				JFrame event = new JFrame();
 				event.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				event.setSize(900, 500);
+				event.setLocationRelativeTo(null);
+				event.setResizable(false);
 				event.setTitle("VIA - Crate new event");
 				event.setContentPane(new EventPanel(event, currentPanel));
 				event.setVisible(true);
@@ -210,8 +223,8 @@ public class EventListPanel extends VIAPanel {
 				Point point = mouseEvent.getPoint();
 				int row = table.rowAtPoint(point);
 				if (mouseEvent.getClickCount() == 2) {
-				    String message = table.getModel().getValueAt(table.getSelectedRow(), 2).toString();
-				    JOptionPane.showMessageDialog(frame,message,"Start Message", JOptionPane.PLAIN_MESSAGE);
+					String message = table.getModel().getValueAt(table.getSelectedRow(), 2).toString();
+					JOptionPane.showMessageDialog(frame, message, "Start Message", JOptionPane.PLAIN_MESSAGE);
 				}
 			}
 		});
@@ -220,7 +233,12 @@ public class EventListPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel model = VIAController.getSearchedEvents(search.getText());
+				DefaultTableModel model;
+				if (notFinalized.isSelected())
+					model = VIAController.getSearchedEventsWhenNotFinalized(search.getText());
+				else
+					model = VIAController.getSearchedEvents(search.getText());
+
 				table.setModel(model);
 				table.removeColumn(table.getColumnModel().getColumn(2));
 			}
