@@ -11,7 +11,6 @@ public class Lecture extends Event {
 		super(configuration);
 		this.category = (Category) configuration.getOrDefault("category", Category.Other);
 		this.lecturer = (Lecturer) configuration.getOrDefault("lecturer", Lecturer.getDefaultLecturer());
-
 	}
 
 	public void modify(Map<String, Object> configuration) {
@@ -29,9 +28,9 @@ public class Lecture extends Event {
 	public Lecturer getLecturer() {
 		return this.lecturer;
 	}
-	
+
 	public Category getCategory() {
-	    return this.category;
+		return this.category;
 	}
 
 	public String toString() {
@@ -45,8 +44,8 @@ public class Lecture extends Event {
 		int places = super.getCapacity();
 
 		return "\t" + title + "\n" + description + "\nDate: " + startDate + "-" + endDate + "\nLecturer: "
-				+ lecturerName + "\nCategorie of given speech: " + category.toString()+ "\nPrice: " + price + "\nPrice for members: " + priceForMembers
-				+ "\nAvaliable places: " + places;
+				+ lecturerName + "\nCategorie of given speech: " + category.toString() + "\nPrice: " + price
+				+ "\nPrice for members: " + priceForMembers + "\nAvaliable places: " + places;
 	}
 
 }

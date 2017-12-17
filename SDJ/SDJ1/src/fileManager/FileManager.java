@@ -1,7 +1,5 @@
 package fileManager;
 
-import java.io.BufferedWriter;
-import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,7 +9,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -38,7 +35,6 @@ public class FileManager {
 	private static File allNewsletters = new File("src/resources/allNewsletters.txt");
 
 	public static void generateListOfEmailsWhoHasntPaid(ArrayList<String> emails) throws IOException {
-
 		PrintWriter out = new PrintWriter(emailsWhoHasntPaid);
 		out.println(emails.toString());
 		out.flush();
@@ -46,7 +42,6 @@ public class FileManager {
 	}
 
 	public static void generateListOfAllEmails(ArrayList<String> emails) throws IOException {
-
 		PrintWriter out = new PrintWriter(allEmails);
 		out.println(emails.toString());
 		out.flush();
@@ -54,7 +49,6 @@ public class FileManager {
 	}
 
 	public static void generateEventFile(EventList eventList) throws IOException {
-
 		FileOutputStream fos = new FileOutputStream(eventFile);
 		ObjectOutputStream out = new ObjectOutputStream(fos);
 
@@ -65,7 +59,6 @@ public class FileManager {
 	}
 
 	public static void generateLecturerFile(LecturerList lecturerList) throws IOException {
-
 		FileOutputStream fos = new FileOutputStream(lecturerFile);
 		ObjectOutputStream out = new ObjectOutputStream(fos);
 
@@ -76,7 +69,6 @@ public class FileManager {
 	}
 
 	public static void generateMemberFile(MemberList memberList) throws IOException {
-
 		FileOutputStream fos = new FileOutputStream(memberFile);
 		ObjectOutputStream out = new ObjectOutputStream(fos);
 
@@ -153,12 +145,12 @@ public class FileManager {
 	}
 
 	public static Lecturer readLecturerFileInside(String line) {
-
 		String name, email;
 		String[] divide, categoriesDivide;
 		int phone;
 		boolean wantsAdvertise;
 		ArrayList<Category> categories = new ArrayList<Category>();
+		
 		divide = line.split(";");
 		name = divide[0];
 		email = divide[1];
@@ -167,8 +159,8 @@ public class FileManager {
 		for (String e : categoriesDivide) {
 			categories.add(Category.parseCategory(e));
 		}
-
 		wantsAdvertise = Boolean.parseBoolean(divide[4].trim());
+		
 		return (new Lecturer(name, email, phone, categories, wantsAdvertise));
 	}
 
@@ -179,7 +171,6 @@ public class FileManager {
 		while (read.hasNext()) {
 			line = read.nextLine();
 			lecturers.addLecturer(readLecturerFileInside(line));
-
 		}
 
 		read.close();
@@ -271,8 +262,10 @@ public class FileManager {
 	public static ArrayList<File> getAllNewsletters() throws IOException, ClassNotFoundException {
 		ArrayList<File> newsletters = new ArrayList<File>();
 		Scanner read = new Scanner(allNewsletters);
+		
 		while (read.hasNextLine())
 			newsletters.add(new File(read.nextLine()));
+		
 		read.close();
 		return newsletters;
 	}
@@ -282,13 +275,14 @@ public class FileManager {
 		newsletterFiles.add(new File("src/resources/Newsletter_" + new MyDate().toStringToFile() + ".txt"));
 		PrintWriter out = new PrintWriter(newsletterFiles.get(newsletterFiles.size() - 1));
 		String newsletterContent = "";
+		
 		newsletterContent += new MyDate().toStringToFile();
 		newsletterContent += "\nUpcoming events:\n" + events.getFinalizedNotFinished().toString();
 		newsletterContent += "\nOur sponsors: \n" + lecturers.getLecturersToAdvertise().toString();
 		if (!(additionalInfo.equals("")))
 			newsletterContent += "\nYou may find interesting:\n" + additionalInfo;
+		
 		out.println(newsletterContent);
-
 		out.flush();
 		out.close();
 		generateFileOfNewsletters("src/resources/Newsletter_" + new MyDate().toStringToFile() + ".txt");
@@ -296,9 +290,11 @@ public class FileManager {
 
 	public static String readNewsletter(MyDate date, ArrayList<File> newsletterFiles) throws FileNotFoundException {
 		String newsletter = "";
+		
 		for (File i : newsletterFiles) {
 			if (i.getName().equals("src/resources/Newsletter_" + date.toStringToFile() + ".txt")) {
 				Scanner read = new Scanner(i);
+				
 				while (read.hasNext())
 					newsletter += read.nextLine() + "\n";
 				read.close();
@@ -307,7 +303,7 @@ public class FileManager {
 				throw new FileNotFoundException("No newsletter on " + date.toString());
 			}
 		}
-		return "Something went wrong...";
+		throw new FileNotFoundException("Newsletter has not been generated, contact admin");
 	}
 
 }

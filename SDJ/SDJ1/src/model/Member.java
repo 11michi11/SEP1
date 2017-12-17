@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class Member extends Participant implements Serializable {
 
-	private String address;
-	private int phone;
-	private final MyDate dateOfMembership;
-	private int paymentYear;
-	private final int ID;
 	private static int nextID = 0;
+	private final MyDate dateOfMembership;
+	private final int ID;
+	private int phone;
+	private int paymentYear;
+	private String address;
 
 	public Member(String name, String address, int phone, String email, MyDate dateOfMembership) {
 		super(name, email);
@@ -17,6 +17,14 @@ public class Member extends Participant implements Serializable {
 		this.phone = phone;
 		this.dateOfMembership = dateOfMembership.copy();
 		this.ID = ++nextID;
+	}
+	
+	public static int getNextId() {
+	    return nextID;
+	}
+	
+	public static void setNextID (int lastID) {
+	    nextID = lastID;
 	}
 
 	public int getPhone() {
@@ -56,14 +64,6 @@ public class Member extends Participant implements Serializable {
 
 	public int getID() {
 		return ID;
-	}
-	
-	public static int getNextId() {
-	    return nextID;
-	}
-	
-	public static void setNextID (int lastID) {
-	    nextID = lastID;
 	}
 	
 	public String toString () {

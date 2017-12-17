@@ -46,11 +46,11 @@ public class VIAController {
 		manager.updateNewsletterList();
 	}
 
-	public static void emailsWhoHasntPaid() throws IOException {
+	public static void generateEmailsWhoHasntPaid() throws IOException {
 		FileManager.generateListOfEmailsWhoHasntPaid(manager.getMemberList().getListOfEmailsWhoHasntPaid());
 	}
 
-	public static void allEmails() throws IOException {
+	public static void generateAllEmails() throws IOException {
 		FileManager.generateListOfAllEmails(manager.getMemberList().getListOfEmails());
 	}
 
@@ -63,8 +63,6 @@ public class VIAController {
 
 		manager.signUpMember(name, address, phone, email, dateOfMembership);
 		MemberListPanel.refreshTable();
-
-		System.out.println(manager.getMembersString());
 	}
 
 	public static void deleteMember(Member member) {
@@ -73,8 +71,6 @@ public class VIAController {
 	}
 
 	public static void addLecturerToList(Object[] configuration) {
-		System.out.println(Arrays.toString(configuration));
-
 		String name = (String) configuration[0];
 		String email = (String) configuration[1];
 		int phone = (int) configuration[2];
@@ -83,7 +79,6 @@ public class VIAController {
 
 		manager.signUpLecturer(name, email, phone, categories, wantsAdvertise);
 		LecturerListPanel.refreshTable();
-		System.out.println(manager.getLecturersString());
 	}
 
 	public static void addParticipantToList(Object[] configuration) throws EventNotFoundException {
@@ -473,8 +468,6 @@ public class VIAController {
 			data[i] = row;
 		}
 
-		System.out.println(Arrays.deepToString(data));
-
 		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
 
 			@Override
@@ -721,7 +714,7 @@ public class VIAController {
 		VIAController controller = new VIAController();
 	}
 
-	public static void showWindow() {
+	public void showWindow() {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {

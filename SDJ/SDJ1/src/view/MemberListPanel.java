@@ -148,7 +148,7 @@ public class MemberListPanel extends VIAPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					VIAController.allEmails();
+					VIAController.generateAllEmails();
 					JOptionPane.showMessageDialog(frame, "File generated succesfully", "File generated",
 							JOptionPane.PLAIN_MESSAGE);
 				} catch (IOException e1) {
@@ -163,7 +163,7 @@ public class MemberListPanel extends VIAPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					VIAController.emailsWhoHasntPaid();
+					VIAController.generateEmailsWhoHasntPaid();
 					JOptionPane.showMessageDialog(frame, "File generated succesfully", "File generated",
 							JOptionPane.PLAIN_MESSAGE);
 				} catch (IOException e1) {

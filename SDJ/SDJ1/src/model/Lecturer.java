@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 public class Lecturer implements Serializable {
 
-	private String name, email;
+	private static int nextID = 0;
+	private final int ID;
 	private int phone;
+	private String name, email;
 	private ArrayList<Category> categories;
 	private boolean wantsAdvertise;
-	private int ID;
-	private static int nextID = 0;
 
 	public Lecturer(String name, String email, int phone, ArrayList<Category> categories, boolean wantsAdvertise) {
 		this.name = name;
@@ -20,9 +20,17 @@ public class Lecturer implements Serializable {
 		this.wantsAdvertise = wantsAdvertise;
 		this.ID = ++nextID;
 	}
-	
+
 	public static Lecturer getDefaultLecturer() {
 		return new Lecturer("", "", -1, new ArrayList<Category>(), false);
+	}
+
+	public static int getNextId() {
+		return nextID;
+	}
+
+	public static void setNextID(int lastID) {
+		nextID = lastID;
 	}
 
 	public String getName() {
@@ -52,15 +60,7 @@ public class Lecturer implements Serializable {
 	public int getID() {
 		return this.ID;
 	}
-	
-	public static int getNextId() {
-	    return nextID;
-	}
-	
-	public static void setNextID (int lastID) {
-	    nextID = lastID;
-	}
-	
+
 	public ArrayList<Category> getCategories() {
 		return categories;
 	}
@@ -79,7 +79,8 @@ public class Lecturer implements Serializable {
 
 	public String toString() {
 		return "\nName: " + name + "\nEmail address: " + email + "\nPhone number: " + phone
-				+ "\nCategories of given speeches: " + categories.toString().substring(1, categories.toString().length()-1);
+				+ "\nCategories of given speeches: "
+				+ categories.toString().substring(1, categories.toString().length() - 1);
 	}
 
 }
