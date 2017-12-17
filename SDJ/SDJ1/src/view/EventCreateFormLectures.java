@@ -29,6 +29,8 @@ import model.MyDate;
 
 public class EventCreateFormLectures extends VIAPanel {
 
+	private static JTextField fieldLecturer;
+	private static Lecturer lecturer;
 	private JLabel createForm;
 	private JLabel title;
 	private JLabel category;
@@ -52,8 +54,6 @@ public class EventCreateFormLectures extends VIAPanel {
 	private JPanel parentPanel;
 	private JComboBox categoryBox;
 	private JButton lecturerChoice;
-	private static JTextField fieldLecturer;
-	private static Lecturer lecturer;
 	private Event event;
 
 	public EventCreateFormLectures(JFrame frame, JPanel parentPanel) {
@@ -107,10 +107,10 @@ public class EventCreateFormLectures extends VIAPanel {
 		descriptionArea = new JTextArea(6, 55);
 
 		finalized = new JRadioButton("YES");
-		finalized.setSelected(true);
 		finalized.setOpaque(false);
 
 		unfinalized = new JRadioButton("NO");
+		unfinalized.setSelected(true);
 		unfinalized.setOpaque(false);
 
 		ButtonGroup group = new ButtonGroup();
@@ -198,14 +198,6 @@ public class EventCreateFormLectures extends VIAPanel {
 			}
 		});
 
-		fieldStartDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
 		fieldEndDate.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (fieldEndDate.getText().equals("dd/mm/yyyy/hh:mm"))
@@ -217,15 +209,6 @@ public class EventCreateFormLectures extends VIAPanel {
 					fieldEndDate.setText("dd/mm/yyyy/hh:mm");
 			}
 		});
-
-		fieldEndDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
 	}
 
 	public void addComponentsToPanel() {

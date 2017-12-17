@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -10,7 +9,6 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -23,7 +21,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import controler.VIAController;
 import model.Category;
 import model.Event;
@@ -34,6 +31,10 @@ import model.Workshop;
 
 public class EventCreateFormWorkshop extends VIAPanel {
 
+	private static JComboBox lecturersBox;
+	private static ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
+	private static JComboBox categoryBox;
+	private static ArrayList<Category> categories = new ArrayList<Category>();
 	private JLabel createForm;
 	private JLabel title;
 	private JButton category;
@@ -57,10 +58,6 @@ public class EventCreateFormWorkshop extends VIAPanel {
 	private JFrame frame;
 	private JPanel parentPanel;
 	private Event event;
-	private static JComboBox lecturersBox;
-	private static ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
-	private static JComboBox categoryBox;
-	private static ArrayList<Category> categories = new ArrayList<Category>();
 
 	public EventCreateFormWorkshop(JFrame frame, JPanel parentPanel) {
 		super();
@@ -212,15 +209,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 					fieldStartDate.setText("dd/mm/yyyy/hh:mm");
 			}
 		});
-
-		fieldStartDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
+		
 		fieldEndDate.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (fieldEndDate.getText().equals("dd/mm/yyyy/hh:mm"))
@@ -232,15 +221,6 @@ public class EventCreateFormWorkshop extends VIAPanel {
 					fieldEndDate.setText("dd/mm/yyyy/hh:mm");
 			}
 		});
-
-		fieldEndDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
 	}
 
 	public void addComponentsToPanel() {
@@ -342,7 +322,6 @@ public class EventCreateFormWorkshop extends VIAPanel {
 		JPanel components = new JPanel(new BorderLayout());
 		components.add(titul, BorderLayout.NORTH);
 		components.add(content, BorderLayout.CENTER);
-		// components.add(button, BorderLayout.SOUTH);
 		components.setOpaque(false);
 
 		JPanel textArea = new JPanel(new BorderLayout());

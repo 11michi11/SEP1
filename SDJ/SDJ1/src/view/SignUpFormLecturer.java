@@ -7,7 +7,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,27 +17,26 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import controler.VIAController;
 import model.Category;
 
 public class SignUpFormLecturer extends VIAPanel {
 
+	private static JComboBox categoryBox;
+	private static ArrayList<Category> categories = new ArrayList<Category>();
 	private JLabel signUp;
 	private JLabel name;
 	private JLabel email;
 	private JLabel phone;
 	private JButton category;
+	private JButton add;
+	private VIAButtonBack back;
 	private JCheckBox advertisment;
 	private JTextField fieldName;
 	private JTextField fieldEmail;
 	private JTextField fieldPhone;
-	private JButton add;
 	private JFrame frame;
 	private JPanel parentPanel;
-	private VIAButtonBack back;
-	private static JComboBox categoryBox;
-	private static ArrayList<Category> categories = new ArrayList<Category>();
 
 	public SignUpFormLecturer(JFrame frame, JPanel parentPanel) {
 		super();
@@ -48,11 +46,9 @@ public class SignUpFormLecturer extends VIAPanel {
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
-
 	}
 
 	public void initializeComponents() {
-
 		String[] boxString = { "Choose category" };
 
 		signUp = new VIALabel("Sign-Up Form for LECTURER");
@@ -69,7 +65,6 @@ public class SignUpFormLecturer extends VIAPanel {
 
 		add = new VIAButtonSmall("Add to list");
 		back = new VIAButtonBack(frame, parentPanel);
-
 	}
 
 	public void registerEventHandlers() {

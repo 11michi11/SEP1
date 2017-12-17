@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import controler.VIAController;
 import model.InvalidDateInput;
 import model.MyDate;
@@ -35,9 +33,9 @@ public class SignUpFormMember extends VIAPanel {
 	private JTextField fieldPhone;
 	private JTextField fieldDateOfMembership;
 	private JButton add;
+	private VIAButtonBack back;
 	private JFrame frame;
 	private JPanel parentPanel;
-	private VIAButtonBack back;
 
 	public SignUpFormMember(JFrame frame, JPanel parentPanel) {
 		super();
@@ -47,7 +45,6 @@ public class SignUpFormMember extends VIAPanel {
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
-
 	}
 
 	public void initializeComponents() {
@@ -65,10 +62,7 @@ public class SignUpFormMember extends VIAPanel {
 		fieldDateOfMembership.setText("dd/mm/yyyy");
 
 		add = new VIAButtonSmall("Add to list");
-		
-
 		back = new VIAButtonBack(frame, parentPanel);
-
 	}
 
 	public void registerEventHandlers() {
@@ -227,28 +221,12 @@ public class SignUpFormMember extends VIAPanel {
 		add(components, BorderLayout.CENTER);
 	}
 
-	public static void main(String[] args) {
-
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new SignUpFormMember(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
-
-	}
-
 	private boolean canFormBeSaved() {
 		System.out.println(fieldEmail.getText());
-	    if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("") && !fieldAddress.getText().equals("")
+		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("") && !fieldAddress.getText().equals("")
 				&& !fieldDateOfMembership.getText().equals("dd/mm/yyyy"))
 			return true;
 		return false;
-
 	}
 
 }

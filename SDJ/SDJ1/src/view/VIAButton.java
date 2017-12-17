@@ -27,14 +27,24 @@ public abstract class VIAButton extends JButton {
 		this.fontSize = 40;
 		initializeVIAButton(path, prefSize);
 	}
-	
+
 	public VIAButton(String text, String path, Dimension prefSize, int fontSize) {
 		super(text);
 		this.fontSize = fontSize;
 		initializeVIAButton(path, prefSize);
 	}
 	
+	public void setFontSize(int size) {
+		this.fontSize = size;
+		this.font = new Font("Bernard MT Condensed", Font.PLAIN, fontSize);
+	}
 	
+	@Override
+	protected void paintComponent(Graphics g) {
+		g.drawImage(image, 0, 0, prefSize.width, prefSize.height, this);
+		super.paintComponent(g);
+	}
+
 	private void initializeVIAButton(String path, Dimension prefSize) {
 		this.FILE_PATH = path;
 		this.font = new Font("Bernard MT Condensed", Font.PLAIN, fontSize);
@@ -45,7 +55,7 @@ public abstract class VIAButton extends JButton {
 		loadImage(FILE_PATH);
 		this.prefSize = prefSize;
 		setPreferredSize(prefSize);
-	
+
 		getModel().addChangeListener(new ChangeListener() {
 
 			@Override
@@ -61,11 +71,6 @@ public abstract class VIAButton extends JButton {
 		});
 	}
 	
-	public void setFontSize(int size) {
-		this.fontSize = size;
-		this.font = new Font("Bernard MT Condensed", Font.PLAIN, fontSize);
-	}
-
 	private void loadImage(String path) {
 		try {
 			image = ImageIO.read(new File(path));
@@ -73,16 +78,10 @@ public abstract class VIAButton extends JButton {
 			e.printStackTrace();
 		}
 	}
-
-	@Override
-	protected void paintComponent(Graphics g) {
-		g.drawImage(image, 0, 0, prefSize.width, prefSize.height, this);
-		super.paintComponent(g);
-	}
 	
 	private String getDarkPath() {
 		String dark = String.valueOf(this.FILE_PATH);
-		dark = dark.substring(0, dark.length()-4);
+		dark = dark.substring(0, dark.length() - 4);
 		dark += "Dark.jpg";
 		return dark;
 	}

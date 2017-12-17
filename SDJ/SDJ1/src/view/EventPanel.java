@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -142,18 +141,4 @@ public class EventPanel extends VIAPanel {
 		add(logo, BorderLayout.NORTH);
 		add(buttons, BorderLayout.CENTER);
 	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new EventPanel(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
-	}
-
 }

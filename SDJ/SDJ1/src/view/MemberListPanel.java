@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.IOException;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,7 +22,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
 import controler.VIAController;
 import model.Member;
 import model.MemberAlreadyPaidException;
@@ -31,6 +29,7 @@ import model.MemberAlreadyPaidException;
 public class MemberListPanel extends VIAPanel {
 
 	private static JTable table;
+	private static int clickCount = 0;
 	private JTextField search;
 	private JButton add;
 	private JButton mail;
@@ -40,7 +39,6 @@ public class MemberListPanel extends VIAPanel {
 	private JFrame frame;
 	private JButton back;
 	private JPanel parentPanel;
-	private static int clickCount = 0;
 
 	public MemberListPanel(JFrame frame, JPanel parentPanel) {
 		super();
@@ -80,6 +78,7 @@ public class MemberListPanel extends VIAPanel {
 			public void valueChanged(ListSelectionEvent event) {
 				delete.setEnabled(true);
 
+				//Click count prevents double click bug
 				clickCount++;
 
 				TableModel model = table.getModel();

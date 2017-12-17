@@ -10,7 +10,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,11 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
 import controler.VIAController;
 
 public class Newsletter extends VIAPanel {
@@ -52,7 +48,6 @@ public class Newsletter extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-
 		DefaultTableModel model = VIAController.getNewsletterTableModel();
 
 		table = new JTable(model);
@@ -67,12 +62,11 @@ public class Newsletter extends VIAPanel {
 		info = new JTextArea(10, 30);
 		addInfo = new VIALabel("ADDITIONAL INFO", 20);
 		back = new VIAButtonBack(frame, parentPanel);
-
 	}
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
-		
+
 		table.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent mouseEvent) {
 				JTable table = (JTable) mouseEvent.getSource();
@@ -82,34 +76,32 @@ public class Newsletter extends VIAPanel {
 					TableModel model = table.getModel();
 					int selRow = table.getSelectedRow();
 					File newsletter = (File) model.getValueAt(selRow, 1);
-					
+
 					JFrame newsletterFrame = new JFrame();
 					newsletterFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 					newsletterFrame.setSize(900, 500);
 					newsletterFrame.setTitle("VIA - Add new member");
-					newsletterFrame.setContentPane(new NewsletterContent(newsletterFrame, currentPanel, newsletter));
+					newsletterFrame.setContentPane(new NewsletterContent(newsletter));
 					newsletterFrame.setVisible(true);
 				}
 			}
 		});
 
 		generateText.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
 					VIAController.generateNewsletter(info.getText());
 				} catch (IOException e1) {
 					e1.printStackTrace();
-					JOptionPane.showMessageDialog(frame, "File not found", "File error",
-							JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(frame, "File not found", "File error", JOptionPane.PLAIN_MESSAGE);
 				}
 			}
 		});
 	}
 
 	private void addComponentsToPanel() {
-
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
 
@@ -152,9 +144,8 @@ public class Newsletter extends VIAPanel {
 		add(north, BorderLayout.NORTH);
 		add(left, BorderLayout.WEST);
 		add(textArea, BorderLayout.EAST);
-
 	}
-	
+
 	public static void refreshTable() {
 		if (table != null) {
 			DefaultTableModel model = VIAController.getNewsletterTableModel();

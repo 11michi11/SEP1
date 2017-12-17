@@ -3,10 +3,8 @@ package view;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import controler.VIAController;
 
 public class VIAWindow {
@@ -43,7 +41,7 @@ public class VIAWindow {
 					e1.printStackTrace();
 				}
 			}
-
+		
 			@Override
 			public void windowActivated(WindowEvent arg0) {
 			}

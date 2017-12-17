@@ -2,9 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
@@ -13,7 +11,6 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -27,7 +24,6 @@ import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-
 import controler.VIAController;
 import model.Event;
 
@@ -55,7 +51,6 @@ public class EventListPanel extends VIAPanel {
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
-
 	}
 
 	private void initializeComponents() {
@@ -89,14 +84,13 @@ public class EventListPanel extends VIAPanel {
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
-		
+
 		search.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
-					search.setText("");
+				search.setText("");
 			}
-			
+
 			public void focusLost(FocusEvent e) {
-				
 			}
 		});
 
@@ -179,26 +173,26 @@ public class EventListPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame participant = new JFrame();
-				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				participant.setSize(900, 500);
-				participant.setTitle("VIA - Modify event");
+				JFrame modifyEvent = new JFrame();
+				modifyEvent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				modifyEvent.setSize(900, 500);
+				modifyEvent.setTitle("VIA - Modify event");
 				Event event = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
 				switch (event.getClass().getName()) {
 				case "model.Lecture":
-					participant.setContentPane(new EventCreateFormLectures(participant, currentPanel, event));
+					modifyEvent.setContentPane(new EventCreateFormLectures(modifyEvent, currentPanel, event));
 					break;
 				case "model.Seminar":
-					participant.setContentPane(new EventCreateFormSeminars(participant, currentPanel, event));
+					modifyEvent.setContentPane(new EventCreateFormSeminars(modifyEvent, currentPanel, event));
 					break;
 				case "model.Workshop":
-					participant.setContentPane(new EventCreateFormWorkshop(participant, currentPanel, event));
+					modifyEvent.setContentPane(new EventCreateFormWorkshop(modifyEvent, currentPanel, event));
 					break;
 				case "model.Trip":
-					participant.setContentPane(new EventCreateFormTrip(participant, currentPanel, event));
+					modifyEvent.setContentPane(new EventCreateFormTrip(modifyEvent, currentPanel, event));
 					break;
 				}
-				participant.setVisible(true);
+				modifyEvent.setVisible(true);
 			}
 		});
 

@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.HashMap;
-
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,7 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import controler.VIAController;
 import model.Event;
 import model.InvalidDateInput;
@@ -100,10 +98,10 @@ public class EventCreateFormTrip extends VIAPanel {
 		descriptionArea = new JTextArea(6, 55);
 
 		finalized = new JRadioButton("YES");
-		finalized.setSelected(true);
 		finalized.setOpaque(false);
 
 		unfinalized = new JRadioButton("NO");
+		unfinalized.setSelected(true);
 		unfinalized.setOpaque(false);
 
 		ButtonGroup group = new ButtonGroup();
@@ -172,14 +170,6 @@ public class EventCreateFormTrip extends VIAPanel {
 			}
 		});
 
-		fieldStartDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
 		fieldEndDate.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (fieldEndDate.getText().equals("dd/mm/yyyy/hh:mm"))
@@ -189,14 +179,6 @@ public class EventCreateFormTrip extends VIAPanel {
 			public void focusLost(FocusEvent e) {
 				if (fieldEndDate.getText().equals(""))
 					fieldEndDate.setText("dd/mm/yyyy/hh:mm");
-			}
-		});
-
-		fieldEndDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
 			}
 		});
 

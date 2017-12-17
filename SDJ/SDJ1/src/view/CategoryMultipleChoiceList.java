@@ -2,13 +2,10 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,20 +13,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
 import model.Category;
 
 public class CategoryMultipleChoiceList extends VIAPanel {
 
 	private JTable table;
-	private JTextField search;
 	private JButton choose;
-	private JLabel lecturerList;
+	private JLabel categoryList;
 	private JFrame frame;
 	private JPanel parentPanel;
 
@@ -44,51 +38,22 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		String[] columnNames = { "Category", "" };
-		Object[][] data = { { "Astrology" }, { "Meditation" }, { "Reincarnation" }, { "Health" },
-				{ "Buddhism" }, { "Nature" }, { "Other" }
-
-		};
-
 		choose = new VIAButtonSmall("CHOOSE CATEGORY", 30);
 		choose.setEnabled(false);
 
-		lecturerList = new VIALabel("CATEGORY LIST", 40);
+		categoryList = new VIALabel("CATEGORY LIST", 40);
 
-		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
-
-			@Override
-			public Class getColumnClass(int column) {
-				switch (column) {
-				case 0:
-					return String.class;
-				default:
-					return Boolean.class;
-				}
-			}
-
-			@Override
-			public boolean isCellEditable(int row, int col) {
-				switch (col) {
-				case 1:
-					return true;
-				default:
-					return false;
-				}
-			}
-		};
-		table = new JTable(model);
+		table = new JTable(getTableModel());
 		table.setPreferredScrollableViewportSize(new Dimension(500, 125));
 	}
 
 	private void registerEventHandlers() {
-		
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-	        public void valueChanged(ListSelectionEvent event) {
-	            choose.setEnabled(true);
-	        }
-	    });
 
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent event) {
+				choose.setEnabled(true);
+			}
+		});
 
 		choose.addActionListener(new ActionListener() {
 
@@ -124,7 +89,7 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 		right.setOpaque(false);
 
 		JPanel labelPanel = new JPanel();
-		labelPanel.add(lecturerList);
+		labelPanel.add(categoryList);
 		labelPanel.setOpaque(false);
 
 		JPanel logo = new JPanel();
@@ -144,20 +109,6 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 
 	}
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new CategoryMultipleChoiceList(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
-
-	}
-
 	private void assignCategories(ArrayList<Category> categories) {
 		switch (parentPanel.getClass().getName()) {
 		case "view.SignUpFormLecturer":
@@ -170,8 +121,38 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 			EventCreateFormWorkshop.assignCategoriesToLecturerForm(categories);
 			break;
 		default:
-			System.out.println("!!!");
+			System.out.println("Wrong class name: " + parentPanel.getClass().getName());
 		}
+	}
+
+	private DefaultTableModel getTableModel() {
+		String[] columnNames = { "Category", "" };
+		Object[][] data = { { "Astrology" }, { "Meditation" }, { "Reincarnation" }, { "Health" }, { "Buddhism" },
+				{ "Nature" }, { "Other" } };
+
+		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+
+			@Override
+			public Class getColumnClass(int column) {
+				switch (column) {
+				case 0:
+					return String.class;
+				default:
+					return Boolean.class;
+				}
+			}
+
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				switch (col) {
+				case 1:
+					return true;
+				default:
+					return false;
+				}
+			}
+		};
+		return model;
 	}
 
 }

@@ -71,7 +71,6 @@ public class SignUpPanel extends VIAPanel {
 		second.add(lecturer);
 		second.setOpaque(false);
 
-
 		JPanel buttons = new JPanel(new GridLayout(2, 1));
 		buttons.add(first);
 		buttons.add(second);
@@ -91,18 +90,5 @@ public class SignUpPanel extends VIAPanel {
 
 		add(logo, BorderLayout.NORTH);
 		add(buttons, BorderLayout.CENTER);
-	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				JFrame frame = new JFrame();
-				frame.setSize(900, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setContentPane(new SignUpPanel(frame, new JPanel()));
-				frame.setVisible(true);
-			}
-		});
 	}
 }

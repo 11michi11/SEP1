@@ -34,6 +34,10 @@ import model.Seminar;
 
 public class EventCreateFormSeminars extends VIAPanel {
 
+	private static JComboBox lecturersBox;
+	private static ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
+	private static JComboBox categoryBox;
+	private static ArrayList<Category> categories = new ArrayList<Category>();
 	private JLabel createForm;
 	private JLabel title;
 	private JButton category;
@@ -57,10 +61,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 	private JFrame frame;
 	private JPanel parentPanel;
 	private Event event;
-	private static JComboBox lecturersBox;
-	private static ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
-	private static JComboBox categoryBox;
-	private static ArrayList<Category> categories = new ArrayList<Category>();
 
 	public EventCreateFormSeminars(JFrame frame, JPanel parentPanel) {
 		super();
@@ -112,10 +112,10 @@ public class EventCreateFormSeminars extends VIAPanel {
 		descriptionArea = new JTextArea(5, 55);
 
 		finalized = new JRadioButton("YES");
-		finalized.setSelected(true);
 		finalized.setOpaque(false);
 
 		unfinalized = new JRadioButton("NO");
+		unfinalized.setSelected(true);
 		unfinalized.setOpaque(false);
 
 		ButtonGroup group = new ButtonGroup();
@@ -214,14 +214,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 			}
 		});
 
-		fieldStartDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
 		fieldEndDate.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
 				if (fieldEndDate.getText().equals("dd/mm/yyyy/hh:mm"))
@@ -233,15 +225,6 @@ public class EventCreateFormSeminars extends VIAPanel {
 					fieldEndDate.setText("dd/mm/yyyy/hh:mm");
 			}
 		});
-
-		fieldEndDate.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
 	}
 
 	public void addComponentsToPanel() {

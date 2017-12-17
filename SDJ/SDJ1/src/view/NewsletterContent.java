@@ -18,37 +18,29 @@ public class NewsletterContent extends VIAPanel {
 	private JScrollPane scrollPane;
 	private JLabel newsletterTitle;
 	private JTextArea content;
-	private JFrame frame;
-	private JPanel parentPanel;
-	private JButton back;
 	private File newsletter;
 
-	public NewsletterContent(JFrame frame, JPanel parentPanel, File newsletter) {
+	public NewsletterContent(File newsletter) {
 		super();
-		this.frame = frame;
 		this.newsletter = newsletter;
-		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
-
 	}
 
 	public void initializeComponents() {
-
 		content = new JTextArea(100, 50);
 		content.setEditable(false);
 		scrollPane = new JScrollPane(content);
 		newsletterTitle = new VIALabel("NEWSLETTER CONTENT", 30);
-		back = new VIAButtonBack(frame, parentPanel);
 	}
 
 	public void registerEventHandlers() {
+		
 	}
 
 	public void addComponentsToPanel() {
-
 		JScrollPane scrollPane = new JScrollPane(content);
 		add(scrollPane);
 

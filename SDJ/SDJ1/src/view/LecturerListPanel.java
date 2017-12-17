@@ -2,13 +2,11 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,7 +15,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
 import controler.VIAController;
@@ -78,24 +75,24 @@ public class LecturerListPanel extends VIAPanel {
 				lecturer.setVisible(true);
 			}
 		});
-		
+
 		search.addActionListener(new ActionListener() {
-		    
-		    @Override
-		    public void actionPerformed(ActionEvent e) {
-			DefaultTableModel model = VIAController.getSearchedLecturers(search.getText());
-			table.setModel(model);
-			table.removeColumn(table.getColumnModel().getColumn(5));
-		    }
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel model = VIAController.getSearchedLecturers(search.getText());
+				table.setModel(model);
+				table.removeColumn(table.getColumnModel().getColumn(5));
+			}
 		});
-		
+
 		search.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
-					search.setText("");
+				search.setText("");
 			}
-			
+
 			public void focusLost(FocusEvent e) {
-				
+
 			}
 		});
 	}
