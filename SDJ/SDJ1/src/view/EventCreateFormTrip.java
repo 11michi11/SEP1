@@ -133,6 +133,8 @@ public class EventCreateFormTrip extends VIAPanel {
 
 				configuration.put("finalized", finalized.isSelected());
 
+				boolean close = false;
+
 				try {
 					if (fieldStartDate.getText().equals(""))
 						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
@@ -143,16 +145,18 @@ public class EventCreateFormTrip extends VIAPanel {
 						VIAController.addEventToList(configuration);
 					else
 						event.modify(configuration);
+					close = true;
 
 				} catch (InvalidDateInput ex) {
 					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
 				}
-
-				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
-					frame.dispose();
-				else
-					back.goBack();
+				if (close) {
+					if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+						frame.dispose();
+					else
+						back.goBack();
+				}
 			}
 		});
 

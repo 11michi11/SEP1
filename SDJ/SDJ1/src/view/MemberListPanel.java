@@ -79,9 +79,9 @@ public class MemberListPanel extends VIAPanel {
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent event) {
 				delete.setEnabled(true);
-				
+
 				clickCount++;
-				
+
 				TableModel model = table.getModel();
 				int selRow = table.getSelectedRow();
 				if (table.getSelectedColumn() == 3) {
@@ -94,8 +94,8 @@ public class MemberListPanel extends VIAPanel {
 						}
 					} else if ((boolean) model.getValueAt(selRow, 3) == true && clickCount == 1)
 						member.unPay();
-					
-					if(clickCount == 2)
+
+					if (clickCount == 2)
 						clickCount = 0;
 				}
 			}
@@ -123,14 +123,14 @@ public class MemberListPanel extends VIAPanel {
 				table.removeColumn(table.getColumnModel().getColumn(5));
 			}
 		});
-		
+
 		search.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {
-					search.setText("");
+				search.setText("");
 			}
-			
+
 			public void focusLost(FocusEvent e) {
-				
+
 			}
 		});
 
@@ -142,9 +142,9 @@ public class MemberListPanel extends VIAPanel {
 				VIAController.deleteMember(member);
 			}
 		});
-		
+
 		mail.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -157,9 +157,9 @@ public class MemberListPanel extends VIAPanel {
 				}
 			}
 		});
-		
+
 		mailPaid.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
