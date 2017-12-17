@@ -3,11 +3,8 @@ package model;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Map;
-import java.util.Scanner;
 
 import fileManager.FileManager;
 
@@ -52,12 +49,10 @@ public class VIAManager {
 
 	public void generateNewsletter(String newsletterContent) throws IOException {
 		FileManager.generateNewsletter(newsletterContent, newsletterFiles, events, lecturers);
-
 	}
 
 	public ArrayList<Member> getAllMembers() {
 		return this.members.getAllMembers();
-
 	}
 
 	public ArrayList<Lecturer> getAllLecturers() {
@@ -98,9 +93,9 @@ public class VIAManager {
 		// this.events = FileManager.readEventFile();
 		this.events = FileManager.readEventFile(new File("src/resources/events.txt"));
 	}
-	
+
 	public void updateNewsletterList() throws ClassNotFoundException, IOException {
-	    this.newsletterFiles= FileManager.getAllNewsletters();
+		this.newsletterFiles = FileManager.getAllNewsletters();
 	}
 
 	public void addEvent(Map<String, Object> configuration) {

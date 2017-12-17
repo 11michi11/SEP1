@@ -1,7 +1,6 @@
 package model;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class MyDate implements Serializable {
@@ -35,6 +34,7 @@ public class MyDate implements Serializable {
 	public MyDate(String dateString) throws InvalidDateInput {
 		String[] dateArray, timeArray;
 		dateArray = dateString.split("/");
+
 		if (dateArray.length == 4) {
 			day = Integer.parseInt(dateArray[0]);
 			month = Integer.parseInt(dateArray[1]);
@@ -43,23 +43,20 @@ public class MyDate implements Serializable {
 			if (timeArray.length == 2) {
 				hour = Integer.parseInt(timeArray[0]);
 				minute = Integer.parseInt(timeArray[1]);
-			} else {
+			} else
 				throw new InvalidDateInput("Invalid date");
-			}
+
 		} else if (dateArray.length == 3) {
 			day = Integer.parseInt(dateArray[0]);
 			month = Integer.parseInt(dateArray[1]);
 			year = Integer.parseInt(dateArray[2]);
 			hour = 0;
 			minute = 0;
-		}
+		} else
+			throw new InvalidDateInput("Invalid date");
 
-		else {
+		if (!isValid())
 			throw new InvalidDateInput("Invalid date");
-		}
-		if (!isValid()) {
-			throw new InvalidDateInput("Invalid date");
-		}
 	}
 
 	public static int convertToMonthNumber(String monthName) {
@@ -196,6 +193,7 @@ public class MyDate implements Serializable {
 		}
 		return returnString;
 	}
+
 	public String toStringToFile() {
 		String returnString = "";
 		if (day < 10) {

@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class Participant implements Serializable{
+public class Participant implements Serializable {
 
 	private String name;
 	private String email;
@@ -27,9 +27,9 @@ public class Participant implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public String toString () {
-	   return name+";"+email;
+
+	public String toString() {
+		return name + ";" + email;
 	}
 
 }

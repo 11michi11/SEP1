@@ -2,18 +2,13 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
-
-import javax.swing.plaf.metal.MetalMenuBarUI;
 
 public class MemberList implements Serializable {
 
 	private ArrayList<Member> members;
-	private transient Iterator<Member> iter;
-	
+
 	public MemberList() {
 		this.members = new ArrayList<Member>();
-		this.iter = members.iterator();
 	}
 
 	public ArrayList<Member> getListOfMembersWhoHasntPaid() {
@@ -33,7 +28,7 @@ public class MemberList implements Serializable {
 		}
 		return emails;
 	}
-	
+
 	public ArrayList<String> getListOfEmailsWhoHasntPaid() {
 		ArrayList<String> emails = new ArrayList<String>();
 		for (Member e : getListOfMembersWhoHasntPaid()) {
@@ -51,7 +46,7 @@ public class MemberList implements Serializable {
 	}
 
 	public Member getMemberByID(int ID) throws MemberNotFoundException {
-		for(Member e : this.members) {
+		for (Member e : this.members) {
 			if (ID == e.getID()) {
 				return e;
 			}
@@ -62,27 +57,17 @@ public class MemberList implements Serializable {
 	public void addMember(Member member) {
 		members.add(member);
 	}
-	
+
 	public int getSize() {
-	    return members.size();
+		return members.size();
 	}
 
-	public boolean hasNext() {
-		return iter.hasNext();
-	}
+	public String toString() {
+		String returnString = "";
+		for (Member e : members)
+			returnString += e.toString() + "\n";
 
-	public Member next() {
-		return iter.next();
-	}
-	
-	public String toString ()
-	{
-	   String returnString = "";
-	   for (Member e: members)
-	   {
-	      returnString += e.toString()+"\n";
-	   }
-	   return returnString;
+		return returnString;
 	}
 
 }

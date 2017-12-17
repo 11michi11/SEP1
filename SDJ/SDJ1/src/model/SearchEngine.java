@@ -5,9 +5,25 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SearchEngine {
+	
+	public static boolean search(String stack, String needle) {
+		stack = stack.toLowerCase();
+		needle = needle.toLowerCase();
+		Pattern p = Pattern.compile(stack);
+		Matcher m = p.matcher("");
+		m.reset(needle);
+		
+		if (m.matches() || m.hitEnd()) {
+			return true;
+		} else if (stack.length() > needle.length()) {
+			String newStack = stack.substring(1, stack.length());
+			return search(newStack, needle);
+		} else {
+			return false;
+		}
+	}
 
 	public static ArrayList<Member> searchForMembers(ArrayList<Member> members, String needle) {
-
 		ArrayList<Member> searchedMembers = new ArrayList<Member>();
 		for (Member e : members) {
 			if (search(e.getName(), needle))
@@ -29,6 +45,7 @@ public class SearchEngine {
 					if (search(i.toString(), needle))
 						searchedLecturers.add(e);
 		}
+
 		return searchedLecturers;
 	}
 
@@ -69,21 +86,5 @@ public class SearchEngine {
 			}
 		}
 		return searchedEvents;
-	}
-
-	public static boolean search(String stack, String needle) {
-		stack = stack.toLowerCase();
-		needle = needle.toLowerCase();
-		Pattern p = Pattern.compile(stack);
-		Matcher m = p.matcher("");
-		m.reset(needle);
-		if (m.matches() || m.hitEnd()) {
-			return true;
-		} else if (stack.length() > needle.length()) {
-			String newStack = stack.substring(1, stack.length());
-			return search(newStack, needle);
-		} else {
-			return false;
-		}
 	}
 }
