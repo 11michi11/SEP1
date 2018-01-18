@@ -1,0 +1,23 @@
+1. Methodology 
+	- work divided (GUI / MODEL) 
+	- work efficienty
+	- too much people in one task (conflicts (merge conflicts))
+
+2. Class example - Member List
+	- purpose
+	- description and explanation
+	- List methods
+
+3. Table Model
+	- purpose
+	- explanation
+
+4. FileManager
+	- purpose
+	- static
+	- serializable
+	- binary files storage/reading
+	- text files reading
+
+5. Testing
+	-All green :P 
