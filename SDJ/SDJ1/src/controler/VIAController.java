@@ -6,16 +6,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
-import fileManager.FileManager;
-import model.Category;
-import model.Event;
-import model.EventNotFoundException;
-import model.Lecturer;
-import model.Member;
-import model.MyDate;
-import model.Participant;
-import model.SearchEngine;
-import model.VIAManager;
+
+import domain.mediator.FileManager;
+import domain.mediator.VIAManager;
+import domain.model.Category;
+import domain.model.Event;
+import domain.model.EventNotFoundException;
+import domain.model.Lecturer;
+import domain.model.Member;
+import domain.model.MyDate;
+import domain.model.Participant;
+import domain.model.SearchEngine;
 import view.EventListPanel;
 import view.LecturerListPanel;
 import view.MemberListPanel;
@@ -26,10 +27,16 @@ public class VIAController {
 
 	private static VIAManager manager;
 	private static VIAWindow window;
+	private static VIAController controller;
 
-	public VIAController() {
+	private VIAController() {
 		manager = new VIAManager();
 		showWindow();
+	}
+	public static VIAController getInstance(){
+	    if(controller==null)
+		controller=new VIAController();
+	    return controller;
 	}
 
 	public static void performClosingOperations() throws IOException {
@@ -133,7 +140,7 @@ public class VIAController {
 				case 4:
 					return Integer.class;
 				case 5:
-					return model.Member.class;
+					return domain.model.Member.class;
 				default:
 					return Boolean.class;
 				}
@@ -184,7 +191,7 @@ public class VIAController {
 				case 4:
 					return Boolean.class;
 				case 5:
-					return model.Lecturer.class;
+					return domain.model.Lecturer.class;
 				default:
 					return Boolean.class;
 				}
@@ -234,7 +241,7 @@ public class VIAController {
 				case 5:
 					return Boolean.class;
 				case 6:
-					return model.Lecturer.class;
+					return domain.model.Lecturer.class;
 				default:
 					return Boolean.class;
 				}
@@ -322,7 +329,7 @@ public class VIAController {
 				case 0:
 					return String.class;
 				case 1:
-					return model.Newsletter.class;
+					return domain.model.Newsletter.class;
 				case 2:
 				default:
 					return Boolean.class;
@@ -434,7 +441,7 @@ public class VIAController {
 				case 1:
 					return String.class;
 				case 2:
-					return model.Participant.class;
+					return domain.model.Participant.class;
 				default:
 					return Boolean.class;
 				}
@@ -483,7 +490,7 @@ public class VIAController {
 				case 4:
 					return Integer.class;
 				case 5:
-					return model.Member.class;
+					return domain.model.Member.class;
 				default:
 					return Boolean.class;
 				}
@@ -535,7 +542,7 @@ public class VIAController {
 				case 4:
 					return Boolean.class;
 				case 5:
-					return model.Lecturer.class;
+					return domain.model.Lecturer.class;
 				default:
 					return Boolean.class;
 				}

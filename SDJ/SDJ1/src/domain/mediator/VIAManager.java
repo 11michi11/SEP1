@@ -1,4 +1,4 @@
-package model;
+package domain.mediator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,9 +6,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
-import fileManager.FileManager;
+import domain.model.Category;
+import domain.model.Event;
+import domain.model.EventList;
+import domain.model.EventNotFoundException;
+import domain.model.Lecture;
+import domain.model.Lecturer;
+import domain.model.LecturerList;
+import domain.model.Member;
+import domain.model.MemberList;
+import domain.model.MyDate;
+import domain.model.Participant;
+import domain.model.Seminar;
+import domain.model.Trip;
+import domain.model.Workshop;
 
-public class VIAManager {
+public class VIAManager implements ModelManager{
 
 	private MemberList members;
 	private LecturerList lecturers;

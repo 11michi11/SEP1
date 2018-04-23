@@ -25,12 +25,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import controler.VIAController;
-import model.Category;
-import model.Event;
-import model.InvalidDateInput;
-import model.Lecturer;
-import model.MyDate;
-import model.Seminar;
+import domain.model.Category;
+import domain.model.Event;
+import domain.model.InvalidDateInput;
+import domain.model.Lecturer;
+import domain.model.MyDate;
+import domain.model.Seminar;
 
 public class EventCreateFormSeminars extends VIAPanel {
 

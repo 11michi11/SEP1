@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import controler.VIAController;
-import model.Category;
+import domain.model.Category;
 
 public class SignUpFormLecturer extends VIAPanel {
 

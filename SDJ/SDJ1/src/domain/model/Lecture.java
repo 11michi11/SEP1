@@ -1,8 +1,9 @@
-package model;
+package domain.model;
 
+import java.util.ArrayList;
 import java.util.Map;
 
-public class Lecture extends Event {
+public class Lecture extends Event implements Categorized{
 
 	private Category category;
 	private Lecturer lecturer;
@@ -46,6 +47,13 @@ public class Lecture extends Event {
 		return "\t" + title + "\n" + description + "\nDate: " + startDate + "-" + endDate + "\nLecturer: "
 				+ lecturerName + "\nCategorie of given speech: " + category.toString() + "\nPrice: " + price
 				+ "\nPrice for members: " + priceForMembers + "\nAvaliable places: " + places;
+	}
+
+	@Override
+	public ArrayList<Category> getCategories() {
+		ArrayList<Category> list = new ArrayList<Category>();
+		list.add(category);
+		return list;
 	}
 
 }

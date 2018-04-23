@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import controler.VIAController;
-import model.EventNotFoundException;
+import domain.model.EventNotFoundException;
 
 public class SignUpFormParticipant extends VIAPanel {
 

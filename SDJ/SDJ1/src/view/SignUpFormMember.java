@@ -16,8 +16,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import controler.VIAController;
-import model.InvalidDateInput;
-import model.MyDate;
+import domain.model.InvalidDateInput;
+import domain.model.MyDate;
 
 public class SignUpFormMember extends VIAPanel {
 

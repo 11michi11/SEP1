@@ -25,7 +25,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import controler.VIAController;
-import model.Event;
+import domain.model.Event;
 
 public class EventListPanel extends VIAPanel {
 

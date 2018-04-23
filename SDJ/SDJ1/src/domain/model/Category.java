@@ -1,4 +1,4 @@
-package model;
+package domain.model;
 
 public enum Category {
 	Astrology, Meditation, Reincarnation, Health, Buddhism, Nature, Other;
