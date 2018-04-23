@@ -27,10 +27,16 @@ public class VIAController {
 
 	private static VIAManager manager;
 	private static VIAWindow window;
+	private static VIAController controller;
 
-	public VIAController() {
+	private VIAController() {
 		manager = new VIAManager();
 		showWindow();
+	}
+	public static VIAController getInstance(){
+	    if(controller==null)
+		controller=new VIAController();
+	    return controller;
 	}
 
 	public static void performClosingOperations() throws IOException {
