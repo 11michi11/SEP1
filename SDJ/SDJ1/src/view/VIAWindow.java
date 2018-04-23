@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import controler.VIAController;
 
-public class VIAWindow {
+public class VIAWindow implements ViewManager {
 
 	private JFrame frame;
 
@@ -42,27 +42,33 @@ public class VIAWindow {
 					e1.printStackTrace();
 				}
 			}
-		
+
 			@Override
-			public void windowActivated(WindowEvent arg0) {
+			public void windowActivated(WindowEvent e) {
 			}
 
 			@Override
-			public void windowClosed(WindowEvent arg0) {
+			public void windowClosed(WindowEvent e) {
 			}
 
 			@Override
-			public void windowDeactivated(WindowEvent arg0) {
+			public void windowDeactivated(WindowEvent e) {
 			}
 
 			@Override
-			public void windowDeiconified(WindowEvent arg0) {
+			public void windowDeiconified(WindowEvent e) {
 			}
 
 			@Override
-			public void windowIconified(WindowEvent arg0) {
+			public void windowIconified(WindowEvent e) {
 			}
 		});
+	}
+
+	
+	@Override
+	public void showStartPanel() {
+		
 	}
 
 }

@@ -4,11 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import controler.VIAController;
 
 public class StartPanel extends VIAPanel {
 
@@ -18,9 +21,11 @@ public class StartPanel extends VIAPanel {
 	private JButton listOf;
 	private JLabel welcome;
 	private JFrame frame;
+	private VIACntroller controller;
 
 	public StartPanel(JFrame mainFrame) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = mainFrame;
 		setLayout(new BorderLayout());
 		createComponents();
@@ -43,6 +48,7 @@ public class StartPanel extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				controller.showEvents();
 				JPanel newContentPane = new EventPanel(frame, currentPanel);
 				frame.setContentPane(newContentPane);
 				frame.revalidate();
