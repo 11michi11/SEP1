@@ -19,8 +19,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import controler.VIAController;
-import model.Event;
-import model.Member;
+import domain.model.Event;
+import domain.model.Member;
 
 public class MemberMultipleChoice extends VIAPanel {
 

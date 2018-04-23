@@ -1,18 +1,20 @@
-package model;
+package domain.model;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import domain.model.Categorized;
+
 public class SearchEngine {
-	
+
 	public static boolean search(String stack, String needle) {
 		stack = stack.toLowerCase();
 		needle = needle.toLowerCase();
 		Pattern p = Pattern.compile(stack);
 		Matcher m = p.matcher("");
 		m.reset(needle);
-		
+
 		if (m.matches() || m.hitEnd()) {
 			return true;
 		} else if (stack.length() > needle.length()) {
@@ -56,32 +58,13 @@ public class SearchEngine {
 					|| search(e.getStartDate().toString(), needle))
 				searchedEvents.add(e);
 			else {
-
-				switch (e.getClass().getName()) {
-				case "model.Lecture":
-					if (search(((Lecture) e).getCategory().toString(), needle)) {
-						System.out.println(((Lecture) e).getCategory().toString());
-						searchedEvents.add(e);
-					}
-					break;
-				case "model.Seminar":
-					for (Category i : ((Seminar) e).getCategories()) {
+				if (!(e instanceof Trip)) {
+					Categorized categorized = (Categorized) e;
+					for (Category i : categorized.getCategories()) {
 						if (search(i.toString(), needle)) {
-							System.out.println(i.toString());
 							searchedEvents.add(e);
 						}
 					}
-					break;
-				case "model.Workshop":
-					for (Category i : ((Workshop) e).getCategories()) {
-						if (search(i.toString(), needle)) {
-							System.out.println(i.toString());
-							searchedEvents.add(e);
-						}
-					}
-					break;
-				default:
-					break;
 				}
 			}
 		}

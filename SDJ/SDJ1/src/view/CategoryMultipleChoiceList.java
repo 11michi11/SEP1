@@ -17,7 +17,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import model.Category;
+
+import domain.model.Category;
 
 public class CategoryMultipleChoiceList extends VIAPanel {
 

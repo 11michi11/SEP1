@@ -19,10 +19,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import controler.VIAController;
-import model.Event;
-import model.InvalidDateInput;
-import model.MyDate;
-import model.Trip;
+import domain.model.Event;
+import domain.model.InvalidDateInput;
+import domain.model.MyDate;
+import domain.model.Trip;
 
 public class EventCreateFormTrip extends VIAPanel {
 

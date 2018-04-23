@@ -1,9 +1,9 @@
-package model;
+package domain.model;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Workshop extends Event {
+public class Workshop extends Event implements Categorized{
 
 	private ArrayList<Category> categories;
 	private ArrayList<Lecturer> lecturers;
@@ -24,6 +24,7 @@ public class Workshop extends Event {
 		return this.lecturers;
 	}
 
+	@Override
 	public ArrayList<Category> getCategories() {
 		return this.categories;
 	}

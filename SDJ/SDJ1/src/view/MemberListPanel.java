@@ -23,8 +23,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import controler.VIAController;
-import model.Member;
-import model.MemberAlreadyPaidException;
+import domain.model.Member;
+import domain.model.MemberAlreadyPaidException;
 
 public class MemberListPanel extends VIAPanel {
 

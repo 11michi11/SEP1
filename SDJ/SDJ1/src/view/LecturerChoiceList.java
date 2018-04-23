@@ -18,7 +18,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import controler.VIAController;
-import model.Lecturer;
+import domain.model.Lecturer;
 
 public class LecturerChoiceList extends VIAPanel {
 

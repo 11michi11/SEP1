@@ -1,4 +1,4 @@
-package fileManager;
+package domain.mediator;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,18 +12,19 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-import model.Category;
-import model.Event;
-import model.EventList;
-import model.Lecture;
-import model.Lecturer;
-import model.LecturerList;
-import model.Member;
-import model.MemberList;
-import model.MyDate;
-import model.Seminar;
-import model.Trip;
-import model.Workshop;
+
+import domain.model.Category;
+import domain.model.Event;
+import domain.model.EventList;
+import domain.model.Lecture;
+import domain.model.Lecturer;
+import domain.model.LecturerList;
+import domain.model.Member;
+import domain.model.MemberList;
+import domain.model.MyDate;
+import domain.model.Seminar;
+import domain.model.Trip;
+import domain.model.Workshop;
 
 public class FileManager {
 
