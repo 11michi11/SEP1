@@ -5,11 +5,14 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import controler.VIAController;
 
 public class EventPanel extends VIAPanel {
 
@@ -20,9 +23,11 @@ public class EventPanel extends VIAPanel {
 	private VIAButtonBack back;
 	private JFrame frame;
 	private JPanel parentPanel;
+	private VIAController controller;
 
 	public EventPanel(JFrame frame, JPanel parentPanel) {
 		this.frame = frame;
+		controller = VIAController.getInstance();
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
@@ -41,45 +46,13 @@ public class EventPanel extends VIAPanel {
 	public void registerEventHandlers() {
 		JPanel currentPanel = this;
 
-		lectures.addActionListener(new ActionListener() {
+		lectures.addActionListener(e -> controller.showEventCreateFormLectures(currentPanel));
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new EventCreateFormLectures(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
+		seminars.addActionListener(e -> controller.showEventCreateFormSeminars(currentPanel));
 
-		seminars.addActionListener(new ActionListener() {
+		workshop.addActionListener(e -> controller.showEventCreateFormWorkshop(currentPanel));
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new EventCreateFormSeminars(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
-
-		workshop.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new EventCreateFormWorkshop(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
-
-		trips.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new EventCreateFormTrip(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
+		trips.addActionListener(e -> controller.showEventCreateFormTrip(currentPanel));
 
 		back.addActionListener(new ActionListener() {
 

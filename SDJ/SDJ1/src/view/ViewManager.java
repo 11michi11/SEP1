@@ -8,5 +8,10 @@ public interface ViewManager {
 	public void showEventsPanel(JPanel currentPanel);
 	public void showNewsletterPanel(JPanel currentPanel);
 	public void showSignUpPanel(JPanel currentPanel);
-	public void showListsPanel(JPanel currentPanel 	);
+	public void showListsPanel(JPanel currentPanel);
+	public void showEventCreateFormLectures(JPanel currentPanel);
+	public void showEventCreateFormSeminars(JPanel currentPanel);
+	public void showEventCreateFormWorkshop(JPanel currentPanel);
+	public void showEventCreateFormTrip(JPanel currentPanel);
+	public void showLecturerChoiceWindow();
 }
