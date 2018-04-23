@@ -103,7 +103,7 @@ public class VIAController {
 		ParticipantListPanel.refreshTable();
 	}
 
-	public static void addEventToList(Map<String, Object> configuration) {
+	public void addEventToList(Map<String, Object> configuration) {
 		manager.addEvent(configuration);
 		EventListPanel.refreshTable();
 	}
@@ -768,5 +768,13 @@ public class VIAController {
 
 	public void showLecturerChoiceWindow() {
 		window.showLecturerChoiceWindow();
+	}
+
+	public void showLecturerMultipleChoiceListWindow(JPanel currentPanel) {
+		window.showLecturerMultipleChoiceListWindow(currentPanel);
+	}
+
+	public void showCategoryMultipleChoiceList(JPanel currentPanel) {
+		window.showCategoryMultipleChoiceList(currentPanel);
 	}
 }

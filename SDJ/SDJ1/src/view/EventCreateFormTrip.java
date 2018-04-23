@@ -49,9 +49,11 @@ public class EventCreateFormTrip extends VIAPanel {
 	private JFrame frame;
 	private JPanel parentPanel;
 	private Event event;
+	private VIAController controller;
 
 	public EventCreateFormTrip(JFrame frame, JPanel parentPanel) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
@@ -62,6 +64,7 @@ public class EventCreateFormTrip extends VIAPanel {
 
 	public EventCreateFormTrip(JFrame frame, JPanel parentPanel, Event event) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = frame;
 		this.event = event;
 		this.parentPanel = parentPanel;
@@ -140,7 +143,7 @@ public class EventCreateFormTrip extends VIAPanel {
 						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
 
 					if (event == null)
-						VIAController.addEventToList(configuration);
+						controller.addEventToList(configuration);
 					else
 						event.modify(configuration);
 					close = true;

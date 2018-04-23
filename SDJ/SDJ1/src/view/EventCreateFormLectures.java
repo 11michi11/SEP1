@@ -166,7 +166,7 @@ public class EventCreateFormLectures extends VIAPanel {
 						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
 
 					if (event == null)
-						VIAController.addEventToList(configuration);
+						controller.addEventToList(configuration);
 					else
 						event.modify(configuration);
 

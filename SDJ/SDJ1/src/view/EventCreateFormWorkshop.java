@@ -58,9 +58,11 @@ public class EventCreateFormWorkshop extends VIAPanel {
 	private JFrame frame;
 	private JPanel parentPanel;
 	private Event event;
+	private VIAController controller;
 
 	public EventCreateFormWorkshop(JFrame frame, JPanel parentPanel) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
@@ -71,6 +73,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 
 	public EventCreateFormWorkshop(JFrame frame, JPanel parentPanel, Event event) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = frame;
 		this.event = event;
 		this.parentPanel = parentPanel;
@@ -127,21 +130,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 	public void registerEventHandlers() {
 		JPanel currentPanel = this;
 
-		lecturer.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JFrame lecturerChoice = new JFrame();
-				lecturerChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				lecturerChoice.setSize(900, 500);
-				lecturerChoice.setLocationRelativeTo(null);
-				lecturerChoice.setResizable(false);
-				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
-				lecturerChoice.setContentPane(new LecturerMultipleChoiceList(lecturerChoice, currentPanel));
-				lecturerChoice.setVisible(true);
-
-			}
-		});
+		lecturer.addActionListener(e -> controller.showLecturerMultipleChoiceListWindow(currentPanel));
 
 		save.addActionListener(new ActionListener() {
 
@@ -170,7 +159,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
 
 					if (event == null)
-						VIAController.addEventToList(configuration);
+						controller.addEventToList(configuration);
 					else
 						event.modify(configuration);
 					close = true;
@@ -187,20 +176,7 @@ public class EventCreateFormWorkshop extends VIAPanel {
 			}
 		});
 
-		category.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JFrame categoryChoice = new JFrame();
-				categoryChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				categoryChoice.setSize(900, 500);
-				categoryChoice.setLocationRelativeTo(null);
-				categoryChoice.setResizable(false);
-				categoryChoice.setTitle("VIA - Choice of category for event");
-				categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice, currentPanel));
-				categoryChoice.setVisible(true);
-			}
-		});
+		category.addActionListener(e -> controller.showCategoryMultipleChoiceList(currentPanel));
 
 		fieldStartDate.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {

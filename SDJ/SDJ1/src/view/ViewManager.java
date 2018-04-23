@@ -14,4 +14,6 @@ public interface ViewManager {
 	public void showEventCreateFormWorkshop(JPanel currentPanel);
 	public void showEventCreateFormTrip(JPanel currentPanel);
 	public void showLecturerChoiceWindow();
+	public void showLecturerMultipleChoiceListWindow(JPanel currentPanel);
+	public void showCategoryMultipleChoiceList(JPanel currentPanel);
 }
