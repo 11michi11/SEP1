@@ -44,46 +44,13 @@ public class StartPanel extends VIAPanel {
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
 
-		events.addActionListener(new ActionListener() {
+		events.addActionListener(e -> controller.showEventsPanel(currentPanel));
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				controller.showEvents();
-				JPanel newContentPane = new EventPanel(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
+		newsletter.addActionListener(e -> controller.showNewsletterPanel(currentPanel));
 
-		newsletter.addActionListener(new ActionListener() {
+		signUp.addActionListener(e -> controller.showSignUpPanel(currentPanel));
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new Newsletter(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
-
-		signUp.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new SignUpPanel(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
-
-		listOf.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new ListsPanel(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
+		listOf.addActionListener(e -> controller.showListsPanel(currentPanel));
 
 	}
 

@@ -105,4 +105,49 @@ public class VIAWindow implements ViewManager {
 		frame.revalidate();
 	}
 
+
+	@Override
+	public void showEventCreateFormLectures(JPanel currentPanel) {
+		JPanel newContentPane = new EventCreateFormLectures(frame, currentPanel);
+		frame.setContentPane(newContentPane);
+		frame.revalidate();
+	}
+
+
+	@Override
+	public void showEventCreateFormSeminars(JPanel currentPanel) {
+		JPanel newContentPane = new EventCreateFormSeminars(frame, currentPanel);
+		frame.setContentPane(newContentPane);
+		frame.revalidate();
+	}
+
+
+	@Override
+	public void showEventCreateFormWorkshop(JPanel currentPanel) {
+		JPanel newContentPane = new EventCreateFormWorkshop(frame, currentPanel);
+		frame.setContentPane(newContentPane);
+		frame.revalidate();
+	}
+
+
+	@Override
+	public void showEventCreateFormTrip(JPanel currentPanel) {
+		JPanel newContentPane = new EventCreateFormTrip(frame, currentPanel);
+		frame.setContentPane(newContentPane);
+		frame.revalidate();
+	}
+
+
+	@Override
+	public void showLecturerChoiceWindow() {
+		JFrame lecturerChoice = new JFrame();
+		lecturerChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		lecturerChoice.setSize(900, 500);
+		lecturerChoice.setLocationRelativeTo(null);
+		lecturerChoice.setResizable(false);
+		lecturerChoice.setTitle("VIA - Choice of lecturer for event");
+		lecturerChoice.setContentPane(new LecturerChoiceList(lecturerChoice));
+		lecturerChoice.setVisible(true);
+	}
+
 }

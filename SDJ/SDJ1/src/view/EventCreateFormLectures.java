@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.HashMap;
+
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
 import controler.VIAController;
 import domain.model.Category;
 import domain.model.Event;
@@ -55,9 +57,11 @@ public class EventCreateFormLectures extends VIAPanel {
 	private JComboBox categoryBox;
 	private JButton lecturerChoice;
 	private Event event;
+	private VIAController controller;
 
 	public EventCreateFormLectures(JFrame frame, JPanel parentPanel) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
@@ -126,15 +130,7 @@ public class EventCreateFormLectures extends VIAPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame lecturerChoice = new JFrame();
-				lecturerChoice.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				lecturerChoice.setSize(900, 500);
-				lecturerChoice.setLocationRelativeTo(null);
-				lecturerChoice.setResizable(false);
-				lecturerChoice.setTitle("VIA - Choice of lecturer for event");
-				lecturerChoice.setContentPane(new LecturerChoiceList(lecturerChoice));
-				lecturerChoice.setVisible(true);
-
+				controller.showLecturerChoiceWindow();
 			}
 		});
 
