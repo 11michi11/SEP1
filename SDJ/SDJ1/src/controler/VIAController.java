@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 
 import domain.mediator.FileManager;
+import domain.mediator.ModelManager;
 import domain.mediator.VIAManager;
 import domain.model.Category;
 import domain.model.Event;
@@ -22,17 +23,19 @@ import view.LecturerListPanel;
 import view.MemberListPanel;
 import view.ParticipantListPanel;
 import view.VIAWindow;
+import view.ViewManager;
 
 public class VIAController {
 
-	private static VIAManager manager;
-	private static VIAWindow window;
+	private static ModelManager manager;
+	private static ViewManager window;
 	private static VIAController controller;
 
 	private VIAController() {
 		manager = new VIAManager();
 		showWindow();
 	}
+
 	public static VIAController getInstance(){
 	    if(controller==null)
 		controller=new VIAController();
@@ -727,5 +730,9 @@ public class VIAController {
 				window = new VIAWindow();
 			}
 		});
+	}
+	
+	public void showEvents() {
+		window.showStartPanel();
 	}
 }

@@ -21,7 +21,7 @@ public class StartPanel extends VIAPanel {
 	private JButton listOf;
 	private JLabel welcome;
 	private JFrame frame;
-	private VIACntroller controller;
+	private VIAController controller;
 
 	public StartPanel(JFrame mainFrame) {
 		super();
