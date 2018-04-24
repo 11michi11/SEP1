@@ -35,9 +35,11 @@ public class Newsletter extends VIAPanel {
 	private JFrame frame;
 	private JPanel parentPanel;
 	private JButton back;
+	private VIAController controller;
 
 	public Newsletter(JFrame frame, JPanel parentPanel) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
@@ -47,7 +49,7 @@ public class Newsletter extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		DefaultTableModel model = VIAController.getNewsletterTableModel();
+		DefaultTableModel model = controller.getNewsletterTableModel();
 
 		table = new JTable(model);
 		table.removeColumn(table.getColumnModel().getColumn(1));
@@ -76,14 +78,7 @@ public class Newsletter extends VIAPanel {
 					int selRow = table.getSelectedRow();
 					File newsletter = (File) model.getValueAt(selRow, 1);
 
-					JFrame newsletterFrame = new JFrame();
-					newsletterFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-					newsletterFrame.setSize(900, 500);
-					newsletterFrame.setLocationRelativeTo(null);
-					newsletterFrame.setResizable(false);
-					newsletterFrame.setTitle("VIA - Add new member");
-					newsletterFrame.setContentPane(new NewsletterContent(newsletter));
-					newsletterFrame.setVisible(true);
+					controller.showNewsletterContentWindow(newsletter);
 				}
 			}
 		});

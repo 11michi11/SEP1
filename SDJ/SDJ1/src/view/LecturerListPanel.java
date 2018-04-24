@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -29,10 +30,12 @@ public class LecturerListPanel extends VIAPanel {
 	private JButton back;
 	private JPanel parentPanel;
 	private JScrollPane scrollPane;
+	private static VIAController controller;
 
 	public LecturerListPanel(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
+		controller = VIAController.getInstance();
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 		initializeComponents();
@@ -41,7 +44,7 @@ public class LecturerListPanel extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		DefaultTableModel model = VIAController.getLecturersTableModel();
+		DefaultTableModel model = controller.getLecturersTableModel();
 
 		search = new JTextField(47);
 		search.setText("SEARCH");
@@ -63,26 +66,13 @@ public class LecturerListPanel extends VIAPanel {
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
 
-		add.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JFrame lecturer = new JFrame();
-				lecturer.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				lecturer.setSize(900, 500);
-				lecturer.setLocationRelativeTo(null);
-				lecturer.setResizable(false);
-				lecturer.setTitle("VIA - Add new member");
-				lecturer.setContentPane(new SignUpFormLecturer(lecturer, currentPanel));
-				lecturer.setVisible(true);
-			}
-		});
+		add.addActionListener(e -> controller.showSignUpFormLecturer(currentPanel));
 
 		search.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel model = VIAController.getSearchedLecturers(search.getText());
+				DefaultTableModel model = controller.getSearchedLecturers(search.getText());
 				table.setModel(model);
 				table.removeColumn(table.getColumnModel().getColumn(5));
 			}
@@ -144,7 +134,7 @@ public class LecturerListPanel extends VIAPanel {
 
 	public static void refreshTable() {
 		if (table != null) {
-			DefaultTableModel model = VIAController.getLecturersTableModel();
+			DefaultTableModel model = controller.getLecturersTableModel();
 			table.setModel(model);
 			table.removeColumn(table.getColumnModel().getColumn(5));
 		}

@@ -39,9 +39,11 @@ public class MemberListPanel extends VIAPanel {
 	private JFrame frame;
 	private JButton back;
 	private JPanel parentPanel;
+	private VIAController controller;
 
 	public MemberListPanel(JFrame frame, JPanel parentPanel) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
@@ -63,7 +65,7 @@ public class MemberListPanel extends VIAPanel {
 
 		memberList = new VIALabel("MEMBER LIST", 40);
 
-		DefaultTableModel model = VIAController.getMembersTableModel();
+		DefaultTableModel model = controller.getMembersTableModel();
 		table = new JTable(model);
 		table.removeColumn(table.getColumnModel().getColumn(5));
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
@@ -100,26 +102,13 @@ public class MemberListPanel extends VIAPanel {
 			}
 		});
 
-		add.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JFrame member = new JFrame();
-				member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				member.setSize(900, 500);
-				member.setLocationRelativeTo(null);
-				member.setResizable(false);
-				member.setTitle("VIA - Add new member");
-				member.setContentPane(new SignUpFormMember(member, currentPanel));
-				member.setVisible(true);
-			}
-		});
+		add.addActionListener(e -> controller.showSignUpFormMember(currentPanel));
 
 		search.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel model = VIAController.getSearchedMembers(search.getText());
+				DefaultTableModel model = controller.getSearchedMembers(search.getText());
 				table.setModel(model);
 				table.removeColumn(table.getColumnModel().getColumn(5));
 			}
@@ -140,7 +129,7 @@ public class MemberListPanel extends VIAPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Member member = (Member) table.getModel().getValueAt(table.getSelectedRow(), 5);
-				VIAController.deleteMember(member);
+				controller.deleteMember(member);
 			}
 		});
 
@@ -149,7 +138,7 @@ public class MemberListPanel extends VIAPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					VIAController.generateAllEmails();
+					controller.generateAllEmails();
 					JOptionPane.showMessageDialog(frame, "File generated succesfully", "File generated",
 							JOptionPane.PLAIN_MESSAGE);
 				} catch (IOException e1) {
@@ -164,7 +153,7 @@ public class MemberListPanel extends VIAPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					VIAController.generateEmailsWhoHasntPaid();
+					controller.generateEmailsWhoHasntPaid();
 					JOptionPane.showMessageDialog(frame, "File generated succesfully", "File generated",
 							JOptionPane.PLAIN_MESSAGE);
 				} catch (IOException e1) {

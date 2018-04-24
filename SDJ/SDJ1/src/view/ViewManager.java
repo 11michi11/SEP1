@@ -1,6 +1,10 @@
 package view;
 
+import java.io.File;
+
 import javax.swing.JPanel;
+
+import domain.model.Lecturer;
 
 public interface ViewManager {
 
@@ -16,4 +20,11 @@ public interface ViewManager {
 	public void showLecturerChoiceWindow();
 	public void showLecturerMultipleChoiceListWindow(JPanel currentPanel);
 	public void showCategoryMultipleChoiceList(JPanel currentPanel);
+	public void showNewsletterContentWindow(File newsletter);
+	public void showLecturerListPanel(JPanel currentPanel);
+	public void showMemberListPanel(JPanel currentPanel);
+	public void showEventListPanel(JPanel currentPanel);
+	public void showParticipantListPanel(JPanel currentPanel);
+	public void showSignUpFormLecturer(JPanel currentPanel);
+	public void showSignUpFormMember(JPanel currentPanel);
 }

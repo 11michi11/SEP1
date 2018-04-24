@@ -1,16 +1,16 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import controler.VIAController;
 
 public class ListsPanel extends VIAPanel {
 
@@ -21,9 +21,11 @@ public class ListsPanel extends VIAPanel {
 	private JButton back;
 	private JFrame frame;
 	private JPanel parentPanel;
+	private VIAController controller;
 
 	public ListsPanel(JFrame frame, JPanel parentPanel) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
@@ -43,45 +45,13 @@ public class ListsPanel extends VIAPanel {
 	public void registerEventHandlers() {
 		JPanel currentPanel = this;
 
-		lecturerList.addActionListener(new ActionListener() {
+		lecturerList.addActionListener(e -> controller.showLecturerListPanel(currentPanel));
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new LecturerListPanel(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
+		memberList.addActionListener(e -> controller.showMemberListPanel(currentPanel));
 
-		memberList.addActionListener(new ActionListener() {
+		eventList.addActionListener(e -> controller.showEventListPanel(currentPanel));
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new MemberListPanel(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
-
-		eventList.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new EventListPanel(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
-
-		participantList.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new ParticipantListPanel(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
+		participantList.addActionListener(e -> controller.showParticipantListPanel(currentPanel));
 
 	}
 

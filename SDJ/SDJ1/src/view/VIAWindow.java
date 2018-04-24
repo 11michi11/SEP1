@@ -2,10 +2,12 @@ package view;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.File;
 import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import controler.VIAController;
+import domain.model.Lecturer;
 
 public class VIAWindow implements ViewManager {
 
@@ -174,6 +176,77 @@ public class VIAWindow implements ViewManager {
 		categoryChoice.setTitle("VIA - Choice of category for event");
 		categoryChoice.setContentPane(new CategoryMultipleChoiceList(categoryChoice, currentPanel));
 		categoryChoice.setVisible(true);
+	}
+
+
+	@Override
+	public void showNewsletterContentWindow(File newsletter) {
+		JFrame newsletterFrame = new JFrame();
+		newsletterFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		newsletterFrame.setSize(900, 500);
+		newsletterFrame.setLocationRelativeTo(null);
+		newsletterFrame.setResizable(false);
+		newsletterFrame.setTitle("VIA - Add new member");
+		newsletterFrame.setContentPane(new NewsletterContent(newsletter));
+		newsletterFrame.setVisible(true);
+	}
+
+
+	@Override
+	public void showLecturerListPanel(JPanel currentPanel) {
+		JPanel newContentPane = new LecturerListPanel(frame, currentPanel);
+		frame.setContentPane(newContentPane);
+		frame.revalidate();
+	}
+
+
+	@Override
+	public void showMemberListPanel(JPanel currentPanel) {
+		JPanel newContentPane = new MemberListPanel(frame, currentPanel);
+		frame.setContentPane(newContentPane);
+		frame.revalidate();
+	}
+
+
+	@Override
+	public void showEventListPanel(JPanel currentPanel) {
+		JPanel newContentPane = new EventListPanel(frame, currentPanel);
+		frame.setContentPane(newContentPane);
+		frame.revalidate();
+	}
+
+
+	@Override
+	public void showParticipantListPanel(JPanel currentPanel) {
+		JPanel newContentPane = new ParticipantListPanel(frame, currentPanel);
+		frame.setContentPane(newContentPane);
+		frame.revalidate();
+	}
+
+
+	@Override
+	public void showSignUpFormLecturer(JPanel currentPanel) {
+		JFrame lecturer = new JFrame();
+		lecturer.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		lecturer.setSize(900, 500);
+		lecturer.setLocationRelativeTo(null);
+		lecturer.setResizable(false);
+		lecturer.setTitle("VIA - Add new member");
+		lecturer.setContentPane(new SignUpFormLecturer(lecturer, currentPanel));
+		lecturer.setVisible(true);
+	}
+
+
+	@Override
+	public void showSignUpFormMember(JPanel currentPanel) {
+		JFrame member = new JFrame();
+		member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		member.setSize(900, 500);
+		member.setLocationRelativeTo(null);
+		member.setResizable(false);
+		member.setTitle("VIA - Add new member");
+		member.setContentPane(new SignUpFormMember(member, currentPanel));
+		member.setVisible(true);
 	}
 
 }

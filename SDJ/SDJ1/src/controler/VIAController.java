@@ -777,4 +777,32 @@ public class VIAController {
 	public void showCategoryMultipleChoiceList(JPanel currentPanel) {
 		window.showCategoryMultipleChoiceList(currentPanel);
 	}
+
+	public void showNewsletterContentWindow(File newsletter) {
+		window.showNewsletterContentWindow(newsletter);
+	}
+
+	public void showLecturerListPanel(JPanel currentPanel) {
+		window.showLecturerListPanel(currentPanel);
+	}
+
+	public void showMemberListPanel(JPanel currentPanel) {
+		window.showMemberListPanel(currentPanel);
+	}
+
+	public void showEventListPanel(JPanel currentPanel) {
+		window.showEventListPanel(currentPanel);
+	}
+
+	public void showParticipantListPanel(JPanel currentPanel) {
+		window.showParticipantListPanel(currentPanel);
+	}
+
+	public void showSignUpFormLecturer(JPanel currentPanel) {
+		window.showSignUpFormLecturer(currentPanel);
+	}
+
+	public void showSignUpFormMember(JPanel currentPanel) {
+		window.showSignUpFormMember(currentPanel);
+	}
 }
