@@ -42,9 +42,11 @@ public class EventListPanel extends VIAPanel {
 	private JFrame frame;
 	private JButton back;
 	private JPanel parentPanel;
+	private VIAController controller;
 
 	public EventListPanel(JFrame frame, JPanel parentPanel) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
@@ -54,7 +56,7 @@ public class EventListPanel extends VIAPanel {
 	}
 
 	private void initializeComponents() {
-		DefaultTableModel model = VIAController.getEventsTableModel();
+		DefaultTableModel model = controller.getEventsTableModel();
 
 		table = new JTable(model);
 		table.removeColumn(table.getColumnModel().getColumn(2));
@@ -115,11 +117,11 @@ public class EventListPanel extends VIAPanel {
 
 			public void actionPerformed(ActionEvent e) {
 				if (finished.isSelected()) {
-					DefaultTableModel model = VIAController.getFinishedEvents();
+					DefaultTableModel model = controller.getFinishedEvents();
 					table.setModel(model);
 					table.removeColumn(table.getColumnModel().getColumn(2));
 				} else {
-					DefaultTableModel model = VIAController.getEventsTableModel();
+					DefaultTableModel model = controller.getEventsTableModel();
 					table.setModel(model);
 					table.removeColumn(table.getColumnModel().getColumn(2));
 				}

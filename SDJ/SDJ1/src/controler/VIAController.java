@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
+
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 import domain.mediator.FileManager;
@@ -36,10 +38,10 @@ public class VIAController {
 		showWindow();
 	}
 
-	public static VIAController getInstance(){
-	    if(controller==null)
-		controller=new VIAController();
-	    return controller;
+	public static VIAController getInstance() {
+		if (controller == null)
+			controller = new VIAController();
+		return controller;
 	}
 
 	public static void performClosingOperations() throws IOException {
@@ -101,7 +103,7 @@ public class VIAController {
 		ParticipantListPanel.refreshTable();
 	}
 
-	public static void addEventToList(Map<String, Object> configuration) {
+	public void addEventToList(Map<String, Object> configuration) {
 		manager.addEvent(configuration);
 		EventListPanel.refreshTable();
 	}
@@ -731,8 +733,76 @@ public class VIAController {
 			}
 		});
 	}
-	
-	public void showEvents() {
-		window.showStartPanel();
+
+	public void showEventsPanel(JPanel currentPanel) {
+		window.showEventsPanel(currentPanel);
+	}
+
+	public void showNewsletterPanel(JPanel currentPanel) {
+		window.showNewsletterPanel(currentPanel);
+	}
+
+	public void showSignUpPanel(JPanel currentPanel) {
+		window.showSignUpPanel(currentPanel);
+	}
+
+	public void showListsPanel(JPanel currentPanel) {
+		window.showListsPanel(currentPanel);
+	}
+
+	public void showEventCreateFormLectures(JPanel currentPanel) {
+		window.showEventCreateFormLectures(currentPanel);
+	}
+
+	public void showEventCreateFormWorkshop(JPanel currentPanel) {
+		window.showEventCreateFormWorkshop(currentPanel);
+	}
+
+	public void showEventCreateFormTrip(JPanel currentPanel) {
+		window.showEventCreateFormTrip(currentPanel);
+	}
+
+	public void showEventCreateFormSeminars(JPanel currentPanel) {
+		window.showEventCreateFormSeminars(currentPanel);
+	}
+
+	public void showLecturerChoiceWindow() {
+		window.showLecturerChoiceWindow();
+	}
+
+	public void showLecturerMultipleChoiceListWindow(JPanel currentPanel) {
+		window.showLecturerMultipleChoiceListWindow(currentPanel);
+	}
+
+	public void showCategoryMultipleChoiceList(JPanel currentPanel) {
+		window.showCategoryMultipleChoiceList(currentPanel);
+	}
+
+	public void showNewsletterContentWindow(File newsletter) {
+		window.showNewsletterContentWindow(newsletter);
+	}
+
+	public void showLecturerListPanel(JPanel currentPanel) {
+		window.showLecturerListPanel(currentPanel);
+	}
+
+	public void showMemberListPanel(JPanel currentPanel) {
+		window.showMemberListPanel(currentPanel);
+	}
+
+	public void showEventListPanel(JPanel currentPanel) {
+		window.showEventListPanel(currentPanel);
+	}
+
+	public void showParticipantListPanel(JPanel currentPanel) {
+		window.showParticipantListPanel(currentPanel);
+	}
+
+	public void showSignUpFormLecturer(JPanel currentPanel) {
+		window.showSignUpFormLecturer(currentPanel);
+	}
+
+	public void showSignUpFormMember(JPanel currentPanel) {
+		window.showSignUpFormMember(currentPanel);
 	}
 }
