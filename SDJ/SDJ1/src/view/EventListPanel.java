@@ -144,80 +144,19 @@ public class EventListPanel extends VIAPanel {
 			}
 		});
 
-		signUpParticipant.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JFrame participant = new JFrame();
-				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				participant.setSize(900, 500);
-				participant.setLocationRelativeTo(null);
-				participant.setResizable(false);
-				participant.setTitle("VIA - Sign up new participant");
-				Event event = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
-				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel, event.getID()));
-				participant.setVisible(true);
-			}
+		signUpParticipant.addActionListener(e -> {
+			Event event = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
+			controller.showSignUpFormParticipant(currentPanel, event);
 		});
 
-		signUpMember.addActionListener(new ActionListener() {
+		signUpMember.addActionListener(e -> controller.showSignUpFormMember(currentPanel));
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JFrame member = new JFrame();
-				member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				member.setSize(900, 500);
-				member.setLocationRelativeTo(null);
-				member.setResizable(false);
-				member.setTitle("VIA - Add members to event");
-				member.setContentPane(new SignUpFormMember(member, currentPanel));
-				member.setVisible(true);
-			}
+		modify.addActionListener(e -> {
+			Event event = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
+			controller.showModifyEventPanel(currentPanel, event);
 		});
 
-		modify.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JFrame modifyEvent = new JFrame();
-				modifyEvent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				modifyEvent.setSize(900, 500);
-				modifyEvent.setLocationRelativeTo(null);
-				modifyEvent.setResizable(false);
-				modifyEvent.setTitle("VIA - Modify event");
-				Event event = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
-				switch (event.getClass().getName()) {
-				case "model.Lecture":
-					modifyEvent.setContentPane(new EventCreateFormLectures(modifyEvent, currentPanel, event));
-					break;
-				case "model.Seminar":
-					modifyEvent.setContentPane(new EventCreateFormSeminars(modifyEvent, currentPanel, event));
-					break;
-				case "model.Workshop":
-					modifyEvent.setContentPane(new EventCreateFormWorkshop(modifyEvent, currentPanel, event));
-					break;
-				case "model.Trip":
-					modifyEvent.setContentPane(new EventCreateFormTrip(modifyEvent, currentPanel, event));
-					break;
-				}
-				modifyEvent.setVisible(true);
-			}
-		});
-
-		addEvent.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JFrame event = new JFrame();
-				event.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				event.setSize(900, 500);
-				event.setLocationRelativeTo(null);
-				event.setResizable(false);
-				event.setTitle("VIA - Crate new event");
-				event.setContentPane(new EventPanel(event, currentPanel));
-				event.setVisible(true);
-			}
-		});
+		addEvent.addActionListener(e -> controller.showEventsPanel(currentPanel));
 
 		table.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent mouseEvent) {

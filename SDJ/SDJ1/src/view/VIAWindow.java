@@ -4,10 +4,12 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.IOException;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import controler.VIAController;
-import domain.model.Lecturer;
+import domain.model.Event;
 
 public class VIAWindow implements ViewManager {
 
@@ -247,6 +249,45 @@ public class VIAWindow implements ViewManager {
 		member.setTitle("VIA - Add new member");
 		member.setContentPane(new SignUpFormMember(member, currentPanel));
 		member.setVisible(true);
+	}
+
+
+	@Override
+	public void showSignUpFormParticipant(JPanel currentPanel, Event event) {
+		JFrame participant = new JFrame();
+		participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		participant.setSize(900, 500);
+		participant.setLocationRelativeTo(null);
+		participant.setResizable(false);
+		participant.setTitle("VIA - Sign up new participant");
+		participant.setContentPane(new SignUpFormParticipant(participant, currentPanel, event.getID()));
+		participant.setVisible(true);
+	}
+
+
+	@Override
+	public void showModifyEventPanel(JPanel currentPanel, Event event) {
+		JFrame modifyEvent = new JFrame();
+		modifyEvent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		modifyEvent.setSize(900, 500);
+		modifyEvent.setLocationRelativeTo(null);
+		modifyEvent.setResizable(false);
+		modifyEvent.setTitle("VIA - Modify event");
+		switch (event.getClass().getName()) {
+		case "model.Lecture":
+			modifyEvent.setContentPane(new EventCreateFormLectures(modifyEvent, currentPanel, event));
+			break;
+		case "model.Seminar":
+			modifyEvent.setContentPane(new EventCreateFormSeminars(modifyEvent, currentPanel, event));
+			break;
+		case "model.Workshop":
+			modifyEvent.setContentPane(new EventCreateFormWorkshop(modifyEvent, currentPanel, event));
+			break;
+		case "model.Trip":
+			modifyEvent.setContentPane(new EventCreateFormTrip(modifyEvent, currentPanel, event));
+			break;
+		}
+		modifyEvent.setVisible(true);
 	}
 
 }

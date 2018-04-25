@@ -4,6 +4,7 @@ import java.io.File;
 
 import javax.swing.JPanel;
 
+import domain.model.Event;
 import domain.model.Lecturer;
 
 public interface ViewManager {
@@ -27,4 +28,7 @@ public interface ViewManager {
 	public void showParticipantListPanel(JPanel currentPanel);
 	public void showSignUpFormLecturer(JPanel currentPanel);
 	public void showSignUpFormMember(JPanel currentPanel);
+	public void showSignUpFormParticipant(JPanel currentPanel, Event event);
+	public void showModifyEventPanel(JPanel currentPanel, Event event);
+	public void showModifyEventPanel(JPanel currentPanel, Event event);
 }

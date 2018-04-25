@@ -805,4 +805,12 @@ public class VIAController {
 	public void showSignUpFormMember(JPanel currentPanel) {
 		window.showSignUpFormMember(currentPanel);
 	}
+
+	public void showSignUpFormParticipant(JPanel currentPanel, Event event) {
+		window.showSignUpFormParticipant(currentPanel, event);
+	}
+
+	public void showModifyEventPanel(JPanel currentPanel, Event event) {
+		window.showModifyEventPanel(currentPanel, event);
+	}
 }

@@ -9,5 +9,7 @@ import domain.model.Member;
 public interface ServerManager extends Remote {
 	
 	public ArrayList<Member> getAllMembers() throws RemoteException;
+	
+	public ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException;
 
 }
