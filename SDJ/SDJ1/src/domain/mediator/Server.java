@@ -38,7 +38,7 @@ public class Server extends UnicastRemoteObject implements ServerManager {
 		try {
 			Registry registry = LocateRegistry.createRegistry(1099);
 			RemoteServer rmi = new Server();
-			Naming.rebind("server", rmi);
+			Naming.rebind("getAllMembers", rmi);
 			System.out.println("Server is up");
 			
 		} catch (RemoteException | MalformedURLException e) {
@@ -52,4 +52,11 @@ public class Server extends UnicastRemoteObject implements ServerManager {
 		return manager.getAllMembers();
 	}
 
+	@Override
+	public ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException {
+		return manager.getMemberList().getListOfEmailsWhoHasntPaid();
+	}
+
+	
+	
 	}
