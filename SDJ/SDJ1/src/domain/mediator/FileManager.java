@@ -158,7 +158,7 @@ public class FileManager {
 		phone = Integer.parseInt(divide[2]);
 		categoriesDivide = divide[3].split(",");
 		for (String e : categoriesDivide) {
-			categories.add(Category.parseCategory(e));
+			categories.add(new Category(e));
 		}
 		wantsAdvertise = Boolean.parseBoolean(divide[4].trim());
 		

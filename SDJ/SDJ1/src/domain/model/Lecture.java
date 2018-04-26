@@ -10,7 +10,7 @@ public class Lecture extends Event implements Categorized{
 
 	public Lecture(Map<String, Object> configuration) {
 		super(configuration);
-		this.category = (Category) configuration.getOrDefault("category", Category.Other);
+		this.category = (Category) configuration.getOrDefault("category", new Category("Other"));
 		this.lecturer = (Lecturer) configuration.getOrDefault("lecturer", Lecturer.getDefaultLecturer());
 	}
 
