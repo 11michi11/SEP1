@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Observer;
 
 import domain.model.Category;
 import domain.model.Event;
@@ -135,6 +136,10 @@ public class VIAManager implements ModelManager{
 
 	public String readNewsletter(MyDate date) throws FileNotFoundException {
 		return FileManager.readNewsletter(date, newsletterFiles);
+	}
+
+	public void registerObserver(Observer observer){
+		members.addObserver(observer);
 	}
 
 }

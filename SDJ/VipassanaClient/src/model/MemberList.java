@@ -70,4 +70,7 @@ public class MemberList implements Serializable {
 		return returnString;
 	}
 
+    public void reload(ArrayList<Member> allMembers) {
+    	this.members = allMembers;
+	}
 }

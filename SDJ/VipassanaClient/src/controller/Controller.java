@@ -4,26 +4,23 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import model.Client;
-import model.ClientManager;
-import model.ClientModelManager;
+import model.ServerManager;
 import model.Member;
-import view.ConsoleView;
 import view.ViewManager;
 
 public class Controller {
 	
 	private static Controller controller;
-	private ClientManager manager;
+	private ServerManager manager;
 	private ViewManager view;
 	
-	private Controller(ClientManager manager, ViewManager view) {
+	private Controller(ServerManager manager, ViewManager view) {
 		this.manager = manager;
 		this.view = view;
 		view.showWelcomeMessage();
 	}
 	
-	public static Controller getInstance(ClientManager manager, ViewManager view){
+	public static Controller getInstance(ServerManager manager, ViewManager view){
 	    if(controller == null)
 		controller = new Controller(manager, view);
 	    return controller;
