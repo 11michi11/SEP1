@@ -1,28 +1,22 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import controler.VIAController;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class SignUpPanel extends VIAPanel {
 
 	private JButton member;
 	private JButton lecturer;
-	private JButton participant;
 	private JButton back;
 	private JFrame frame;
 	private JPanel parentPanel;
+	private VIAController controller;
 
 	public SignUpPanel(JFrame frame, JPanel parentPanel) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
@@ -34,32 +28,15 @@ public class SignUpPanel extends VIAPanel {
 	public void initializeComponents() {
 		member = new VIAButtonSmall("MEMBER");
 		lecturer = new VIAButtonSmall("LECTURER");
-		participant = new VIAButtonSmall("PARTICIPANT");
 		back = new VIAButtonBack(frame, parentPanel);
 	}
 
 	public void registerEventHandlers() {
 		JPanel currentPanel = this;
 
-		member.addActionListener(new ActionListener() {
+		member.addActionListener(e -> controller.showSignUpFormMember(currentPanel));
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new SignUpFormMember(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
-
-		lecturer.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JPanel newContentPane = new SignUpFormLecturer(frame, currentPanel);
-				frame.setContentPane(newContentPane);
-				frame.revalidate();
-			}
-		});
+		lecturer.addActionListener(e -> controller.showSignUpFormLecturer(currentPanel));
 	}
 
 	public void addComponentsToPanel() {

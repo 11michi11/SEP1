@@ -1,31 +1,15 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import controler.VIAController;
+import domain.model.Event;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableModel;
-import controler.VIAController;
-import domain.model.Event;
 
 public class EventListPanel extends VIAPanel {
 
@@ -96,51 +80,41 @@ public class EventListPanel extends VIAPanel {
 			}
 		});
 
-		notFinalized.addActionListener(new ActionListener() {
-			@Override
-
-			public void actionPerformed(ActionEvent e) {
-				if (notFinalized.isSelected()) {
-					DefaultTableModel model = VIAController.getNotFinalizedEvents();
-					table.setModel(model);
-					table.removeColumn(table.getColumnModel().getColumn(2));
-				} else {
-					DefaultTableModel model = VIAController.getEventsTableModel();
-					table.setModel(model);
-					table.removeColumn(table.getColumnModel().getColumn(2));
-				}
+		notFinalized.addActionListener(e -> {
+			if (notFinalized.isSelected()) {
+				DefaultTableModel model = controller.getNotFinalizedEvents();
+				table.setModel(model);
+				table.removeColumn(table.getColumnModel().getColumn(2));
+			} else {
+				DefaultTableModel model = controller.getEventsTableModel();
+				table.setModel(model);
+				table.removeColumn(table.getColumnModel().getColumn(2));
 			}
 		});
 
-		finished.addActionListener(new ActionListener() {
-			@Override
-
-			public void actionPerformed(ActionEvent e) {
-				if (finished.isSelected()) {
-					DefaultTableModel model = controller.getFinishedEvents();
-					table.setModel(model);
-					table.removeColumn(table.getColumnModel().getColumn(2));
-				} else {
-					DefaultTableModel model = controller.getEventsTableModel();
-					table.setModel(model);
-					table.removeColumn(table.getColumnModel().getColumn(2));
-				}
+		finished.addActionListener(e -> {
+			if (finished.isSelected()) {
+				DefaultTableModel model = controller.getFinishedEvents();
+				table.setModel(model);
+				table.removeColumn(table.getColumnModel().getColumn(2));
+			} else {
+				DefaultTableModel model = controller.getEventsTableModel();
+				table.setModel(model);
+				table.removeColumn(table.getColumnModel().getColumn(2));
 			}
 		});
 
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent event) {
-				signUpParticipant.setEnabled(true);
-				signUpMember.setEnabled(true);
-				if (table.getSelectedRow() != -1) {
-					Event eventObj = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
-					if (!eventObj.isFinalized())
-						modify.setEnabled(true);
-					else
-						modify.setEnabled(false);
-				} else {
+		table.getSelectionModel().addListSelectionListener(event -> {
+			signUpParticipant.setEnabled(true);
+			signUpMember.setEnabled(true);
+			if (table.getSelectedRow() != -1) {
+				Event eventObj = (Event) table.getModel().getValueAt(table.getSelectedRow(), 2);
+				if (!eventObj.isFinalized())
+					modify.setEnabled(true);
+				else
 					modify.setEnabled(false);
-				}
+			} else {
+				modify.setEnabled(false);
 			}
 		});
 
@@ -161,8 +135,6 @@ public class EventListPanel extends VIAPanel {
 		table.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent mouseEvent) {
 				JTable table = (JTable) mouseEvent.getSource();
-				Point point = mouseEvent.getPoint();
-				int row = table.rowAtPoint(point);
 				if (mouseEvent.getClickCount() == 2) {
 					String message = table.getModel().getValueAt(table.getSelectedRow(), 2).toString();
 					JOptionPane.showMessageDialog(frame, message, "Start Message", JOptionPane.PLAIN_MESSAGE);
@@ -170,19 +142,15 @@ public class EventListPanel extends VIAPanel {
 			}
 		});
 
-		search.addActionListener(new ActionListener() {
+		search.addActionListener(e -> {
+			DefaultTableModel model;
+			if (notFinalized.isSelected())
+				model = controller.getSearchedEventsWhenNotFinalized(search.getText());
+			else
+				model = controller.getSearchedEvents(search.getText());
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel model;
-				if (notFinalized.isSelected())
-					model = VIAController.getSearchedEventsWhenNotFinalized(search.getText());
-				else
-					model = VIAController.getSearchedEvents(search.getText());
-
-				table.setModel(model);
-				table.removeColumn(table.getColumnModel().getColumn(2));
-			}
+			table.setModel(model);
+			table.removeColumn(table.getColumnModel().getColumn(2));
 		});
 	}
 

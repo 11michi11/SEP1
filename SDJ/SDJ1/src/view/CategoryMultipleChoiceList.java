@@ -1,24 +1,13 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import domain.model.Category;
+import domain.model.CategoryFactory;
+
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
-import domain.model.Category;
+import java.awt.*;
+import java.util.ArrayList;
 
 public class CategoryMultipleChoiceList extends VIAPanel {
 
@@ -50,26 +39,18 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 
 	private void registerEventHandlers() {
 
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent event) {
-				choose.setEnabled(true);
-			}
-		});
+		table.getSelectionModel().addListSelectionListener(event -> choose.setEnabled(true));
 
-		choose.addActionListener(new ActionListener() {
+		choose.addActionListener(e -> {
+			ArrayList<Category> categories = new ArrayList<>();
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ArrayList<Category> categories = new ArrayList<Category>();
+			TableModel model = table.getModel();
+			for (int i = 0; i < 7; i++)
+				if (model.getValueAt(i, 1) != null && (boolean) model.getValueAt(i, 1))
+					categories.add(CategoryFactory.getCategory(i));
 
-				TableModel model = table.getModel();
-				for (int i = 0; i < 7; i++)
-					if (model.getValueAt(i, 1) != null && (boolean) model.getValueAt(i, 1) == true)
-						categories.add(Category.fromNumberToCategory(i));
-
-				assignCategories(categories);
-				frame.dispose();
-			}
+			assignCategories(categories);
+			frame.dispose();
 		});
 	}
 
@@ -131,7 +112,7 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 		Object[][] data = { { "Astrology" }, { "Meditation" }, { "Reincarnation" }, { "Health" }, { "Buddhism" },
 				{ "Nature" }, { "Other" } };
 
-		DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+		return new DefaultTableModel(data, columnNames) {
 
 			@Override
 			public Class getColumnClass(int column) {
@@ -153,7 +134,6 @@ public class CategoryMultipleChoiceList extends VIAPanel {
 				}
 			}
 		};
-		return model;
 	}
 
 }

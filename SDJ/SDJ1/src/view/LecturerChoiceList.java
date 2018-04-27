@@ -1,24 +1,12 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import controler.VIAController;
 import domain.model.Lecturer;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import java.awt.*;
 
 public class LecturerChoiceList extends VIAPanel {
 
@@ -53,22 +41,14 @@ public class LecturerChoiceList extends VIAPanel {
 
 	private void registerEventHandlers() {
 		
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-	        public void valueChanged(ListSelectionEvent event) {
-	            choose.setEnabled(true);
-	        }
-	    });
+		table.getSelectionModel().addListSelectionListener(event -> choose.setEnabled(true));
 
-		choose.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				TableModel model = table.getModel();
-				int selRow = table.getSelectedRow();
-				Lecturer selected = (Lecturer) model.getValueAt(selRow, 5);
-				EventCreateFormLectures.assignLecturerToForm(selected);
-				frame.dispose();
-			}
+		choose.addActionListener(e -> {
+			TableModel model = table.getModel();
+			int selRow = table.getSelectedRow();
+			Lecturer selected = (Lecturer) model.getValueAt(selRow, 5);
+			EventCreateFormLectures.assignLecturerToForm(selected);
+			frame.dispose();
 		});
 	}
 

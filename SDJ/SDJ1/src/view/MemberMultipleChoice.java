@@ -1,26 +1,13 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import controler.VIAController;
+import domain.model.Member;
+
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import controler.VIAController;
-import domain.model.Event;
-import domain.model.Member;
+import java.awt.*;
+import java.util.ArrayList;
 
 public class MemberMultipleChoice extends VIAPanel {
 
@@ -31,9 +18,8 @@ public class MemberMultipleChoice extends VIAPanel {
 	private JLabel memberList;
 	private JFrame frame;
 	private JPanel parentPanel;
-	private Event event;
 
-	public MemberMultipleChoice(JFrame frame, JPanel parentPanel, Event event) {
+	public MemberMultipleChoice(JFrame frame, JPanel parentPanel) {
 		super();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
@@ -60,28 +46,18 @@ public class MemberMultipleChoice extends VIAPanel {
 	}
 
 	private void registerEventHandlers() {
-		JPanel currentPanel = this;
+		add.addActionListener(e -> {
+			TableModel model = table.getModel();
+			ArrayList<Member> members = new ArrayList<>();
+			for (int i = 0; i < model.getRowCount(); i++)
+				if (model.getValueAt(i, 3) != null && (boolean) model.getValueAt(i, 3))
+					members.add((Member) model.getValueAt(i, 4));
 
-		add.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				TableModel model = table.getModel();
-				ArrayList<Member> members = new ArrayList<Member>();
-				for (int i = 0; i < model.getRowCount(); i++)
-					if (model.getValueAt(i, 3) != null && (boolean) model.getValueAt(i, 3) == true)
-						members.add((Member) model.getValueAt(i, 4));
-
-				ParticipantListPanel.addMembersToEvent(members);
-				frame.dispose();
-			}
+			ParticipantListPanel.addMembersToEvent(members);
+			frame.dispose();
 		});
 
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent e) {
-				add.setEnabled(true);
-			}
-		});
+		table.getSelectionModel().addListSelectionListener(e -> add.setEnabled(true));
 	}
 
 	private void addComponentsToPanel() {

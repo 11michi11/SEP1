@@ -1,23 +1,13 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import controler.VIAController;
 import domain.model.InvalidDateInput;
 import domain.model.MyDate;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 public class SignUpFormMember extends VIAPanel {
 
@@ -36,9 +26,11 @@ public class SignUpFormMember extends VIAPanel {
 	private VIAButtonBack back;
 	private JFrame frame;
 	private JPanel parentPanel;
+	private VIAController controller;
 
 	public SignUpFormMember(JFrame frame, JPanel parentPanel) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = frame;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
@@ -79,44 +71,36 @@ public class SignUpFormMember extends VIAPanel {
 			}
 		});
 
-		add.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (canFormBeSaved()) {
-					Object[] configuration = new Object[5];
-					configuration[0] = fieldName.getText();
-					configuration[1] = fieldAddress.getText();
-					configuration[2] = Integer.parseInt(fieldPhone.getText());
-					configuration[3] = fieldEmail.getText();
-					try {
-						configuration[4] = new MyDate(fieldDateOfMembership.getText());
-						VIAController.addMemberToList(configuration);
-					} catch (InvalidDateInput e1) {
-						JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
-								JOptionPane.PLAIN_MESSAGE);
-					}
-					if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
-						frame.dispose();
-					} else {
-						back.goBack();
-					}
-				} else {
-					JOptionPane.showMessageDialog(frame, "Fill all filed to save members", "Form error",
+		add.addActionListener(e -> {
+			if (canFormBeSaved()) {
+				Object[] configuration = new Object[5];
+				configuration[0] = fieldName.getText();
+				configuration[1] = fieldAddress.getText();
+				configuration[2] = Integer.parseInt(fieldPhone.getText());
+				configuration[3] = fieldEmail.getText();
+				try {
+					configuration[4] = new MyDate(fieldDateOfMembership.getText());
+					controller.addMemberToList(configuration);
+				} catch (InvalidDateInput e1) {
+					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
 							JOptionPane.PLAIN_MESSAGE);
 				}
-			}
-		});
-
-		back.changeListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
 				if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
 					frame.dispose();
 				} else {
 					back.goBack();
 				}
+			} else {
+				JOptionPane.showMessageDialog(frame, "Fill all filed to save members", "Form error",
+						JOptionPane.PLAIN_MESSAGE);
+			}
+		});
+
+		back.changeListener(e -> {
+			if (parentPanel instanceof EventListPanel || parentPanel instanceof MemberListPanel) {
+				frame.dispose();
+			} else {
+				back.goBack();
 			}
 		});
 	}
@@ -194,12 +178,12 @@ public class SignUpFormMember extends VIAPanel {
 		button.add(add);
 		button.setOpaque(false);
 
-		JPanel titul = new JPanel();
-		titul.add(signUp);
-		titul.setOpaque(false);
+		JPanel title = new JPanel();
+		title.add(signUp);
+		title.setOpaque(false);
 
 		JPanel components = new JPanel(new BorderLayout());
-		components.add(titul, BorderLayout.NORTH);
+		components.add(title, BorderLayout.NORTH);
 		components.add(content, BorderLayout.CENTER);
 		components.add(button, BorderLayout.SOUTH);
 		components.setOpaque(false);
@@ -215,7 +199,6 @@ public class SignUpFormMember extends VIAPanel {
 		logo.setOpaque(false);
 		logo.add(imgLab, BorderLayout.CENTER);
 		logo.add(buttonBack, BorderLayout.WEST);
-		;
 
 		add(logo, BorderLayout.NORTH);
 		add(components, BorderLayout.CENTER);
@@ -223,10 +206,8 @@ public class SignUpFormMember extends VIAPanel {
 
 	private boolean canFormBeSaved() {
 		System.out.println(fieldEmail.getText());
-		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals("") && !fieldAddress.getText().equals("")
-				&& !fieldDateOfMembership.getText().equals("dd/mm/yyyy"))
-			return true;
-		return false;
+		return !fieldName.getText().equals("") && !fieldEmail.getText().equals("") && !fieldAddress.getText().equals("")
+				&& !fieldDateOfMembership.getText().equals("dd/mm/yyyy");
 	}
 
 }

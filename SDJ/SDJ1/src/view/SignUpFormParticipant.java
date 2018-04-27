@@ -1,19 +1,10 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import controler.VIAController;
 import domain.model.EventNotFoundException;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class SignUpFormParticipant extends VIAPanel {
 
@@ -27,19 +18,21 @@ public class SignUpFormParticipant extends VIAPanel {
 	private JFrame frame;
 	private JPanel parentPanel;
 	private int eventID;
+	private VIAController controller;
 
 	public SignUpFormParticipant(JFrame frame, JPanel parentPanel, int eventID) {
 		super();
+		controller = VIAController.getInstance();
 		this.frame = frame;
 		this.eventID = eventID;
 		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
-		initializeComonents();
+		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
 	}
 
-	public void initializeComonents() {
+	private void initializeComponents() {
 		signUp = new VIALabel("Sign-Up Form for Participant", 40);
 		name = new JLabel("Name:");
 		email = new JLabel("E-mail:");
@@ -52,44 +45,36 @@ public class SignUpFormParticipant extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
-		back.changeListener(new ActionListener() {
+		back.changeListener(e -> {
+			if (parentPanel instanceof EventListPanel || parentPanel instanceof ParticipantListPanel) {
+				frame.dispose();
+			} else {
+				back.goBack();
+			}
+		});
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		addToList.addActionListener(e -> {
+			if (canFormBeSaved()) {
+				Object[] configuration = new Object[5];
+				configuration[0] = fieldName.getText();
+				configuration[1] = fieldEmail.getText();
+				configuration[2] = eventID;
+
+				try {
+					controller.addParticipantToList(configuration);
+				} catch (EventNotFoundException e1) {
+					JOptionPane.showMessageDialog(frame, "Event not found, contactc administrator", "Form error",
+							JOptionPane.PLAIN_MESSAGE);
+				}
+
 				if (parentPanel instanceof EventListPanel || parentPanel instanceof ParticipantListPanel) {
 					frame.dispose();
 				} else {
 					back.goBack();
 				}
-			}
-		});
-
-		addToList.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (canFormBeSaved()) {
-					Object[] configuration = new Object[5];
-					configuration[0] = fieldName.getText();
-					configuration[1] = fieldEmail.getText();
-					configuration[2] = eventID;
-
-					try {
-						VIAController.addParticipantToList(configuration);
-					} catch (EventNotFoundException e1) {
-						JOptionPane.showMessageDialog(frame, "Event not found, contactc administrator", "Form error",
-								JOptionPane.PLAIN_MESSAGE);
-					}
-
-					if (parentPanel instanceof EventListPanel || parentPanel instanceof ParticipantListPanel) {
-						frame.dispose();
-					} else {
-						back.goBack();
-					}
-				} else {
-					JOptionPane.showMessageDialog(frame, "Fill all filed to save participant", "Form error",
-							JOptionPane.PLAIN_MESSAGE);
-				}
+			} else {
+				JOptionPane.showMessageDialog(frame, "Fill all filed to save participant", "Form error",
+						JOptionPane.PLAIN_MESSAGE);
 			}
 		});
 	}
@@ -141,9 +126,7 @@ public class SignUpFormParticipant extends VIAPanel {
 	}
 
 	private boolean canFormBeSaved() {
-		if (!fieldName.getText().equals("") && !fieldEmail.getText().equals(""))
-			return true;
-		return false;
+		return !fieldName.getText().equals("") && !fieldEmail.getText().equals("");
 	}
 
 }

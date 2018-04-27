@@ -1,17 +1,9 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import controler.VIAController;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class StartPanel extends VIAPanel {
 
@@ -19,14 +11,11 @@ public class StartPanel extends VIAPanel {
 	private JButton newsletter;
 	private JButton signUp;
 	private JButton listOf;
-	private JLabel welcome;
-	private JFrame frame;
 	private VIAController controller;
 
-	public StartPanel(JFrame mainFrame) {
+	public StartPanel() {
 		super();
 		controller = VIAController.getInstance();
-		this.frame = mainFrame;
 		setLayout(new BorderLayout());
 		createComponents();
 		registerEventHandlers();
@@ -38,7 +27,6 @@ public class StartPanel extends VIAPanel {
 		newsletter = new VIAButtonBig("NEWSLETTER");
 		signUp = new VIAButtonBig("SIGN UP");
 		listOf = new VIAButtonBig("LIST OF");
-		welcome = new JLabel("WELCOME");
 	}
 
 	private void registerEventHandlers() {

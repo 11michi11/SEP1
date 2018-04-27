@@ -29,7 +29,6 @@ public class LecturerListPanel extends VIAPanel {
 	private JFrame frame;
 	private JButton back;
 	private JPanel parentPanel;
-	private JScrollPane scrollPane;
 	private static VIAController controller;
 
 	public LecturerListPanel(JFrame frame, JPanel parentPanel) {
@@ -57,8 +56,6 @@ public class LecturerListPanel extends VIAPanel {
 		table.removeColumn(table.getColumnModel().getColumn(5));
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 
-		scrollPane = new JScrollPane(table);
-
 		back = new VIAButtonBack(frame, parentPanel);
 
 	}
@@ -68,14 +65,10 @@ public class LecturerListPanel extends VIAPanel {
 
 		add.addActionListener(e -> controller.showSignUpFormLecturer(currentPanel));
 
-		search.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel model = controller.getSearchedLecturers(search.getText());
-				table.setModel(model);
-				table.removeColumn(table.getColumnModel().getColumn(5));
-			}
+		search.addActionListener(e -> {
+			DefaultTableModel model = controller.getSearchedLecturers(search.getText());
+			table.setModel(model);
+			table.removeColumn(table.getColumnModel().getColumn(5));
 		});
 
 		search.addFocusListener(new FocusListener() {
