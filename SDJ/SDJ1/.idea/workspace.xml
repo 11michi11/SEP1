@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9544f7a7-6676-47ee-b0bc-a6c5dd5b43d6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/resources/lecturer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/lecturer.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/model/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/model/CategoryFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/model/CategoryFactory.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <ignored path="$PROJECT_DIR$/VipassanaClient/bin/" />
@@ -164,15 +165,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lecturer.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/resources/lecturer.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="14" column="80" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="VIAButton.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/VIAButton.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -206,13 +198,36 @@
       <file leaf-file-name="FileManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="157" selection-start-line="157" selection-end-line="157" />
+            <state relative-caret-position="81">
+              <caret line="151" column="31" lean-forward="true" selection-start-line="151" selection-start-column="31" selection-end-line="151" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Category.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domain/model/Category.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryFactory.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/domain/model/CategoryFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Daria</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -225,7 +240,6 @@
         <option value="$PROJECT_DIR$/src/domain/mediator/Server.java" />
         <option value="$PROJECT_DIR$/src/domain/mediator/ClientManager.java" />
         <option value="$PROJECT_DIR$/src/domain/mediator/ServerManager.java" />
-        <option value="$PROJECT_DIR$/src/domain/model/CategoryFactory.java" />
         <option value="$PROJECT_DIR$/src/view/CategoryMultipleChoiceList.java" />
         <option value="$PROJECT_DIR$/src/view/EventCreateFormLectures.java" />
         <option value="$PROJECT_DIR$/src/view/EventCreateFormSeminars.java" />
@@ -251,6 +265,8 @@
         <option value="$PROJECT_DIR$/src/controler/VIAController.java" />
         <option value="$PROJECT_DIR$/src/view/VIAButtonBack.java" />
         <option value="$PROJECT_DIR$/src/resources/lecturer.txt" />
+        <option value="$PROJECT_DIR$/src/domain/model/Category.java" />
+        <option value="$PROJECT_DIR$/src/domain/model/CategoryFactory.java" />
       </list>
     </option>
   </component>
@@ -293,7 +309,14 @@
               <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -433,18 +456,18 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32965517" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33793104" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33793104" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21223958" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21223958" />
       <window_info id="Learn" weight="0.3295302" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -595,20 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1717">
           <caret line="111" column="87" lean-forward="true" selection-start-line="111" selection-start-column="87" selection-end-line="111" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/model/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/model/CategoryFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -876,17 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
-          <folding>
-            <element signature="e#3971#3972#0" expanded="true" />
-            <element signature="e#4007#4008#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/VIAWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -925,17 +923,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
+    <entry file="file://$PROJECT_DIR$/src/resources/lecturer.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="157" selection-start-line="157" selection-end-line="157" />
+        <state relative-caret-position="115">
+          <caret line="10" column="57" lean-forward="true" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/lecturer.txt">
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="14" column="80" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
+        <state relative-caret-position="353">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
+          <folding>
+            <element signature="e#3971#3972#0" expanded="true" />
+            <element signature="e#4007#4008#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="151" column="31" lean-forward="true" selection-start-line="151" selection-start-column="31" selection-end-line="151" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/model/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/model/CategoryFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
         </state>
       </provider>
     </entry>

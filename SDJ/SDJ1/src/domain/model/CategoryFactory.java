@@ -1,9 +1,10 @@
 package domain.model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 
-public class CategoryFactory {
+public class CategoryFactory implements Serializable {
 	private static HashMap<String, Category> categories = new HashMap<String, Category>();
 
 	public static Category getCategory(String name) {
