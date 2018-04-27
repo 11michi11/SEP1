@@ -87,7 +87,10 @@
             <state>
               <caret selection-end-line="13" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#401#402#0" expanded="true" />
+                <element signature="e#438#439#0" expanded="true" />
+                <element signature="e#509#510#0" expanded="true" />
+                <element signature="e#560#561#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -327,13 +330,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524774884530</updated>
-      <workItem from="1524774892151" duration="3461000" />
+      <workItem from="1524774892151" duration="6425000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3461000" />
+    <option name="totallyTimeSpent" value="6425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
@@ -455,8 +458,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/mediator/ServerManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+        <state relative-caret-position="68">
+          <caret line="4" column="34" lean-forward="true" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
         </state>
       </provider>
     </entry>
