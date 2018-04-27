@@ -21,7 +21,6 @@ public class ConsoleView implements ViewManager{
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		System.out.println("DUPA");
 	}
 
 	@Override
@@ -37,7 +36,7 @@ public class ConsoleView implements ViewManager{
 
 	@Override
 	public void showWelcomeMessage() {
-		System.out.println("1) All Members \n 2) Members who hasnt paid");
+		System.out.println("1) All Members \n2) Members who hasnt paid");
 		controller.handleUserInput();
 	}
 

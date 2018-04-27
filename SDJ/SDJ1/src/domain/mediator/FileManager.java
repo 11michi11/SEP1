@@ -1,14 +1,6 @@
 package domain.mediator;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -125,7 +117,8 @@ public class FileManager {
 		int phone, day, month, year, hour, minute;
 		MyDate dateOfMembership;
 
-		Scanner read = new Scanner(file);
+		Scanner read = new Scanner(new BufferedReader(new FileReader(file)));
+		System.out.println(read.hasNextLine());
 		while (read.hasNext()) {
 			line = read.nextLine();
 			divide = line.split(";");

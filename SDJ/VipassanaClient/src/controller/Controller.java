@@ -44,14 +44,18 @@ public class Controller {
 
 	public void handleUserInput() {
 		Scanner sc = new Scanner(System.in);
-		int response = sc.nextInt();
-		if (response == 1) {
-			view.showListOfMembers();
-		} else if (response == 2) {
-			view.showListOfMembersWhoHasPaid();
-		} else {
-			view.showMsg("Wrong Input");
+		switch (sc.nextInt()) {
+			case 1:
+				view.showListOfMembers();
+				break;
+			case 2:
+				view.showListOfMembersWhoHasPaid();
+				break;
+			case 0:
+				return;
+			default:
+				view.showMsg("Wrong Input");
 		}
-
+		view.showWelcomeMessage();
 	}
 }
