@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9544f7a7-6676-47ee-b0bc-a6c5dd5b43d6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SDJ1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SDJ1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allEmails.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allEmails.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controler/VIAController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controler/VIAController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/model/CategoryFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/model/CategoryFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/events.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/events.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/lecturers.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/lecturers.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/members.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/CategoryMultipleChoiceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CategoryMultipleChoiceList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/EventCreateFormLectures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/EventCreateFormLectures.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/EventCreateFormSeminars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/EventCreateFormSeminars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/EventCreateFormTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/EventCreateFormTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/EventCreateFormWorkshop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/EventCreateFormWorkshop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/EventListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/EventPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/EventPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/LecturerChoiceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LecturerChoiceList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/LecturerListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LecturerListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/LecturerMultipleChoiceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LecturerMultipleChoiceList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MemberListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MemberListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MemberMultipleChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MemberMultipleChoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Newsletter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Newsletter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/NewsletterContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/NewsletterContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ParticipantListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ParticipantListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/SignUpFormLecturer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SignUpFormLecturer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/SignUpFormMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SignUpFormMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/SignUpFormParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SignUpFormParticipant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/SignUpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SignUpPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/StartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/StartPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/VIAButtonBack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/VIAButtonBack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/VIAWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/VIAWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ViewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/lecturer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/lecturer.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <ignored path="$PROJECT_DIR$/VipassanaClient/bin/" />
@@ -182,20 +151,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="VIAManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="102" selection-start-line="102" selection-end-line="102" />
+              <folding>
+                <element signature="e#3971#3972#0" expanded="true" />
+                <element signature="e#4007#4008#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lecturer.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/resources/lecturer.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="14" column="80" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="VIAButton.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/VIAButton.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VIAButtonBack.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/view/VIAButtonBack.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -224,8 +206,8 @@
       <file leaf-file-name="FileManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="155" column="25" lean-forward="true" selection-start-line="155" selection-start-column="25" selection-end-line="155" selection-end-column="25" />
+            <state relative-caret-position="183">
+              <caret line="157" selection-start-line="157" selection-end-line="157" />
             </state>
           </provider>
         </entry>
@@ -268,6 +250,7 @@
         <option value="$PROJECT_DIR$/src/view/VIAWindow.java" />
         <option value="$PROJECT_DIR$/src/controler/VIAController.java" />
         <option value="$PROJECT_DIR$/src/view/VIAButtonBack.java" />
+        <option value="$PROJECT_DIR$/src/resources/lecturer.txt" />
       </list>
     </option>
   </component>
@@ -310,7 +293,7 @@
               <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -450,18 +433,18 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32965517" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33793104" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33793104" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21223958" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21223958" />
       <window_info id="Learn" weight="0.3295302" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -483,17 +466,39 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/view/VIAWindow.java</url>
-          <line>16</line>
+          <condition expression="divide.length &lt; 5" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/domain/mediator/FileManager.java</url>
+          <line>157</line>
           <properties />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="4" />
+      <option name="time" value="11" />
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="divide" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>divide.length &lt; 5</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="watch">
+      <expression>
+        <expression-string>divide</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/domain/mediator/Server.java">
@@ -554,17 +559,6 @@
           <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="141" column="27" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
-          <folding>
-            <element signature="e#3971#3972#0" expanded="true" />
-            <element signature="e#4007#4008#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -794,13 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="155" column="25" lean-forward="true" selection-start-line="155" selection-start-column="25" selection-end-line="155" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.desktop/java/awt/event/InvocationEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -875,6 +862,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/VIAButtonBack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/VIAButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
+          <folding>
+            <element signature="e#3971#3972#0" expanded="true" />
+            <element signature="e#4007#4008#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/VIAWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -913,17 +925,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/VIAButton.java">
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+        <state relative-caret-position="183">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/VIAButtonBack.java">
+    <entry file="file://$PROJECT_DIR$/src/resources/lecturer.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+        <state relative-caret-position="183">
+          <caret line="14" column="80" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
         </state>
       </provider>
     </entry>
