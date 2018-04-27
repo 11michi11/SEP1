@@ -17,12 +17,12 @@ public class ClientModelManager implements ClientManager {
 	}
 
 	@Override
-	public ArrayList<Member> getAllMembers() throws RemoteException {
+	public ArrayList<Member> getAllMembers(){
 		return members.getAllMembers();
 	}
 	
 	@Override
-	public ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException {
+	public ArrayList<String> getListOfMembersWhoHasntPaid(){
 		return members.getListOfEmailsWhoHasntPaid();
 	}
 

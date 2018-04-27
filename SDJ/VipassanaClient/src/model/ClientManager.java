@@ -1,17 +1,13 @@
 package model;
 
-import model.Member;
-
-import java.rmi.Remote;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 
-public interface ClientManager extends Remote {
+public interface ClientManager{
 
-    public ArrayList<Member> getAllMembers() throws RemoteException;
+    public ArrayList<Member> getAllMembers();
 
-    public ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException;
+    public ArrayList<String> getListOfMembersWhoHasntPaid();
 
     public void reloadMembers(ArrayList<Member> allMembers);
 }

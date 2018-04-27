@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9544f7a7-6676-47ee-b0bc-a6c5dd5b43d6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../VipassanaClient/src/model/RemoteClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/mediator/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/mediator/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/mediator/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/mediator/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/mediator/ServerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/mediator/VIAManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/mediator/VIAManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/model/MemberList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/model/MemberList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/controller/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/controller/ClientMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/model/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/model/ClientManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/ClientModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/model/ClientModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/MemberList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/model/MemberList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/RemoteClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/model/RemoteClient.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <ignored path="$PROJECT_DIR$/VipassanaClient/bin/" />
@@ -33,7 +24,7 @@
       <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/mediator/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-122">
+            <state relative-caret-position="133">
               <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
               <folding>
                 <element signature="e#1782#1783#0" expanded="true" />
@@ -43,15 +34,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="VIAController.class" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controler/VIAController.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-306" />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="VIAManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
+            <state relative-caret-position="1717">
               <caret line="141" column="27" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
               <folding>
                 <element signature="e#3971#3972#0" expanded="true" />
                 <element signature="e#4015#4016#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModelManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domain/mediator/ModelManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -68,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ServerManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/mediator/ServerManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="52" />
+            <state relative-caret-position="153">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -102,11 +109,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="25" />
-    <option name="y" value="-30" />
-    <option name="width" value="1940" />
-    <option name="height" value="1050" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -247,16 +253,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524773733898</updated>
-      <workItem from="1524773739059" duration="4584000" />
+      <workItem from="1524773739059" duration="5980000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4584000" />
+    <option name="totallyTimeSpent" value="5980000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -301,17 +306,6 @@
     <entry file="file://$PROJECT_DIR$/src/domain/mediator/Server.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="141" column="27" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
-          <folding>
-            <element signature="e#3971#3972#0" expanded="true" />
-            <element signature="e#4015#4016#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/model/MemberList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -332,9 +326,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ServerManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1717">
+          <caret line="141" column="27" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
+          <folding>
+            <element signature="e#3971#3972#0" expanded="true" />
+            <element signature="e#4015#4016#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/mediator/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-122">
+        <state relative-caret-position="133">
           <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
           <folding>
             <element signature="e#1782#1783#0" expanded="true" />
@@ -343,11 +369,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ServerManager.java">
+    <entry file="file://$PROJECT_DIR$/src/controler/VIAController.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="52" />
-        </state>
+        <state relative-caret-position="-306" />
       </provider>
     </entry>
   </component>

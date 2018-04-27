@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import model.ClientManager;
 import model.ServerManager;
 import model.Member;
 import view.ViewManager;
@@ -25,7 +26,7 @@ public class Controller {
 		controller = new Controller(manager, view);
 	    return controller;
 	}
-	public static Controller getInstance(){
+	public static Controller getInstance(ClientManager manager, ViewManager view){
 		if(controller == null)
 			throw new IllegalStateException("Controller not yet created");
 		return controller;
