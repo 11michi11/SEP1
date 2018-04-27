@@ -1,31 +1,25 @@
 package controler;
 
-import java.awt.EventQueue;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Map;
-
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
-
 import domain.mediator.FileManager;
 import domain.mediator.ModelManager;
+import domain.mediator.Server;
 import domain.mediator.VIAManager;
-import domain.model.Category;
+import domain.model.*;
 import domain.model.Event;
-import domain.model.EventNotFoundException;
-import domain.model.Lecturer;
-import domain.model.Member;
-import domain.model.MyDate;
-import domain.model.Participant;
-import domain.model.SearchEngine;
-import view.EventListPanel;
-import view.LecturerListPanel;
-import view.MemberListPanel;
-import view.ParticipantListPanel;
-import view.VIAWindow;
-import view.ViewManager;
+import view.*;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.RemoteServer;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class VIAController {
 
@@ -33,16 +27,18 @@ public class VIAController {
 	private static ViewManager window;
 	private static VIAController controller;
 
-	private VIAController() {
-		manager = new VIAManager();
-		EventQueue.invokeLater(() -> window = new VIAWindow());
-
-	}
-
 	public static VIAController getInstance() {
 		if (controller == null)
 			controller = new VIAController();
 		return controller;
+	}
+
+	public void setManager(ModelManager manager){
+		this.manager = manager;
+	}
+
+	public void start(){
+		EventQueue.invokeLater(() -> window = new VIAWindow());
 	}
 
 	public static void performClosingOperations() throws IOException {
@@ -697,10 +693,6 @@ public class VIAController {
 				return false;
 			}
 		};
-	}
-
-	public static void main(String[] args) {
-		VIAController.getInstance();
 	}
 
 	public void showEventsPanel(JPanel currentPanel) {

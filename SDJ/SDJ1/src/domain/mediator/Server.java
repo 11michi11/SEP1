@@ -14,41 +14,28 @@ import java.util.Observer;
 
 public class Server extends UnicastRemoteObject implements ServerManager {
 
-    private static final long serialVersionUID = 1L;
-    private VIAManager manager;
+	private static final long serialVersionUID = 1L;
+	private ModelManager manager;
 
-    protected Server() throws RemoteException {
-        super();
-        manager = new VIAManager();
-    }
+	public Server(ModelManager manager) throws RemoteException {
+		super();
+		this.manager = manager;
+	}
 
-    public void startServer() {
-        try {
-            Registry registry = LocateRegistry.createRegistry(1099);
-            RemoteServer rmi = new Server();
-            Naming.rebind("getAllMembers", rmi);
-            System.out.println("Server is up");
+	@Override
+	public ArrayList<Member> getAllMembers() throws RemoteException {
+		return manager.getAllMembers();
+	}
 
-        } catch (RemoteException | MalformedURLException e) {
-            e.printStackTrace();
-        }
+	@Override
+	public ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException {
+		return manager.getMemberList().getListOfEmailsWhoHasntPaid();
+	}
 
-    }
-
-    @Override
-    public ArrayList<Member> getAllMembers() throws RemoteException {
-        return manager.getAllMembers();
-    }
-
-    @Override
-    public ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException {
-        return manager.getMemberList().getListOfEmailsWhoHasntPaid();
-    }
-
-    @Override
-    public void registerObserver(Observer observer) {
-        manager.registerObserver(observer);
-    }
+	@Override
+	public void registerObserver(RemoteClient observer) throws RemoteException {
+		manager.registerObserver(observer);
+	}
 
 
 }

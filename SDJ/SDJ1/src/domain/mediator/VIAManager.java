@@ -30,7 +30,7 @@ public class VIAManager implements ModelManager{
 	private ArrayList<File> newsletterFiles;
 
 	public VIAManager() {
-		this.newsletterFiles = new ArrayList<File>();
+		this.newsletterFiles = new ArrayList<>();
 		this.lecturers = new LecturerList();
 		this.members = new MemberList();
 		this.events = new EventList();
@@ -94,7 +94,7 @@ public class VIAManager implements ModelManager{
 	}
 
 	public void updateMemberList() throws ClassNotFoundException, IOException {
-		// this.members = FileManager.readMemberFile();
+//		 this.members = FileManager.readMemberFile();
 		this.members = FileManager.readMemberFile(new File("src/resources/members.txt"));
 	}
 

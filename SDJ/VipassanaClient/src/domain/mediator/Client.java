@@ -1,4 +1,6 @@
-package model;
+package domain.mediator;
+import domain.model.Member;
+
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -8,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Client implements Serializable, RemoteClient, Observer {
+public class Client implements Serializable, RemoteClient{
 	
 	private static final long serialVersionUID = 1L;
 	private ServerManager server;
@@ -16,7 +18,7 @@ public class Client implements Serializable, RemoteClient, Observer {
 
 	public Client() {
 		try {
-		server = (ServerManager) Naming.lookup("rmi://localhost:1099/getAllMembers");
+		server = (ServerManager) Naming.lookup("rmi://localhost:1099/server");
 		server.registerObserver(this);
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
 			e.printStackTrace();

@@ -1,9 +1,9 @@
 package view;
 
-import java.rmi.RemoteException;
-
 import controller.Controller;
-import model.Member;
+import domain.model.Member;
+
+import java.rmi.RemoteException;
 
 public class ConsoleView implements ViewManager{
 	
@@ -21,7 +21,7 @@ public class ConsoleView implements ViewManager{
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		
+		System.out.println("DUPA");
 	}
 
 	@Override

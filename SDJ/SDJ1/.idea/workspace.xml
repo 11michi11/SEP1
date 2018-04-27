@@ -2,8 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9544f7a7-6676-47ee-b0bc-a6c5dd5b43d6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/domain/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/model/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/model/CategoryFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/model/CategoryFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controler/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/domain/mediator/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/domain/mediator/RemoteClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controler/VIAController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controler/VIAController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/mediator/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/mediator/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/mediator/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/mediator/ModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/mediator/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/mediator/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/mediator/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/mediator/ServerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/mediator/VIAManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/mediator/VIAManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/VipassanaClient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/VipassanaClient.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/controller/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/controller/ClientMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/ClientManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/ClientModelManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/InvalidDateInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/Member.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/MemberAlreadyPaidException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/MemberList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/MemberNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/MyDate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/Participant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/RemoteClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/ServerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/view/ConsoleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/view/ConsoleView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/view/ViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/view/ViewManager.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <ignored path="$PROJECT_DIR$/VipassanaClient/bin/" />
@@ -14,180 +41,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <splitter split-orientation="horizontal" split-proportion="0.5">
-            <split-first>
-              <leaf>
-                <file leaf-file-name="VIAController.java" pinned="false" current-in-tab="true">
-                  <entry file="file://$PROJECT_DIR$/src/controler/VIAController.java">
-                    <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="170">
-                        <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-                        <folding>
-                          <element signature="e#978#1108#0" />
-                          <element signature="e#1111#1359#0" />
-                          <element signature="e#1362#1580#0" />
-                          <element signature="e#1583#1757#0" />
-                          <element signature="e#1760#1904#0" />
-                          <element signature="e#1907#2302#0" />
-                          <element signature="e#2305#2422#0" />
-                          <element signature="e#2425#2856#0" />
-                          <element signature="e#2859#3241#0" />
-                          <element signature="e#3244#3378#0" />
-                          <element signature="e#3381#3551#0" />
-                          <element signature="e#3554#4724#0" />
-                          <element signature="class#4221:4762" />
-                          <element signature="method#getColumnClass#0;class#4221:4762" />
-                          <element signature="e#4737#5868#0" />
-                          <element signature="class#5357:5853" />
-                          <element signature="method#getColumnClass#0;class#5357:5853" />
-                          <element signature="e#5871#7147#0" />
-                          <element signature="class#6530:7134" />
-                          <element signature="method#getColumnClass#0;class#6530:7134" />
-                          <element signature="method#isCellEditable#0;class#6530:7134" />
-                          <element signature="e#7150#8133#0" />
-                          <element signature="class#7661:8164" />
-                          <element signature="method#getColumnClass#0;class#7661:8164" />
-                          <element signature="e#8136#8939#0" />
-                          <element signature="class#8555:8924" />
-                          <element signature="method#getColumnClass#0;class#8555:8924" />
-                          <element signature="e#8942#9777#0" />
-                          <element signature="class#9385:9762" />
-                          <element signature="method#getColumnClass#0;class#9385:9762" />
-                          <element signature="e#9780#10519#0" />
-                          <element signature="class#10165:10504" />
-                          <element signature="method#getColumnClass#0;class#10165:10504" />
-                          <element signature="e#10522#11428#0" />
-                          <element signature="class#11030:11413" />
-                          <element signature="method#getColumnClass#0;class#11030:11413" />
-                          <element signature="e#11431#12559#0" />
-                          <element signature="class#12045:12586" />
-                          <element signature="method#getColumnClass#0;class#12045:12586" />
-                          <element signature="e#12562#13742#0" />
-                          <element signature="class#13274:13770" />
-                          <element signature="method#getColumnClass#0;class#13274:13770" />
-                          <element signature="e#13745#14627#0" />
-                          <element signature="class#14278:14655" />
-                          <element signature="method#getColumnClass#0;class#14278:14655" />
-                          <element signature="e#14630#15552#0" />
-                          <element signature="class#15203:15580" />
-                          <element signature="method#getColumnClass#0;class#15203:15580" />
-                          <element signature="e#15555#16418#0" />
-                          <element signature="class#16069:16446" />
-                          <element signature="method#getColumnClass#0;class#16069:16446" />
-                          <element signature="e#16421#17276#0" />
-                          <element signature="class#16927:17304" />
-                          <element signature="method#getColumnClass#0;class#16927:17304" />
-                          <element signature="e#19068#19203#0" />
-                          <element signature="e#19206#19329#0" />
-                          <element signature="e#20090#20223#0" />
-                          <element signature="e#20226#20349#0" />
-                        </folding>
-                      </state>
-                    </provider>
-                  </entry>
-                </file>
-              </leaf>
-            </split-first>
-            <split-second>
-              <leaf>
-                <file leaf-file-name="ViewManager.java" pinned="false" current-in-tab="true">
-                  <entry file="file://$PROJECT_DIR$/src/view/ViewManager.java">
-                    <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="119">
-                        <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-                      </state>
-                    </provider>
-                  </entry>
-                </file>
-              </leaf>
-            </split-second>
-          </splitter>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="VIAWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/VIAWindow.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domain/mediator/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <element signature="class#722:1476" />
-                <element signature="method#windowOpened#0;class#722:1476" />
-                <element signature="method#windowClosing#0;class#722:1476" />
-                <element signature="method#windowActivated#0;class#722:1476" />
-                <element signature="method#windowClosed#0;class#722:1476" />
-                <element signature="method#windowDeactivated#0;class#722:1476" />
-                <element signature="method#windowDeiconified#0;class#722:1476" />
-                <element signature="method#windowIconified#0;class#722:1476" />
-                <element signature="method#showEventsPanel#0;class#VIAWindow#0" />
-                <element signature="method#showNewsletterPanel#0;class#VIAWindow#0" />
-                <element signature="method#showSignUpPanel#0;class#VIAWindow#0" />
-                <element signature="method#showListsPanel#0;class#VIAWindow#0" />
-                <element signature="method#showEventCreateFormLectures#0;class#VIAWindow#0" />
-                <element signature="method#showEventCreateFormSeminars#0;class#VIAWindow#0" />
-                <element signature="method#showEventCreateFormWorkshop#0;class#VIAWindow#0" />
-                <element signature="method#showEventCreateFormTrip#0;class#VIAWindow#0" />
-                <element signature="method#showLecturerChoiceWindow#0;class#VIAWindow#0" />
-                <element signature="method#showLecturerMultipleChoiceListWindow#0;class#VIAWindow#0" />
-                <element signature="method#showCategoryMultipleChoiceList#0;class#VIAWindow#0" />
-                <element signature="method#showNewsletterContentWindow#0;class#VIAWindow#0" />
-                <element signature="method#showLecturerListPanel#0;class#VIAWindow#0" />
-                <element signature="method#showMemberListPanel#0;class#VIAWindow#0" />
-                <element signature="method#showEventListPanel#0;class#VIAWindow#0" />
-                <element signature="method#showParticipantListPanel#0;class#VIAWindow#0" />
-                <element signature="method#showSignUpFormLecturer#0;class#VIAWindow#0" />
-                <element signature="method#showSignUpFormMember#0;class#VIAWindow#0" />
-                <element signature="method#showSignUpFormParticipant#0;class#VIAWindow#0" />
-                <element signature="method#showModifyEventPanel#0;class#VIAWindow#0" />
-                <element signature="method#showMemberMultipleChoice#0;class#VIAWindow#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VIAManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="102" selection-start-line="102" selection-end-line="102" />
-              <folding>
-                <element signature="e#3971#3972#0" expanded="true" />
-                <element signature="e#4007#4008#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VIAButton.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/VIAButton.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InvocationEvent.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.desktop/java/awt/event/InvocationEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="288" column="33" lean-forward="true" selection-start-line="288" selection-start-column="33" selection-end-line="288" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SingletonTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/SingletonTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+            <state relative-caret-position="92">
+              <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -195,38 +55,154 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ServerManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domain/mediator/ServerManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VIAManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="97" column="45" selection-start-line="97" selection-start-column="45" selection-end-line="97" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="members.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/members.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domain/mediator/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="11" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domain/mediator/ClientManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VIAController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controler/VIAController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
+              <folding>
+                <element signature="e#994#995#0" expanded="true" />
+                <element signature="e#1023#1024#0" expanded="true" />
+                <element signature="e#958#959#0" expanded="true" />
+                <element signature="e#1019#1020#0" expanded="true" />
+                <element signature="e#943#1191#0" />
+                <element signature="e#1194#1412#0" />
+                <element signature="e#1415#1589#0" />
+                <element signature="e#1592#1736#0" />
+                <element signature="e#1739#2134#0" />
+                <element signature="e#2137#2254#0" />
+                <element signature="e#2257#2720#0" />
+                <element signature="e#2723#3105#0" />
+                <element signature="e#3108#3242#0" />
+                <element signature="e#3245#3415#0" />
+                <element signature="e#3418#4509#0" />
+                <element signature="class#3993:4505" />
+                <element signature="method#getColumnClass#0;class#3993:4505" />
+                <element signature="e#4512#5655#0" />
+                <element signature="class#5141:5651" />
+                <element signature="method#getColumnClass#0;class#5141:5651" />
+                <element signature="e#5658#6952#0" />
+                <element signature="class#6324:6948" />
+                <element signature="method#getColumnClass#0;class#6324:6948" />
+                <element signature="method#isCellEditable#0;class#6324:6948" />
+                <element signature="e#6955#7948#0" />
+                <element signature="class#7473:7944" />
+                <element signature="method#getColumnClass#0;class#7473:7944" />
+                <element signature="e#7951#8759#0" />
+                <element signature="class#8379:8755" />
+                <element signature="method#getColumnClass#0;class#8379:8755" />
+                <element signature="e#8762#9603#0" />
+                <element signature="class#9214:9599" />
+                <element signature="method#getColumnClass#0;class#9214:9599" />
+                <element signature="e#9606#10349#0" />
+                <element signature="class#10000:10345" />
+                <element signature="method#getColumnClass#0;class#10000:10345" />
+                <element signature="e#10352#11264#0" />
+                <element signature="class#10869:11260" />
+                <element signature="method#getColumnClass#0;class#10869:11260" />
+                <element signature="e#11267#12407#0" />
+                <element signature="class#11890:12402" />
+                <element signature="method#getColumnClass#0;class#11890:12402" />
+                <element signature="e#12410#13602#0" />
+                <element signature="class#13088:13598" />
+                <element signature="method#getColumnClass#0;class#13088:13598" />
+                <element signature="e#13605#14493#0" />
+                <element signature="class#14104:14489" />
+                <element signature="method#getColumnClass#0;class#14104:14489" />
+                <element signature="e#14496#15424#0" />
+                <element signature="class#15035:15420" />
+                <element signature="method#getColumnClass#0;class#15035:15420" />
+                <element signature="e#15427#16296#0" />
+                <element signature="class#15907:16292" />
+                <element signature="method#getColumnClass#0;class#15907:16292" />
+                <element signature="e#16299#17160#0" />
+                <element signature="class#16771:17156" />
+                <element signature="method#getColumnClass#0;class#16771:17156" />
+                <element signature="e#18287#18422#0" />
+                <element signature="e#18425#18548#0" />
+                <element signature="e#19309#19442#0" />
+                <element signature="e#19445#19568#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="151" column="31" lean-forward="true" selection-start-line="151" selection-start-column="31" selection-end-line="151" selection-end-column="31" />
+            <state relative-caret-position="34">
+              <caret line="128" column="22" lean-forward="true" selection-start-line="128" selection-start-column="22" selection-end-line="128" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Category.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domain/model/Category.java">
+      <file leaf-file-name="rmi.policy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rmi.policy">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoryFactory.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/domain/model/CategoryFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+              <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Daria</find>
+      <find>startServer</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -235,11 +211,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/domain/mediator/VIAManager.java" />
         <option value="$PROJECT_DIR$/src/domain/model/MemberList.java" />
-        <option value="$PROJECT_DIR$/src/domain/mediator/Server.java" />
-        <option value="$PROJECT_DIR$/src/domain/mediator/ClientManager.java" />
-        <option value="$PROJECT_DIR$/src/domain/mediator/ServerManager.java" />
         <option value="$PROJECT_DIR$/src/view/CategoryMultipleChoiceList.java" />
         <option value="$PROJECT_DIR$/src/view/EventCreateFormLectures.java" />
         <option value="$PROJECT_DIR$/src/view/EventCreateFormSeminars.java" />
@@ -262,11 +234,21 @@
         <option value="$PROJECT_DIR$/src/view/EventListPanel.java" />
         <option value="$PROJECT_DIR$/src/view/ViewManager.java" />
         <option value="$PROJECT_DIR$/src/view/VIAWindow.java" />
-        <option value="$PROJECT_DIR$/src/controler/VIAController.java" />
         <option value="$PROJECT_DIR$/src/view/VIAButtonBack.java" />
         <option value="$PROJECT_DIR$/src/resources/lecturer.txt" />
         <option value="$PROJECT_DIR$/src/domain/model/Category.java" />
         <option value="$PROJECT_DIR$/src/domain/model/CategoryFactory.java" />
+        <option value="$PROJECT_DIR$/src/domain/mediator/ModelManager.java" />
+        <option value="$PROJECT_DIR$/src/controler/VIAController.java" />
+        <option value="$PROJECT_DIR$/src/controler/Main.java" />
+        <option value="$PROJECT_DIR$/rmi.policy" />
+        <option value="$PROJECT_DIR$/src/domain/mediator/RemoteClient.java" />
+        <option value="$PROJECT_DIR$/src/domain/mediator/Server.java" />
+        <option value="$PROJECT_DIR$/src/domain/mediator/ServerManager.java" />
+        <option value="$PROJECT_DIR$/src/domain/mediator/ClientModelManager.java" />
+        <option value="$PROJECT_DIR$/src/domain/mediator/Client.java" />
+        <option value="$PROJECT_DIR$/src/domain/mediator/ClientManager.java" />
+        <option value="$PROJECT_DIR$/src/domain/mediator/VIAManager.java" />
       </list>
     </option>
   </component>
@@ -279,11 +261,11 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="25" />
-    <option name="y" value="-30" />
-    <option name="width" value="1940" />
-    <option name="height" value="1050" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-1448" />
+    <option name="y" value="239" />
+    <option name="width" value="1456" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -291,7 +273,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -309,20 +291,13 @@
               <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -331,13 +306,21 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../VipassanaClient" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="domain.mediator" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\misii\Desktop\VIA\SEP1\SDJ\SDJ1\src\domain\mediator" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -355,10 +338,11 @@
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
-    <configuration name="VIAController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="controler.VIAController" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controler.Main" />
       <module name="SDJ1" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="VM_PARAMETERS" value="-Djava.security.policy=C:\Users\misii\Desktop\VIA\SEP1\SDJ\SDJ1\all.policy" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="controler.*" />
@@ -422,7 +406,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.VIAController" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -444,39 +428,38 @@
     <option name="totallyTimeSpent" value="4584000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-1448" y="239" width="1456" height="876" extended-state="7" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" weight="0.32965517" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32965517" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33793104" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21223958" />
-      <window_info id="Learn" weight="0.3295302" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32965517" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info id="Image Layers" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32965517" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3219448" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.22638889" />
+      <window_info id="Learn" order="0" weight="0.3295302" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.39947438" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="3" side_tool="true" weight="0.3294271" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="6" side_tool="true" weight="0.3294271" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="right" id="Database" order="7" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,23 +472,23 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <condition expression="divide.length &lt; 5" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/domain/mediator/FileManager.java</url>
-          <line>157</line>
+          <line>129</line>
           <properties />
-          <option name="timeStamp" value="10" />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/domain/mediator/FileManager.java</url>
+          <line>128</line>
+          <properties />
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="11" />
+      <option name="time" value="23" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="divide" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
@@ -524,55 +507,10 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="141" column="27" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
-          <folding>
-            <element signature="e#3971#3972#0" expanded="true" />
-            <element signature="e#4007#4008#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/model/MemberList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/mediator/ServerManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ClientManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ServerManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
@@ -583,13 +521,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -787,6 +718,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/VIAButtonBack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/lecturer.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="10" column="57" lean-forward="true" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/model/CategoryFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/model/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/SingletonTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -799,82 +761,8 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.desktop/java/awt/event/InvocationEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="-75">
           <caret line="288" column="33" lean-forward="true" selection-start-line="288" selection-start-column="33" selection-end-line="288" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controler/VIAController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-          <folding>
-            <element signature="e#978#1108#0" />
-            <element signature="e#1111#1359#0" />
-            <element signature="e#1362#1580#0" />
-            <element signature="e#1583#1757#0" />
-            <element signature="e#1760#1904#0" />
-            <element signature="e#1907#2302#0" />
-            <element signature="e#2305#2422#0" />
-            <element signature="e#2425#2856#0" />
-            <element signature="e#2859#3241#0" />
-            <element signature="e#3244#3378#0" />
-            <element signature="e#3381#3551#0" />
-            <element signature="e#3554#4724#0" />
-            <element signature="class#4221:4762" />
-            <element signature="method#getColumnClass#0;class#4221:4762" />
-            <element signature="e#4737#5868#0" />
-            <element signature="class#5357:5853" />
-            <element signature="method#getColumnClass#0;class#5357:5853" />
-            <element signature="e#5871#7147#0" />
-            <element signature="class#6530:7134" />
-            <element signature="method#getColumnClass#0;class#6530:7134" />
-            <element signature="method#isCellEditable#0;class#6530:7134" />
-            <element signature="e#7150#8133#0" />
-            <element signature="class#7661:8164" />
-            <element signature="method#getColumnClass#0;class#7661:8164" />
-            <element signature="e#8136#8939#0" />
-            <element signature="class#8555:8924" />
-            <element signature="method#getColumnClass#0;class#8555:8924" />
-            <element signature="e#8942#9777#0" />
-            <element signature="class#9385:9762" />
-            <element signature="method#getColumnClass#0;class#9385:9762" />
-            <element signature="e#9780#10519#0" />
-            <element signature="class#10165:10504" />
-            <element signature="method#getColumnClass#0;class#10165:10504" />
-            <element signature="e#10522#11428#0" />
-            <element signature="class#11030:11413" />
-            <element signature="method#getColumnClass#0;class#11030:11413" />
-            <element signature="e#11431#12559#0" />
-            <element signature="class#12045:12586" />
-            <element signature="method#getColumnClass#0;class#12045:12586" />
-            <element signature="e#12562#13742#0" />
-            <element signature="class#13274:13770" />
-            <element signature="method#getColumnClass#0;class#13274:13770" />
-            <element signature="e#13745#14627#0" />
-            <element signature="class#14278:14655" />
-            <element signature="method#getColumnClass#0;class#14278:14655" />
-            <element signature="e#14630#15552#0" />
-            <element signature="class#15203:15580" />
-            <element signature="method#getColumnClass#0;class#15203:15580" />
-            <element signature="e#15555#16418#0" />
-            <element signature="class#16069:16446" />
-            <element signature="method#getColumnClass#0;class#16069:16446" />
-            <element signature="e#16421#17276#0" />
-            <element signature="class#16927:17304" />
-            <element signature="method#getColumnClass#0;class#16927:17304" />
-            <element signature="e#19068#19203#0" />
-            <element signature="e#19206#19329#0" />
-            <element signature="e#20090#20223#0" />
-            <element signature="e#20226#20349#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/VIAButtonBack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -923,42 +811,171 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/lecturer.txt">
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ModelManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="10" column="57" lean-forward="true" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+        <state relative-caret-position="765">
+          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controler/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="15" selection-start-line="15" selection-end-line="17" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all.policy">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/RemoteClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rmi.policy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ServerManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ClientModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" column="64" lean-forward="true" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ClientManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="11" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/members.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/members.bin">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controler/VIAController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
+          <folding>
+            <element signature="e#994#995#0" expanded="true" />
+            <element signature="e#1023#1024#0" expanded="true" />
+            <element signature="e#958#959#0" expanded="true" />
+            <element signature="e#1019#1020#0" expanded="true" />
+            <element signature="e#943#1191#0" />
+            <element signature="e#1194#1412#0" />
+            <element signature="e#1415#1589#0" />
+            <element signature="e#1592#1736#0" />
+            <element signature="e#1739#2134#0" />
+            <element signature="e#2137#2254#0" />
+            <element signature="e#2257#2720#0" />
+            <element signature="e#2723#3105#0" />
+            <element signature="e#3108#3242#0" />
+            <element signature="e#3245#3415#0" />
+            <element signature="e#3418#4509#0" />
+            <element signature="class#3993:4505" />
+            <element signature="method#getColumnClass#0;class#3993:4505" />
+            <element signature="e#4512#5655#0" />
+            <element signature="class#5141:5651" />
+            <element signature="method#getColumnClass#0;class#5141:5651" />
+            <element signature="e#5658#6952#0" />
+            <element signature="class#6324:6948" />
+            <element signature="method#getColumnClass#0;class#6324:6948" />
+            <element signature="method#isCellEditable#0;class#6324:6948" />
+            <element signature="e#6955#7948#0" />
+            <element signature="class#7473:7944" />
+            <element signature="method#getColumnClass#0;class#7473:7944" />
+            <element signature="e#7951#8759#0" />
+            <element signature="class#8379:8755" />
+            <element signature="method#getColumnClass#0;class#8379:8755" />
+            <element signature="e#8762#9603#0" />
+            <element signature="class#9214:9599" />
+            <element signature="method#getColumnClass#0;class#9214:9599" />
+            <element signature="e#9606#10349#0" />
+            <element signature="class#10000:10345" />
+            <element signature="method#getColumnClass#0;class#10000:10345" />
+            <element signature="e#10352#11264#0" />
+            <element signature="class#10869:11260" />
+            <element signature="method#getColumnClass#0;class#10869:11260" />
+            <element signature="e#11267#12407#0" />
+            <element signature="class#11890:12402" />
+            <element signature="method#getColumnClass#0;class#11890:12402" />
+            <element signature="e#12410#13602#0" />
+            <element signature="class#13088:13598" />
+            <element signature="method#getColumnClass#0;class#13088:13598" />
+            <element signature="e#13605#14493#0" />
+            <element signature="class#14104:14489" />
+            <element signature="method#getColumnClass#0;class#14104:14489" />
+            <element signature="e#14496#15424#0" />
+            <element signature="class#15035:15420" />
+            <element signature="method#getColumnClass#0;class#15035:15420" />
+            <element signature="e#15427#16296#0" />
+            <element signature="class#15907:16292" />
+            <element signature="method#getColumnClass#0;class#15907:16292" />
+            <element signature="e#16299#17160#0" />
+            <element signature="class#16771:17156" />
+            <element signature="method#getColumnClass#0;class#16771:17156" />
+            <element signature="e#18287#18422#0" />
+            <element signature="e#18425#18548#0" />
+            <element signature="e#19309#19442#0" />
+            <element signature="e#19445#19568#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
-          <folding>
-            <element signature="e#3971#3972#0" expanded="true" />
-            <element signature="e#4007#4008#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="97" column="45" selection-start-line="97" selection-start-column="45" selection-end-line="97" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="151" column="31" lean-forward="true" selection-start-line="151" selection-start-column="31" selection-end-line="151" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/model/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/model/CategoryFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+        <state relative-caret-position="34">
+          <caret line="128" column="22" lean-forward="true" selection-start-line="128" selection-start-column="22" selection-end-line="128" selection-end-column="22" />
         </state>
       </provider>
     </entry>

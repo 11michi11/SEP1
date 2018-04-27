@@ -1,15 +1,22 @@
 package controller;
 
-import model.ServerManager;
-import model.ClientModelManager;
+import domain.mediator.ClientManager;
+import domain.mediator.ClientModelManager;
 import view.ConsoleView;
 import view.ViewManager;
 
 public class ClientMain {
 
 	public static void main(String[] args) {
+		if (System.getSecurityManager() == null)
+		{
+			System.setSecurityManager(new SecurityManager());
+		}
+		Controller controller = Controller.getInstance();
 		ViewManager view = new ConsoleView();
-		ServerManager manager = new ClientModelManager();
-		Controller.getInstance(manager, view);
+		controller.setView(view);
+		ClientManager manager = new ClientModelManager();
+		controller.setManager(manager);
+		controller.start();
 	}
 }

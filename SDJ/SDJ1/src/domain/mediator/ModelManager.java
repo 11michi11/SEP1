@@ -7,6 +7,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Observer;
 
 import domain.model.Category;
 import domain.model.Event;
@@ -21,44 +22,46 @@ import domain.model.Participant;
 
 public interface ModelManager {
 
-	public String getMembersString();
+	String getMembersString();
 
-	public String getLecturersString();
+	String getLecturersString();
 
-	public void signUpMember(String name, String address, int phone, String email, MyDate dateOfMembership);
+	void signUpMember(String name, String address, int phone, String email, MyDate dateOfMembership);
 
-	public void deleteMember(Member member);
+	void deleteMember(Member member);
 
-	public void signUpLecturer(String name, String email, int phone, ArrayList<Category> categories,
-			boolean wantsAdvertise);
+	void signUpLecturer(String name, String email, int phone, ArrayList<Category> categories,
+	                    boolean wantsAdvertise);
 
-	public void signUpParticipantToEvent(Participant participant, int eventId) throws EventNotFoundException;
+	void signUpParticipantToEvent(Participant participant, int eventId) throws EventNotFoundException;
 
-	public void generateNewsletter(String newsletterContent) throws IOException;
+	void generateNewsletter(String newsletterContent) throws IOException;
 
-	public ArrayList<Member> getAllMembers();
+	ArrayList<Member> getAllMembers();
 
-	public ArrayList<Lecturer> getAllLecturers();
+	ArrayList<Lecturer> getAllLecturers();
 
-	public ArrayList<Event> getAllEvents();
+	ArrayList<Event> getAllEvents();
 
-	public ArrayList<File> getAllNewsletters();
+	ArrayList<File> getAllNewsletters();
 
-	public MemberList getMemberList();
+	MemberList getMemberList();
 
-	public LecturerList getLecturerList();
+	LecturerList getLecturerList();
 
-	public EventList getEventList();
+	EventList getEventList();
 
-	public void updateMemberList() throws ClassNotFoundException, IOException;
+	void updateMemberList() throws ClassNotFoundException, IOException;
 
-	public void updateLecturerList() throws ClassNotFoundException, IOException;
+	void updateLecturerList() throws ClassNotFoundException, IOException;
 
-	public void updateEventList() throws ClassNotFoundException, IOException;
+	void updateEventList() throws ClassNotFoundException, IOException;
 
-	public void updateNewsletterList() throws ClassNotFoundException, IOException;
+	void updateNewsletterList() throws ClassNotFoundException, IOException;
 
-	public void addEvent(Map<String, Object> configuration);
+	void addEvent(Map<String, Object> configuration);
 
-	public String readNewsletter(MyDate date) throws FileNotFoundException;
+	String readNewsletter(MyDate date) throws FileNotFoundException;
+
+	void registerObserver(Observer observer);
 }
