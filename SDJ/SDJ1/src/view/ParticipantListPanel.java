@@ -1,26 +1,14 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableModel;
 import controler.VIAController;
 import domain.model.Event;
 import domain.model.Member;
 import domain.model.Participant;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.util.ArrayList;
 
 public class ParticipantListPanel extends VIAPanel {
 
@@ -33,9 +21,11 @@ public class ParticipantListPanel extends VIAPanel {
 	private JLabel participantList;
 	private JFrame frame;
 	private JPanel parentPanel;
+	private VIAController controller;
 
 	public ParticipantListPanel(JFrame frame, JPanel parentPanel) {
 		super();
+		this.controller = VIAController.getInstance();
 		setLayout(new BorderLayout());
 		this.frame = frame;
 		this.parentPanel = parentPanel;
@@ -59,11 +49,11 @@ public class ParticipantListPanel extends VIAPanel {
 		events.removeColumn(events.getColumnModel().getColumn(1));
 		events.setPreferredScrollableViewportSize(new Dimension(200, 290));
 
-		String[] columnNames = { "Name", "Email", "Member" };
+		String[] columnNames = {"Name", "Email", "Member"};
 		Object[][] data = {};
 
-		DefaultTableModel pariticipantModel = new DefaultTableModel(data, columnNames);
-		table = new JTable(pariticipantModel);
+		DefaultTableModel participantModel = new DefaultTableModel(data, columnNames);
+		table = new JTable(participantModel);
 		table.removeColumn(table.getColumnModel().getColumn(2));
 		table.setPreferredScrollableViewportSize(new Dimension(320, 290));
 
@@ -72,69 +62,33 @@ public class ParticipantListPanel extends VIAPanel {
 
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
-		add.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JFrame participant = new JFrame();
-				participant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				participant.setSize(900, 500);
-				participant.setLocationRelativeTo(null);
-				participant.setResizable(false);
-				participant.setTitle("VIA - Add new member");
-				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
-				participant.setContentPane(new SignUpFormParticipant(participant, currentPanel, event.getID()));
-				participant.setVisible(true);
-			}
+		add.addActionListener(e -> {
+			Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
+			controller.showSignUpFormParticipant(currentPanel, event);
 		});
 
-		delete.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
-				Participant participant = (Participant) table.getModel().getValueAt(table.getSelectedRow(), 2);
-				event.signOffParticipant(participant);
-				DefaultTableModel pariticipantModel = VIAController.getParticipantTableModel(event);
-				table.setModel(pariticipantModel);
-				table.removeColumn(table.getColumnModel().getColumn(2));
-			}
+		delete.addActionListener(e -> {
+			Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
+			Participant participant = (Participant) table.getModel().getValueAt(table.getSelectedRow(), 2);
+			event.signOffParticipant(participant);
+			DefaultTableModel participantModel = VIAController.getParticipantTableModel(event);
+			table.setModel(participantModel);
+			table.removeColumn(table.getColumnModel().getColumn(2));
 		});
 
-		member.addActionListener(new ActionListener() {
+		member.addActionListener(e -> controller.showMemberMultipleChoice(currentPanel));
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JFrame member = new JFrame();
-				member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				member.setSize(900, 500);
-				member.setLocationRelativeTo(null);
-				member.setResizable(false);
-				member.setTitle("VIA - Add new member");
-				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
-				member.setContentPane(new MemberMultipleChoice(member, currentPanel, event));
-				member.setVisible(true);
+		events.getSelectionModel().addListSelectionListener(e -> {
+			add.setEnabled(true);
+			member.setEnabled(true);
 
-			}
+			Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
+			DefaultTableModel participantModel = VIAController.getParticipantTableModel(event);
+			table.setModel(participantModel);
+			table.removeColumn(table.getColumnModel().getColumn(2));
 		});
 
-		events.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent e) {
-				add.setEnabled(true);
-				member.setEnabled(true);
-
-				Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
-				DefaultTableModel pariticipantModel = VIAController.getParticipantTableModel(event);
-				table.setModel(pariticipantModel);
-				table.removeColumn(table.getColumnModel().getColumn(2));
-			}
-		});
-
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent e) {
-				delete.setEnabled(true);
-			}
-		});
+		table.getSelectionModel().addListSelectionListener(e -> delete.setEnabled(true));
 
 	}
 
@@ -216,7 +170,7 @@ public class ParticipantListPanel extends VIAPanel {
 		}
 	}
 
-	public static void addMembersToEvent(ArrayList<Member> members) {
+	static void addMembersToEvent(ArrayList<Member> members) {
 		Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
 		for (Member e : members)
 			event.signUpParticipant(e);

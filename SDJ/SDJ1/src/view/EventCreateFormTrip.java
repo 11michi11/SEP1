@@ -1,28 +1,16 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.util.HashMap;
-import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import controler.VIAController;
 import domain.model.Event;
 import domain.model.InvalidDateInput;
 import domain.model.MyDate;
 import domain.model.Trip;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.util.HashMap;
 
 public class EventCreateFormTrip extends VIAPanel {
 
@@ -75,14 +63,10 @@ public class EventCreateFormTrip extends VIAPanel {
 	}
 
 	public void initializeComponents() {
-
-		String[] boxString = { "", "astronomy", "nature", "yoga" };
-		String[] boxLecturers = { "lecturerName", "", "" };
-
 		createForm = new VIALabel("Create Form for TRIP", 33);
 		title = new JLabel("Title:");
 		price = new JLabel("Price:");
-		places = new JLabel("N° of Places:");
+		places = new JLabel("Nï¿½ of Places:");
 		starDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
@@ -114,50 +98,46 @@ public class EventCreateFormTrip extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
-		save.addActionListener(new ActionListener() {
+		save.addActionListener(e -> {
+			HashMap<String, Object> configuration = new HashMap<>();
+			configuration.put("type", "Lecture");
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				HashMap<String, Object> configuration = new HashMap<String, Object>();
-				configuration.put("type", "Lecture");
+			if (!fieldTitle.getText().equals(""))
+				configuration.put("title", fieldTitle.getText());
+			if (!fieldPrice.getText().equals(""))
+				configuration.put("price", Double.parseDouble(fieldPrice.getText()));
+			if (!fieldPlaces.getText().equals(""))
+				configuration.put("capacity", Integer.parseInt(fieldPlaces.getText()));
+			if (descriptionArea.getText().equals(""))
+				configuration.put("descriptionArea", descriptionArea.getText());
+			if (fieldLocation.getText().equals(""))
+				configuration.put("location", fieldLocation.getText());
 
-				if (!fieldTitle.getText().equals(""))
-					configuration.put("title", fieldTitle.getText());
-				if (!fieldPrice.getText().equals(""))
-					configuration.put("price", Double.parseDouble(fieldPrice.getText()));
-				if (!fieldPlaces.getText().equals(""))
-					configuration.put("capacity", Integer.parseInt(fieldPlaces.getText()));
-				if (descriptionArea.getText().equals(""))
-					configuration.put("descriptionArea", descriptionArea.getText());
-				if (fieldLocation.getText().equals(""))
-					configuration.put("location", fieldLocation.getText());
+			configuration.put("finalized", finalized.isSelected());
 
-				configuration.put("finalized", finalized.isSelected());
+			boolean close = false;
 
-				boolean close = false;
+			try {
+				if (fieldStartDate.getText().equals(""))
+					configuration.put("startDate", new MyDate(fieldStartDate.getText()));
+				if (fieldEndDate.getText().equals(""))
+					configuration.put("endDate", new MyDate(fieldEndDate.getText()));
 
-				try {
-					if (fieldStartDate.getText().equals(""))
-						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
-					if (fieldEndDate.getText().equals(""))
-						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
+				if (event == null)
+					controller.addEventToList(configuration);
+				else
+					event.modify(configuration);
+				close = true;
 
-					if (event == null)
-						controller.addEventToList(configuration);
-					else
-						event.modify(configuration);
-					close = true;
-
-				} catch (InvalidDateInput ex) {
-					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
-							JOptionPane.PLAIN_MESSAGE);
-				}
-				if (close) {
-					if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
-						frame.dispose();
-					else
-						back.goBack();
-				}
+			} catch (InvalidDateInput ex) {
+				JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
+						JOptionPane.PLAIN_MESSAGE);
+			}
+			if (close) {
+				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+					frame.dispose();
+				else
+					back.goBack();
 			}
 		});
 
@@ -326,7 +306,7 @@ public class EventCreateFormTrip extends VIAPanel {
 		fieldStartDate.setText(event.getStartDate().toString());
 		fieldEndDate.setText(event.getEndDate().toString());
 		location.setText(((Trip) event).getLocation());
-		descriptionArea.setText(((Trip) event).getDescription());
+		descriptionArea.setText(event.getDescription());
 	}
 
 }

@@ -1,18 +1,11 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import controler.VIAController;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import controler.VIAController;
 
 public class EventPanel extends VIAPanel {
 
@@ -54,15 +47,11 @@ public class EventPanel extends VIAPanel {
 
 		trips.addActionListener(e -> controller.showEventCreateFormTrip(currentPanel));
 
-		back.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (parentPanel instanceof EventListPanel) {
-					frame.dispose();
-				} else {
-					back.goBack();
-				}
+		back.addActionListener(e -> {
+			if (parentPanel instanceof EventListPanel) {
+				frame.dispose();
+			} else {
+				back.goBack();
 			}
 		});
 

@@ -1,6 +1,8 @@
 package domain.model;
 
-public class Category extends AbstractCategory{
+import java.io.Serializable;
+
+public class Category extends AbstractCategory implements Serializable {
 	public Category(String name) {
 	    super(name);
 	}

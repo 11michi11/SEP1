@@ -1,34 +1,32 @@
 package view;
 
-import java.io.File;
-
-import javax.swing.JPanel;
-
 import domain.model.Event;
-import domain.model.Lecturer;
+
+import javax.swing.*;
+import java.io.File;
 
 public interface ViewManager {
 
-	public void showStartPanel();
-	public void showEventsPanel(JPanel currentPanel);
-	public void showNewsletterPanel(JPanel currentPanel);
-	public void showSignUpPanel(JPanel currentPanel);
-	public void showListsPanel(JPanel currentPanel);
-	public void showEventCreateFormLectures(JPanel currentPanel);
-	public void showEventCreateFormSeminars(JPanel currentPanel);
-	public void showEventCreateFormWorkshop(JPanel currentPanel);
-	public void showEventCreateFormTrip(JPanel currentPanel);
-	public void showLecturerChoiceWindow();
-	public void showLecturerMultipleChoiceListWindow(JPanel currentPanel);
-	public void showCategoryMultipleChoiceList(JPanel currentPanel);
-	public void showNewsletterContentWindow(File newsletter);
-	public void showLecturerListPanel(JPanel currentPanel);
-	public void showMemberListPanel(JPanel currentPanel);
-	public void showEventListPanel(JPanel currentPanel);
-	public void showParticipantListPanel(JPanel currentPanel);
-	public void showSignUpFormLecturer(JPanel currentPanel);
-	public void showSignUpFormMember(JPanel currentPanel);
-	public void showSignUpFormParticipant(JPanel currentPanel, Event event);
-	public void showModifyEventPanel(JPanel currentPanel, Event event);
-	public void showModifyEventPanel(JPanel currentPanel, Event event);
+	void showStartPanel();
+	void showEventsPanel(JPanel currentPanel);
+	void showNewsletterPanel(JPanel currentPanel);
+	void showSignUpPanel(JPanel currentPanel);
+	void showListsPanel(JPanel currentPanel);
+	void showEventCreateFormLectures(JPanel currentPanel);
+	void showEventCreateFormSeminars(JPanel currentPanel);
+	void showEventCreateFormWorkshop(JPanel currentPanel);
+	void showEventCreateFormTrip(JPanel currentPanel);
+	void showLecturerChoiceWindow();
+	void showLecturerMultipleChoiceListWindow(JPanel currentPanel);
+	void showCategoryMultipleChoiceList(JPanel currentPanel);
+	void showNewsletterContentWindow(File newsletter);
+	void showLecturerListPanel(JPanel currentPanel);
+	void showMemberListPanel(JPanel currentPanel);
+	void showEventListPanel(JPanel currentPanel);
+	void showParticipantListPanel(JPanel currentPanel);
+	void showSignUpFormLecturer(JPanel currentPanel);
+	void showSignUpFormMember(JPanel currentPanel);
+	void showSignUpFormParticipant(JPanel currentPanel, Event event);
+	void showModifyEventPanel(JPanel currentPanel, Event event);
+	void showMemberMultipleChoice(JPanel currentPanel);
 }

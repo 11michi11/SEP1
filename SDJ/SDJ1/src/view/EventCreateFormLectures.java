@@ -1,33 +1,15 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import controler.VIAController;
+import domain.model.*;
+import domain.model.Event;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.HashMap;
-
-import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
-import controler.VIAController;
-import domain.model.Category;
-import domain.model.Event;
-import domain.model.InvalidDateInput;
-import domain.model.Lecture;
-import domain.model.Lecturer;
-import domain.model.MyDate;
+import java.util.Objects;
 
 public class EventCreateFormLectures extends VIAPanel {
 
@@ -54,7 +36,7 @@ public class EventCreateFormLectures extends VIAPanel {
 	private JRadioButton unfinalized;
 	private JFrame frame;
 	private JPanel parentPanel;
-	private JComboBox categoryBox;
+	private JComboBox<String> categoryBox;
 	private JButton lecturerChoice;
 	private Event event;
 	private VIAController controller;
@@ -106,7 +88,7 @@ public class EventCreateFormLectures extends VIAPanel {
 		lecturerChoice = new VIAButtonExtraSmall("Lecturers", 20);
 		save = new VIAButtonExtraSmall("SAVE", 20);
 		back = new VIAButtonBack(frame, parentPanel);
-		categoryBox = new JComboBox(boxString);
+		categoryBox = new JComboBox<>(boxString);
 		categoryBox.setSelectedIndex(2);
 		descriptionArea = new JTextArea(6, 55);
 
@@ -126,61 +108,51 @@ public class EventCreateFormLectures extends VIAPanel {
 	}
 
 	public void registerEventHandlers() {
-		lecturerChoice.addActionListener(new ActionListener() {
+		lecturerChoice.addActionListener(e -> controller.showLecturerChoiceWindow());
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				controller.showLecturerChoiceWindow();
+		save.addActionListener(e -> {
+
+			HashMap<String, Object> configuration = new HashMap<>();
+			configuration.put("type", "Lecture");
+
+			if (!fieldTitle.getText().equals(""))
+				configuration.put("title", fieldTitle.getText());
+			if (!fieldPrice.getText().equals(""))
+				configuration.put("price", Double.parseDouble(fieldPrice.getText()));
+			if (!fieldPlaces.getText().equals(""))
+				configuration.put("capacity", Integer.parseInt(fieldPlaces.getText()));
+			if (descriptionArea.getText().equals(""))
+				configuration.put("descriptionArea", descriptionArea.getText());
+			if (Objects.requireNonNull(categoryBox.getSelectedItem()).toString().equals(""))
+				configuration.put("category", CategoryFactory.getCategory(categoryBox.getSelectedItem().toString()));
+			if (lecturer != null)
+				configuration.put("lecturer", lecturer);
+
+			configuration.put("finalized", finalized.isSelected());
+
+			boolean close = false;
+
+			try {
+				if (!fieldStartDate.getText().equals(""))
+					configuration.put("startDate", new MyDate(fieldStartDate.getText()));
+				if (!fieldEndDate.getText().equals(""))
+					configuration.put("endDate", new MyDate(fieldEndDate.getText()));
+
+				if (event == null)
+					controller.addEventToList(configuration);
+				else
+					event.modify(configuration);
+
+				close = true;
+			} catch (InvalidDateInput ex) {
+				JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
+						JOptionPane.PLAIN_MESSAGE);
 			}
-		});
-
-		save.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				HashMap<String, Object> configuration = new HashMap<String, Object>();
-				configuration.put("type", "Lecture");
-
-				if (!fieldTitle.getText().equals(""))
-					configuration.put("title", fieldTitle.getText());
-				if (!fieldPrice.getText().equals(""))
-					configuration.put("price", Double.parseDouble(fieldPrice.getText()));
-				if (!fieldPlaces.getText().equals(""))
-					configuration.put("capacity", Integer.parseInt(fieldPlaces.getText()));
-				if (descriptionArea.getText().equals(""))
-					configuration.put("descriptionArea", descriptionArea.getText());
-				if (categoryBox.getSelectedItem().toString().equals(""))
-					configuration.put("category", Category.parseCategory(categoryBox.getSelectedItem().toString()));
-				if (lecturer != null)
-					configuration.put("lecturer", lecturer);
-
-				configuration.put("finalized", finalized.isSelected());
-
-				boolean close = false;
-
-				try {
-					if (!fieldStartDate.getText().equals(""))
-						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
-					if (!fieldEndDate.getText().equals(""))
-						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
-
-					if (event == null)
-						controller.addEventToList(configuration);
-					else
-						event.modify(configuration);
-
-					close = true;
-				} catch (InvalidDateInput ex) {
-					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
-							JOptionPane.PLAIN_MESSAGE);
-				}
-				if (close) {
-					if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
-						frame.dispose();
-					else
-						back.goBack();
-				}
+			if (close) {
+				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+					frame.dispose();
+				else
+					back.goBack();
 			}
 		});
 
@@ -346,8 +318,8 @@ public class EventCreateFormLectures extends VIAPanel {
 
 	}
 
-	public static void assignLecturerToForm(Lecturer lecturerChoosen) {
-		lecturer = lecturerChoosen;
+	static void assignLecturerToForm(Lecturer lecturerChosen) {
+		lecturer = lecturerChosen;
 		fieldLecturer.setText(lecturer.getName());
 	}
 

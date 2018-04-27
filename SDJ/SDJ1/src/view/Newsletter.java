@@ -1,32 +1,19 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import controler.VIAController;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import controler.VIAController;
 
 public class Newsletter extends VIAPanel {
 
 	private static JTable table;
-	private JScrollPane scrollPane;
 	private JLabel listOfNewsletter;
 	private JButton generateText;
 	private JLabel newsletter;
@@ -55,8 +42,6 @@ public class Newsletter extends VIAPanel {
 		table.removeColumn(table.getColumnModel().getColumn(1));
 		table.setPreferredScrollableViewportSize(new Dimension(450, 50));
 
-		scrollPane = new JScrollPane(table);
-
 		listOfNewsletter = new VIALabel("LIST OF NEWSLETTER", 20);
 		generateText = new VIAButtonSimple("Generate text", 30);
 		newsletter = new VIALabel("NEWSLETTER", 50);
@@ -66,13 +51,9 @@ public class Newsletter extends VIAPanel {
 	}
 
 	private void registerEventHandlers() {
-		JPanel currentPanel = this;
-
 		table.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent mouseEvent) {
 				JTable table = (JTable) mouseEvent.getSource();
-				Point point = mouseEvent.getPoint();
-				int row = table.rowAtPoint(point);
 				if (mouseEvent.getClickCount() == 2) {
 					TableModel model = table.getModel();
 					int selRow = table.getSelectedRow();
@@ -83,16 +64,12 @@ public class Newsletter extends VIAPanel {
 			}
 		});
 
-		generateText.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				try {
-					VIAController.generateNewsletter(info.getText());
-				} catch (IOException e1) {
-					e1.printStackTrace();
-					JOptionPane.showMessageDialog(frame, "File not found", "File error", JOptionPane.PLAIN_MESSAGE);
-				}
+		generateText.addActionListener(e -> {
+			try {
+				VIAController.generateNewsletter(info.getText());
+			} catch (IOException e1) {
+				e1.printStackTrace();
+				JOptionPane.showMessageDialog(frame, "File not found", "File error", JOptionPane.PLAIN_MESSAGE);
 			}
 		});
 	}

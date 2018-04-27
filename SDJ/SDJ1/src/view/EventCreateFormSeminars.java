@@ -1,43 +1,22 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import controler.VIAController;
+import domain.model.*;
+import domain.model.Event;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
-import controler.VIAController;
-import domain.model.Category;
-import domain.model.Event;
-import domain.model.InvalidDateInput;
-import domain.model.Lecturer;
-import domain.model.MyDate;
-import domain.model.Seminar;
-
 public class EventCreateFormSeminars extends VIAPanel {
 
-	private static JComboBox lecturersBox;
-	private static ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
-	private static JComboBox categoryBox;
-	private static ArrayList<Category> categories = new ArrayList<Category>();
+	private static JComboBox<String> lecturersBox;
+	private static ArrayList<Lecturer> lecturers = new ArrayList<>();
+	private static JComboBox<String> categoryBox;
+	private static ArrayList<Category> categories = new ArrayList<>();
 	private JLabel createForm;
 	private JLabel title;
 	private JButton category;
@@ -87,14 +66,14 @@ public class EventCreateFormSeminars extends VIAPanel {
 
 	public void initializeComponents() {
 
-		String[] boxString = { "categoryTitle", "" };
-		String[] boxLecturers = { "lecturerName", "" };
+		String[] boxString = {"categoryTitle", ""};
+		String[] boxLecturers = {"lecturerName", ""};
 
 		createForm = new VIALabel("Create Form for SEMINARS", 33);
 		title = new JLabel("Title:");
 		category = new VIAButtonExtraSmall("Category", 20);
 		price = new JLabel("Price:");
-		places = new JLabel("N° of Places:");
+		places = new JLabel("Nï¿½ of Places:");
 		starDate = new JLabel("Start date:");
 		endDate = new JLabel("End date:");
 		finish = new JLabel("Finalized");
@@ -106,11 +85,11 @@ public class EventCreateFormSeminars extends VIAPanel {
 		fieldStartDate.setText("dd/mm/yyyy/hh:mm");
 		fieldEndDate = new JTextField(10);
 		fieldEndDate.setText("dd/mm/yyyy/hh:mm");
-		lecturersBox = new JComboBox(boxLecturers);
+		lecturersBox = new JComboBox<>(boxLecturers);
 		lecturer = new VIAButtonExtraSmall("Lecturers", 20);
 		save = new VIAButtonExtraSmall("SAVE", 20);
 		back = new VIAButtonBack(frame, parentPanel);
-		categoryBox = new JComboBox(boxString);
+		categoryBox = new JComboBox<>(boxString);
 		descriptionArea = new JTextArea(5, 55);
 
 		finalized = new JRadioButton("YES");
@@ -132,50 +111,46 @@ public class EventCreateFormSeminars extends VIAPanel {
 		JPanel currentPanel = this;
 		lecturer.addActionListener(e -> controller.showLecturerMultipleChoiceListWindow(currentPanel));
 
-		save.addActionListener(new ActionListener() {
+		save.addActionListener(e -> {
+			HashMap<String, Object> configuration = new HashMap<>();
+			configuration.put("type", "Seminar");
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				HashMap<String, Object> configuration = new HashMap<String, Object>();
-				configuration.put("type", "Seminar");
+			if (!fieldTitle.getText().equals(""))
+				configuration.put("title", fieldTitle.getText());
+			if (!fieldPrice.getText().equals(""))
+				configuration.put("price", Double.parseDouble(fieldPrice.getText()));
+			if (!fieldPlaces.getText().equals(""))
+				configuration.put("capacity", Integer.parseInt(fieldPlaces.getText()));
+			if (descriptionArea.getText().equals(""))
+				configuration.put("descriptionArea", descriptionArea.getText());
+			configuration.put("finalized", finalized.isSelected());
+			configuration.put("category", categories);
+			configuration.put("lecturers", lecturers);
 
-				if (!fieldTitle.getText().equals(""))
-					configuration.put("title", fieldTitle.getText());
-				if (!fieldPrice.getText().equals(""))
-					configuration.put("price", Double.parseDouble(fieldPrice.getText()));
-				if (!fieldPlaces.getText().equals(""))
-					configuration.put("capacity", Integer.parseInt(fieldPlaces.getText()));
-				if (descriptionArea.getText().equals(""))
-					configuration.put("descriptionArea", descriptionArea.getText());
-				configuration.put("finalized", finalized.isSelected());
-				configuration.put("category", categories);
-				configuration.put("lecturers", lecturers);
+			boolean close = false;
 
-				boolean close = false;
+			try {
+				if (!fieldStartDate.getText().equals(""))
+					configuration.put("startDate", new MyDate(fieldStartDate.getText()));
+				if (!fieldEndDate.getText().equals(""))
+					configuration.put("endDate", new MyDate(fieldEndDate.getText()));
 
-				try {
-					if (!fieldStartDate.getText().equals(""))
-						configuration.put("startDate", new MyDate(fieldStartDate.getText()));
-					if (!fieldEndDate.getText().equals(""))
-						configuration.put("endDate", new MyDate(fieldEndDate.getText()));
+				if (event == null)
+					controller.addEventToList(configuration);
+				else
+					event.modify(configuration);
 
-					if (event == null)
-						controller.addEventToList(configuration);
-					else
-						event.modify(configuration);
+				close = true;
+			} catch (InvalidDateInput ex) {
+				JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
+						JOptionPane.PLAIN_MESSAGE);
+			}
 
-					close = true;
-				} catch (InvalidDateInput ex) {
-					JOptionPane.showMessageDialog(frame, "Invalid date format", "Date error",
-							JOptionPane.PLAIN_MESSAGE);
-				}
-
-				if (close) {
-					if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
-						frame.dispose();
-					else
-						back.goBack();
-				}
+			if (close) {
+				if (frame.getDefaultCloseOperation() == JFrame.DISPOSE_ON_CLOSE)
+					frame.dispose();
+				else
+					back.goBack();
 			}
 		});
 
@@ -343,23 +318,23 @@ public class EventCreateFormSeminars extends VIAPanel {
 
 	}
 
-	public static void assignCategoriesToLecturerForm(ArrayList<Category> categoriesList) {
+	static void assignCategoriesToLecturerForm(ArrayList<Category> categoriesList) {
 		categories = categoriesList;
 		String[] boxString = new String[categoriesList.size()];
 		for (int i = 0; i < categoriesList.size(); i++)
 			boxString[i] = categoriesList.get(i).toString();
 
-		DefaultComboBoxModel model = new DefaultComboBoxModel(boxString);
+		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(boxString);
 		categoryBox.setModel(model);
 	}
 
-	public static void assignLecturersToLecturerForm(ArrayList<Lecturer> lecturersList) {
+	static void assignLecturersToLecturerForm(ArrayList<Lecturer> lecturersList) {
 		lecturers = lecturersList;
 		String[] boxString = new String[lecturersList.size()];
 		for (int i = 0; i < lecturersList.size(); i++)
 			boxString[i] = lecturersList.get(i).getName();
 
-		DefaultComboBoxModel model = new DefaultComboBoxModel(boxString);
+		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(boxString);
 		lecturersBox.setModel(model);
 	}
 

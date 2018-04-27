@@ -1,30 +1,20 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import controler.VIAController;
+import domain.model.Member;
+import domain.model.MemberAlreadyPaidException;
+
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.IOException;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import controler.VIAController;
-import domain.model.Member;
-import domain.model.MemberAlreadyPaidException;
 
 public class MemberListPanel extends VIAPanel {
 
@@ -76,42 +66,36 @@ public class MemberListPanel extends VIAPanel {
 	private void registerEventHandlers() {
 		JPanel currentPanel = this;
 
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent event) {
-				delete.setEnabled(true);
+		table.getSelectionModel().addListSelectionListener(event -> {
+			delete.setEnabled(true);
 
-				//Click count prevents double click bug
-				clickCount++;
+			//Click count prevents double click bug
+			clickCount++;
 
-				TableModel model = table.getModel();
-				int selRow = table.getSelectedRow();
-				if (table.getSelectedColumn() == 3) {
-					Member member = (Member) model.getValueAt(selRow, 5);
-					if (!member.hasPaid() && clickCount == 1) {
-						try {
-							member.pay();
-						} catch (MemberAlreadyPaidException e) {
-							e.printStackTrace();
-						}
-					} else if ((boolean) model.getValueAt(selRow, 3) == true && clickCount == 1)
-						member.unPay();
+			TableModel model = table.getModel();
+			int selRow = table.getSelectedRow();
+			if (table.getSelectedColumn() == 3) {
+				Member member = (Member) model.getValueAt(selRow, 5);
+				if (!member.hasPaid() && clickCount == 1) {
+					try {
+						member.pay();
+					} catch (MemberAlreadyPaidException e) {
+						e.printStackTrace();
+					}
+				} else if ((boolean) model.getValueAt(selRow, 3) && clickCount == 1)
+					member.unPay();
 
-					if (clickCount == 2)
-						clickCount = 0;
-				}
+				if (clickCount == 2)
+					clickCount = 0;
 			}
 		});
 
 		add.addActionListener(e -> controller.showSignUpFormMember(currentPanel));
 
-		search.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel model = controller.getSearchedMembers(search.getText());
-				table.setModel(model);
-				table.removeColumn(table.getColumnModel().getColumn(5));
-			}
+		search.addActionListener(e -> {
+			DefaultTableModel model = controller.getSearchedMembers(search.getText());
+			table.setModel(model);
+			table.removeColumn(table.getColumnModel().getColumn(5));
 		});
 
 		search.addFocusListener(new FocusListener() {
@@ -124,42 +108,30 @@ public class MemberListPanel extends VIAPanel {
 			}
 		});
 
-		delete.addActionListener(new ActionListener() {
+		delete.addActionListener(e -> {
+			Member member = (Member) table.getModel().getValueAt(table.getSelectedRow(), 5);
+			controller.deleteMember(member);
+		});
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				Member member = (Member) table.getModel().getValueAt(table.getSelectedRow(), 5);
-				controller.deleteMember(member);
+		mail.addActionListener(e -> {
+			try {
+				controller.generateAllEmails();
+				JOptionPane.showMessageDialog(frame, "File generated successfully", "File generated",
+						JOptionPane.PLAIN_MESSAGE);
+			} catch (IOException e1) {
+				JOptionPane.showMessageDialog(frame, "Something went wrong. Contact administrator", "File error",
+						JOptionPane.PLAIN_MESSAGE);
 			}
 		});
 
-		mail.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				try {
-					controller.generateAllEmails();
-					JOptionPane.showMessageDialog(frame, "File generated succesfully", "File generated",
-							JOptionPane.PLAIN_MESSAGE);
-				} catch (IOException e1) {
-					JOptionPane.showMessageDialog(frame, "Something went wrong. Contact administrator", "File error",
-							JOptionPane.PLAIN_MESSAGE);
-				}
-			}
-		});
-
-		mailPaid.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				try {
-					controller.generateEmailsWhoHasntPaid();
-					JOptionPane.showMessageDialog(frame, "File generated succesfully", "File generated",
-							JOptionPane.PLAIN_MESSAGE);
-				} catch (IOException e1) {
-					JOptionPane.showMessageDialog(frame, "Something went wrong. Contact administrator", "File error",
-							JOptionPane.PLAIN_MESSAGE);
-				}
+		mailPaid.addActionListener(e -> {
+			try {
+				controller.generateEmailsWhoHasntPaid();
+				JOptionPane.showMessageDialog(frame, "File generated successfully", "File generated",
+						JOptionPane.PLAIN_MESSAGE);
+			} catch (IOException e1) {
+				JOptionPane.showMessageDialog(frame, "Something went wrong. Contact administrator", "File error",
+						JOptionPane.PLAIN_MESSAGE);
 			}
 		});
 

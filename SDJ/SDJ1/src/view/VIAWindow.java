@@ -1,15 +1,13 @@
 package view;
 
+import controler.VIAController;
+import domain.model.Event;
+
+import javax.swing.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.IOException;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import controler.VIAController;
-import domain.model.Event;
 
 public class VIAWindow implements ViewManager {
 
@@ -21,12 +19,6 @@ public class VIAWindow implements ViewManager {
 		this.frame.setLocationRelativeTo(null);
 		this.frame.setResizable(false);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		JPanel contentPane = new StartPanel(frame);
-		this.frame.setContentPane(contentPane);
-
-		this.frame.setVisible(true);
-
 		frame.addWindowListener(new WindowListener() {
 
 			@Override
@@ -67,14 +59,16 @@ public class VIAWindow implements ViewManager {
 			public void windowIconified(WindowEvent e) {
 			}
 		});
+		showStartPanel();
 	}
 
-	
+
 	@Override
 	public void showStartPanel() {
-		JPanel newContentPane = new StartPanel(frame);
+		JPanel newContentPane = new StartPanel();
 		frame.setContentPane(newContentPane);
 		frame.revalidate();
+		frame.setVisible(true);
 	}
 
 
@@ -274,20 +268,32 @@ public class VIAWindow implements ViewManager {
 		modifyEvent.setResizable(false);
 		modifyEvent.setTitle("VIA - Modify event");
 		switch (event.getClass().getName()) {
-		case "model.Lecture":
-			modifyEvent.setContentPane(new EventCreateFormLectures(modifyEvent, currentPanel, event));
-			break;
-		case "model.Seminar":
-			modifyEvent.setContentPane(new EventCreateFormSeminars(modifyEvent, currentPanel, event));
-			break;
-		case "model.Workshop":
-			modifyEvent.setContentPane(new EventCreateFormWorkshop(modifyEvent, currentPanel, event));
-			break;
-		case "model.Trip":
-			modifyEvent.setContentPane(new EventCreateFormTrip(modifyEvent, currentPanel, event));
-			break;
+			case "model.Lecture":
+				modifyEvent.setContentPane(new EventCreateFormLectures(modifyEvent, currentPanel, event));
+				break;
+			case "model.Seminar":
+				modifyEvent.setContentPane(new EventCreateFormSeminars(modifyEvent, currentPanel, event));
+				break;
+			case "model.Workshop":
+				modifyEvent.setContentPane(new EventCreateFormWorkshop(modifyEvent, currentPanel, event));
+				break;
+			case "model.Trip":
+				modifyEvent.setContentPane(new EventCreateFormTrip(modifyEvent, currentPanel, event));
+				break;
 		}
 		modifyEvent.setVisible(true);
+	}
+
+	@Override
+	public void showMemberMultipleChoice(JPanel currentPanel) {
+		JFrame member = new JFrame();
+		member.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		member.setSize(900, 500);
+		member.setLocationRelativeTo(null);
+		member.setResizable(false);
+		member.setTitle("VIA - Add new member");
+		member.setContentPane(new MemberMultipleChoice(member, currentPanel));
+		member.setVisible(true);
 	}
 
 }

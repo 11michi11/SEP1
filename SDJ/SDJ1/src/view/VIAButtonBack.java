@@ -16,23 +16,23 @@ public class VIAButtonBack extends VIAButton{
 	
 	public VIAButtonBack(JFrame mainFrame, JPanel parentPanel) {
 		super("", path, prefSize);
-		this.actionListener = new BackButtonListaner();
+		this.actionListener = new BackButtonListener();
 		super.addActionListener(this.actionListener);
 		this.parentPanel = parentPanel;
 		this.mainFrame = mainFrame;
 	}
 	
-	public void goBack() {
+	void goBack() {
 		mainFrame.setContentPane(parentPanel);
 		mainFrame.revalidate();
 	}
 	
-	public void changeListener(ActionListener listener) {
+	void changeListener(ActionListener listener) {
 		super.removeActionListener(actionListener);
 		super.addActionListener(listener);
 	}
 	
-	class BackButtonListaner implements ActionListener{
+	class BackButtonListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {

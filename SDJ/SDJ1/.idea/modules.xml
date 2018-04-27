@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SDJ1.iml" filepath="$PROJECT_DIR$/SDJ1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VipassanaClient/VipassanaClient.iml" filepath="$PROJECT_DIR$/VipassanaClient/VipassanaClient.iml" />
     </modules>
   </component>
 </project>

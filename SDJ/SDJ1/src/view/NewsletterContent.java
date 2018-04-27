@@ -1,21 +1,13 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-
 public class NewsletterContent extends VIAPanel {
 
-	private JScrollPane scrollPane;
 	private JLabel newsletterTitle;
 	private JTextArea content;
 	private File newsletter;
@@ -32,7 +24,6 @@ public class NewsletterContent extends VIAPanel {
 	public void initializeComponents() {
 		content = new JTextArea(100, 50);
 		content.setEditable(false);
-		scrollPane = new JScrollPane(content);
 		newsletterTitle = new VIALabel("NEWSLETTER CONTENT", 30);
 	}
 
@@ -55,11 +46,11 @@ public class NewsletterContent extends VIAPanel {
 	}
 
 	private String parseNewsletterFile() {
-		StringBuilder sb = new StringBuilder("");
+		StringBuilder sb = new StringBuilder();
 
 		try (Scanner in = new Scanner(newsletter)) {
 			while (in.hasNextLine())
-				sb.append(in.nextLine() + "\n");
+				sb.append(in.nextLine()).append("\n");
 
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");

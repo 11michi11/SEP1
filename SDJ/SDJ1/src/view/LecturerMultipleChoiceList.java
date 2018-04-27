@@ -1,25 +1,13 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import controler.VIAController;
 import domain.model.Lecturer;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import java.awt.*;
+import java.util.ArrayList;
 
 public class LecturerMultipleChoiceList extends VIAPanel {
 
@@ -57,25 +45,17 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 
 	private void registerEventHandlers() {
 
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent event) {
-				choose.setEnabled(true);
-			}
-		});
+		table.getSelectionModel().addListSelectionListener(event -> choose.setEnabled(true));
 
-		choose.addActionListener(new ActionListener() {
+		choose.addActionListener(e -> {
+			TableModel model = table.getModel();
+			ArrayList<Lecturer> lecturers = new ArrayList<>();
+			for (int i = 0; i < model.getRowCount(); i++)
+				if (model.getValueAt(i, 5) != null && (boolean) model.getValueAt(i, 5))
+					lecturers.add((Lecturer) model.getValueAt(i, 6));
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				TableModel model = table.getModel();
-				ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
-				for (int i = 0; i < model.getRowCount(); i++)
-					if (model.getValueAt(i, 5) != null && (boolean) model.getValueAt(i, 5) == true)
-						lecturers.add((Lecturer) model.getValueAt(i, 6));
-
-				assignLecturers(lecturers);
-				frame.dispose();
-			}
+			assignLecturers(lecturers);
+			frame.dispose();
 		});
 	}
 
