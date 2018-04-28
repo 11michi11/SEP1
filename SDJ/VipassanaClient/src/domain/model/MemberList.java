@@ -5,14 +5,15 @@ import java.util.ArrayList;
 
 public class MemberList implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Member> members;
 
 	public MemberList() {
-		this.members = new ArrayList<Member>();
+		this.members = new ArrayList<>();
 	}
 
 	public ArrayList<Member> getListOfMembersWhoHasntPaid() {
-		ArrayList<Member> memberList = new ArrayList<Member>();
+		ArrayList<Member> memberList = new ArrayList<>();
 		for (Member e : members) {
 			if (!e.hasPaid()) {
 				memberList.add(e);

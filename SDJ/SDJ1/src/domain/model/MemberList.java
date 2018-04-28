@@ -6,6 +6,7 @@ import java.util.Observable;
 
 public class MemberList extends Observable implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private ArrayList<Member> members;
 
     public MemberList() {

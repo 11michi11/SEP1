@@ -58,4 +58,8 @@ public class Controller {
 		}
 		view.showWelcomeMessage();
 	}
+
+    public void showMsg(String msg) {
+		view.showMsg(msg);
+    }
 }
