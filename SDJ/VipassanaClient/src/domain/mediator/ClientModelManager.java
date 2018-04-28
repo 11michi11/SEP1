@@ -1,19 +1,24 @@
 package domain.mediator;
 
+import com.sun.jmx.remote.util.EnvHelp;
+import controller.Controller;
 import domain.model.Member;
 import domain.model.MemberList;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-public class ClientModelManager implements ClientManager {
+public class ClientModelManager implements ClientManager, Serializable {
 
 	private MemberList members;
 	private Client clientCommunication;
+	private Controller controller;
 
-	public ClientModelManager() {
+	public ClientModelManager(Controller controller) {
 		members = new MemberList();
-		clientCommunication = new Client();
+		this.controller = controller;
+		clientCommunication = new Client(this);
 		try {
 			members.reload(clientCommunication.getAllMembers());
 		} catch (RemoteException e) {
@@ -38,5 +43,6 @@ public class ClientModelManager implements ClientManager {
 
 	public void reloadMembers(ArrayList<Member> allMembers) {
 		members.reload(allMembers);
+		controller.showMsg("List has been updated!");
 	}
 }

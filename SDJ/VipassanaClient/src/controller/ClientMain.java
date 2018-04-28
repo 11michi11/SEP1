@@ -15,7 +15,7 @@ public class ClientMain {
 		Controller controller = Controller.getInstance();
 		ViewManager view = new ConsoleView();
 		controller.setView(view);
-		ClientManager manager = new ClientModelManager();
+		ClientManager manager = new ClientModelManager(controller);
 		controller.setManager(manager);
 		controller.start();
 	}

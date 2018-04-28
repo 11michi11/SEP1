@@ -15,7 +15,8 @@ public class Client implements Serializable, RemoteClient {
 	private ServerManager server;
 	private ClientManager model;
 
-	public Client() {
+	public Client(ClientManager model) {
+		this.model = model;
 		try {
 		server = (ServerManager) Naming.lookup("rmi://localhost:1099/server");
 		server.registerObserver(this);
