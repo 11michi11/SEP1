@@ -3,15 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9544f7a7-6676-47ee-b0bc-a6c5dd5b43d6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/mediator/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/mediator/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/mediator/VIAManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/mediator/VIAManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/lecturers.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/lecturers.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/members.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/members.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/members.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VipassanaClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/RemoteClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/model/RemoteClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/view/ConsoleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/view/ConsoleView.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <ignored path="$PROJECT_DIR$/VipassanaClient/bin/" />
@@ -36,71 +30,8 @@
       <file leaf-file-name="VIAController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controler/VIAController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="561">
               <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
-              <folding>
-                <element signature="e#994#995#0" expanded="true" />
-                <element signature="e#1023#1024#0" expanded="true" />
-                <element signature="e#958#959#0" expanded="true" />
-                <element signature="e#1019#1020#0" expanded="true" />
-                <element signature="e#943#1191#0" />
-                <element signature="e#1194#1412#0" />
-                <element signature="e#1415#1589#0" />
-                <element signature="e#1592#1736#0" />
-                <element signature="e#1739#2134#0" />
-                <element signature="e#2137#2254#0" />
-                <element signature="e#2257#2720#0" />
-                <element signature="e#2723#3105#0" />
-                <element signature="e#3108#3242#0" />
-                <element signature="e#3245#3415#0" />
-                <element signature="e#3418#4509#0" />
-                <element signature="class#3993:4505" />
-                <element signature="method#getColumnClass#0;class#3993:4505" />
-                <element signature="e#4512#5655#0" />
-                <element signature="class#5141:5651" />
-                <element signature="method#getColumnClass#0;class#5141:5651" />
-                <element signature="e#5658#6952#0" />
-                <element signature="class#6324:6948" />
-                <element signature="method#getColumnClass#0;class#6324:6948" />
-                <element signature="method#isCellEditable#0;class#6324:6948" />
-                <element signature="e#6955#7948#0" />
-                <element signature="class#7473:7944" />
-                <element signature="method#getColumnClass#0;class#7473:7944" />
-                <element signature="e#7951#8759#0" />
-                <element signature="class#8379:8755" />
-                <element signature="method#getColumnClass#0;class#8379:8755" />
-                <element signature="e#8762#9603#0" />
-                <element signature="class#9214:9599" />
-                <element signature="method#getColumnClass#0;class#9214:9599" />
-                <element signature="e#9606#10349#0" />
-                <element signature="class#10000:10345" />
-                <element signature="method#getColumnClass#0;class#10000:10345" />
-                <element signature="e#10352#11264#0" />
-                <element signature="class#10869:11260" />
-                <element signature="method#getColumnClass#0;class#10869:11260" />
-                <element signature="e#11267#12407#0" />
-                <element signature="class#11890:12402" />
-                <element signature="method#getColumnClass#0;class#11890:12402" />
-                <element signature="e#12410#13602#0" />
-                <element signature="class#13088:13598" />
-                <element signature="method#getColumnClass#0;class#13088:13598" />
-                <element signature="e#13605#14493#0" />
-                <element signature="class#14104:14489" />
-                <element signature="method#getColumnClass#0;class#14104:14489" />
-                <element signature="e#14496#15424#0" />
-                <element signature="class#15035:15420" />
-                <element signature="method#getColumnClass#0;class#15035:15420" />
-                <element signature="e#15427#16296#0" />
-                <element signature="class#15907:16292" />
-                <element signature="method#getColumnClass#0;class#15907:16292" />
-                <element signature="e#16299#17160#0" />
-                <element signature="class#16771:17156" />
-                <element signature="method#getColumnClass#0;class#16771:17156" />
-                <element signature="e#18287#18422#0" />
-                <element signature="e#18425#18548#0" />
-                <element signature="e#19309#19442#0" />
-                <element signature="e#19445#19568#0" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -108,7 +39,7 @@
       <file leaf-file-name="FileManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="1836">
               <caret line="124" selection-start-line="124" selection-end-line="124" />
             </state>
           </provider>
@@ -200,8 +131,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -225,6 +154,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -366,7 +297,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32965517" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.3219448" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.33771354" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="6" />
@@ -431,6 +362,20 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/controler/VIAController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/mediator/ServerManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -442,9 +387,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -660,9 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -752,16 +691,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/all.policy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/mediator/RemoteClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -783,26 +716,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ClientModelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="64" lean-forward="true" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ClientModelManager.java" />
     <entry file="file://$PROJECT_DIR$/src/domain/mediator/ClientManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -813,76 +734,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/members.bin">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controler/VIAController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
+        <state relative-caret-position="561">
           <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
-          <folding>
-            <element signature="e#994#995#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
-            <element signature="e#1019#1020#0" expanded="true" />
-            <element signature="e#943#1191#0" />
-            <element signature="e#1194#1412#0" />
-            <element signature="e#1415#1589#0" />
-            <element signature="e#1592#1736#0" />
-            <element signature="e#1739#2134#0" />
-            <element signature="e#2137#2254#0" />
-            <element signature="e#2257#2720#0" />
-            <element signature="e#2723#3105#0" />
-            <element signature="e#3108#3242#0" />
-            <element signature="e#3245#3415#0" />
-            <element signature="e#3418#4509#0" />
-            <element signature="class#3993:4505" />
-            <element signature="method#getColumnClass#0;class#3993:4505" />
-            <element signature="e#4512#5655#0" />
-            <element signature="class#5141:5651" />
-            <element signature="method#getColumnClass#0;class#5141:5651" />
-            <element signature="e#5658#6952#0" />
-            <element signature="class#6324:6948" />
-            <element signature="method#getColumnClass#0;class#6324:6948" />
-            <element signature="method#isCellEditable#0;class#6324:6948" />
-            <element signature="e#6955#7948#0" />
-            <element signature="class#7473:7944" />
-            <element signature="method#getColumnClass#0;class#7473:7944" />
-            <element signature="e#7951#8759#0" />
-            <element signature="class#8379:8755" />
-            <element signature="method#getColumnClass#0;class#8379:8755" />
-            <element signature="e#8762#9603#0" />
-            <element signature="class#9214:9599" />
-            <element signature="method#getColumnClass#0;class#9214:9599" />
-            <element signature="e#9606#10349#0" />
-            <element signature="class#10000:10345" />
-            <element signature="method#getColumnClass#0;class#10000:10345" />
-            <element signature="e#10352#11264#0" />
-            <element signature="class#10869:11260" />
-            <element signature="method#getColumnClass#0;class#10869:11260" />
-            <element signature="e#11267#12407#0" />
-            <element signature="class#11890:12402" />
-            <element signature="method#getColumnClass#0;class#11890:12402" />
-            <element signature="e#12410#13602#0" />
-            <element signature="class#13088:13598" />
-            <element signature="method#getColumnClass#0;class#13088:13598" />
-            <element signature="e#13605#14493#0" />
-            <element signature="class#14104:14489" />
-            <element signature="method#getColumnClass#0;class#14104:14489" />
-            <element signature="e#14496#15424#0" />
-            <element signature="class#15035:15420" />
-            <element signature="method#getColumnClass#0;class#15035:15420" />
-            <element signature="e#15427#16296#0" />
-            <element signature="class#15907:16292" />
-            <element signature="method#getColumnClass#0;class#15907:16292" />
-            <element signature="e#16299#17160#0" />
-            <element signature="class#16771:17156" />
-            <element signature="method#getColumnClass#0;class#16771:17156" />
-            <element signature="e#18287#18422#0" />
-            <element signature="e#18425#18548#0" />
-            <element signature="e#19309#19442#0" />
-            <element signature="e#19445#19568#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -895,7 +750,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="1836">
           <caret line="124" selection-start-line="124" selection-end-line="124" />
         </state>
       </provider>
