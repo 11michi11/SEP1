@@ -9,6 +9,15 @@ public class CategoryFactory implements Serializable {
 
 	public static Category getCategory(String name) {
 		name = Character.toUpperCase(name.charAt(0)) + name.substring(1).toLowerCase();
+		return createCategory(name);
+	}
+
+	public static Category getCategory(int number){
+		String name = fromNumberToName(number);
+		return createCategory(name);
+	}
+
+	private static Category createCategory(String name){
 		Category item = categories.get(name);
 		if (item == null) {
 			item = new Category(name);
@@ -17,22 +26,22 @@ public class CategoryFactory implements Serializable {
 		return item;
 	}
 
-	public static Category getCategory(int number) {
+	private static String fromNumberToName(int number) {
 		switch (number) {
 			case 0:
-				return categories.get("Astrology");
+				return Category.ASTROLOGY;
 			case 1:
-				return categories.get("Meditation");
+				return Category.MEDITATION;
 			case 2:
-				return categories.get("Reincarnation");
+				return Category.REINCARNATION;
 			case 3:
-				return categories.get("Health");
+				return Category.HEALTH;
 			case 4:
-				return categories.get("Buddhism");
+				return Category.BUDDHISM;
 			case 5:
-				return categories.get("Nature");
+				return Category.NATURE;
 			default:
-				return categories.get("Other");
+				return Category.OTHER;
 
 		}
 	}

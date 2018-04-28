@@ -1,7 +1,16 @@
 package server.domain.model;
 
+import java.util.Objects;
+
 public abstract class AbstractCategory {
-    public static final String[] legal_names= {"Astrology", "Meditation", "Reincarnation", "Health", "Buddhism", "Nature", "Other"};
+    public static final String ASTROLOGY = "Astrology";
+    public static final String MEDITATION = "Meditation";
+    public static final String REINCARNATION = "Reincarnation";
+    public static final String HEALTH = "Health";
+    public static final String BUDDHISM = "Buddhism";
+    public static final String NATURE = "Nature";
+    public static final String OTHER = "Other";
+
     private String name;
     private int number;
     
@@ -9,7 +18,7 @@ public abstract class AbstractCategory {
 	this.name=Character.toUpperCase(name.charAt(0))+ name.substring(1).toLowerCase();
 	setNumber();
     }
-    public void setNumber() {
+    private void setNumber() {
 	switch(getName()) {
 	case "Astrology": 
 	    number=0;
@@ -40,5 +49,13 @@ public abstract class AbstractCategory {
     public int getNumber() {
 	return number;
     }
-    
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		AbstractCategory that = (AbstractCategory) o;
+		return number == that.number &&
+				Objects.equals(name, that.name);
+	}
 }
