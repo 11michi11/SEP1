@@ -1,9 +1,8 @@
-package domain.mediator;
+package client.domain.mediator;
 
-import com.sun.jmx.remote.util.EnvHelp;
-import controller.Controller;
-import domain.model.Member;
-import domain.model.MemberList;
+import client.controller.Controller;
+import server.domain.model.Member;
+import server.domain.model.MemberList;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;

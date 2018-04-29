@@ -1,14 +1,15 @@
-package controller;
+package client.controller;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import domain.mediator.ClientManager;
-import domain.model.Member;
-import view.ViewManager;
+import client.domain.mediator.ClientManager;
+import server.domain.model.Member;
+import client.view.ViewManager;
 
-public class Controller {
+public class Controller implements Serializable {
 
 	private static Controller controller;
 

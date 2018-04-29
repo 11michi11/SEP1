@@ -8,18 +8,18 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Observable;
-import java.util.Observer;
 
-public class Client implements Serializable, RemoteClient{
-	
+public class Client implements Serializable, RemoteClient {
+
 	private static final long serialVersionUID = 1L;
 	private ServerManager server;
-	private ClientModelManager model;
+	private ClientManager model;
 
-	public Client() {
+	public Client(ClientManager model) {
+		this.model = model;
 		try {
-		server = (ServerManager) Naming.lookup("rmi://localhost:1099/server");
-		server.registerObserver(this);
+			server = (ServerManager) Naming.lookup("rmi://localhost:1099/server");
+			server.registerObserver(this);
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
 			e.printStackTrace();
 		}
@@ -27,7 +27,7 @@ public class Client implements Serializable, RemoteClient{
 	public ArrayList<Member> getAllMembers() throws RemoteException {
 		return server.getAllMembers();
 	}
-	
+
 	public ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException{
 		return server.getListOfMembersWhoHasntPaid();
 	}

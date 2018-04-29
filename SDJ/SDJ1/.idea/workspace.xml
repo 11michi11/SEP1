@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9544f7a7-6676-47ee-b0bc-a6c5dd5b43d6" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/CategoryFactoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/CategoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/mediator/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/mediator/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/mediator/VIAManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/mediator/VIAManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/lecturers.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/lecturers.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/members.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/members.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/members.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/members.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/domain/model/AbstractCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/domain/model/AbstractCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/domain/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/domain/model/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/domain/model/CategoryFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/domain/model/CategoryFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VipassanaClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/model/RemoteClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/model/RemoteClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VipassanaClient/src/view/ConsoleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/src/view/ConsoleView.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <ignored path="$PROJECT_DIR$/VipassanaClient/bin/" />
@@ -24,92 +22,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VIAManager.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
+      <file leaf-file-name="CategoryFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/domain/model/CategoryFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="107" column="8" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VIAController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controler/VIAController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
+            <state relative-caret-position="85">
+              <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
               <folding>
-                <element signature="e#994#995#0" expanded="true" />
-                <element signature="e#1023#1024#0" expanded="true" />
-                <element signature="e#958#959#0" expanded="true" />
-                <element signature="e#1019#1020#0" expanded="true" />
-                <element signature="e#943#1191#0" />
-                <element signature="e#1194#1412#0" />
-                <element signature="e#1415#1589#0" />
-                <element signature="e#1592#1736#0" />
-                <element signature="e#1739#2134#0" />
-                <element signature="e#2137#2254#0" />
-                <element signature="e#2257#2720#0" />
-                <element signature="e#2723#3105#0" />
-                <element signature="e#3108#3242#0" />
-                <element signature="e#3245#3415#0" />
-                <element signature="e#3418#4509#0" />
-                <element signature="class#3993:4505" />
-                <element signature="method#getColumnClass#0;class#3993:4505" />
-                <element signature="e#4512#5655#0" />
-                <element signature="class#5141:5651" />
-                <element signature="method#getColumnClass#0;class#5141:5651" />
-                <element signature="e#5658#6952#0" />
-                <element signature="class#6324:6948" />
-                <element signature="method#getColumnClass#0;class#6324:6948" />
-                <element signature="method#isCellEditable#0;class#6324:6948" />
-                <element signature="e#6955#7948#0" />
-                <element signature="class#7473:7944" />
-                <element signature="method#getColumnClass#0;class#7473:7944" />
-                <element signature="e#7951#8759#0" />
-                <element signature="class#8379:8755" />
-                <element signature="method#getColumnClass#0;class#8379:8755" />
-                <element signature="e#8762#9603#0" />
-                <element signature="class#9214:9599" />
-                <element signature="method#getColumnClass#0;class#9214:9599" />
-                <element signature="e#9606#10349#0" />
-                <element signature="class#10000:10345" />
-                <element signature="method#getColumnClass#0;class#10000:10345" />
-                <element signature="e#10352#11264#0" />
-                <element signature="class#10869:11260" />
-                <element signature="method#getColumnClass#0;class#10869:11260" />
-                <element signature="e#11267#12407#0" />
-                <element signature="class#11890:12402" />
-                <element signature="method#getColumnClass#0;class#11890:12402" />
-                <element signature="e#12410#13602#0" />
-                <element signature="class#13088:13598" />
-                <element signature="method#getColumnClass#0;class#13088:13598" />
-                <element signature="e#13605#14493#0" />
-                <element signature="class#14104:14489" />
-                <element signature="method#getColumnClass#0;class#14104:14489" />
-                <element signature="e#14496#15424#0" />
-                <element signature="class#15035:15420" />
-                <element signature="method#getColumnClass#0;class#15035:15420" />
-                <element signature="e#15427#16296#0" />
-                <element signature="class#15907:16292" />
-                <element signature="method#getColumnClass#0;class#15907:16292" />
-                <element signature="e#16299#17160#0" />
-                <element signature="class#16771:17156" />
-                <element signature="method#getColumnClass#0;class#16771:17156" />
-                <element signature="e#18287#18422#0" />
-                <element signature="e#18425#18548#0" />
-                <element signature="e#19309#19442#0" />
-                <element signature="e#19445#19568#0" />
+                <element signature="e#208#226#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
+      <file leaf-file-name="Category.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/domain/model/Category.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="124" selection-start-line="124" selection-end-line="124" />
+            <state relative-caret-position="68">
+              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractCategory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/domain/model/AbstractCategory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/CategoryTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryFactoryTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/CategoryFactoryTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -121,6 +80,7 @@
       <list>
         <option value="Class" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -136,46 +96,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/domain/model/MemberList.java" />
-        <option value="$PROJECT_DIR$/src/view/CategoryMultipleChoiceList.java" />
-        <option value="$PROJECT_DIR$/src/view/EventCreateFormLectures.java" />
-        <option value="$PROJECT_DIR$/src/view/EventCreateFormSeminars.java" />
-        <option value="$PROJECT_DIR$/src/view/EventCreateFormTrip.java" />
-        <option value="$PROJECT_DIR$/src/view/EventCreateFormWorkshop.java" />
-        <option value="$PROJECT_DIR$/src/view/Newsletter.java" />
-        <option value="$PROJECT_DIR$/src/view/MemberMultipleChoice.java" />
-        <option value="$PROJECT_DIR$/src/view/MemberListPanel.java" />
-        <option value="$PROJECT_DIR$/src/view/NewsletterContent.java" />
-        <option value="$PROJECT_DIR$/src/view/ParticipantListPanel.java" />
-        <option value="$PROJECT_DIR$/src/view/SignUpFormMember.java" />
-        <option value="$PROJECT_DIR$/src/view/SignUpFormLecturer.java" />
-        <option value="$PROJECT_DIR$/src/view/SignUpFormParticipant.java" />
-        <option value="$PROJECT_DIR$/src/view/SignUpPanel.java" />
-        <option value="$PROJECT_DIR$/src/view/StartPanel.java" />
-        <option value="$PROJECT_DIR$/src/view/EventPanel.java" />
-        <option value="$PROJECT_DIR$/src/view/LecturerChoiceList.java" />
-        <option value="$PROJECT_DIR$/src/view/LecturerListPanel.java" />
-        <option value="$PROJECT_DIR$/src/view/LecturerMultipleChoiceList.java" />
-        <option value="$PROJECT_DIR$/src/view/EventListPanel.java" />
-        <option value="$PROJECT_DIR$/src/view/ViewManager.java" />
-        <option value="$PROJECT_DIR$/src/view/VIAWindow.java" />
-        <option value="$PROJECT_DIR$/src/view/VIAButtonBack.java" />
-        <option value="$PROJECT_DIR$/src/resources/lecturer.txt" />
-        <option value="$PROJECT_DIR$/src/domain/model/Category.java" />
-        <option value="$PROJECT_DIR$/src/domain/model/CategoryFactory.java" />
-        <option value="$PROJECT_DIR$/src/domain/mediator/ModelManager.java" />
-        <option value="$PROJECT_DIR$/src/controler/VIAController.java" />
-        <option value="$PROJECT_DIR$/src/controler/Main.java" />
-        <option value="$PROJECT_DIR$/rmi.policy" />
-        <option value="$PROJECT_DIR$/src/domain/mediator/RemoteClient.java" />
-        <option value="$PROJECT_DIR$/src/domain/mediator/Server.java" />
-        <option value="$PROJECT_DIR$/src/domain/mediator/ServerManager.java" />
-        <option value="$PROJECT_DIR$/src/domain/mediator/ClientModelManager.java" />
-        <option value="$PROJECT_DIR$/src/domain/mediator/Client.java" />
-        <option value="$PROJECT_DIR$/src/domain/mediator/ClientManager.java" />
-        <option value="$PROJECT_DIR$/src/domain/mediator/FileManager.java" />
-        <option value="$PROJECT_DIR$/src/resources/members.txt" />
-        <option value="$PROJECT_DIR$/src/domain/mediator/VIAManager.java" />
+        <option value="$PROJECT_DIR$/src/server/view/SignUpFormMember.java" />
+        <option value="$PROJECT_DIR$/src/server/view/SignUpFormParticipant.java" />
+        <option value="$PROJECT_DIR$/src/server/view/SignUpPanel.java" />
+        <option value="$PROJECT_DIR$/src/server/view/StartPanel.java" />
+        <option value="$PROJECT_DIR$/src/server/view/VIAButton.java" />
+        <option value="$PROJECT_DIR$/src/server/view/VIAButtonBack.java" />
+        <option value="$PROJECT_DIR$/src/server/view/VIAButtonBig.java" />
+        <option value="$PROJECT_DIR$/src/server/view/VIAButtonExtraSmall.java" />
+        <option value="$PROJECT_DIR$/src/server/view/VIAButtonSimple.java" />
+        <option value="$PROJECT_DIR$/src/server/view/VIAButtonSmall.java" />
+        <option value="$PROJECT_DIR$/src/server/view/EventCreateFormLectures.java" />
+        <option value="$PROJECT_DIR$/src/server/view/VIALabel.java" />
+        <option value="$PROJECT_DIR$/src/server/view/EventCreateFormSeminars.java" />
+        <option value="$PROJECT_DIR$/src/server/view/MemberListPanel.java" />
+        <option value="$PROJECT_DIR$/src/server/controler/VIAController.java" />
+        <option value="$PROJECT_DIR$/src/server/view/MemberMultipleChoice.java" />
+        <option value="$PROJECT_DIR$/src/server/test/FileManagerTest.java" />
+        <option value="$PROJECT_DIR$/src/server/view/CategoryMultipleChoiceList.java" />
+        <option value="$PROJECT_DIR$/src/server/test/SingletonTest.java" />
+        <option value="$PROJECT_DIR$/src/server/test/SearchEngineTest.java" />
+        <option value="$PROJECT_DIR$/src/server/domain/mediator/Client.java" />
+        <option value="$PROJECT_DIR$/src/server/domain/mediator/RemoteClient.java" />
+        <option value="$PROJECT_DIR$/src/server/domain/mediator/ClientManager.java" />
+        <option value="$PROJECT_DIR$/src/client/controller/ClientMain.java" />
+        <option value="$PROJECT_DIR$/src/client/view/ViewManager.java" />
+        <option value="$PROJECT_DIR$/src/client/model/RemoteClient.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/model/Member.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/model/Participant.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/model/MyDate.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/model/InvalidDateInput.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/model/MemberAlreadyPaidException.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/mediator/ServerManager.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/model/MemberList.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/model/MemberNotFoundException.java" />
+        <option value="$PROJECT_DIR$/src/server/domain/mediator/ServerManager.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/mediator/ClientManager.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/mediator/RemoteClient.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/mediator/Client.java" />
+        <option value="$PROJECT_DIR$/src/server/domain/mediator/Server.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/mediator/ClientModelManager.java" />
+        <option value="$PROJECT_DIR$/src/server/domain/model/MemberList.java" />
+        <option value="$PROJECT_DIR$/src/client/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/client/view/ConsoleView.java" />
+        <option value="$PROJECT_DIR$/src/server/domain/mediator/VIAManager.java" />
+        <option value="$PROJECT_DIR$/src/test/ClientTest.java" />
+        <option value="$PROJECT_DIR$/src/server/test/CategoryFactoryTest.java" />
+        <option value="$PROJECT_DIR$/src/server/domain/model/CategoryFactory.java" />
+        <option value="$PROJECT_DIR$/src/server/domain/model/AbstractCategory.java" />
+        <option value="$PROJECT_DIR$/src/server/domain/model/Category.java" />
+        <option value="$PROJECT_DIR$/src/test/CategoryFactoryTest.java" />
+        <option value="$PROJECT_DIR$/src/test/CategoryTest.java" />
       </list>
     </option>
   </component>
@@ -189,10 +160,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1448" />
-    <option name="y" value="239" />
-    <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1939" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -200,8 +171,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,13 +187,43 @@
               <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -233,15 +232,26 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../VipassanaClient" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="test" />
+      <recent name="server.test" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="domain.mediator" />
     </key>
@@ -261,24 +271,127 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.CategoryTest.equals">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="controler.Main" />
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="CategoryFactoryTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SDJ1" />
-      <option name="VM_PARAMETERS" value="-Djava.security.policy=C:\Users\misii\Desktop\VIA\SEP1\SDJ\SDJ1\all.policy" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controler.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.CategoryFactoryTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <configuration name="CategoryFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SDJ1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="server.test" />
+      <option name="MAIN_CLASS_NAME" value="server.test.CategoryFactoryTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="CategoryTest.equals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SDJ1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.CategoryTest" />
+      <option name="METHOD_NAME" value="equals" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="CategoryTest.getName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SDJ1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.CategoryTest" />
+      <option name="METHOD_NAME" value="getName" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="CategoryTest.getNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SDJ1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.CategoryTest" />
+      <option name="METHOD_NAME" value="getNumber" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -331,9 +444,20 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
+    <list>
+      <item itemvalue="JUnit.CategoryFactoryTest" />
+      <item itemvalue="JUnit.CategoryFactoryTest (1)" />
+      <item itemvalue="JUnit.CategoryTest.getName" />
+      <item itemvalue="JUnit.CategoryTest.getNumber" />
+      <item itemvalue="JUnit.CategoryTest.equals" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CategoryTest.equals" />
+        <item itemvalue="JUnit.CategoryTest.getNumber" />
+        <item itemvalue="JUnit.CategoryTest.getName" />
+        <item itemvalue="JUnit.CategoryFactoryTest (1)" />
+        <item itemvalue="JUnit.CategoryFactoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -348,14 +472,47 @@
       <option name="presentableId" value="Default" />
       <updated>1524773733898</updated>
       <workItem from="1524773739059" duration="5980000" />
+      <workItem from="1524911609528" duration="7272000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="CategoryFactoryTest - 2018.04.28 at 20h 52m 11s.xml">
+      <configuration name="CategoryFactoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryFactoryTest - 2018.04.28 at 20h 59m 53s.xml">
+      <configuration name="CategoryFactoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryFactoryTest - 2018.04.28 at 21h 00m 27s.xml">
+      <configuration name="CategoryFactoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryFactoryTest - 2018.04.28 at 21h 25m 02s.xml">
+      <configuration name="CategoryFactoryTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryFactoryTest_(1) - 2018.04.28 at 21h 25m 12s.xml">
+      <configuration name="CategoryFactoryTest (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryFactoryTest_(1) - 2018.04.28 at 21h 31m 21s.xml">
+      <configuration name="CategoryFactoryTest (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryTest_getName - 2018.04.28 at 21h 31m 28s.xml">
+      <configuration name="CategoryTest.getName" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryTest_getNumber - 2018.04.28 at 21h 33m 32s.xml">
+      <configuration name="CategoryTest.getNumber" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryTest_equals - 2018.04.28 at 21h 36m 28s.xml">
+      <configuration name="CategoryTest.equals" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryTest_equals - 2018.04.28 at 21h 37m 33s.xml">
+      <configuration name="CategoryTest.equals" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5980000" />
+    <option name="totallyTimeSpent" value="13252000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1448" y="239" width="1456" height="876" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -366,18 +523,18 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32965517" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.3219448" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3213793" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.22638889" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.22591145" />
       <window_info id="Learn" order="0" weight="0.3295302" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.39947438" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3986207" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -386,7 +543,7 @@
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.36965516" />
       <window_info anchor="right" id="Database" order="7" />
     </layout>
   </component>
@@ -431,479 +588,297 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ServerManager.java">
+    <entry file="file://$PROJECT_DIR$/src/server/view/VIAButtonSmall.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="52" />
+        <state relative-caret-position="238">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/model/MemberList.java">
+    <entry file="file://$PROJECT_DIR$/src/server/view/VIALabel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="323">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/view/EventCreateFormLectures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="70" column="29" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/model/AbstractCategory.java">
+    <entry file="file://$PROJECT_DIR$/src/server/view/EventCreateFormWorkshop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state relative-caret-position="4213">
+          <caret line="337" column="37" lean-forward="true" selection-start-line="337" selection-start-column="37" selection-end-line="337" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/model/Categorized.java">
+    <entry file="file://$PROJECT_DIR$/src/server/view/EventCreateFormSeminars.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        <state relative-caret-position="303">
+          <caret line="332" column="17" selection-start-line="332" selection-start-column="17" selection-end-line="332" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/model/Newsletter.java">
+    <entry file="file://$PROJECT_DIR$/src/server/view/ViewManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/view/VIAWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/domain/model/MemberNotFoundException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/CategoryMultipleChoiceList.java">
+    <entry file="file://$PROJECT_DIR$/src/server/view/MemberListPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="111" column="87" lean-forward="true" selection-start-line="111" selection-start-column="87" selection-end-line="111" selection-end-column="87" />
+        <state relative-caret-position="204">
+          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/EventCreateFormLectures.java">
+    <entry file="file://$PROJECT_DIR$/src/server/view/EventListPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4621">
-          <caret line="320" column="60" selection-start-line="320" selection-start-column="60" selection-end-line="320" selection-end-column="60" />
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/EventCreateFormSeminars.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1602">
-          <caret line="168" column="11" lean-forward="true" selection-start-line="168" selection-start-column="11" selection-end-line="168" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/EventCreateFormTrip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="154" lean-forward="true" selection-start-line="154" selection-end-line="154" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/EventCreateFormWorkshop.java">
+    <entry file="file://$PROJECT_DIR$/src/server/controler/VIAController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="643">
-          <caret line="351" lean-forward="true" selection-start-line="351" selection-end-line="351" />
+          <caret line="377" lean-forward="true" selection-start-line="377" selection-end-line="377" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/Newsletter.java">
+    <entry file="file://$PROJECT_DIR$/src/server/view/MemberMultipleChoice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="56" column="16" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
-          <folding>
-            <element signature="e#2031#2495#0" expanded="true" />
-            <element signature="e#2494#2495#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-870">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/MemberMultipleChoice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="52" column="86" selection-start-line="52" selection-start-column="86" selection-end-line="52" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/MemberListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1408">
-          <caret line="149" column="26" lean-forward="true" selection-start-line="149" selection-start-column="26" selection-end-line="149" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/NewsletterContent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/ParticipantListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="57" column="46" lean-forward="true" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/SignUpFormMember.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/SignUpFormLecturer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="90" column="40" lean-forward="true" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/SignUpFormParticipant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="87" column="16" lean-forward="true" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
-          <folding>
-            <element signature="e#3403#3404#0" expanded="true" />
-            <element signature="e#3484#3485#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.desktop/java/awt/event/ActionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/SignUpPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="42" column="36" lean-forward="true" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/StartPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/EventPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/LecturerChoiceList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/LecturerListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="129" column="8" lean-forward="true" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/LecturerMultipleChoiceList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="50" column="48" lean-forward="true" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/ListsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-289">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/EventListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="225" selection-start-line="225" selection-end-line="225" />
-          <folding>
-            <element signature="e#4850#5298#0" expanded="true" />
-            <element signature="e#5297#5298#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/ViewManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/VIAButtonBack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/lecturer.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="10" column="57" lean-forward="true" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/model/CategoryFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/model/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/SingletonTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.desktop/java/awt/event/InvocationEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="288" column="33" lean-forward="true" selection-start-line="288" selection-start-column="33" selection-end-line="288" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/VIAButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/VIAWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="class#722:1476" />
-            <element signature="method#windowOpened#0;class#722:1476" />
-            <element signature="method#windowClosing#0;class#722:1476" />
-            <element signature="method#windowActivated#0;class#722:1476" />
-            <element signature="method#windowClosed#0;class#722:1476" />
-            <element signature="method#windowDeactivated#0;class#722:1476" />
-            <element signature="method#windowDeiconified#0;class#722:1476" />
-            <element signature="method#windowIconified#0;class#722:1476" />
-            <element signature="method#showEventsPanel#0;class#VIAWindow#0" />
-            <element signature="method#showNewsletterPanel#0;class#VIAWindow#0" />
-            <element signature="method#showSignUpPanel#0;class#VIAWindow#0" />
-            <element signature="method#showListsPanel#0;class#VIAWindow#0" />
-            <element signature="method#showEventCreateFormLectures#0;class#VIAWindow#0" />
-            <element signature="method#showEventCreateFormSeminars#0;class#VIAWindow#0" />
-            <element signature="method#showEventCreateFormWorkshop#0;class#VIAWindow#0" />
-            <element signature="method#showEventCreateFormTrip#0;class#VIAWindow#0" />
-            <element signature="method#showLecturerChoiceWindow#0;class#VIAWindow#0" />
-            <element signature="method#showLecturerMultipleChoiceListWindow#0;class#VIAWindow#0" />
-            <element signature="method#showCategoryMultipleChoiceList#0;class#VIAWindow#0" />
-            <element signature="method#showNewsletterContentWindow#0;class#VIAWindow#0" />
-            <element signature="method#showLecturerListPanel#0;class#VIAWindow#0" />
-            <element signature="method#showMemberListPanel#0;class#VIAWindow#0" />
-            <element signature="method#showEventListPanel#0;class#VIAWindow#0" />
-            <element signature="method#showParticipantListPanel#0;class#VIAWindow#0" />
-            <element signature="method#showSignUpFormLecturer#0;class#VIAWindow#0" />
-            <element signature="method#showSignUpFormMember#0;class#VIAWindow#0" />
-            <element signature="method#showSignUpFormParticipant#0;class#VIAWindow#0" />
-            <element signature="method#showModifyEventPanel#0;class#VIAWindow#0" />
-            <element signature="method#showMemberMultipleChoice#0;class#VIAWindow#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ModelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controler/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" selection-start-line="15" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/all.policy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/RemoteClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rmi.policy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ServerManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ClientModelManager.java">
+    <entry file="file://$PROJECT_DIR$/src/server/test/FileManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="17" column="64" lean-forward="true" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
+          <caret line="10" column="60" lean-forward="true" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/ClientManager.java">
+    <entry file="file://$PROJECT_DIR$/src/server/controler/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
+        <state relative-caret-position="68">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/view/CategoryMultipleChoiceList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/Client.java">
+    <entry file="file://$PROJECT_DIR$/src/server/test/SingletonTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="11" selection-end-column="59" />
+        <state relative-caret-position="119">
+          <caret line="7" column="38" lean-forward="true" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/members.bin">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controler/VIAController.java">
+    <entry file="file://$PROJECT_DIR$/src/server/test/SearchEngineTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
-          <folding>
-            <element signature="e#994#995#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
-            <element signature="e#1019#1020#0" expanded="true" />
-            <element signature="e#943#1191#0" />
-            <element signature="e#1194#1412#0" />
-            <element signature="e#1415#1589#0" />
-            <element signature="e#1592#1736#0" />
-            <element signature="e#1739#2134#0" />
-            <element signature="e#2137#2254#0" />
-            <element signature="e#2257#2720#0" />
-            <element signature="e#2723#3105#0" />
-            <element signature="e#3108#3242#0" />
-            <element signature="e#3245#3415#0" />
-            <element signature="e#3418#4509#0" />
-            <element signature="class#3993:4505" />
-            <element signature="method#getColumnClass#0;class#3993:4505" />
-            <element signature="e#4512#5655#0" />
-            <element signature="class#5141:5651" />
-            <element signature="method#getColumnClass#0;class#5141:5651" />
-            <element signature="e#5658#6952#0" />
-            <element signature="class#6324:6948" />
-            <element signature="method#getColumnClass#0;class#6324:6948" />
-            <element signature="method#isCellEditable#0;class#6324:6948" />
-            <element signature="e#6955#7948#0" />
-            <element signature="class#7473:7944" />
-            <element signature="method#getColumnClass#0;class#7473:7944" />
-            <element signature="e#7951#8759#0" />
-            <element signature="class#8379:8755" />
-            <element signature="method#getColumnClass#0;class#8379:8755" />
-            <element signature="e#8762#9603#0" />
-            <element signature="class#9214:9599" />
-            <element signature="method#getColumnClass#0;class#9214:9599" />
-            <element signature="e#9606#10349#0" />
-            <element signature="class#10000:10345" />
-            <element signature="method#getColumnClass#0;class#10000:10345" />
-            <element signature="e#10352#11264#0" />
-            <element signature="class#10869:11260" />
-            <element signature="method#getColumnClass#0;class#10869:11260" />
-            <element signature="e#11267#12407#0" />
-            <element signature="class#11890:12402" />
-            <element signature="method#getColumnClass#0;class#11890:12402" />
-            <element signature="e#12410#13602#0" />
-            <element signature="class#13088:13598" />
-            <element signature="method#getColumnClass#0;class#13088:13598" />
-            <element signature="e#13605#14493#0" />
-            <element signature="class#14104:14489" />
-            <element signature="method#getColumnClass#0;class#14104:14489" />
-            <element signature="e#14496#15424#0" />
-            <element signature="class#15035:15420" />
-            <element signature="method#getColumnClass#0;class#15035:15420" />
-            <element signature="e#15427#16296#0" />
-            <element signature="class#15907:16292" />
-            <element signature="method#getColumnClass#0;class#15907:16292" />
-            <element signature="e#16299#17160#0" />
-            <element signature="class#16771:17156" />
-            <element signature="method#getColumnClass#0;class#16771:17156" />
-            <element signature="e#18287#18422#0" />
-            <element signature="e#18425#18548#0" />
-            <element signature="e#19309#19442#0" />
-            <element signature="e#19445#19568#0" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/members.txt">
+    <entry file="file://$PROJECT_DIR$/src/server/domain/mediator/RemoteClient.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/Observer.java" />
+    <entry file="file://$PROJECT_DIR$/src/server/domain/mediator/FileManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="101" selection-start-line="22" selection-start-column="101" selection-end-line="22" selection-end-column="101" />
+        <state relative-caret-position="46">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/FileManager.java">
+    <entry file="file://$PROJECT_DIR$/src/server/domain/mediator/ClientManager.java" />
+    <entry file="file://$PROJECT_DIR$/src/server/domain/mediator/Client.java" />
+    <entry file="file://$PROJECT_DIR$/src/client/view/ViewManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="136">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/model/RemoteClient.java" />
+    <entry file="file://$PROJECT_DIR$/src/client/domain/model/Participant.java" />
+    <entry file="file://$PROJECT_DIR$/src/client/domain/model/InvalidDateInput.java" />
+    <entry file="file://$PROJECT_DIR$/src/client/domain/model/MyDate.java" />
+    <entry file="file://$PROJECT_DIR$/src/client/domain/model/Member.java" />
+    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/ServerManager.java" />
+    <entry file="file://$PROJECT_DIR$/src/client/domain/model/MemberNotFoundException.java" />
+    <entry file="file://$PROJECT_DIR$/src/client/domain/model/MemberAlreadyPaidException.java" />
+    <entry file="file://$PROJECT_DIR$/src/client/controller/ClientMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/RemoteClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/view/ParticipantListPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/domain/mediator/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/ClientManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/domain/model/MemberList.java" />
+    <entry file="file://$PROJECT_DIR$/src/server/domain/model/MemberList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/ClientModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/domain/mediator/ServerManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
           <caret line="124" selection-start-line="124" selection-end-line="124" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/mediator/VIAManager.java">
+    <entry file="file://$PROJECT_DIR$/src/client/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="107" column="8" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
+        <state relative-caret-position="170">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/ConsoleView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="61" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/domain/mediator/VIAManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/ClientTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/test/CategoryFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/domain/model/CategoryFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding>
+            <element signature="e#208#226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/domain/model/AbstractCategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/CategoryFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/domain/model/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/CategoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

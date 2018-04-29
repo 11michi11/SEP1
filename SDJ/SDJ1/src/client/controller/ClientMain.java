@@ -1,9 +1,9 @@
-package controller;
+package client.controller;
 
-import domain.mediator.ClientManager;
-import domain.mediator.ClientModelManager;
-import view.ConsoleView;
-import view.ViewManager;
+import client.domain.mediator.ClientManager;
+import client.domain.mediator.ClientModelManager;
+import client.view.ConsoleView;
+import client.view.ViewManager;
 
 public class ClientMain {
 
