@@ -3,27 +3,29 @@ package test;
 import client.controller.Controller;
 import client.domain.mediator.ClientManager;
 import client.domain.mediator.ClientModelManager;
+import client.view.ConsoleView;
+import client.view.ViewManager;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import server.controler.VIAController;
-import server.domain.mediator.ModelManager;
 import server.domain.mediator.Server;
 import server.domain.mediator.VIAManager;
 import server.domain.model.Member;
+import server.domain.model.MyDate;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.RemoteServer;
-import java.util.ArrayList;
 
+import static junit.framework.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class ClientTest {
+class ObserverTest {
 
-	static VIAManager manager;
+	private static VIAManager serverManager;
 
 	@BeforeAll
 	static void setup() {
@@ -31,13 +33,13 @@ class ClientTest {
 			if (System.getSecurityManager() == null) {
 				System.setSecurityManager(new SecurityManager());
 			}
-			manager = new VIAManager();
+			serverManager = new VIAManager();
 			VIAController controller = VIAController.getInstance();
-			controller.setManager(manager);
+			controller.setManager(serverManager);
 			controller.start();
 			try {
 				LocateRegistry.createRegistry(1099);
-				RemoteServer rmi = new Server(manager);
+				RemoteServer rmi = new Server(serverManager);
 				Naming.rebind("server", rmi);
 				System.out.println("Server is up");
 			} catch (RemoteException | MalformedURLException e) {
@@ -45,48 +47,33 @@ class ClientTest {
 			}
 		}).start();
 		try {
-			Thread.currentThread().sleep(1500);
+			Thread.sleep(1500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Test
-	void getAllMembersTest() {
+	void observerTest() {
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new SecurityManager());
 		}
 		Controller controller = Controller.getInstance();
+		ViewManager view = new ConsoleView();
+		controller.setView(view);
 		ClientManager manager = new ClientModelManager(controller);
 		controller.setManager(manager);
+		controller.start();
+		Member member = new Member("name", "address", 123, "email", MyDate.getDefaultDate());
+		serverManager.addMember(member);
 		try {
-			ArrayList<Member> list = ((ClientModelManager) manager).clientCommunication.getAllMembers();
-			System.out.println(list);
-			assertEquals(false, list.isEmpty());
-			assertEquals(manager.getAllMembers(), list);
+			System.out.println(manager.getAllMembers());
+			assertTrue(manager.getAllMembers().contains(member));
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			fail("Remote exception");
 		}
 	}
 
-	@Test
-	void getAllMembersWhoHasntPaindTest() {
-		if (System.getSecurityManager() == null) {
-			System.setSecurityManager(new SecurityManager());
-		}
-		Controller controller = Controller.getInstance();
-		ClientManager manager = new ClientModelManager(controller);
-		controller.setManager(manager);
-		try {
-			ArrayList<String> list = ((ClientModelManager) manager).clientCommunication.getListOfMembersWhoHasntPaid();
-			System.out.println(list);
-			assertEquals(false, list.isEmpty());
-			assertEquals(manager.getListOfMembersWhoHasntPaid(), list);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			fail("Remote exception");
-		}
-	}
 
 }

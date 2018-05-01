@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Observer;
 
-public class VIAManager implements ModelManager{
+public class VIAManager implements ModelManager {
 
 	private MemberList members;
 	private LecturerList lecturers;
@@ -34,13 +34,16 @@ public class VIAManager implements ModelManager{
 	public void signUpMember(String name, String address, int phone, String email, MyDate dateOfMembership) {
 		members.addMember(new Member(name, address, phone, email, dateOfMembership));
 	}
+	public void addMember(Member member) {
+		members.addMember(member);
+	}
 
 	public void deleteMember(Member member) {
 		members.deleteMember(member);
 	}
 
 	public void signUpLecturer(String name, String email, int phone, ArrayList<Category> categories,
-			boolean wantsAdvertise) {
+	                           boolean wantsAdvertise) {
 		lecturers.addLecturer(new Lecturer(name, email, phone, categories, wantsAdvertise));
 	}
 
@@ -81,17 +84,17 @@ public class VIAManager implements ModelManager{
 	}
 
 	public void updateMemberList() throws ClassNotFoundException, IOException {
-		 this.members = FileManager.readMemberFile();
+		this.members = FileManager.readMemberFile();
 //		this.members = FileManager.readMemberFile(new File("src/resources/members.txt"));
 	}
 
 	public void updateLecturerList() throws ClassNotFoundException, IOException {
-		 this.lecturers = FileManager.readLecturerFile();
+		this.lecturers = FileManager.readLecturerFile();
 //		this.lecturers = FileManager.readLecturerFile(new File("src/resources/lecturer.txt"));
 	}
 
 	public void updateEventList() throws ClassNotFoundException, IOException {
-		 this.events = FileManager.readEventFile();
+		this.events = FileManager.readEventFile();
 //		this.events = FileManager.readEventFile(new File("src/resources/events.txt"));
 	}
 
@@ -102,22 +105,22 @@ public class VIAManager implements ModelManager{
 	public void addEvent(Map<String, Object> configuration) {
 		Event event;
 		switch ((String) configuration.get("type")) {
-		case "Lecture":
-			event = new Lecture(configuration);
-			events.addEvent(event);
-			break;
-		case "Workshop":
-			event = new Workshop(configuration);
-			events.addEvent(event);
-			break;
-		case "Seminar":
-			event = new Seminar(configuration);
-			events.addEvent(event);
-			break;
-		case "Trip":
-			event = new Trip(configuration);
-			events.addEvent(event);
-			break;
+			case "Lecture":
+				event = new Lecture(configuration);
+				events.addEvent(event);
+				break;
+			case "Workshop":
+				event = new Workshop(configuration);
+				events.addEvent(event);
+				break;
+			case "Seminar":
+				event = new Seminar(configuration);
+				events.addEvent(event);
+				break;
+			case "Trip":
+				event = new Trip(configuration);
+				events.addEvent(event);
+				break;
 		}
 	}
 
@@ -125,7 +128,7 @@ public class VIAManager implements ModelManager{
 		return FileManager.readNewsletter(date, newsletterFiles);
 	}
 
-	public void registerObserver(Observer observer){
+	public void registerObserver(Observer observer) {
 		members.addObserver(observer);
 	}
 

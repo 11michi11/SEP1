@@ -772,4 +772,5 @@ public class VIAController {
     public void showMemberMultipleChoice(JPanel currentPanel) {
         window.showMemberMultipleChoice(currentPanel);
     }
+
 }

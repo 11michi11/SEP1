@@ -13,5 +13,5 @@ public interface ClientManager extends Remote {
 
     ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException;
 
-    void reloadMembers(ArrayList<Member> allMembers);
+    void updateMembers(Member member);
 }
