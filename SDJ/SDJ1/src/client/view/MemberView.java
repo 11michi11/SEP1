@@ -36,7 +36,7 @@ public class MemberView extends VIAPanel implements  ViewManager {
 
 	public void initializeComponents() {
 		memberList = new VIAButtonSimple("member list", 20);
-		haventPaid = new VIAButtonSimple("members who havent paid", 15);
+		haventPaid = new VIAButtonSimple("members who haven't paid", 15);
 
 		DefaultTableModel model = controller.getMembersTableModel();
 		table = new JTable(model);
