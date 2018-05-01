@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9544f7a7-6676-47ee-b0bc-a6c5dd5b43d6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/CategoryFactoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/CategoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/domain/model/AbstractCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/domain/model/AbstractCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/domain/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/domain/model/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/domain/model/CategoryFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/domain/model/CategoryFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VipassanaClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../VipassanaClient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/controller/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/controller/ClientMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/domain/mediator/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/domain/mediator/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/domain/mediator/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/domain/mediator/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/domain/mediator/ClientModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/domain/mediator/ClientModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/domain/mediator/RemoteClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/domain/mediator/RemoteClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/view/ConsoleView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/view/MemberView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/view/MemberView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/view/ViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/view/ViewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/domain/mediator/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/domain/mediator/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/domain/mediator/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/domain/mediator/ServerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/domain/model/MemberList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/domain/model/MemberList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/ObserverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ObserverTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <ignored path="$PROJECT_DIR$/VipassanaClient/bin/" />
@@ -22,41 +29,69 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CategoryFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/domain/model/CategoryFactory.java">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+            <state relative-caret-position="966">
+              <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
               <folding>
-                <element signature="e#208#226#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1087#1088#0" expanded="true" />
+                <element signature="e#1130#1131#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Category.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/domain/model/Category.java">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            <state relative-caret-position="165">
+              <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+              <folding>
+                <element signature="e#621#622#0" expanded="true" />
+                <element signature="e#679#680#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractCategory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/domain/model/AbstractCategory.java">
+      <file leaf-file-name="MemberView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/view/MemberView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+            <state relative-caret-position="1015">
+              <caret line="366" column="5" lean-forward="true" selection-start-line="366" selection-start-column="5" selection-end-line="366" selection-end-column="5" />
+              <folding>
+                <element signature="e#2148#2149#0" expanded="true" />
+                <element signature="e#2156#2157#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoryTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/CategoryTest.java">
+      <file leaf-file-name="MemberListPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/view/MemberListPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+            <state>
+              <caret line="199" column="5" selection-start-line="193" selection-start-column="4" selection-end-line="199" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VIAWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/view/VIAWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/controller/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="74" column="37" lean-forward="true" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoryFactoryTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/CategoryFactoryTest.java">
+      <file leaf-file-name="ClientMain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/controller/ClientMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+            <state>
+              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -78,9 +113,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -96,11 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/server/view/SignUpFormMember.java" />
-        <option value="$PROJECT_DIR$/src/server/view/SignUpFormParticipant.java" />
-        <option value="$PROJECT_DIR$/src/server/view/SignUpPanel.java" />
-        <option value="$PROJECT_DIR$/src/server/view/StartPanel.java" />
-        <option value="$PROJECT_DIR$/src/server/view/VIAButton.java" />
         <option value="$PROJECT_DIR$/src/server/view/VIAButtonBack.java" />
         <option value="$PROJECT_DIR$/src/server/view/VIAButtonBig.java" />
         <option value="$PROJECT_DIR$/src/server/view/VIAButtonExtraSmall.java" />
@@ -109,8 +139,6 @@
         <option value="$PROJECT_DIR$/src/server/view/EventCreateFormLectures.java" />
         <option value="$PROJECT_DIR$/src/server/view/VIALabel.java" />
         <option value="$PROJECT_DIR$/src/server/view/EventCreateFormSeminars.java" />
-        <option value="$PROJECT_DIR$/src/server/view/MemberListPanel.java" />
-        <option value="$PROJECT_DIR$/src/server/controler/VIAController.java" />
         <option value="$PROJECT_DIR$/src/server/view/MemberMultipleChoice.java" />
         <option value="$PROJECT_DIR$/src/server/test/FileManagerTest.java" />
         <option value="$PROJECT_DIR$/src/server/view/CategoryMultipleChoiceList.java" />
@@ -119,8 +147,6 @@
         <option value="$PROJECT_DIR$/src/server/domain/mediator/Client.java" />
         <option value="$PROJECT_DIR$/src/server/domain/mediator/RemoteClient.java" />
         <option value="$PROJECT_DIR$/src/server/domain/mediator/ClientManager.java" />
-        <option value="$PROJECT_DIR$/src/client/controller/ClientMain.java" />
-        <option value="$PROJECT_DIR$/src/client/view/ViewManager.java" />
         <option value="$PROJECT_DIR$/src/client/model/RemoteClient.java" />
         <option value="$PROJECT_DIR$/src/client/domain/model/Member.java" />
         <option value="$PROJECT_DIR$/src/client/domain/model/Participant.java" />
@@ -130,23 +156,28 @@
         <option value="$PROJECT_DIR$/src/client/domain/mediator/ServerManager.java" />
         <option value="$PROJECT_DIR$/src/client/domain/model/MemberList.java" />
         <option value="$PROJECT_DIR$/src/client/domain/model/MemberNotFoundException.java" />
-        <option value="$PROJECT_DIR$/src/server/domain/mediator/ServerManager.java" />
-        <option value="$PROJECT_DIR$/src/client/domain/mediator/ClientManager.java" />
-        <option value="$PROJECT_DIR$/src/client/domain/mediator/RemoteClient.java" />
-        <option value="$PROJECT_DIR$/src/client/domain/mediator/Client.java" />
-        <option value="$PROJECT_DIR$/src/server/domain/mediator/Server.java" />
-        <option value="$PROJECT_DIR$/src/client/domain/mediator/ClientModelManager.java" />
-        <option value="$PROJECT_DIR$/src/server/domain/model/MemberList.java" />
-        <option value="$PROJECT_DIR$/src/client/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/client/view/ConsoleView.java" />
-        <option value="$PROJECT_DIR$/src/server/domain/mediator/VIAManager.java" />
-        <option value="$PROJECT_DIR$/src/test/ClientTest.java" />
         <option value="$PROJECT_DIR$/src/server/test/CategoryFactoryTest.java" />
         <option value="$PROJECT_DIR$/src/server/domain/model/CategoryFactory.java" />
         <option value="$PROJECT_DIR$/src/server/domain/model/AbstractCategory.java" />
         <option value="$PROJECT_DIR$/src/server/domain/model/Category.java" />
         <option value="$PROJECT_DIR$/src/test/CategoryFactoryTest.java" />
         <option value="$PROJECT_DIR$/src/test/CategoryTest.java" />
+        <option value="$PROJECT_DIR$/src/server/domain/model/MemberList.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/mediator/ClientManager.java" />
+        <option value="$PROJECT_DIR$/src/test/ObserverTest.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/mediator/ClientModelManager.java" />
+        <option value="$PROJECT_DIR$/src/test/ClientTest.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/mediator/RemoteClient.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/mediator/Client.java" />
+        <option value="$PROJECT_DIR$/src/test/ObserverTest.java" />
+        <option value="$PROJECT_DIR$/src/server/view/MemberListPanel.java" />
+        <option value="$PROJECT_DIR$/src/client/domain/mediator/ClientManager.java" />
+        <option value="$PROJECT_DIR$/src/client/view/MemberView.java" />
+        <option value="$PROJECT_DIR$/src/server/controler/VIAController.java" />
+        <option value="$PROJECT_DIR$/src/server/controler/Main.java" />
+        <option value="$PROJECT_DIR$/src/client/controller/ClientMain.java" />
+        <option value="$PROJECT_DIR$/src/client/controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -159,11 +190,11 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
-    <option name="width" value="1939" />
-    <option name="height" value="1049" />
+    <option name="width" value="1940" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -171,6 +202,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -187,6 +220,33 @@
               <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="mediator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -202,14 +262,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="domain" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="mediator" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDJ1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SDJ1" type="b2602c69:ProjectViewProjectNode" />
@@ -221,8 +281,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -242,7 +300,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -271,58 +329,36 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CategoryTest.equals">
+  <component name="RunManager" selected="Application.ClientMain">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
+    <configuration name="ClientMain" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.controller.ClientMain" />
+      <module name="SDJ1" />
+      <option name="VM_PARAMETERS" value="-Djava.security.policy==all.policy" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.controler.Main" />
+      <module name="SDJ1" />
+      <option name="VM_PARAMETERS" value="-Djava.security.policy==all.policy" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.controler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-    </configuration>
-    <configuration name="CategoryFactoryTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SDJ1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.CategoryFactoryTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="CategoryFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SDJ1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="server.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="server.test" />
-      <option name="MAIN_CLASS_NAME" value="server.test.CategoryFactoryTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
     </configuration>
     <configuration name="CategoryTest.equals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SDJ1" />
@@ -347,7 +383,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="CategoryTest.getName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CategoryTest.equals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SDJ1" />
       <extension name="coverage">
         <pattern>
@@ -358,8 +394,31 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.CategoryTest" />
-      <option name="METHOD_NAME" value="getName" />
+      <option name="MAIN_CLASS_NAME" value="test.ClientTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea -Djava.security.policy==all.policy" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="ClientTest.getAllMembersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SDJ1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.ClientTest" />
+      <option name="METHOD_NAME" value="getAllMembersTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -370,7 +429,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="CategoryTest.getNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ObserverTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="SDJ1" />
       <extension name="coverage">
         <pattern>
@@ -381,12 +440,12 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.CategoryTest" />
-      <option name="METHOD_NAME" value="getNumber" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="MAIN_CLASS_NAME" value="test.ObserverTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea -Djava.security.policy==all.policy" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
@@ -400,6 +459,29 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="client.domain.model in SDJ1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SDJ1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="client.domain.model" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -445,19 +527,17 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.CategoryFactoryTest" />
-      <item itemvalue="JUnit.CategoryFactoryTest (1)" />
-      <item itemvalue="JUnit.CategoryTest.getName" />
-      <item itemvalue="JUnit.CategoryTest.getNumber" />
+      <item itemvalue="Application.ClientMain" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.ObserverTest" />
+      <item itemvalue="JUnit.ClientTest.getAllMembersTest" />
       <item itemvalue="JUnit.CategoryTest.equals" />
+      <item itemvalue="JUnit.client.domain.model in SDJ1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.client.domain.model in SDJ1" />
         <item itemvalue="JUnit.CategoryTest.equals" />
-        <item itemvalue="JUnit.CategoryTest.getNumber" />
-        <item itemvalue="JUnit.CategoryTest.getName" />
-        <item itemvalue="JUnit.CategoryFactoryTest (1)" />
-        <item itemvalue="JUnit.CategoryFactoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -473,46 +553,47 @@
       <updated>1524773733898</updated>
       <workItem from="1524773739059" duration="5980000" />
       <workItem from="1524911609528" duration="7272000" />
+      <workItem from="1525167012527" duration="2606000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CategoryFactoryTest - 2018.04.28 at 20h 52m 11s.xml">
-      <configuration name="CategoryFactoryTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CategoryFactoryTest - 2018.04.28 at 20h 59m 53s.xml">
       <configuration name="CategoryFactoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CategoryFactoryTest - 2018.04.28 at 21h 00m 27s.xml">
-      <configuration name="CategoryFactoryTest" configurationId="JUnit" />
+    <history-entry file="ObserverTest - 2018.04.29 at 13h 46m 11s.xml">
+      <configuration name="ObserverTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CategoryFactoryTest - 2018.04.28 at 21h 25m 02s.xml">
-      <configuration name="CategoryFactoryTest" configurationId="JUnit" />
+    <history-entry file="ObserverTest - 2018.04.29 at 13h 48m 03s.xml">
+      <configuration name="ObserverTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CategoryFactoryTest_(1) - 2018.04.28 at 21h 25m 12s.xml">
-      <configuration name="CategoryFactoryTest (1)" configurationId="JUnit" />
+    <history-entry file="ObserverTest - 2018.04.29 at 13h 48m 41s.xml">
+      <configuration name="ObserverTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CategoryFactoryTest_(1) - 2018.04.28 at 21h 31m 21s.xml">
-      <configuration name="CategoryFactoryTest (1)" configurationId="JUnit" />
+    <history-entry file="ObserverTest - 2018.04.29 at 13h 51m 18s.xml">
+      <configuration name="ObserverTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CategoryTest_getName - 2018.04.28 at 21h 31m 28s.xml">
-      <configuration name="CategoryTest.getName" configurationId="JUnit" />
+    <history-entry file="ObserverTest - 2018.04.29 at 13h 52m 14s.xml">
+      <configuration name="ObserverTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CategoryTest_getNumber - 2018.04.28 at 21h 33m 32s.xml">
-      <configuration name="CategoryTest.getNumber" configurationId="JUnit" />
+    <history-entry file="ObserverTest - 2018.04.29 at 13h 54m 18s.xml">
+      <configuration name="ObserverTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CategoryTest_equals - 2018.04.28 at 21h 36m 28s.xml">
-      <configuration name="CategoryTest.equals" configurationId="JUnit" />
+    <history-entry file="ObserverTest - 2018.04.29 at 14h 03m 39s.xml">
+      <configuration name="ObserverTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CategoryTest_equals - 2018.04.28 at 21h 37m 33s.xml">
-      <configuration name="CategoryTest.equals" configurationId="JUnit" />
+    <history-entry file="ObserverTest - 2018.04.29 at 14h 05m 13s.xml">
+      <configuration name="ObserverTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="client_domain_model_in_SDJ1 - 2018.05.01 at 11h 36m 54s.xml">
+      <configuration name="client.domain.model in SDJ1" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13252000" />
+    <option name="totallyTimeSpent" value="15858000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="0" width="1550" height="831" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -523,28 +604,49 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32965517" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.3213793" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3213793" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.22591145" />
-      <window_info id="Learn" order="0" weight="0.3295302" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22591145" />
+      <window_info anchor="right" id="Database" order="7" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.3986207" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="6" side_tool="true" weight="0.3294271" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3986207" />
       <window_info anchor="bottom" id="Message" order="1" />
+      <window_info id="Learn" order="0" weight="0.3295302" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32965517" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22591145" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3986207" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.36965516" />
+      <window_info id="Image Layers" order="7" />
+      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="6" side_tool="true" weight="0.3294271" />
       <window_info anchor="right" id="Database" order="7" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.36965516" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3213793" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info id="Designer" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,10 +657,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/server/controler/VIAController.java</url>
+          <line>51</line>
+          <properties />
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="28" />
+      <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -588,44 +698,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/server/view/VIAButtonSmall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/view/VIALabel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/view/EventCreateFormLectures.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="70" column="29" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/view/EventCreateFormWorkshop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4213">
-          <caret line="337" column="37" lean-forward="true" selection-start-line="337" selection-start-column="37" selection-end-line="337" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/view/EventCreateFormSeminars.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="332" column="17" selection-start-line="332" selection-start-column="17" selection-end-line="332" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/view/ViewManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -633,38 +705,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/view/VIAWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/domain/model/MemberNotFoundException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/view/MemberListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/view/EventListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/controler/VIAController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="377" lean-forward="true" selection-start-line="377" selection-end-line="377" />
         </state>
       </provider>
     </entry>
@@ -682,20 +726,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/controler/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/view/CategoryMultipleChoiceList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -724,13 +758,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/domain/mediator/ClientManager.java" />
     <entry file="file://$PROJECT_DIR$/src/server/domain/mediator/Client.java" />
-    <entry file="file://$PROJECT_DIR$/src/client/view/ViewManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/model/RemoteClient.java" />
     <entry file="file://$PROJECT_DIR$/src/client/domain/model/Participant.java" />
     <entry file="file://$PROJECT_DIR$/src/client/domain/model/InvalidDateInput.java" />
@@ -739,13 +766,6 @@
     <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/ServerManager.java" />
     <entry file="file://$PROJECT_DIR$/src/client/domain/model/MemberNotFoundException.java" />
     <entry file="file://$PROJECT_DIR$/src/client/domain/model/MemberAlreadyPaidException.java" />
-    <entry file="file://$PROJECT_DIR$/src/client/controller/ClientMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/RemoteClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -755,109 +775,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/view/ParticipantListPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/domain/mediator/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/ClientManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/domain/model/MemberList.java" />
-    <entry file="file://$PROJECT_DIR$/src/server/domain/model/MemberList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/ClientModelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/domain/mediator/ServerManager.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1836">
           <caret line="124" selection-start-line="124" selection-end-line="124" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/view/ConsoleView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="61" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/domain/mediator/VIAManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/ClientTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/test/CategoryFactoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/domain/model/CategoryFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding>
-            <element signature="e#208#226#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/domain/model/AbstractCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/test/CategoryFactoryTest.java" />
     <entry file="file://$PROJECT_DIR$/src/test/CategoryFactoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -865,17 +788,204 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/domain/model/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/CategoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/domain/model/AbstractCategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/java/lang/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/ClientTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="60" column="39" selection-start-line="55" selection-start-column="8" selection-end-line="60" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/domain/model/Member.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/test/CategoryFactoryTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/server/domain/model/CategoryFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-460">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/CategoryFactoryTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/CategoryTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/server/domain/model/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/controler/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/ConsoleView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/domain/model/MemberList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="35" column="49" lean-forward="true" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/ClientManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/ObserverTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/ClientModelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#826#827#0" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#982#983#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/ClientTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="79" column="92" selection-start-line="79" selection-start-column="92" selection-end-line="79" selection-end-column="92" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/RemoteClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/view/MemberListPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="199" column="5" selection-start-line="193" selection-start-column="4" selection-end-line="199" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/controller/ClientMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1087#1088#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/MemberView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="695" column="29" selection-start-line="695" selection-start-column="29" selection-end-line="695" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1015">
+          <caret line="366" column="5" lean-forward="true" selection-start-line="366" selection-start-column="5" selection-end-line="366" selection-end-column="5" />
+          <folding>
+            <element signature="e#621#622#0" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/domain/mediator/ClientManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="74" column="37" lean-forward="true" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

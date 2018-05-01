@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ClientModelManager implements ClientManager, Serializable {
 
 	private MemberList members;
-	private Client clientCommunication;
+	public RemoteClient clientCommunication;
 	private Controller controller;
 
 	public ClientModelManager(Controller controller) {
@@ -19,7 +19,7 @@ public class ClientModelManager implements ClientManager, Serializable {
 		this.controller = controller;
 		clientCommunication = new Client(this);
 		try {
-			members.reload(clientCommunication.getAllMembers());
+			members.load(clientCommunication.getAllMembers());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -36,12 +36,12 @@ public class ClientModelManager implements ClientManager, Serializable {
 	}
 
 	@Override
-	public ArrayList<String> getListOfMembersWhoHasntPaid() {
-		return members.getListOfEmailsWhoHasntPaid();
+	public ArrayList<Member> getListOfMembersWhoHasntPaid() {
+		return members.getListOfMembersWhoHasntPaid();
 	}
 
-	public void reloadMembers(ArrayList<Member> allMembers) {
-		members.reload(allMembers);
+	public void updateMembers(Member member) {
+		members.memberAdded(member);
 		controller.showMsg("List has been updated!");
 	}
 }

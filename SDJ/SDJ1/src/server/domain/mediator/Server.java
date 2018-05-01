@@ -22,8 +22,8 @@ public class Server extends UnicastRemoteObject implements ServerManager {
 	}
 
 	@Override
-	public ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException {
-		return manager.getMemberList().getListOfEmailsWhoHasntPaid();
+	public ArrayList<Member> getListOfMembersWhoHasntPaid() throws RemoteException {
+		return manager.getMemberList().getListOfMembersWhoHasntPaid();
 	}
 
 	@Override

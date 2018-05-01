@@ -1,13 +1,14 @@
 package server.domain.model;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Observable;
 
 public class MemberList extends Observable implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private ArrayList<Member> members;
+    public ArrayList<Member> members;
 
     public MemberList() {
         this.members = new ArrayList<Member>();
@@ -32,7 +33,7 @@ public class MemberList extends Observable implements Serializable {
     }
 
     public ArrayList<String> getListOfEmailsWhoHasntPaid() {
-        ArrayList<String> emails = new ArrayList<String>();
+        ArrayList<String> emails = new ArrayList<>();
         for (Member e : getListOfMembersWhoHasntPaid()) {
             emails.add(e.getEmail());
         }
@@ -61,7 +62,7 @@ public class MemberList extends Observable implements Serializable {
     public void addMember(Member member) {
         members.add(member);
         setChanged();
-        notifyObservers();
+        notifyObservers(member);
     }
 
     public int getSize() {
@@ -76,7 +77,12 @@ public class MemberList extends Observable implements Serializable {
         return returnString;
     }
 
-    public void reload(ArrayList<Member> members){
-         this.members = members;
+    public void memberAdded(Member member){
+         members.add(member);
+	    System.out.println("@#$%asdf8412564ghj"+members);
+    }
+
+    public void load(ArrayList<Member> memebers){
+    	this.members = memebers;
     }
 }

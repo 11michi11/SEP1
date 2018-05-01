@@ -10,7 +10,7 @@ public interface ServerManager extends Remote {
 
     ArrayList<Member> getAllMembers() throws RemoteException;
 
-    ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException;
+    ArrayList<Member> getListOfMembersWhoHasntPaid() throws RemoteException;
 
     void registerObserver(RemoteClient observer)  throws RemoteException;
 
