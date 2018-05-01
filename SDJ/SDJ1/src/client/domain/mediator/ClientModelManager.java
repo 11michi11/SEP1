@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ClientModelManager implements ClientManager, Serializable {
 
 	private MemberList members;
-	private Client clientCommunication;
+	private RemoteClient clientCommunication;
 	private Controller controller;
 
 	public ClientModelManager(Controller controller) {
