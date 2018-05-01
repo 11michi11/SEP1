@@ -1,9 +1,11 @@
 package server.domain.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Member extends Participant implements Serializable {
 
+	private static long serialVersionUID = 1L;
 	private static int nextID = 0;
 	private final MyDate dateOfMembership;
 	private final int ID;
@@ -13,18 +15,19 @@ public class Member extends Participant implements Serializable {
 
 	public Member(String name, String address, int phone, String email, MyDate dateOfMembership) {
 		super(name, email);
+
 		this.address = address;
 		this.phone = phone;
 		this.dateOfMembership = dateOfMembership.copy();
 		this.ID = ++nextID;
 	}
-	
+
 	public static int getNextId() {
-	    return nextID;
+		return nextID;
 	}
-	
-	public static void setNextID (int lastID) {
-	    nextID = lastID;
+
+	public static void setNextID(int lastID) {
+		nextID = lastID;
 	}
 
 	public int getPhone() {
@@ -42,14 +45,14 @@ public class Member extends Participant implements Serializable {
 	public int getPaymentYear() {
 		return paymentYear;
 	}
-	
+
 	public void pay() throws MemberAlreadyPaidException {
 		if (!this.hasPaid())
 			paymentYear = MyDate.getCurrentYear();
 		else
 			throw new MemberAlreadyPaidException("Member has paid for that year");
 	}
-	
+
 	public void unPay() {
 		this.paymentYear = MyDate.getCurrentYear() - 1;
 	}
@@ -65,9 +68,20 @@ public class Member extends Participant implements Serializable {
 	public int getID() {
 		return ID;
 	}
-	
-	public String toString () {
-	   return ID+";"+super.toString()+";"+address+";"+phone+";"+dateOfMembership+";"+paymentYear;
+
+	public String toString() {
+		return ID + ";" + super.toString() + ";" + address + ";" + phone + ";" + dateOfMembership + ";" + paymentYear;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Member member = (Member) o;
+		return ID == member.ID &&
+				phone == member.phone &&
+				paymentYear == member.paymentYear &&
+				Objects.equals(dateOfMembership, member.dateOfMembership) &&
+				Objects.equals(address, member.address);
+	}
 }

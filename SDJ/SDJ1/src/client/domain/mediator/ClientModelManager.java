@@ -19,7 +19,7 @@ public class ClientModelManager implements ClientManager, Serializable {
 		this.controller = controller;
 		clientCommunication = new Client(this);
 		try {
-			members.reload(clientCommunication.getAllMembers());
+			members.load(clientCommunication.getAllMembers());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -40,8 +40,8 @@ public class ClientModelManager implements ClientManager, Serializable {
 		return members.getListOfEmailsWhoHasntPaid();
 	}
 
-	public void reloadMembers(ArrayList<Member> allMembers) {
-		members.reload(allMembers);
+	public void updateMembers(Member member) {
+		members.memberAdded(member);
 		controller.showMsg("List has been updated!");
 	}
 }
