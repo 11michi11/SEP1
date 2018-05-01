@@ -7,11 +7,11 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 
-public interface ClientManager extends Remote {
+public interface ClientManager{
 
-    ArrayList<Member> getAllMembers() throws RemoteException;
+    ArrayList<Member> getAllMembers();
 
-    ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException;
+    ArrayList<Member> getListOfMembersWhoHasntPaid();
 
     void updateMembers(Member member);
 }

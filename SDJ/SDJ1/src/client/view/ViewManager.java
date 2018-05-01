@@ -4,6 +4,6 @@ public interface ViewManager {
 	
 	void showListOfMembers();
 	void showListOfMembersWhoHasPaid();
-	void showWelcomeMessage();
+	void startView();
 	void showMsg(String string);
 }

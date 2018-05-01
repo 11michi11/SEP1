@@ -33,7 +33,7 @@ public class MemberList extends Observable implements Serializable {
     }
 
     public ArrayList<String> getListOfEmailsWhoHasntPaid() {
-        ArrayList<String> emails = new ArrayList<String>();
+        ArrayList<String> emails = new ArrayList<>();
         for (Member e : getListOfMembersWhoHasntPaid()) {
             emails.add(e.getEmail());
         }

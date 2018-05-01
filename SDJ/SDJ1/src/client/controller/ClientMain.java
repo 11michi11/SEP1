@@ -2,7 +2,6 @@ package client.controller;
 
 import client.domain.mediator.ClientManager;
 import client.domain.mediator.ClientModelManager;
-import client.view.ConsoleView;
 import client.view.MemberView;
 import client.view.ViewManager;
 
@@ -14,10 +13,10 @@ public class ClientMain {
 			System.setSecurityManager(new SecurityManager());
 		}
 		Controller controller = Controller.getInstance();
-		ViewManager view = new MemberView();
-		controller.setView(view);
 		ClientManager manager = new ClientModelManager(controller);
 		controller.setManager(manager);
+		ViewManager view = new MemberView();
+		controller.setView(view);
 		controller.start();
 	}
 }

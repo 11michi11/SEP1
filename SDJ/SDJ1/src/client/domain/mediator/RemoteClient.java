@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Observer;
 
 public interface RemoteClient extends Observer, Remote {
-    public ArrayList<Member> getAllMembers() throws RemoteException;
+    ArrayList<Member> getAllMembers() throws RemoteException;
 
-    public ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException;
+    ArrayList<Member> getListOfMembersWhoHasntPaid() throws RemoteException;
 }

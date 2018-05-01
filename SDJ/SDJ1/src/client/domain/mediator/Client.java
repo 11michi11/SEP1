@@ -31,7 +31,7 @@ public class Client implements Serializable, RemoteClient {
 		return server.getAllMembers();
 	}
 
-	public ArrayList<String> getListOfMembersWhoHasntPaid() throws RemoteException {
+	public ArrayList<Member> getListOfMembersWhoHasntPaid() throws RemoteException {
 		return server.getListOfMembersWhoHasntPaid();
 	}
 

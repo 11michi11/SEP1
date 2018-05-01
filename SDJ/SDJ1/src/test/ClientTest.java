@@ -6,7 +6,6 @@ import client.domain.mediator.ClientModelManager;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import server.controler.VIAController;
-import server.domain.mediator.ModelManager;
 import server.domain.mediator.Server;
 import server.domain.mediator.VIAManager;
 import server.domain.model.Member;
@@ -18,12 +17,11 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.server.RemoteServer;
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ClientTest {
 
-	static VIAManager manager;
+	private static VIAManager manager;
 
 	@BeforeAll
 	static void setup() {
@@ -62,7 +60,7 @@ class ClientTest {
 		try {
 			ArrayList<Member> list = ((ClientModelManager) manager).clientCommunication.getAllMembers();
 			System.out.println(list);
-			assertEquals(false, list.isEmpty());
+			assertFalse(list.isEmpty());
 			assertEquals(manager.getAllMembers(), list);
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -79,9 +77,9 @@ class ClientTest {
 		ClientManager manager = new ClientModelManager(controller);
 		controller.setManager(manager);
 		try {
-			ArrayList<String> list = ((ClientModelManager) manager).clientCommunication.getListOfMembersWhoHasntPaid();
+			ArrayList<Member> list = ((ClientModelManager) manager).clientCommunication.getListOfMembersWhoHasntPaid();
 			System.out.println(list);
-			assertEquals(false, list.isEmpty());
+			assertFalse(list.isEmpty());
 			assertEquals(manager.getListOfMembersWhoHasntPaid(), list);
 		} catch (RemoteException e) {
 			e.printStackTrace();

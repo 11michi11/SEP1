@@ -1,7 +1,6 @@
 package client.view;
 
 import client.controller.Controller;
-import server.controler.VIAController;
 import server.view.VIAButtonSimple;
 import server.view.VIAPanel;
 
@@ -15,6 +14,7 @@ public class MemberView extends VIAPanel implements  ViewManager {
 	private JButton memberList;
 	private JButton haventPaid;
 	private Controller controller;
+	private JFrame frame;
 
 	public MemberView() {
 		super();
@@ -23,6 +23,15 @@ public class MemberView extends VIAPanel implements  ViewManager {
 		initializeComponents();
 		registerEventHandlers();
 		addComponentsToPanel();
+
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(600, 300);
+		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
+		frame.setContentPane(this);
+
+
 	}
 
 	public void initializeComponents() {
@@ -77,8 +86,8 @@ public class MemberView extends VIAPanel implements  ViewManager {
 	}
 
 	@Override
-	public void showWelcomeMessage() {
-
+	public void startView() {
+		frame.setVisible(true);
 	}
 
 	@Override
