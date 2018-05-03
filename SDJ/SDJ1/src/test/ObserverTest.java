@@ -46,7 +46,7 @@ class ObserverTest {
             }
         }).start();
         try {
-            Thread.sleep(1500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -58,16 +58,19 @@ class ObserverTest {
             System.setSecurityManager(new SecurityManager());
         }
         Controller controller = Controller.getInstance();
-        ViewManager view = new MemberView();
-        controller.setView(view);
         ClientManager manager = new ClientModelManager(controller);
         controller.setManager(manager);
+        ViewManager view = new MemberView();
+        controller.setView(view);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } // sleeping gives time for RMI to start up
         controller.start();
         Member member = new Member("name", "address", 123, "email", MyDate.getDefaultDate());
         serverManager.addMember(member);
-        System.out.println(manager.getAllMembers());
         assertTrue(manager.getAllMembers().contains(member));
-
     }
 
 

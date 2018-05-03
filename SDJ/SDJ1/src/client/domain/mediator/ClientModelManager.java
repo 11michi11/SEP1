@@ -46,6 +46,6 @@ public class ClientModelManager implements ClientManager, Serializable{
 
     public void updateMembers(Member member) {
         members.memberAdded(member);
-        controller.showMsg("List has been updated!");
+        new Thread(() -> controller.showMsg("List has been updated!")).start();
     }
 }
