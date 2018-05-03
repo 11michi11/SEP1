@@ -1,21 +1,22 @@
 package server.domain.model;
 
+import client.domain.mediator.ListOfMembers;
+
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Observable;
 
-public class MemberList extends Observable implements Serializable {
+public class MemberList extends Observable implements Serializable, ListOfMembers {
 
     private static final long serialVersionUID = 1L;
     public ArrayList<Member> members;
 
     public MemberList() {
-        this.members = new ArrayList<Member>();
+        this.members = new ArrayList<>();
     }
 
     public ArrayList<Member> getListOfMembersWhoHasntPaid() {
-        ArrayList<Member> memberList = new ArrayList<Member>();
+        ArrayList<Member> memberList = new ArrayList<>();
         for (Member e : members) {
             if (!e.hasPaid()) {
                 memberList.add(e);
@@ -25,7 +26,7 @@ public class MemberList extends Observable implements Serializable {
     }
 
     public ArrayList<String> getListOfEmails() {
-        ArrayList<String> emails = new ArrayList<String>();
+        ArrayList<String> emails = new ArrayList<>();
         for (Member e : members) {
             emails.add(e.getEmail());
         }
@@ -70,16 +71,15 @@ public class MemberList extends Observable implements Serializable {
     }
 
     public String toString() {
-        String returnString = "";
+        StringBuilder returnString = new StringBuilder();
         for (Member e : members)
-            returnString += e.toString() + "\n";
+            returnString.append(e.toString()).append("\n");
 
-        return returnString;
+        return returnString.toString();
     }
 
     public void memberAdded(Member member){
          members.add(member);
-	    System.out.println("@#$%asdf8412564ghj"+members);
     }
 
     public void load(ArrayList<Member> memebers){

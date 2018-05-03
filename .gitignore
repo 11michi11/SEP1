@@ -13,6 +13,9 @@ local.properties
 # External tool builders
 .externalToolBuilders/
 
+#Intelij Workspace config
+SDJ1\.idea\.idea\workspace.xml
+
 # Locally stored "Eclipse launch configurations"
 *.launch
 
