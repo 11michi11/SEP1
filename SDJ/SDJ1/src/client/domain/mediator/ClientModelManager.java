@@ -17,7 +17,11 @@ public class ClientModelManager implements ClientManager, Serializable{
     public ClientModelManager(Controller controller) {
         members = new MemberList();
         this.controller = controller;
-        clientCommunication = new Client(this);
+        try {
+            clientCommunication = new Client(this);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
         try {
             members.load(clientCommunication.getAllMembers());
         } catch (RemoteException e) {

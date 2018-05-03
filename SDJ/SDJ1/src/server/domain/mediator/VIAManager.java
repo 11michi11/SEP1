@@ -1,5 +1,6 @@
 package server.domain.mediator;
 
+import client.domain.mediator.RemoteObserver;
 import server.domain.model.*;
 
 import java.io.File;
@@ -128,7 +129,7 @@ public class VIAManager implements ModelManager {
 		return FileManager.readNewsletter(date, newsletterFiles);
 	}
 
-	public void registerObserver(Observer observer) {
+	public void registerObserver(RemoteObserver observer) {
 		members.addObserver(observer);
 	}
 

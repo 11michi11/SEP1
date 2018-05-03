@@ -7,8 +7,9 @@ import server.view.VIAPanel;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.io.Serializable;
 
-public class MemberView extends VIAPanel implements  ViewManager {
+public class MemberView extends VIAPanel implements  ViewManager, Serializable {
 
 	private static JTable table;
 	private JButton memberList;
@@ -26,7 +27,7 @@ public class MemberView extends VIAPanel implements  ViewManager {
 
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(600, 300);
+		frame.setSize(900, 600);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setContentPane(this);
@@ -47,15 +48,26 @@ public class MemberView extends VIAPanel implements  ViewManager {
 
 	public void registerEventHandlers() {
 
+		memberList.addActionListener(e ->showListOfMembers());
+		haventPaid.addActionListener(e ->showListOfMembersWhoHasPaid());
+
 	}
 
 	public void addComponentsToPanel() {
 		JScrollPane scrollPane = new JScrollPane(table);
 		add(scrollPane);
 
+		JPanel membersWrapper = new JPanel();
+		membersWrapper.add(memberList);
+		membersWrapper.setOpaque(false);
+
+		JPanel haventWrapper = new JPanel();
+		haventWrapper.add(haventPaid);
+		haventWrapper.setOpaque(false);
+
 		JPanel right = new JPanel(new BorderLayout());
-		right.add(memberList, BorderLayout.NORTH);
-		right.add(haventPaid, BorderLayout.CENTER);
+		right.add(membersWrapper, BorderLayout.NORTH);
+		right.add(haventWrapper, BorderLayout.CENTER);
 		right.setOpaque(false);
 
 		ImageIcon img = new ImageIcon("src/resources/Logo.png");
@@ -77,12 +89,18 @@ public class MemberView extends VIAPanel implements  ViewManager {
 
 	@Override
 	public void showListOfMembers() {
-
+		table.setModel(controller.getMembersTableModel());
+		table.removeColumn(table.getColumnModel().getColumn(5));
+		table.revalidate();
+		System.out.println("1");
 	}
 
 	@Override
 	public void showListOfMembersWhoHasPaid() {
-
+		table.setModel(controller.getMembersWhoHasntPaidTableModel());
+		table.removeColumn(table.getColumnModel().getColumn(5));
+		table.revalidate();
+		System.out.println("2");
 	}
 
 	@Override
@@ -91,7 +109,7 @@ public class MemberView extends VIAPanel implements  ViewManager {
 	}
 
 	@Override
-	public void showMsg(String string) {
-
+	public void showMsg(String msg) {
+		JOptionPane.showMessageDialog(frame, msg);
 	}
 }

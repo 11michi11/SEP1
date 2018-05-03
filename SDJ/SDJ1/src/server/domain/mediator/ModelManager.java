@@ -1,5 +1,6 @@
 package server.domain.mediator;
 
+import client.domain.mediator.RemoteObserver;
 import server.domain.model.*;
 
 import java.io.File;
@@ -52,5 +53,5 @@ public interface ModelManager {
 
 	String readNewsletter(MyDate date) throws FileNotFoundException;
 
-	void registerObserver(Observer observer);
+	void registerObserver(RemoteObserver observer);
 }

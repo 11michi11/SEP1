@@ -1,6 +1,8 @@
 package client.view;
 
-public interface ViewManager {
+import java.io.Serializable;
+
+public interface ViewManager extends Serializable {
 	
 	void showListOfMembers();
 	void showListOfMembersWhoHasPaid();

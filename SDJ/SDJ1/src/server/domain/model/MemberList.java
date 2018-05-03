@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Observable;
 
-public class MemberList extends Observable implements Serializable, ListOfMembers {
+public class MemberList extends RemoteObservable implements Serializable, ListOfMembers {
 
     private static final long serialVersionUID = 1L;
     public ArrayList<Member> members;
@@ -47,8 +47,7 @@ public class MemberList extends Observable implements Serializable, ListOfMember
 
     public void deleteMember(Member member) {
         members.remove(member);
-        setChanged();
-        notifyObservers();
+        notifyObservers(member);
     }
 
     public Member getMemberByID(int ID) throws MemberNotFoundException {
@@ -62,7 +61,6 @@ public class MemberList extends Observable implements Serializable, ListOfMember
 
     public void addMember(Member member) {
         members.add(member);
-        setChanged();
         notifyObservers(member);
     }
 

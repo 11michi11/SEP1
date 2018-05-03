@@ -1,16 +1,14 @@
 package client.controller;
 
 
+import client.domain.mediator.ClientManager;
+import client.view.ViewManager;
+import server.domain.model.Member;
+
+import javax.swing.table.DefaultTableModel;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Scanner;
-
-import client.domain.mediator.ClientManager;
-import server.domain.model.Member;
-import client.view.ViewManager;
-
-import javax.swing.table.DefaultTableModel;
 
 public class Controller implements Serializable {
 
@@ -42,24 +40,8 @@ public class Controller implements Serializable {
         return manager.getAllMembers();
     }
 
-    public void handleUserInput() {
-        Scanner sc = new Scanner(System.in);
-        switch (sc.nextInt()) {
-            case 1:
-                view.showListOfMembers();
-                break;
-            case 2:
-                view.showListOfMembersWhoHasPaid();
-                break;
-            case 0:
-                return;
-            default:
-                view.showMsg("Wrong Input");
-        }
-        view.startView();
-    }
-
     public void showMsg(String msg) {
+        System.out.println("msg = [" + msg + "]");
         view.showMsg(msg);
     }
 
