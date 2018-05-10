@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 
 public class CategoryFactory implements Serializable {
-	private static HashMap<String, Category> categories = new HashMap<String, Category>();
+	private static HashMap<String, AbstractCategory> categories = new HashMap<String, AbstractCategory>();
 
 	public static Category getCategory(String name) {
 		name = Character.toUpperCase(name.charAt(0)) + name.substring(1).toLowerCase();
@@ -18,12 +18,12 @@ public class CategoryFactory implements Serializable {
 	}
 
 	private static Category createCategory(String name){
-		Category item = categories.get(name);
+		AbstractCategory item = categories.get(name);
 		if (item == null) {
 			item = new Category(name);
 			categories.put(name, item);
 		}
-		return item;
+		return (Category)item;
 	}
 
 	private static String fromNumberToName(int number) {
