@@ -17,10 +17,13 @@ import java.util.Map;
 
 public class VIAController {
 
-    private static ModelManager manager;
-    private static ViewManager window;
+    private ModelManager manager;
+    private ViewManager window;
     private static VIAController controller;
 
+    private VIAController() {
+    	
+    }
     public static VIAController getInstance() {
         if (controller == null)
             controller = new VIAController();
@@ -35,28 +38,28 @@ public class VIAController {
         EventQueue.invokeLater(() -> window = new VIAWindow());
     }
 
-    public static void performClosingOperations() throws IOException {
+    public void performClosingOperations() throws IOException {
         FileManager.generateEventFile(manager.getEventList());
         FileManager.generateLecturerFile(manager.getLecturerList());
         FileManager.generateMemberFile(manager.getMemberList());
     }
 
-    public static void performOpeningOperations() throws ClassNotFoundException, IOException {
+    public void performOpeningOperations() throws ClassNotFoundException, IOException {
         manager.updateMemberList();
         manager.updateLecturerList();
         manager.updateEventList();
         manager.updateNewsletterList();
     }
 
-    public static void generateEmailsWhoHasntPaid() throws IOException {
+    public void generateEmailsWhoHasntPaid() throws IOException {
         FileManager.generateListOfEmailsWhoHasntPaid(manager.getMemberList().getListOfEmailsWhoHasntPaid());
     }
 
-    public static void generateAllEmails() throws IOException {
+    public void generateAllEmails() throws IOException {
         FileManager.generateListOfAllEmails(manager.getMemberList().getListOfEmails());
     }
 
-    public static void addMemberToList(Object[] configuration) {
+    public void addMemberToList(Object[] configuration) {
         String name = (String) configuration[0];
         String address = (String) configuration[1];
         int phone = (int) configuration[2];
@@ -67,13 +70,13 @@ public class VIAController {
         MemberListPanel.refreshTable();
     }
 
-    public static void deleteMember(Member member) {
+    public void deleteMember(Member member) {
         manager.deleteMember(member);
         MemberListPanel.refreshTable();
     }
 
     @SuppressWarnings("unchecked")
-    public static void addLecturerToList(Object[] configuration) {
+    public void addLecturerToList(Object[] configuration) {
         String name = (String) configuration[0];
         String email = (String) configuration[1];
         int phone = (int) configuration[2];
@@ -84,7 +87,7 @@ public class VIAController {
         LecturerListPanel.refreshTable();
     }
 
-    public static void addParticipantToList(Object[] configuration) throws EventNotFoundException {
+    public void addParticipantToList(Object[] configuration) throws EventNotFoundException {
         String name = (String) configuration[0];
         String email = (String) configuration[1];
         int eventId = (int) configuration[2];
@@ -100,12 +103,12 @@ public class VIAController {
         EventListPanel.refreshTable();
     }
 
-    public static void generateNewsletter(String newsletterContent) throws IOException {
+    public void generateNewsletter(String newsletterContent) throws IOException {
         manager.generateNewsletter(newsletterContent);
         Newsletter.refreshTable();
     }
 
-    public static DefaultTableModel getMembersTableModel() {
+    public DefaultTableModel getMembersTableModel() {
         String[] columnNames = {"Name", "E-mail", "Phone", "Paid", "ID", "Member"};
         ArrayList<Member> members = manager.getAllMembers();
         Object[][] data = new Object[members.size()][6];
@@ -151,7 +154,7 @@ public class VIAController {
         };
     }
 
-    public static DefaultTableModel getLecturersTableModel() {
+    public DefaultTableModel getLecturersTableModel() {
         String[] columnNames = {"Name", "E-mail", "Phone", "Category", "Advertise", "Lecturer"};
         ArrayList<Lecturer> lecturers = manager.getAllLecturers();
         Object[][] data = new Object[lecturers.size()][6];
@@ -197,7 +200,7 @@ public class VIAController {
         };
     }
 
-    public static DefaultTableModel getLecturersMultipleTableModel() {
+    public DefaultTableModel getLecturersMultipleTableModel() {
         String[] columnNames = {"Name", "E-mail", "Phone", "Category", "Advertise", "Choice", "Lecturer"};
         ArrayList<Lecturer> lecturers = manager.getAllLecturers();
         Object[][] data = new Object[lecturers.size()][7];
@@ -251,7 +254,7 @@ public class VIAController {
         };
     }
 
-    public static DefaultTableModel getMembersMultipleTableModel() {
+    public DefaultTableModel getMembersMultipleTableModel() {
         String[] columnNames = {"Name", "E-mail", "ID", "Choice", "Member"};
         ArrayList<Member> members = manager.getAllMembers();
         Object[][] data = new Object[members.size()][5];
@@ -294,7 +297,7 @@ public class VIAController {
         };
     }
 
-    public static DefaultTableModel getNewsletterTableModel() {
+    public DefaultTableModel getNewsletterTableModel() {
         String[] columnNames = {"Name of newsletter", "Newsletter"};
         ArrayList<File> newsletter = manager.getAllNewsletters();
         Object[][] data = new Object[newsletter.size()][2];
@@ -329,7 +332,7 @@ public class VIAController {
         };
     }
 
-    public static DefaultTableModel getEventsTableModel() {
+    public DefaultTableModel getEventsTableModel() {
         String[] columnNames = {"Title", "Type", "Event"};
         ArrayList<Event> events = manager.getAllEvents();
         Object[][] data = new Object[events.size()][3];
@@ -366,7 +369,7 @@ public class VIAController {
         };
     }
 
-    public static DefaultTableModel getParticipantEventsTableModel() {
+    public DefaultTableModel getParticipantEventsTableModel() {
         String[] columnNames = {"Title", "Event"};
         ArrayList<Event> events = manager.getAllEvents();
         Object[][] data = new Object[events.size()][2];
@@ -400,7 +403,7 @@ public class VIAController {
         };
     }
 
-    public static DefaultTableModel getParticipantTableModel(Event event) {
+    public DefaultTableModel getParticipantTableModel(Event event) {
         String[] columnNames = {"Name", "Email", "Participant"};
         ArrayList<Participant> participants = event.getParticipantList().getAllPerticipants();
         Object[][] data = new Object[participants.size()][3];
@@ -437,7 +440,7 @@ public class VIAController {
         };
     }
 
-    public static DefaultTableModel getSearchedMembers(String line) {
+    public DefaultTableModel getSearchedMembers(String line) {
 
         ArrayList<Member> members = SearchEngine.searchForMembers(manager.getAllMembers(), line);
         String[] columnNames = {"Name", "E-mail", "Phone", "Paid", "ID", "Member"};
@@ -486,7 +489,7 @@ public class VIAController {
 
     }
 
-    public static DefaultTableModel getSearchedLecturers(String line) {
+    public DefaultTableModel getSearchedLecturers(String line) {
 
         ArrayList<Lecturer> lecturers = SearchEngine.searchForLecturers(manager.getAllLecturers(), line);
         String[] columnNames = {"Name", "E-mail", "Phone", "Category", "Advertise", "Lecturer"};
@@ -533,7 +536,7 @@ public class VIAController {
         };
     }
 
-    public static DefaultTableModel getSearchedEvents(String line) {
+    public DefaultTableModel getSearchedEvents(String line) {
 
         ArrayList<Event> events = SearchEngine.searchForEvents(manager.getAllEvents(), line);
 
@@ -572,7 +575,7 @@ public class VIAController {
         };
     }
 
-    public static DefaultTableModel getSearchedEventsWhenNotFinalized(String line) {
+    public DefaultTableModel getSearchedEventsWhenNotFinalized(String line) {
 
         ArrayList<Event> events = SearchEngine.searchForEvents(manager.getEventList().getNotFinalizedEvents(), line);
 
@@ -611,7 +614,7 @@ public class VIAController {
         };
     }
 
-    public static DefaultTableModel getNotFinalizedEvents() {
+    public DefaultTableModel getNotFinalizedEvents() {
 
         ArrayList<Event> events = manager.getEventList().getNotFinalizedEvents();
 
@@ -650,7 +653,7 @@ public class VIAController {
         };
     }
 
-    public static DefaultTableModel getFinishedEvents() {
+    public DefaultTableModel getFinishedEvents() {
 
         ArrayList<Event> events = manager.getEventList().getFinishedEvents();
 

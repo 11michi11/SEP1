@@ -75,7 +75,7 @@ public class SignUpFormLecturer extends VIAPanel {
 				configuration[3] = categories;
 				configuration[4] = advertisement.isSelected();
 
-				VIAController.addLecturerToList(configuration);
+				VIAController.getInstance().addLecturerToList(configuration);
 
 				if (parentPanel instanceof EventListPanel || parentPanel instanceof LecturerListPanel) {
 					frame.dispose();

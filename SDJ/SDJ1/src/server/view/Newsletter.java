@@ -66,7 +66,7 @@ public class Newsletter extends VIAPanel {
 
 		generateText.addActionListener(e -> {
 			try {
-				VIAController.generateNewsletter(info.getText());
+				VIAController.getInstance().generateNewsletter(info.getText());
 			} catch (IOException e1) {
 				e1.printStackTrace();
 				JOptionPane.showMessageDialog(frame, "File not found", "File error", JOptionPane.PLAIN_MESSAGE);
@@ -121,7 +121,7 @@ public class Newsletter extends VIAPanel {
 
 	public static void refreshTable() {
 		if (table != null) {
-			DefaultTableModel model = VIAController.getNewsletterTableModel();
+			DefaultTableModel model = VIAController.getInstance().getNewsletterTableModel();
 			table.setModel(model);
 			table.removeColumn(table.getColumnModel().getColumn(1));
 		}

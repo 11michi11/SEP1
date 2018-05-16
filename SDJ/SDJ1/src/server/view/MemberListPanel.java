@@ -193,7 +193,7 @@ public class MemberListPanel extends VIAPanel {
 
 	public static void refreshTable() {
 		if (table != null) {
-			DefaultTableModel model = VIAController.getMembersTableModel();
+			DefaultTableModel model = VIAController.getInstance().getMembersTableModel();
 			table.setModel(model);
 			table.removeColumn(table.getColumnModel().getColumn(5));
 		}

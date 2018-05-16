@@ -37,7 +37,7 @@ public class LecturerMultipleChoiceList extends VIAPanel {
 
 		lecturerList = new VIALabel("LECTURER LIST", 40);
 
-		DefaultTableModel model = VIAController.getLecturersMultipleTableModel();
+		DefaultTableModel model = VIAController.getInstance().getLecturersMultipleTableModel();
 		table = new JTable(model);
 		table.removeColumn(table.getColumnModel().getColumn(6));
 		table.setPreferredScrollableViewportSize(new Dimension(500, 300));

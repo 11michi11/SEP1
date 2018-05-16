@@ -216,7 +216,7 @@ public class EventListPanel extends VIAPanel {
 
 	public static void refreshTable() {
 		if (table != null) {
-			DefaultTableModel model = VIAController.getEventsTableModel();
+			DefaultTableModel model = VIAController.getInstance().getEventsTableModel();
 			table.setModel(model);
 			table.removeColumn(table.getColumnModel().getColumn(2));
 		}

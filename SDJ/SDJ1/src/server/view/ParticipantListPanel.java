@@ -44,7 +44,7 @@ public class ParticipantListPanel extends VIAPanel {
 
 		participantList = new VIALabel("PARTICIPANT LIST", 40);
 
-		DefaultTableModel eventModel = VIAController.getParticipantEventsTableModel();
+		DefaultTableModel eventModel = VIAController.getInstance().getParticipantEventsTableModel();
 		events = new JTable(eventModel);
 		events.removeColumn(events.getColumnModel().getColumn(1));
 		events.setPreferredScrollableViewportSize(new Dimension(200, 290));
@@ -71,7 +71,7 @@ public class ParticipantListPanel extends VIAPanel {
 			Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
 			Participant participant = (Participant) table.getModel().getValueAt(table.getSelectedRow(), 2);
 			event.signOffParticipant(participant);
-			DefaultTableModel participantModel = VIAController.getParticipantTableModel(event);
+			DefaultTableModel participantModel = VIAController.getInstance().getParticipantTableModel(event);
 			table.setModel(participantModel);
 			table.removeColumn(table.getColumnModel().getColumn(2));
 		});
@@ -83,7 +83,7 @@ public class ParticipantListPanel extends VIAPanel {
 			member.setEnabled(true);
 
 			Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
-			DefaultTableModel participantModel = VIAController.getParticipantTableModel(event);
+			DefaultTableModel participantModel = VIAController.getInstance().getParticipantTableModel(event);
 			table.setModel(participantModel);
 			table.removeColumn(table.getColumnModel().getColumn(2));
 		});
@@ -164,7 +164,7 @@ public class ParticipantListPanel extends VIAPanel {
 	public static void refreshTable() {
 		if (table != null) {
 			Event event = (Event) events.getModel().getValueAt(events.getSelectedRow(), 1);
-			DefaultTableModel model = VIAController.getParticipantTableModel(event);
+			DefaultTableModel model = VIAController.getInstance().getParticipantTableModel(event);
 			table.setModel(model);
 			table.removeColumn(table.getColumnModel().getColumn(2));
 		}
@@ -175,7 +175,7 @@ public class ParticipantListPanel extends VIAPanel {
 		for (Member e : members)
 			event.signUpParticipant(e);
 
-		DefaultTableModel model = VIAController.getParticipantTableModel(event);
+		DefaultTableModel model = VIAController.getInstance().getParticipantTableModel(event);
 		table.setModel(model);
 		table.removeColumn(table.getColumnModel().getColumn(2));
 	}

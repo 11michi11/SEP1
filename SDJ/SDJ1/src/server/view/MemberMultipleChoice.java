@@ -38,7 +38,7 @@ public class MemberMultipleChoice extends VIAPanel {
 
 		memberList = new VIALabel("MEMBER LIST", 30);
 
-		DefaultTableModel model = VIAController.getMembersMultipleTableModel();
+		DefaultTableModel model = VIAController.getInstance().getMembersMultipleTableModel();
 		table = new JTable(model);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 

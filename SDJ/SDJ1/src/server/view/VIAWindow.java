@@ -24,7 +24,7 @@ public class VIAWindow implements ViewManager {
 			@Override
 			public void windowOpened(WindowEvent e) {
 				try {
-					VIAController.performOpeningOperations();
+					VIAController.getInstance().performOpeningOperations();
 				} catch (ClassNotFoundException | IOException e1) {
 					e1.printStackTrace();
 				}
@@ -33,7 +33,7 @@ public class VIAWindow implements ViewManager {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				try {
-					VIAController.performClosingOperations();
+					VIAController.getInstance().performClosingOperations();
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}

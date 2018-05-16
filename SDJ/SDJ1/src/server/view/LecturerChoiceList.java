@@ -32,7 +32,7 @@ public class LecturerChoiceList extends VIAPanel {
 		choose.setEnabled(false);
 		lecturerList = new VIALabel("LECTURER LIST", 40);
 
-		DefaultTableModel model = VIAController.getLecturersTableModel();
+		DefaultTableModel model = VIAController.getInstance().getLecturersTableModel();
 
 		table = new JTable(model);
 		table.removeColumn(table.getColumnModel().getColumn(5));
